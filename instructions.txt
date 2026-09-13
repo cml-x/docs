@@ -1,0 +1,701 @@
+Tu es un expert en architecture de plateformes SaaS, documentation technique, Developer Experience (DX), UX et documentation de produits cloud-native.
+
+Ta mission est de COMPLETER et PROFESSIONNALISER le site de documentation de Camel X.
+
+==================================================
+1. COMPRENDRE LE PRODUIT
+==================================================
+
+Camel X est une plateforme modulaire composée de plusieurs micro-applications indépendantes.
+
+Chaque micro-application apporte une capacité spécifique autour de l'intégration, de l'API Management, de l'identité, de la sécurité, de l'infrastructure et de l'observabilité.
+
+La documentation ne doit donc PAS présenter Camel X comme une seule application monolithique.
+
+Elle doit présenter :
+
+CAMEL X
+│
+├── Project Manager
+├── Runtime Manager
+├── API Manager
+├── Auth Manager
+├── Access Manager
+├── Environment Manager
+└── Monitoring
+
+Ces composants sont indépendants mais complémentaires et peuvent être utilisés ensemble pour construire, sécuriser, déployer, exécuter et superviser des intégrations.
+
+L'objectif de la documentation est de permettre à un utilisateur de comprendre :
+- ce qu'est Camel X ;
+- à quoi sert chaque micro-application ;
+- comment les micro-applications fonctionnent ensemble ;
+- quelle application utiliser selon son besoin ;
+- comment construire une intégration de bout en bout ;
+- comment sécuriser une intégration ;
+- comment la déployer ;
+- comment l'exécuter ;
+- comment l'observer et la superviser.
+
+==================================================
+2. POSITIONNEMENT DE CAMEL X
+==================================================
+
+Présenter Camel X comme une plateforme d'intégration modulaire permettant de :
+
+- concevoir des intégrations Apache Camel ;
+- utiliser les composants Apache Camel ;
+- créer des workflows et des flux d'intégration ;
+- créer des releases prêtes à être déployées ;
+- gérer les environnements d'exécution ;
+- déployer et exécuter les flux ;
+- exposer des API ;
+- sécuriser les API et applications ;
+- gérer les utilisateurs et leurs permissions ;
+- appliquer des politiques IAM/RBAC ;
+- superviser les flux et services ;
+- observer l'activité de la plateforme.
+
+Ne pas inventer de fonctionnalités qui ne sont pas explicitement décrites dans cette documentation.
+
+==================================================
+3. LES MICRO-APPLICATIONS CAMEL X
+==================================================
+
+Créer une section centrale intitulée :
+
+"CAMEL X PLATFORM"
+
+Cette section doit expliquer l'architecture modulaire de la plateforme.
+
+Pour chaque micro-application, créer une page de documentation dédiée.
+
+--------------------------------------------------
+3.1 PROJECT MANAGER
+--------------------------------------------------
+
+Project Manager permet de créer et gérer les intégrations Apache Camel.
+
+Documenter notamment :
+
+- création d'un projet ;
+- création d'une intégration ;
+- éditeur en ligne ;
+- conception des routes Apache Camel ;
+- utilisation des composants Apache Camel ;
+- utilisation de près de 300 composants Apache Camel ;
+- composants personnalisés ;
+- templates réutilisables ;
+- création de releases ;
+- préparation d'une release prête à être déployée ;
+- gestion du cycle de vie d'une intégration.
+
+Expliquer clairement la différence entre :
+
+Projet
+→ Intégration
+→ Template
+→ Release
+
+Créer des guides pratiques comme :
+
+"Créer votre première intégration"
+
+"Créer une release"
+
+"Créer un template réutilisable"
+
+"Utiliser un composant Apache Camel"
+
+"Créer une intégration avec plusieurs composants"
+
+--------------------------------------------------
+3.2 RUNTIME MANAGER
+--------------------------------------------------
+
+Runtime Manager est responsable du déploiement et de l'exécution des flux Apache Camel.
+
+Documenter :
+
+- déploiement d'une release ;
+- exécution des flux ;
+- gestion des runtimes ;
+- association avec un environnement ;
+- gestion du cycle de vie des déploiements ;
+- démarrage/arrêt/redémarrage si ces fonctionnalités existent ;
+- consultation de l'état d'un runtime.
+
+Expliquer clairement le parcours :
+
+Project Manager
+→ Release
+→ Environment Manager
+→ Runtime Manager
+→ Exécution du flux
+
+Créer un guide :
+
+"Déployer et exécuter votre première intégration"
+
+--------------------------------------------------
+3.3 API MANAGER
+--------------------------------------------------
+
+API Manager permet de :
+
+- exposer des API internes ;
+- exposer des services externes ;
+- protéger les API ;
+- authentifier les consommateurs ;
+- gérer l'accès aux API.
+
+Créer une documentation couvrant :
+
+- création/exposition d'une API ;
+- configuration d'une API ;
+- protection d'une API ;
+- authentification ;
+- gestion des accès ;
+- connexion à des services internes ou externes ;
+- politiques disponibles, uniquement lorsqu'elles sont réellement supportées.
+
+Expliquer la relation entre :
+
+API Manager
++
+Auth Manager
++
+Access Manager
+
+Créer un guide :
+
+"Exposer et sécuriser votre première API"
+
+--------------------------------------------------
+3.4 AUTH MANAGER
+--------------------------------------------------
+
+Auth Manager permet de créer et gérer un serveur d'authentification destiné à protéger des API ou des applications.
+
+Documenter les mécanismes réellement supportés, notamment :
+
+- JWT ;
+- OIDC ;
+- autres mécanismes disponibles dans Camel X.
+
+Présenter :
+
+- création d'un serveur d'authentification ;
+- configuration ;
+- clients ;
+- credentials ;
+- tokens ;
+- configuration OIDC ;
+- utilisation avec les API ;
+- utilisation avec les applications.
+
+Ne jamais inventer des paramètres ou endpoints.
+
+Créer des guides :
+
+"Créer un serveur d'authentification"
+
+"Protéger une API avec JWT"
+
+"Configurer OIDC"
+
+--------------------------------------------------
+3.5 ACCESS MANAGER
+--------------------------------------------------
+
+Access Manager est le composant de gestion des identités et des accès de l'organisation.
+
+Documenter :
+
+- création des utilisateurs ;
+- gestion des utilisateurs ;
+- gestion des accès ;
+- IAM ;
+- RBAC ;
+- rôles ;
+- permissions ;
+- paramètres de sécurité de l'organisation.
+
+Expliquer clairement la différence entre :
+
+Utilisateur
+→ Rôle
+→ Permission
+→ Accès
+→ Ressource
+
+Créer des guides :
+
+"Créer un utilisateur"
+
+"Créer un rôle"
+
+"Attribuer des permissions"
+
+"Configurer les accès d'une organisation"
+
+--------------------------------------------------
+3.6 ENVIRONMENT MANAGER
+--------------------------------------------------
+
+Environment Manager permet de créer et gérer les emplacements où les services peuvent être déployés et exécutés.
+
+Documenter :
+
+- environnements ;
+- infrastructures ;
+- clusters internes ;
+- clusters managés ;
+- création d'un emplacement ;
+- configuration d'un environnement ;
+- association des runtimes à un environnement ;
+- paramètres nécessaires au déploiement.
+
+Expliquer clairement :
+
+Environment Manager
+→ définit OÙ les services peuvent être déployés.
+
+Runtime Manager
+→ définit COMMENT les flux sont déployés et exécutés.
+
+Créer un guide :
+
+"Créer votre premier environnement"
+
+--------------------------------------------------
+3.7 MONITORING
+--------------------------------------------------
+
+Monitoring permet de suivre ce qui se passe sur la plateforme et d'observer les flux d'intégration.
+
+Documenter :
+
+- plateforme de monitoring ;
+- tableaux de bord ;
+- observation des flux ;
+- état des intégrations ;
+- métriques ;
+- événements ;
+- logs ;
+- erreurs ;
+- diagnostic ;
+- suivi des déploiements.
+
+Ne documenter que les métriques, dashboards et fonctionnalités réellement disponibles.
+
+Créer un guide :
+
+"Superviser votre première intégration"
+
+==================================================
+4. DOCUMENTATION PAR PARCOURS
+==================================================
+
+Ne pas organiser toute la documentation uniquement par micro-application.
+
+Créer également une section :
+
+"GUIDES / END-TO-END"
+
+Elle doit expliquer les parcours complets.
+
+Exemple :
+
+PARCOURS 1 — CRÉER UNE INTÉGRATION
+
+Project Manager
+→ créer le projet
+→ créer l'intégration
+→ configurer les composants
+→ tester
+→ créer une release
+
+Environment Manager
+→ sélectionner/configurer l'environnement
+
+Runtime Manager
+→ déployer la release
+→ exécuter le flux
+
+Monitoring
+→ observer l'intégration
+
+--------------------------------------------------
+
+PARCOURS 2 — EXPOSER UNE API
+
+Project Manager / intégration
+→ créer le service
+
+API Manager
+→ exposer l'API
+
+Auth Manager
+→ configurer l'authentification
+
+Access Manager
+→ gérer les utilisateurs/rôles/permissions
+
+Monitoring
+→ superviser l'activité
+
+--------------------------------------------------
+
+PARCOURS 3 — SÉCURISER UNE APPLICATION
+
+Auth Manager
+→ créer/configurer le serveur d'authentification
+
+Access Manager
+→ définir utilisateurs, rôles et permissions
+
+API Manager
+→ protéger les API
+
+Application
+→ utiliser le mécanisme d'authentification configuré
+
+--------------------------------------------------
+
+PARCOURS 4 — DÉPLOYER UNE INTÉGRATION
+
+Project Manager
+→ Release
+
+Environment Manager
+→ Environnement cible
+
+Runtime Manager
+→ Déploiement
+
+Monitoring
+→ Observation
+
+==================================================
+5. GETTING STARTED
+==================================================
+
+Créer un parcours de démarrage extrêmement simple.
+
+Titre :
+
+"Getting Started with Camel X"
+
+Le parcours doit expliquer :
+
+1. Comprendre Camel X
+2. Créer son projet
+3. Créer sa première intégration
+4. Créer une release
+5. Créer/configurer un environnement
+6. Déployer la release
+7. Exécuter l'intégration
+8. Observer l'intégration avec Monitoring
+
+Créer également une page :
+
+"Your First Integration"
+
+Cette page doit être le principal point d'entrée pour un nouvel utilisateur.
+
+==================================================
+6. CONCEPTS FONDAMENTAUX
+==================================================
+
+Créer une section "Core Concepts".
+
+Documenter les concepts réellement présents dans Camel X :
+
+- Organization
+- User
+- Project
+- Integration
+- Component
+- Template
+- Release
+- Environment
+- Runtime
+- API
+- Authentication
+- Role
+- Permission
+- Deployment
+- Monitoring
+
+Pour chaque concept :
+
+- définition simple ;
+- rôle dans Camel X ;
+- relation avec les autres concepts ;
+- exemple concret.
+
+==================================================
+7. API / DEVELOPER DOCUMENTATION
+==================================================
+
+Créer une section Developer Documentation.
+
+Elle doit être structurée autour des API réellement exposées par Camel X.
+
+Inclure si disponible :
+
+- API overview ;
+- authentication ;
+- authorization ;
+- endpoints ;
+- request ;
+- response ;
+- headers ;
+- status codes ;
+- errors ;
+- pagination ;
+- examples ;
+- SDK ;
+- webhooks.
+
+Ne jamais inventer d'endpoint ou de code d'exemple.
+
+==================================================
+8. SECURITY
+==================================================
+
+Créer une section Security regroupant :
+
+- Authentication
+- Authorization
+- IAM
+- RBAC
+- JWT
+- OIDC
+- API security
+- User management
+- Permissions
+- Security configuration
+- Secrets/credentials si supportés
+
+Créer une page expliquant :
+
+"Authentication vs Authorization"
+
+et une autre :
+
+"API Security in Camel X"
+
+==================================================
+9. TROUBLESHOOTING
+==================================================
+
+Créer une section de dépannage organisée par micro-application.
+
+Exemples :
+
+Project Manager
+→ intégration invalide
+→ problème de release
+
+Environment Manager
+→ environnement indisponible
+→ problème de cluster
+
+Runtime Manager
+→ déploiement échoué
+→ runtime indisponible
+→ flux qui ne démarre pas
+
+API Manager
+→ API inaccessible
+→ authentification échouée
+
+Auth Manager
+→ token invalide
+→ problème OIDC/JWT
+
+Access Manager
+→ permission refusée
+→ utilisateur sans accès
+
+Monitoring
+→ métriques absentes
+→ flux non visible
+→ erreur de monitoring
+
+Pour chaque problème :
+
+Symptôme
+→ Cause possible
+→ Vérification
+→ Solution
+
+==================================================
+10. FAQ
+==================================================
+
+Créer une FAQ globale et des FAQ spécifiques à chaque micro-application.
+
+Les questions doivent être orientées utilisateurs.
+
+Exemples :
+
+"Quelle est la différence entre Project Manager et Runtime Manager ?"
+
+"Quelle est la différence entre Auth Manager et Access Manager ?"
+
+"Quand utiliser API Manager ?"
+
+"Qu'est-ce qu'un Environment ?"
+
+"Qu'est-ce qu'une Release ?"
+
+"Comment déployer une intégration ?"
+
+"Comment protéger une API ?"
+
+"Comment donner accès à un utilisateur ?"
+
+==================================================
+11. NAVIGATION
+==================================================
+
+Construire une navigation claire :
+
+CAMEL X
+│
+├── Getting Started
+│   ├── Overview
+│   ├── Quick Start
+│   └── Your First Integration
+│
+├── Concepts
+│   ├── Projects
+│   ├── Integrations
+│   ├── Releases
+│   ├── Environments
+│   ├── Runtimes
+│   ├── APIs
+│   └── Security
+│
+├── Platform
+│   ├── Project Manager
+│   ├── Runtime Manager
+│   ├── API Manager
+│   ├── Auth Manager
+│   ├── Access Manager
+│   ├── Environment Manager
+│   └── Monitoring
+│
+├── Guides
+│   ├── Create an Integration
+│   ├── Deploy an Integration
+│   ├── Expose an API
+│   ├── Secure an API
+│   └── Monitor an Integration
+│
+├── Developer
+│   ├── API Reference
+│   ├── Authentication
+│   └── Examples
+│
+├── Troubleshooting
+├── FAQ
+├── Glossary
+└── Release Notes
+
+Adapte cette structure aux pages déjà présentes afin d'éviter les doublons.
+
+==================================================
+12. RÈGLES DE RÉDACTION
+==================================================
+
+La documentation doit être :
+
+- claire ;
+- concise ;
+- professionnelle ;
+- technique mais accessible ;
+- orientée action ;
+- cohérente entre toutes les micro-applications.
+
+Utiliser des phrases courtes.
+
+Privilégier les procédures étape par étape.
+
+Utiliser des tableaux lorsque cela facilite la comparaison.
+
+Utiliser des diagrammes conceptuels lorsque cela aide à comprendre les relations entre les micro-applications.
+
+Expliquer systématiquement les relations entre les composants.
+
+Par exemple :
+
+"Project Manager crée la release.
+Environment Manager fournit l'environnement cible.
+Runtime Manager déploie et exécute la release.
+Monitoring permet d'observer son fonctionnement."
+
+==================================================
+13. RÈGLE ABSOLUE : NE RIEN INVENTER
+==================================================
+
+Avant de compléter une page, analyse le contenu existant.
+
+Si une fonctionnalité n'est pas confirmée :
+- ne pas l'inventer ;
+- ne pas créer de faux endpoint ;
+- ne pas créer de faux paramètres ;
+- ne pas inventer de captures d'écran ;
+- ne pas inventer de comportement ;
+- indiquer "[À CONFIRMER]" lorsque cela est nécessaire.
+
+==================================================
+14. MISSION FINALE
+==================================================
+
+Commence par analyser toute la documentation existante.
+
+Identifie :
+
+1. Les pages existantes
+2. Les pages incomplètes
+3. Les pages manquantes
+4. Les doublons
+5. Les incohérences
+6. Les concepts non expliqués
+7. Les parcours utilisateur incomplets
+
+Ensuite, complète le site en donnant la priorité à :
+
+PRIORITÉ 1
+Getting Started + première intégration
+
+PRIORITÉ 2
+Documentation des 7 micro-applications
+
+PRIORITÉ 3
+Guides end-to-end
+
+PRIORITÉ 4
+Security + API documentation
+
+PRIORITÉ 5
+Troubleshooting + FAQ + Glossary
+
+Le résultat final doit donner l'impression d'une documentation produit mature comparable à celle d'une plateforme SaaS/Cloud professionnelle.
+
+La documentation doit permettre à trois profils de trouver rapidement ce dont ils ont besoin :
+
+DEVELOPER
+→ créer et configurer des intégrations
+
+PLATFORM/DEVOPS
+→ gérer les environnements, déployer et exécuter
+
+ADMIN/SECURITY
+→ gérer les utilisateurs, accès, authentification et sécurité
+
+Ne réécris pas inutilement les pages déjà bonnes : améliore et complète l'existant.

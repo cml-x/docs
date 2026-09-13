@@ -1,0 +1,9 @@
+{
+  "label": "Integration Projects",
+  "position": 3,
+  "link": {
+    "type": "generated-index",
+    "description": "Manage Git-backed integration projects, schemas, team access and published assets.",
+    "slug": "/projects"
+  }
+}

@@ -1,0 +1,47 @@
+.section {
+  margin: 2.5rem 0 1.5rem;
+  padding: 0;
+}
+
+.grid {
+  row-gap: 1.5rem;
+}
+
+.sectionTitle {
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--ifm-color-emphasis-600);
+  margin-bottom: 1.25rem;
+}
+
+.card {
+  display: block;
+  height: 100%;
+  margin-bottom: 1.5rem;
+  padding: 1.25rem;
+  background: var(--ifm-background-surface-color);
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: 0;
+  text-decoration: none;
+  transition: border-color 0.15s ease, background-color 0.15s ease;
+}
+
+.card:hover {
+  border-color: #0f62fe;
+  background: rgba(15, 98, 254, 0.06);
+  text-decoration: none;
+}
+
+.cardTitle {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+  color: #0f62fe;
+}
+
+.cardDescription {
+  font-size: 0.85rem;
+  color: var(--ifm-color-emphasis-700);
+  margin-bottom: 0;
+  line-height: 1.5;
+}

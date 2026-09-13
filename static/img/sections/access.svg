@@ -1,0 +1,24 @@
+<svg width="480" height="360" viewBox="0 0 480 360" xmlns="http://www.w3.org/2000/svg">
+  <rect width="480" height="360" fill="#EDF5FF"/>
+
+  <!-- shield -->
+  <path d="M240 80 L320 108 V190 C320 240 285 275 240 292 C195 275 160 240 160 190 V108 Z" fill="#161616"/>
+  <path d="M240 100 L303 122 V190 C303 232 274 261 240 275 C206 261 177 232 177 190 V122 Z" fill="none" stroke="#525252" stroke-width="3"/>
+
+  <!-- check -->
+  <path d="M210 190 L232 212 L272 165" fill="none" stroke="#0F62FE" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- user badge -->
+  <g transform="translate(120,250)">
+    <circle cx="0" cy="0" r="22" fill="#FFFFFF" stroke="#4589FF" stroke-width="3"/>
+    <circle cx="0" cy="-6" r="7" fill="#4589FF"/>
+    <path d="M-12 14 C-12 2 12 2 12 14" fill="none" stroke="#4589FF" stroke-width="4" stroke-linecap="round"/>
+  </g>
+
+  <!-- key badge -->
+  <g transform="translate(360,250) rotate(-35)">
+    <circle cx="0" cy="0" r="16" fill="none" stroke="#0F62FE" stroke-width="6"/>
+    <rect x="12" y="-5" width="36" height="10" fill="#0F62FE"/>
+    <rect x="38" y="5" width="8" height="10" fill="#0F62FE"/>
+  </g>
+</svg>

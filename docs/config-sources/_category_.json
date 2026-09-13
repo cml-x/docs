@@ -1,0 +1,9 @@
+{
+  "label": "Secrets & Configuration",
+  "position": 10,
+  "link": {
+    "type": "generated-index",
+    "description": "Store and distribute encrypted secrets and configuration maps across your workloads.",
+    "slug": "/config-sources"
+  }
+}

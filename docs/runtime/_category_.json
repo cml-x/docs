@@ -1,0 +1,9 @@
+{
+  "label": "Integration Runtime",
+  "position": 4,
+  "link": {
+    "type": "generated-index",
+    "description": "Deploy and operate Apache Camel integration flows, integrations and storage across environments.",
+    "slug": "/runtime"
+  }
+}

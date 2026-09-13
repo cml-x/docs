@@ -1,0 +1,9 @@
+{
+  "label": "Security",
+  "position": 13,
+  "link": {
+    "type": "generated-index",
+    "description": "Authentication, authorization and API security across Camel X.",
+    "slug": "/security"
+  }
+}

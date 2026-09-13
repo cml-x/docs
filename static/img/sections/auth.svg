@@ -1,0 +1,20 @@
+<svg width="480" height="360" viewBox="0 0 480 360" xmlns="http://www.w3.org/2000/svg">
+  <rect width="480" height="360" fill="#EDF5FF"/>
+
+  <path d="M240 70 L310 96 V158 C310 208 280 242 240 258 C200 242 170 208 170 158 V96 Z" fill="#FFFFFF" stroke="#0F62FE" stroke-width="4"/>
+  <path d="M240 84 L296 105 V158 C296 198 272 224 240 238 C208 224 184 198 184 158 V105 Z" fill="#0F62FE"/>
+
+  <circle cx="240" cy="145" r="18" fill="#FFFFFF"/>
+  <rect x="232" y="155" width="16" height="34" fill="#FFFFFF"/>
+
+  <g transform="translate(330,270) rotate(-30)">
+    <circle cx="0" cy="0" r="18" fill="none" stroke="#0F62FE" stroke-width="7"/>
+    <rect x="14" y="-5" width="40" height="10" fill="#0F62FE"/>
+    <rect x="44" y="5" width="8" height="12" fill="#0F62FE"/>
+  </g>
+
+  <circle cx="130" cy="250" r="22" fill="#FFFFFF" stroke="#4589FF" stroke-width="3"/>
+  <text x="130" y="257" font-family="Arial, sans-serif" font-size="18" font-weight="700" fill="#4589FF" text-anchor="middle">ID</text>
+
+  <line x1="152" y1="245" x2="200" y2="220" stroke="#A6C8FF" stroke-width="3" stroke-dasharray="3 5"/>
+</svg>

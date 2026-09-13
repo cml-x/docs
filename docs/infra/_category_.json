@@ -1,0 +1,9 @@
+{
+  "label": "Environments & Targets",
+  "position": 8,
+  "link": {
+    "type": "generated-index",
+    "description": "Manage deployment targets, Kubernetes environments and platform services such as Camel Integration Platform.",
+    "slug": "/infra"
+  }
+}

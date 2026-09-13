@@ -1,0 +1,9 @@
+{
+  "label": "Observability",
+  "position": 9,
+  "link": {
+    "type": "generated-index",
+    "description": "Observe application health, stream logs and inspect pipeline activity across all running services.",
+    "slug": "/monitoring"
+  }
+}

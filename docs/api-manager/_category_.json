@@ -1,0 +1,9 @@
+{
+  "label": "API Delivery",
+  "position": 5,
+  "link": {
+    "type": "generated-index",
+    "description": "Design, publish and secure REST and event-driven APIs across your Envoy gateways.",
+    "slug": "/api-manager"
+  }
+}

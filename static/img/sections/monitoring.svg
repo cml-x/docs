@@ -1,0 +1,25 @@
+<svg width="480" height="360" viewBox="0 0 480 360" xmlns="http://www.w3.org/2000/svg">
+  <rect width="480" height="360" fill="#EDF5FF"/>
+
+  <!-- monitor -->
+  <rect x="90" y="80" width="300" height="190" rx="8" fill="#FFFFFF" stroke="#0F62FE" stroke-width="4"/>
+  <rect x="90" y="80" width="300" height="30" rx="8" fill="#0F62FE"/>
+  <circle cx="106" cy="95" r="4" fill="#FFFFFF"/>
+  <circle cx="120" cy="95" r="4" fill="#A6C8FF"/>
+
+  <!-- bars -->
+  <rect x="115" y="200" width="26" height="45" fill="#A6C8FF"/>
+  <rect x="151" y="175" width="26" height="70" fill="#4589FF"/>
+  <rect x="187" y="150" width="26" height="95" fill="#0F62FE"/>
+  <rect x="223" y="190" width="26" height="55" fill="#A6C8FF"/>
+
+  <!-- line chart -->
+  <polyline points="270,220 295,190 320,205 345,160 365,175" fill="none" stroke="#161616" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="365" cy="175" r="6" fill="#161616"/>
+
+  <rect x="115" y="255" width="250" height="4" fill="#E0E0E0"/>
+
+  <!-- stand -->
+  <rect x="225" y="270" width="30" height="20" fill="#8D8D8D"/>
+  <rect x="195" y="290" width="90" height="10" rx="3" fill="#8D8D8D"/>
+</svg>

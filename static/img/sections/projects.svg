@@ -1,0 +1,24 @@
+<svg width="480" height="360" viewBox="0 0 480 360" xmlns="http://www.w3.org/2000/svg">
+  <rect width="480" height="360" fill="#EDF5FF"/>
+
+  <!-- folder -->
+  <path d="M110 130 H190 L210 152 H370 V270 H110 Z" fill="#0F62FE"/>
+  <path d="M110 118 H190 L206 138 H110 Z" fill="#4589FF"/>
+
+  <!-- commit graph -->
+  <line x1="255" y1="90" x2="255" y2="330" stroke="#A6C8FF" stroke-width="4"/>
+  <line x1="255" y1="150" x2="330" y2="185" stroke="#A6C8FF" stroke-width="4"/>
+  <line x1="330" y1="185" x2="330" y2="255" stroke="#A6C8FF" stroke-width="4"/>
+  <line x1="330" y1="255" x2="255" y2="290" stroke="#A6C8FF" stroke-width="4"/>
+
+  <circle cx="255" cy="90" r="10" fill="#FFFFFF" stroke="#161616" stroke-width="3"/>
+  <circle cx="255" cy="150" r="10" fill="#FFFFFF" stroke="#161616" stroke-width="3"/>
+  <circle cx="330" cy="185" r="10" fill="#FFFFFF" stroke="#0F62FE" stroke-width="3"/>
+  <circle cx="330" cy="255" r="10" fill="#FFFFFF" stroke="#0F62FE" stroke-width="3"/>
+  <circle cx="255" cy="290" r="10" fill="#FFFFFF" stroke="#161616" stroke-width="3"/>
+  <circle cx="255" cy="330" r="10" fill="#FFFFFF" stroke="#161616" stroke-width="3"/>
+
+  <!-- code bracket accent -->
+  <path d="M370 120 L392 140 L370 160" fill="none" stroke="#0F62FE" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M410 120 L388 140 L410 160" fill="none" stroke="#0F62FE" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

@@ -1,0 +1,19 @@
+<svg width="480" height="360" viewBox="0 0 480 360" xmlns="http://www.w3.org/2000/svg">
+  <rect width="480" height="360" fill="#EDF5FF"/>
+
+  <line x1="240" y1="180" x2="110" y2="110" stroke="#A6C8FF" stroke-width="3"/>
+  <line x1="240" y1="180" x2="370" y2="110" stroke="#A6C8FF" stroke-width="3"/>
+  <line x1="240" y1="180" x2="110" y2="250" stroke="#A6C8FF" stroke-width="3"/>
+  <line x1="240" y1="180" x2="370" y2="250" stroke="#A6C8FF" stroke-width="3"/>
+  <line x1="240" y1="180" x2="240" y2="300" stroke="#A6C8FF" stroke-width="3"/>
+
+  <rect x="95" y="90" width="42" height="42" rx="6" fill="#FFFFFF" stroke="#0F62FE" stroke-width="3"/>
+  <rect x="355" y="90" width="42" height="42" rx="6" fill="#FFFFFF" stroke="#0F62FE" stroke-width="3"/>
+  <rect x="95" y="230" width="42" height="42" rx="6" fill="#FFFFFF" stroke="#0F62FE" stroke-width="3"/>
+  <rect x="355" y="230" width="42" height="42" rx="6" fill="#FFFFFF" stroke="#0F62FE" stroke-width="3"/>
+  <rect x="219" y="280" width="42" height="42" rx="6" fill="#FFFFFF" stroke="#0F62FE" stroke-width="3"/>
+
+  <circle cx="240" cy="180" r="46" fill="#0F62FE"/>
+  <circle cx="240" cy="180" r="46" fill="none" stroke="#4589FF" stroke-width="4" stroke-dasharray="4 6"/>
+  <path d="M222 180 h36 M240 162 v36" stroke="#FFFFFF" stroke-width="6" stroke-linecap="round"/>
+</svg>

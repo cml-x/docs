@@ -1,0 +1,9 @@
+{
+  "label": "Troubleshooting",
+  "position": 14,
+  "link": {
+    "type": "generated-index",
+    "description": "Common problems, organized by app — symptom, likely cause, how to check, how to fix.",
+    "slug": "/troubleshooting"
+  }
+}

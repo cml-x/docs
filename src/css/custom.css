@@ -1,0 +1,36 @@
+/**
+ * Any CSS included here will be global. The classic template
+ * bundles Infima by default. Infima is a CSS framework designed to
+ * work well for content-centric websites.
+ */
+
+/* IBM Carbon Design System blue scale — same tokens as packages/shared-config/theme
+   (ibm-blue-*) so the docs site matches the rest of the platform's look. */
+:root {
+  --ifm-color-primary: #0f62fe;
+  --ifm-color-primary-dark: #0043ce;
+  --ifm-color-primary-darker: #002d9c;
+  --ifm-color-primary-darkest: #001d6c;
+  --ifm-color-primary-light: #4589ff;
+  --ifm-color-primary-lighter: #78a9ff;
+  --ifm-color-primary-lightest: #a6c8ff;
+  --ifm-code-font-size: 95%;
+  --ifm-link-color: #0f62fe;
+  --docusaurus-highlighted-code-line-bg: rgba(15, 98, 254, 0.1);
+}
+
+/* IBM Carbon's dark theme (g100) shifts the interactive blue one step lighter
+   for contrast against the dark background — same reasoning Infima's own
+   default dark palette applies. */
+[data-theme='dark'] {
+  --ifm-color-primary: #4589ff;
+  --ifm-color-primary-dark: #0f62fe;
+  --ifm-color-primary-darker: #0043ce;
+  --ifm-color-primary-darkest: #002d9c;
+  --ifm-color-primary-light: #78a9ff;
+  --ifm-color-primary-lighter: #a6c8ff;
+  --ifm-color-primary-lightest: #d0e2ff;
+  --ifm-link-color: #78a9ff;
+  --ifm-background-color: #161616;
+  --docusaurus-highlighted-code-line-bg: rgba(69, 137, 255, 0.15);
+}

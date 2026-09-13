@@ -1,0 +1,15 @@
+<svg width="480" height="360" viewBox="0 0 480 360" xmlns="http://www.w3.org/2000/svg">
+  <rect width="480" height="360" fill="#EDF5FF"/>
+
+  <!-- building blocks -->
+  <rect x="140" y="200" width="80" height="80" rx="4" fill="#0F62FE"/>
+  <rect x="230" y="200" width="80" height="80" rx="4" fill="#161616"/>
+  <rect x="185" y="110" width="80" height="80" rx="4" fill="#4589FF"/>
+  <rect x="275" y="110" width="80" height="80" rx="4" fill="none" stroke="#525252" stroke-width="3"/>
+
+  <!-- connector dots -->
+  <circle cx="180" cy="150" r="6" fill="#FFFFFF"/>
+  <circle cx="315" cy="150" r="6" fill="#0F62FE"/>
+  <circle cx="180" cy="240" r="6" fill="#FFFFFF"/>
+  <circle cx="270" cy="240" r="6" fill="#FFFFFF"/>
+</svg>

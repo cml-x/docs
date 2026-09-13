@@ -1,0 +1,9 @@
+{
+  "label": "Component Library",
+  "position": 11,
+  "link": {
+    "type": "generated-index",
+    "description": "Browse and publish reusable integration components: Kamelets, schemas and connector definitions.",
+    "slug": "/library"
+  }
+}
