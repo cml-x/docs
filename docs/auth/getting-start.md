@@ -7,6 +7,8 @@ Authentication Manager provisions and operates **Kanidm**-backed identity gatewa
 one a self-contained OAuth2/OIDC identity provider that other platform services and external
 client applications authenticate against.
 
+![Auth Flow](/img/auth/auth-flow.svg)
+
 ## Create your first auth gateway
 
 1. Give it a name, alias, description and [environment](/infra/environments) binding. It's

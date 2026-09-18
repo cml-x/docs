@@ -7,6 +7,8 @@ Secret Maps stores the credentials and configuration values that feed your Apach
 integration flows — API keys, passwords, tokens and application settings — and pushes them out to
 the environments where those flows run.
 
+![Secrets Distribution](/img/config-sources/secrets-distribution.svg)
+
 ## Create your first configuration
 
 1. Pick a [Template](/config-sources/templates) — its JSON Schema and UI schema drive a dynamic

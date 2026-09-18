@@ -8,6 +8,8 @@ Camel X is not a single application — it's a modular integration platform made
 micro-applications. Each one owns one capability; together they let you build, secure, deploy, run
 and observe Apache Camel integrations.
 
+![Camel X platform architecture](/img/getting-started/architecture.svg)
+
 ## The platform, at a glance
 
 ```

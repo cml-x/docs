@@ -7,6 +7,8 @@ Monitoring Manager is the observability surface of the platform. It lets you sta
 [OpenObserve](https://openobserve.ai) dashboards for your project and environment in minutes, and
 links out to the underlying OpenObserve instance for logs, metrics and traces.
 
+![Observability overview](/img/monitoring/observability.svg)
+
 ## Create your first dashboard
 
 When a project has no dashboards yet, the page leads directly with a **template gallery** instead

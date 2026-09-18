@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 400" width="100%" height="100%">
+  <defs><marker id="arr" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0 0, 10 3.5, 0 7" fill="#0F62FE"/></marker></defs>
+  <rect width="820" height="400" fill="#EDF5FF"/>
+  <!-- Col 1 -->
+  <rect x="20" y="20" width="180" height="40" fill="#0F62FE" rx="4"/>
+  <text x="110" y="45" fill="#FFFFFF" font-family="IBM Plex Sans, Arial, sans-serif" font-size="13" font-weight="bold" text-anchor="middle">Project Manager</text>
+  <rect x="20" y="80" width="180" height="40" fill="#FFFFFF" stroke="#0F62FE" stroke-width="2" rx="4"/>
+  <text x="110" y="105" fill="#161616" font-family="IBM Plex Sans, Arial, sans-serif" font-size="13" text-anchor="middle">Create project</text>
+  <path d="M110 120 L110 135" stroke="#0F62FE" stroke-width="2" marker-end="url(#arr)"/>
+  <rect x="20" y="140" width="180" height="40" fill="#FFFFFF" stroke="#0F62FE" stroke-width="2" rx="4"/>
+  <text x="110" y="165" fill="#161616" font-family="IBM Plex Sans, Arial, sans-serif" font-size="13" text-anchor="middle">Build routes in IT Designer</text>
+  <path d="M110 180 L110 195" stroke="#0F62FE" stroke-width="2" marker-end="url(#arr)"/>
+  <rect x="20" y="200" width="180" height="40" fill="#FFFFFF" stroke="#0F62FE" stroke-width="2" rx="4"/>
+  <text x="110" y="225" fill="#161616" font-family="IBM Plex Sans, Arial, sans-serif" font-size="13" text-anchor="middle">Create Release</text>
+
+  <!-- Col 2 -->
+  <rect x="220" y="20" width="180" height="40" fill="#0F62FE" rx="4"/>
+  <text x="310" y="45" fill="#FFFFFF" font-family="IBM Plex Sans, Arial, sans-serif" font-size="13" font-weight="bold" text-anchor="middle">Environment Manager</text>
+  <rect x="220" y="80" width="180" height="40" fill="#FFFFFF" stroke="#0F62FE" stroke-width="2" rx="4"/>
+  <text x="310" y="105" fill="#161616" font-family="IBM Plex Sans, Arial, sans-serif" font-size="13" text-anchor="middle">Register cluster</text>
+  <path d="M310 120 L310 135" stroke="#0F62FE" stroke-width="2" marker-end="url(#arr)"/>
+  <rect x="220" y="140" width="180" height="40" fill="#FFFFFF" stroke="#0F62FE" stroke-width="2" rx="4"/>
+  <text x="310" y="165" fill="#161616" font-family="IBM Plex Sans, Arial, sans-serif" font-size="13" text-anchor="middle">Create Environment</text>
+
+  <!-- Col 3 -->
+  <rect x="420" y="20" width="180" height="40" fill="#0F62FE" rx="4"/>
+  <text x="510" y="45" fill="#FFFFFF" font-family="IBM Plex Sans, Arial, sans-serif" font-size="13" font-weight="bold" text-anchor="middle">Runtime Manager</text>
+  <rect x="420" y="80" width="180" height="40" fill="#FFFFFF" stroke="#0F62FE" stroke-width="2" rx="4"/>
+  <text x="510" y="105" fill="#161616" font-family="IBM Plex Sans, Arial, sans-serif" font-size="13" text-anchor="middle">Create Capsule</text>
+  <path d="M510 120 L510 135" stroke="#0F62FE" stroke-width="2" marker-end="url(#arr)"/>
+  <rect x="420" y="140" width="180" height="40" fill="#FFFFFF" stroke="#0F62FE" stroke-width="2" rx="4"/>
+  <text x="510" y="165" fill="#161616" font-family="IBM Plex Sans, Arial, sans-serif" font-size="13" text-anchor="middle">Attach Integration</text>
+  <path d="M510 180 L510 195" stroke="#0F62FE" stroke-width="2" marker-end="url(#arr)"/>
+  <rect x="420" y="200" width="180" height="40" fill="#FFFFFF" stroke="#0F62FE" stroke-width="2" rx="4"/>
+  <text x="510" y="225" fill="#161616" font-family="IBM Plex Sans, Arial, sans-serif" font-size="13" text-anchor="middle">Deploy</text>
+
+  <!-- Col 4 -->
+  <rect x="620" y="20" width="180" height="40" fill="#0F62FE" rx="4"/>
+  <text x="710" y="45" fill="#FFFFFF" font-family="IBM Plex Sans, Arial, sans-serif" font-size="13" font-weight="bold" text-anchor="middle">Monitoring</text>
+  <rect x="620" y="80" width="180" height="40" fill="#FFFFFF" stroke="#0F62FE" stroke-width="2" rx="4"/>
+  <text x="710" y="105" fill="#161616" font-family="IBM Plex Sans, Arial, sans-serif" font-size="13" text-anchor="middle">Create Dashboard</text>
+  <path d="M710 120 L710 135" stroke="#0F62FE" stroke-width="2" marker-end="url(#arr)"/>
+  <rect x="620" y="140" width="180" height="40" fill="#FFFFFF" stroke="#0F62FE" stroke-width="2" rx="4"/>
+  <text x="710" y="165" fill="#161616" font-family="IBM Plex Sans, Arial, sans-serif" font-size="13" text-anchor="middle">View Logs &amp; Metrics</text>
+
+  <!-- Horizontal Connections -->
+  <path d="M200 220 L410 220" stroke="#0F62FE" stroke-width="2" marker-end="url(#arr)"/>
+  <text x="305" y="215" fill="#161616" font-family="IBM Plex Sans, Arial, sans-serif" font-size="11" text-anchor="middle">Release to Deploy</text>
+
+  <path d="M400 160 L410 100" stroke="#0F62FE" stroke-width="2" marker-end="url(#arr)"/>
+  <text x="405" y="130" fill="#161616" font-family="IBM Plex Sans, Arial, sans-serif" font-size="11" text-anchor="middle">Env</text>
+</svg>

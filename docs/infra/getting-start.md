@@ -8,6 +8,8 @@ Kubernetes clusters as [Targets](/infra/targets), groups them into named
 [Environments](/infra/environments), and configures the per-environment services that actually run
 Apache Camel integrations.
 
+![Environment and Targets](/img/infra/env-targets.svg)
+
 ## Create your first target
 
 1. Register a **target** by pointing it at a connected Kubernetes cluster — pick from a live list

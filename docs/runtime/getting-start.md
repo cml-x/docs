@@ -7,6 +7,8 @@ Runtime Manager is where Apache Camel integration flows are deployed and operate
 unit here is a **Capsule** — a KubeVela-backed application that groups one or more Camel routes,
 gateways, jobs and storage volumes, bound to a specific project and environment.
 
+![Capsule lifecycle](/img/runtime/capsule-lifecycle.svg)
+
 ## Deploy your first Capsule
 
 1. Pick the project and [environment](/infra/environments) to deploy into.

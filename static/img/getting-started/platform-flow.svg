@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#0F62FE" />
+    </marker>
+  </defs>
+  <rect width="100%" height="100%" fill="#EDF5FF" />
+  
+  <rect x="40" y="100" width="160" height="80" fill="#0F62FE" rx="4" />
+  <text x="120" y="130" font-family="IBM Plex Sans, Arial, sans-serif" font-size="13" font-weight="bold" fill="#FFFFFF" text-anchor="middle">1. Build</text>
+  <text x="120" y="148" font-family="IBM Plex Sans, Arial, sans-serif" font-size="11" font-weight="bold" fill="#FFFFFF" text-anchor="middle">Project Manager</text>
+  <text x="120" y="164" font-family="IBM Plex Sans, Arial, sans-serif" font-size="11" fill="#FFFFFF" text-anchor="middle">Create integration, cut a release</text>
+
+  <path d="M 200 140 L 230 140" stroke="#0F62FE" stroke-width="2" marker-end="url(#arrow)" />
+
+  <rect x="230" y="100" width="160" height="80" fill="#0F62FE" rx="4" />
+  <text x="310" y="130" font-family="IBM Plex Sans, Arial, sans-serif" font-size="13" font-weight="bold" fill="#FFFFFF" text-anchor="middle">2. Configure</text>
+  <text x="310" y="148" font-family="IBM Plex Sans, Arial, sans-serif" font-size="11" font-weight="bold" fill="#FFFFFF" text-anchor="middle">Environment Manager</text>
+  <text x="310" y="164" font-family="IBM Plex Sans, Arial, sans-serif" font-size="11" fill="#FFFFFF" text-anchor="middle">Register cluster, create env</text>
+
+  <path d="M 390 140 L 420 140" stroke="#0F62FE" stroke-width="2" marker-end="url(#arrow)" />
+
+  <rect x="420" y="100" width="160" height="80" fill="#0F62FE" rx="4" />
+  <text x="500" y="130" font-family="IBM Plex Sans, Arial, sans-serif" font-size="13" font-weight="bold" fill="#FFFFFF" text-anchor="middle">3. Deploy &amp; Run</text>
+  <text x="500" y="148" font-family="IBM Plex Sans, Arial, sans-serif" font-size="11" font-weight="bold" fill="#FFFFFF" text-anchor="middle">Runtime Manager</text>
+  <text x="500" y="164" font-family="IBM Plex Sans, Arial, sans-serif" font-size="11" fill="#FFFFFF" text-anchor="middle">Create Capsule, attach flow</text>
+
+  <path d="M 580 140 L 610 140" stroke="#0F62FE" stroke-width="2" marker-end="url(#arrow)" />
+
+  <rect x="610" y="100" width="160" height="80" fill="#0F62FE" rx="4" />
+  <text x="690" y="130" font-family="IBM Plex Sans, Arial, sans-serif" font-size="13" font-weight="bold" fill="#FFFFFF" text-anchor="middle">4. Observe</text>
+  <text x="690" y="148" font-family="IBM Plex Sans, Arial, sans-serif" font-size="11" font-weight="bold" fill="#FFFFFF" text-anchor="middle">Monitoring</text>
+  <text x="690" y="164" font-family="IBM Plex Sans, Arial, sans-serif" font-size="11" fill="#FFFFFF" text-anchor="middle">Dashboards, logs, metrics</text>
+
+  <line x1="40" y1="220" x2="770" y2="220" stroke="#0F62FE" stroke-width="1" />
+</svg>

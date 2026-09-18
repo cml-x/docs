@@ -7,6 +7,8 @@ Every [Auth Gateway](/auth/auth-gateway) is itself an OAuth2/OIDC identity provi
 OIDC access for an application or API means registering that consumer as a **Client App** against
 the gateway.
 
+![OIDC Flow](/img/auth/oidc-flow.svg)
+
 ## Steps
 
 1. Open the Auth Gateway in [Authentication Manager](/auth/getting-start).

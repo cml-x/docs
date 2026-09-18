@@ -6,6 +6,8 @@ sidebar_position: 2
 An **Auth Gateway** is a Kanidm identity-provider instance — the top-level resource everything else
 in this app is scoped to.
 
+![Auth Flow](/img/auth/auth-flow.svg)
+
 ## Managing a gateway
 
 - **Live health** — identity-provider readiness, replica status, and admin-credential

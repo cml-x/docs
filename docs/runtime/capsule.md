@@ -6,6 +6,8 @@ sidebar_position: 2
 A **Capsule** is the top-level unit you create, deploy and monitor in Runtime Manager — a group of
 Apache Camel integration components bound to one project and one environment.
 
+![Capsule lifecycle](/img/runtime/capsule-lifecycle.svg)
+
 ## Components
 
 A Capsule can contain any mix of the component types the "Add component" picker offers:

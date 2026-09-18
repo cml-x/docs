@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 400" width="100%" height="100%">
+  <defs><marker id="arr" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0 0, 10 3.5, 0 7" fill="#0F62FE"/></marker></defs>
+  <rect width="820" height="400" fill="#EDF5FF"/>
+  
+  <!-- Access Manager -->
+  <rect x="360" y="160" width="140" height="60" fill="#0F62FE" rx="4"/>
+  <text x="430" y="195" fill="#FFFFFF" font-family="IBM Plex Sans, Arial, sans-serif" font-size="13" font-weight="bold" text-anchor="middle">Access Manager</text>
+
+  <!-- Left: IdPs -->
+  <!-- Google -->
+  <rect x="60" y="20" width="180" height="35" fill="#E0E0E0" stroke="#C6C6C6" rx="4"/>
+  <text x="150" y="42" fill="#161616" font-family="IBM Plex Sans, Arial, sans-serif" font-size="13" text-anchor="middle">Google</text>
+  <path d="M240 37 L360 170" stroke="#0F62FE" stroke-width="2" marker-end="url(#arr)"/>
+
+  <!-- GitHub -->
+  <rect x="60" y="70" width="180" height="35" fill="#E0E0E0" stroke="#C6C6C6" rx="4"/>
+  <text x="150" y="92" fill="#161616" font-family="IBM Plex Sans, Arial, sans-serif" font-size="13" text-anchor="middle">GitHub / GitHub Enterprise</text>
+  <path d="M240 87 L360 175" stroke="#0F62FE" stroke-width="2" marker-end="url(#arr)"/>
+
+  <!-- Azure AD -->
+  <rect x="60" y="120" width="180" height="35" fill="#E0E0E0" stroke="#C6C6C6" rx="4"/>
+  <text x="150" y="142" fill="#161616" font-family="IBM Plex Sans, Arial, sans-serif" font-size="13" text-anchor="middle">Microsoft Azure AD</text>
+  <path d="M240 137 L360 180" stroke="#0F62FE" stroke-width="2" marker-end="url(#arr)"/>
+
+  <!-- GitLab -->
+  <rect x="60" y="170" width="180" height="35" fill="#E0E0E0" stroke="#C6C6C6" rx="4"/>
+  <text x="150" y="192" fill="#161616" font-family="IBM Plex Sans, Arial, sans-serif" font-size="13" text-anchor="middle">GitLab</text>
+  <path d="M240 187 L360 190" stroke="#0F62FE" stroke-width="2" marker-end="url(#arr)"/>
+
+  <!-- Apple -->
+  <rect x="60" y="220" width="180" height="35" fill="#E0E0E0" stroke="#C6C6C6" rx="4"/>
+  <text x="150" y="242" fill="#161616" font-family="IBM Plex Sans, Arial, sans-serif" font-size="13" text-anchor="middle">Apple</text>
+  <path d="M240 237 L360 200" stroke="#0F62FE" stroke-width="2" marker-end="url(#arr)"/>
+
+  <!-- Generic OIDC -->
+  <rect x="60" y="270" width="180" height="35" fill="#FFFFFF" stroke="#0F62FE" stroke-width="2" rx="4"/>
+  <text x="150" y="292" fill="#161616" font-family="IBM Plex Sans, Arial, sans-serif" font-size="13" text-anchor="middle">Generic OIDC</text>
+  <path d="M240 287 L360 205" stroke="#0F62FE" stroke-width="2" marker-end="url(#arr)"/>
+
+  <!-- SAML 2.0 -->
+  <rect x="60" y="320" width="180" height="35" fill="#FFFFFF" stroke="#0F62FE" stroke-width="2" rx="4"/>
+  <text x="150" y="342" fill="#161616" font-family="IBM Plex Sans, Arial, sans-serif" font-size="13" text-anchor="middle">SAML 2.0</text>
+  <path d="M240 337 L360 210" stroke="#0F62FE" stroke-width="2" marker-end="url(#arr)"/>
+
+  <text x="310" y="130" fill="#161616" font-family="IBM Plex Sans, Arial, sans-serif" font-size="11" text-anchor="middle">SSO Federation</text>
+
+  <!-- Right: User -->
+  <rect x="580" y="160" width="140" height="60" fill="#0F62FE" rx="4"/>
+  <text x="650" y="195" fill="#FFFFFF" font-family="IBM Plex Sans, Arial, sans-serif" font-size="13" font-weight="bold" text-anchor="middle">User</text>
+  <path d="M500 190 L570 190" stroke="#0F62FE" stroke-width="2" marker-end="url(#arr)"/>
+  <text x="535" y="185" fill="#161616" font-family="IBM Plex Sans, Arial, sans-serif" font-size="11" text-anchor="middle">Signs in via IdP</text>
+
+  <!-- Below note -->
+  <text x="430" y="250" fill="#161616" font-family="IBM Plex Sans, Arial, sans-serif" font-size="11" text-anchor="middle">Activate · Deactivate · Delete per provider</text>
+</svg>

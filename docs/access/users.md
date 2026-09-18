@@ -5,6 +5,8 @@ sidebar_position: 1
 
 Manage the human accounts that can sign in to the platform.
 
+![RBAC Model](/img/access/rbac-model.svg)
+
 ## What you can do
 
 - **Create, search and paginate** users; edit profile data (name, email, phone).

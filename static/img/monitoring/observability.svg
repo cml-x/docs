@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400" width="100%" height="100%">
+  <rect width="800" height="400" fill="#EDF5FF"/>
+  <defs>
+    <marker id="arrowBlue" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#0F62FE"/>
+    </marker>
+  </defs>
+
+  <!-- Input Arrow -->
+  <text x="320" y="40" font-family="IBM Plex Sans, Arial, sans-serif" font-size="13" fill="#161616" text-anchor="middle">Runtime Manager / Capsule</text>
+  <line x1="320" y1="50" x2="320" y2="90" stroke="#0F62FE" stroke-width="2" marker-end="url(#arrowBlue)"/>
+
+  <!-- Dashboards Panel -->
+  <rect x="50" y="100" width="160" height="80" fill="#0F62FE" rx="4"/>
+  <text x="130" y="130" font-family="IBM Plex Sans, Arial, sans-serif" font-size="13" fill="#FFFFFF" font-weight="bold" text-anchor="middle">Dashboards</text>
+  <text x="130" y="150" font-family="IBM Plex Sans, Arial, sans-serif" font-size="11" fill="#FFFFFF" text-anchor="middle">OpenObserve dashboards</text>
+  <text x="130" y="165" font-family="IBM Plex Sans, Arial, sans-serif" font-size="11" fill="#FFFFFF" text-anchor="middle">/ Template gallery</text>
+
+  <!-- Logs Panel -->
+  <rect x="230" y="100" width="160" height="80" fill="#FFFFFF" stroke="#0F62FE" stroke-width="2" rx="4"/>
+  <text x="310" y="130" font-family="IBM Plex Sans, Arial, sans-serif" font-size="13" fill="#161616" font-weight="bold" text-anchor="middle">Logs</text>
+  <text x="310" y="150" font-family="IBM Plex Sans, Arial, sans-serif" font-size="11" fill="#6F6F6F" text-anchor="middle">Application logs from</text>
+  <text x="310" y="165" font-family="IBM Plex Sans, Arial, sans-serif" font-size="11" fill="#6F6F6F" text-anchor="middle">integrations</text>
+
+  <!-- Metrics Panel -->
+  <rect x="410" y="100" width="160" height="80" fill="#FFFFFF" stroke="#0F62FE" stroke-width="2" rx="4"/>
+  <text x="490" y="130" font-family="IBM Plex Sans, Arial, sans-serif" font-size="13" fill="#161616" font-weight="bold" text-anchor="middle">Metrics</text>
+  <text x="490" y="150" font-family="IBM Plex Sans, Arial, sans-serif" font-size="11" fill="#6F6F6F" text-anchor="middle">Resource usage &amp;</text>
+  <text x="490" y="165" font-family="IBM Plex Sans, Arial, sans-serif" font-size="11" fill="#6F6F6F" text-anchor="middle">performance</text>
+
+  <!-- Traces Panel -->
+  <rect x="590" y="100" width="160" height="80" fill="#FFFFFF" stroke="#0F62FE" stroke-width="2" rx="4"/>
+  <text x="670" y="130" font-family="IBM Plex Sans, Arial, sans-serif" font-size="13" fill="#161616" font-weight="bold" text-anchor="middle">Traces</text>
+  <text x="670" y="150" font-family="IBM Plex Sans, Arial, sans-serif" font-size="11" fill="#6F6F6F" text-anchor="middle">Distributed trace</text>
+  <text x="670" y="165" font-family="IBM Plex Sans, Arial, sans-serif" font-size="11" fill="#6F6F6F" text-anchor="middle">spans</text>
+
+  <!-- Shared Horizontal Bar (OpenObserve) -->
+  <rect x="50" y="210" width="700" height="30" fill="#E0E0E0" stroke="#C6C6C6" rx="4"/>
+  <text x="400" y="230" font-family="IBM Plex Sans, Arial, sans-serif" font-size="13" fill="#161616" font-weight="bold" text-anchor="middle">OpenObserve</text>
+
+  <!-- Connecting Lines -->
+  <line x1="130" y1="180" x2="130" y2="210" stroke="#C6C6C6" stroke-width="2"/>
+  <line x1="310" y1="180" x2="310" y2="210" stroke="#C6C6C6" stroke-width="2"/>
+  <line x1="490" y1="180" x2="490" y2="210" stroke="#C6C6C6" stroke-width="2"/>
+  <line x1="670" y1="180" x2="670" y2="210" stroke="#C6C6C6" stroke-width="2"/>
+</svg>

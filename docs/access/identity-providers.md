@@ -6,6 +6,8 @@ sidebar_position: 4
 Federate an external identity provider so users can sign in with an account they already have,
 instead of a platform-specific password.
 
+![Identity Providers](/img/access/identity-providers.svg)
+
 ## Supported providers
 
 Google, GitHub, GitHub Enterprise, Microsoft (Azure AD), GitLab (cloud or self-hosted), Apple,

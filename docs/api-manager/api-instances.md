@@ -6,6 +6,8 @@ sidebar_position: 3
 An **API Instance** is a published route bound to a [gateway](/api-manager/gateway), with path
 matching and one or more weighted backends.
 
+![API Instances](/img/api-manager/api-instances.svg)
+
 ## Publishing wizard
 
 1. **Name** the API instance.

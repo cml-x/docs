@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 400" width="100%" height="100%">
+  <defs><marker id="arr" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0 0, 10 3.5, 0 7" fill="#0F62FE"/></marker></defs>
+  <rect width="820" height="400" fill="#EDF5FF"/>
+  
+  <rect x="20" y="160" width="100" height="60" fill="#E0E0E0" stroke="#C6C6C6" rx="4"/>
+  <text x="70" y="195" fill="#161616" font-family="IBM Plex Sans, Arial, sans-serif" font-size="13" text-anchor="middle">User / App</text>
+
+  <path d="M120 170 L210 170" stroke="#0F62FE" stroke-width="2" marker-end="url(#arr)"/>
+  <text x="165" y="160" fill="#161616" font-family="IBM Plex Sans, Arial, sans-serif" font-size="11" text-anchor="middle">1. Auth Request</text>
+
+  <rect x="220" y="160" width="120" height="60" fill="#0F62FE" rx="4"/>
+  <text x="280" y="195" fill="#FFFFFF" font-family="IBM Plex Sans, Arial, sans-serif" font-size="13" font-weight="bold" text-anchor="middle">Auth Gateway</text>
+
+  <path d="M280 220 L280 270" stroke="#0F62FE" stroke-width="2" marker-end="url(#arr)"/>
+  
+  <rect x="230" y="280" width="100" height="40" fill="#0F62FE" rx="4"/>
+  <text x="280" y="305" fill="#FFFFFF" font-family="IBM Plex Sans, Arial, sans-serif" font-size="13" text-anchor="middle">Kanidm</text>
+  <text x="280" y="335" fill="#161616" font-family="IBM Plex Sans, Arial, sans-serif" font-size="11" text-anchor="middle">Validates credentials</text>
+
+  <path d="M340 180 L440 180" stroke="#0F62FE" stroke-width="2" marker-end="url(#arr)"/>
+  <text x="390" y="170" fill="#161616" font-family="IBM Plex Sans, Arial, sans-serif" font-size="11" text-anchor="middle">2. Auth Code</text>
+
+  <rect x="450" y="160" width="120" height="60" fill="#FFFFFF" stroke="#0F62FE" stroke-width="2" rx="4"/>
+  <text x="510" y="195" fill="#161616" font-family="IBM Plex Sans, Arial, sans-serif" font-size="13" font-weight="bold" text-anchor="middle">Client App</text>
+
+  <path d="M450 200 L350 200" stroke="#0F62FE" stroke-width="2" marker-end="url(#arr)"/>
+  <text x="400" y="215" fill="#161616" font-family="IBM Plex Sans, Arial, sans-serif" font-size="11" text-anchor="middle">3. Token Request</text>
+
+  <path d="M340 215 L440 215" stroke="#0F62FE" stroke-width="2" marker-end="url(#arr)"/>
+  <text x="390" y="235" fill="#161616" font-family="IBM Plex Sans, Arial, sans-serif" font-size="11" text-anchor="middle">4. Access Token</text>
+
+  <path d="M570 190 L670 190" stroke="#0F62FE" stroke-width="2" marker-end="url(#arr)"/>
+  <text x="620" y="180" fill="#161616" font-family="IBM Plex Sans, Arial, sans-serif" font-size="11" text-anchor="middle">5. API Call (JWT)</text>
+
+  <rect x="680" y="160" width="130" height="60" fill="#0F62FE" rx="4"/>
+  <text x="745" y="195" fill="#FFFFFF" font-family="IBM Plex Sans, Arial, sans-serif" font-size="13" font-weight="bold" text-anchor="middle">API Manager</text>
+  <text x="745" y="210" fill="#FFFFFF" font-family="IBM Plex Sans, Arial, sans-serif" font-size="11" text-anchor="middle">/ Resource</text>
+</svg>

@@ -6,6 +6,8 @@ sidebar_position: 2
 An **Environment** (e.g. "Production", "Staging") is a named, described scope bound to one
 [Target](/infra/targets), under which the platform's per-environment services are configured.
 
+![Environment and Targets](/img/infra/env-targets.svg)
+
 ## Per-environment platform services
 
 Each service is configured and status-monitored independently:

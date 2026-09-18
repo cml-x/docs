@@ -4,8 +4,13 @@
  * work well for content-centric websites.
  */
 
-/* IBM Carbon Design System blue scale — same tokens as packages/shared-config/theme
-   (ibm-blue-*) so the docs site matches the rest of the platform's look. */
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap');
+
+/* IBM Carbon Design System tokens — same ones used by the corporate site
+   (www/src/styles/global.css) and every product app (packages/shared-config
+   /theme): IBM Plex type, a flat zero-radius surface, and the ibm-blue-*
+   accent scale — so the docs site reads as the same product, not a
+   Docusaurus default. */
 :root {
   --ifm-color-primary: #0f62fe;
   --ifm-color-primary-dark: #0043ce;
@@ -17,6 +22,36 @@
   --ifm-code-font-size: 95%;
   --ifm-link-color: #0f62fe;
   --docusaurus-highlighted-code-line-bg: rgba(15, 98, 254, 0.1);
+
+  --ifm-font-family-base: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    sans-serif;
+  --ifm-font-family-monospace: 'IBM Plex Mono', SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+
+  /* www's body copy runs at line-height 1.5 (Infima defaults to 1.65) and a
+     literal carbon-gray-90/-100 split between body and heading color, not
+     Infima's own gray scale derived from --ifm-color-emphasis-900. */
+  --ifm-line-height-base: 1.5;
+  --ifm-font-color-base: #262626;
+  --ifm-heading-color: #161616;
+  --ifm-color-content-secondary: #525252;
+
+  /* Carbon is flat — no rounded corners anywhere. Infima derives every
+     component radius (buttons, cards, alerts, badges, code, pagination)
+     from this one token. */
+  --ifm-global-radius: 0;
+
+  /* Carbon headings/buttons are 600, not Infima's default 700. */
+  --ifm-font-weight-bold: 600;
+  --ifm-heading-letter-spacing: -0.01em;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  letter-spacing: var(--ifm-heading-letter-spacing);
 }
 
 /* IBM Carbon's dark theme (g100) shifts the interactive blue one step lighter

@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400" width="100%" height="100%">
+  <rect width="800" height="400" fill="#EDF5FF"/>
+  <defs>
+    <marker id="arrowBlue" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#0F62FE"/>
+    </marker>
+  </defs>
+
+  <!-- Kubernetes Cluster (Bottom) -->
+  <rect x="100" y="280" width="300" height="60" fill="#E0E0E0" stroke="#C6C6C6" rx="4"/>
+  <text x="250" y="305" font-family="IBM Plex Sans, Arial, sans-serif" font-size="13" fill="#161616" text-anchor="middle" font-weight="bold">Kubernetes Cluster</text>
+  <text x="250" y="325" font-family="IBM Plex Sans, Arial, sans-serif" font-size="11" fill="#6F6F6F" text-anchor="middle">Physical / Virtual infrastructure</text>
+
+  <line x1="250" y1="280" x2="250" y2="230" stroke="#0F62FE" stroke-width="2" marker-end="url(#arrowBlue)"/>
+
+  <!-- Target (Middle) -->
+  <rect x="150" y="170" width="200" height="50" fill="#0F62FE" rx="4"/>
+  <text x="250" y="190" font-family="IBM Plex Sans, Arial, sans-serif" font-size="13" fill="#FFFFFF" text-anchor="middle" font-weight="bold">Target</text>
+  <text x="250" y="208" font-family="IBM Plex Sans, Arial, sans-serif" font-size="11" fill="#FFFFFF" text-anchor="middle">Named deployment target</text>
+
+  <line x1="250" y1="170" x2="250" y2="120" stroke="#0F62FE" stroke-width="2" marker-end="url(#arrowBlue)"/>
+
+  <!-- Environment (Top) -->
+  <rect x="175" y="60" width="150" height="50" fill="#0F62FE" rx="4"/>
+  <text x="250" y="80" font-family="IBM Plex Sans, Arial, sans-serif" font-size="13" fill="#FFFFFF" text-anchor="middle" font-weight="bold">Environment</text>
+  <text x="250" y="98" font-family="IBM Plex Sans, Arial, sans-serif" font-size="11" fill="#FFFFFF" text-anchor="middle">Production / Staging / Dev</text>
+
+  <!-- Services (Right side) -->
+  <line x1="325" y1="85" x2="420" y2="85" stroke="#0F62FE" stroke-width="2" marker-end="url(#arrowBlue)"/>
+
+  <rect x="440" y="60" width="180" height="40" fill="#0F62FE" rx="4"/>
+  <text x="530" y="85" font-family="IBM Plex Sans, Arial, sans-serif" font-size="13" fill="#FFFFFF" text-anchor="middle">Camel K Platform</text>
+  <circle cx="460" cy="80" r="6" fill="#24A148"/>
+
+  <rect x="440" y="120" width="180" height="40" fill="#FFFFFF" stroke="#0F62FE" stroke-width="2" rx="4"/>
+  <text x="530" y="145" font-family="IBM Plex Sans, Arial, sans-serif" font-size="13" fill="#161616" text-anchor="middle">Log Exporter</text>
+  <circle cx="460" cy="140" r="6" fill="#24A148"/>
+
+  <rect x="440" y="180" width="180" height="40" fill="#FFFFFF" stroke="#0F62FE" stroke-width="2" rx="4"/>
+  <text x="530" y="205" font-family="IBM Plex Sans, Arial, sans-serif" font-size="13" fill="#161616" text-anchor="middle">Network Policy</text>
+  <circle cx="460" cy="200" r="6" fill="#FF832B"/>
+
+  <!-- Connecting lines for services -->
+  <line x1="420" y1="85" x2="420" y2="200" stroke="#0F62FE" stroke-width="2"/>
+  <line x1="420" y1="140" x2="435" y2="140" stroke="#0F62FE" stroke-width="2" marker-end="url(#arrowBlue)"/>
+  <line x1="420" y1="200" x2="435" y2="200" stroke="#0F62FE" stroke-width="2" marker-end="url(#arrowBlue)"/>
+
+</svg>

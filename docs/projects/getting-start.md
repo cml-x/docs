@@ -6,6 +6,8 @@ sidebar_position: 1
 Project Manager is where integration work starts. A **project** is a Git-backed repository that
 holds one integration, API specification, Kamelet or pipe.
 
+![Project entities hierarchy](/img/projects/project-entities.svg)
+
 ## Create your first project
 
 1. Make sure a Git provider (GitHub, GitLab or Bitbucket) is configured — projects can't be listed

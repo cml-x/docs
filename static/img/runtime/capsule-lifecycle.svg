@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400" width="100%" height="100%">
+  <rect width="800" height="400" fill="#EDF5FF"/>
+  <defs>
+    <marker id="arrowBlue" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#0F62FE"/>
+    </marker>
+  </defs>
+
+  <!-- Title / Git -->
+  <text x="50" y="50" font-family="IBM Plex Sans, Arial, sans-serif" font-size="13" fill="#161616">Release (Git)</text>
+  <line x1="130" y1="45" x2="180" y2="45" stroke="#0F62FE" stroke-width="2" marker-end="url(#arrowBlue)"/>
+
+  <!-- Capsule Container -->
+  <rect x="200" y="20" width="400" height="250" rx="15" fill="#FFFFFF" stroke="#0F62FE" stroke-width="2"/>
+  <text x="220" y="45" font-family="IBM Plex Sans, Arial, sans-serif" font-size="13" fill="#6F6F6F" font-weight="bold">Capsule</text>
+
+  <!-- Components -->
+  <rect x="220" y="70" width="100" height="40" fill="#0F62FE" rx="4"/>
+  <text x="270" y="94" font-family="IBM Plex Sans, Arial, sans-serif" font-size="11" fill="#FFFFFF" text-anchor="middle">Camel Integration</text>
+
+  <rect x="330" y="70" width="80" height="40" fill="#0F62FE" rx="4"/>
+  <text x="370" y="94" font-family="IBM Plex Sans, Arial, sans-serif" font-size="11" fill="#FFFFFF" text-anchor="middle">API Gateway</text>
+
+  <rect x="420" y="70" width="80" height="40" fill="#FFFFFF" stroke="#0F62FE" stroke-width="2" rx="4"/>
+  <text x="460" y="94" font-family="IBM Plex Sans, Arial, sans-serif" font-size="11" fill="#161616" text-anchor="middle">Load Balancer</text>
+
+  <rect x="510" y="70" width="70" height="40" fill="#FFFFFF" stroke="#0F62FE" stroke-width="2" rx="4"/>
+  <text x="545" y="94" font-family="IBM Plex Sans, Arial, sans-serif" font-size="11" fill="#161616" text-anchor="middle">Cron Task</text>
+
+  <rect x="220" y="130" width="150" height="40" fill="#E0E0E0" stroke="#C6C6C6" rx="4"/>
+  <text x="295" y="154" font-family="IBM Plex Sans, Arial, sans-serif" font-size="11" fill="#161616" text-anchor="middle">Persistent Volume</text>
+
+  <!-- Status -->
+  <text x="220" y="220" font-family="IBM Plex Sans, Arial, sans-serif" font-size="13" fill="#6F6F6F">Status:</text>
+  
+  <circle cx="280" cy="215" r="6" fill="#24A148"/>
+  <text x="295" y="220" font-family="IBM Plex Sans, Arial, sans-serif" font-size="11" fill="#161616">running</text>
+
+  <circle cx="360" cy="215" r="6" fill="#24A148"/>
+  <text x="375" y="220" font-family="IBM Plex Sans, Arial, sans-serif" font-size="11" fill="#161616">succeeded</text>
+
+  <circle cx="450" cy="215" r="6" fill="#DA1E28"/>
+  <text x="465" y="220" font-family="IBM Plex Sans, Arial, sans-serif" font-size="11" fill="#161616">failed</text>
+
+  <!-- Revision History -->
+  <text x="630" y="50" font-family="IBM Plex Sans, Arial, sans-serif" font-size="13" fill="#161616">Revision History</text>
+  
+  <rect x="630" y="70" width="120" height="30" fill="#0F62FE" rx="4"/>
+  <text x="690" y="89" font-family="IBM Plex Sans, Arial, sans-serif" font-size="11" fill="#FFFFFF" text-anchor="middle">v3 (Active)</text>
+
+  <rect x="630" y="110" width="120" height="30" fill="#E0E0E0" stroke="#C6C6C6" rx="4"/>
+  <text x="690" y="129" font-family="IBM Plex Sans, Arial, sans-serif" font-size="11" fill="#6F6F6F" text-anchor="middle">v2</text>
+
+  <rect x="630" y="150" width="120" height="30" fill="#E0E0E0" stroke="#C6C6C6" rx="4"/>
+  <text x="690" y="169" font-family="IBM Plex Sans, Arial, sans-serif" font-size="11" fill="#6F6F6F" text-anchor="middle">v1</text>
+
+  <!-- Rollback arrow -->
+  <path d="M 760 125 Q 780 125 780 100 Q 780 85 760 85" fill="none" stroke="#0F62FE" stroke-width="2" marker-end="url(#arrowBlue)"/>
+  <text x="770" y="105" font-family="IBM Plex Sans, Arial, sans-serif" font-size="10" fill="#0F62FE">rollback</text>
+</svg>

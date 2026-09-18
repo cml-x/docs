@@ -5,6 +5,8 @@ sidebar_position: 2
 
 A **Gateway** is an Envoy-based entry point for traffic, scoped to one [environment](/infra/environments).
 
+![Gateway Routing](/img/api-manager/gateway-routing.svg)
+
 ## Creating a gateway
 
 - Choose a service type: **internal**, **external**, or **public**.

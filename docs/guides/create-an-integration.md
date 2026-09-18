@@ -5,6 +5,8 @@ sidebar_position: 1
 
 The complete path from an empty project to a running, observed integration — one app at a time.
 
+![Integration Journey](/img/guides/integration-journey.svg)
+
 ```
 Project Manager                Environment Manager        Runtime Manager           Monitoring
 project → integration          environment                deploy → execute          observe

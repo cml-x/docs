@@ -7,6 +7,8 @@ Camel X separates two kinds of role in Access Manager: **organization-level admi
 (assigned when [creating a user](/access/create-user)) and **project-scoped roles**, granted
 through **Authorizations**.
 
+![RBAC Model](/img/access/rbac-model.svg)
+
 ## Understanding the chain
 
 ```

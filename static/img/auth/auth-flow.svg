@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400">
+  <defs>
+    <marker id="arr" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#0F62FE"/>
+    </marker>
+  </defs>
+  <rect width="100%" height="100%" fill="#EDF5FF"/>
+  <!-- Inputs -->
+  <rect x="50" y="80" width="140" height="60" rx="4" fill="#FFFFFF" stroke="#0F62FE" stroke-width="2"/>
+  <text x="120" y="115" font-family="IBM Plex Sans, Arial, sans-serif" font-size="13" fill="#161616" text-anchor="middle">Client App</text>
+  <line x1="190" y1="110" x2="280" y2="150" stroke="#0F62FE" stroke-width="2" marker-end="url(#arr)"/>
+  <text x="240" y="125" font-family="IBM Plex Sans, Arial, sans-serif" font-size="11" fill="#161616" transform="rotate(22, 240, 130)">Access Token</text>
+
+  <rect x="50" y="220" width="140" height="60" rx="4" fill="#FFFFFF" stroke="#0F62FE" stroke-width="2"/>
+  <text x="120" y="255" font-family="IBM Plex Sans, Arial, sans-serif" font-size="13" fill="#161616" text-anchor="middle">Service Account</text>
+  <line x1="190" y1="250" x2="280" y2="210" stroke="#0F62FE" stroke-width="2" marker-end="url(#arr)"/>
+  <text x="240" y="245" font-family="IBM Plex Sans, Arial, sans-serif" font-size="11" fill="#161616" transform="rotate(-22, 240, 240)">Token (M2M)</text>
+
+  <!-- Auth Gateway -->
+  <rect x="300" y="100" width="200" height="160" rx="4" fill="#0F62FE"/>
+  <text x="400" y="140" font-family="IBM Plex Sans, Arial, sans-serif" font-size="13" font-weight="bold" fill="#FFFFFF" text-anchor="middle">Auth Gateway</text>
+  <text x="400" y="180" font-family="IBM Plex Sans, Arial, sans-serif" font-size="11" fill="#FFFFFF" text-anchor="middle">Kanidm identity provider</text>
+  <text x="400" y="210" font-family="IBM Plex Sans, Arial, sans-serif" font-size="11" fill="#FFFFFF" text-anchor="middle">OAuth2 / OIDC</text>
+  
+  <rect x="320" y="280" width="70" height="40" rx="4" fill="#E0E0E0" stroke="#C6C6C6" stroke-width="2"/>
+  <text x="355" y="305" font-family="IBM Plex Sans, Arial, sans-serif" font-size="11" fill="#161616" text-anchor="middle">Users</text>
+
+  <rect x="410" y="280" width="70" height="40" rx="4" fill="#E0E0E0" stroke="#C6C6C6" stroke-width="2"/>
+  <text x="445" y="305" font-family="IBM Plex Sans, Arial, sans-serif" font-size="11" fill="#161616" text-anchor="middle">Groups</text>
+
+  <!-- Outputs -->
+  <line x1="500" y1="150" x2="590" y2="110" stroke="#0F62FE" stroke-width="2" marker-end="url(#arr)"/>
+  <rect x="610" y="70" width="140" height="80" rx="4" fill="#0F62FE"/>
+  <text x="680" y="105" font-family="IBM Plex Sans, Arial, sans-serif" font-size="13" font-weight="bold" fill="#FFFFFF" text-anchor="middle">API Manager</text>
+  <text x="680" y="130" font-family="IBM Plex Sans, Arial, sans-serif" font-size="11" fill="#FFFFFF" text-anchor="middle">Protects API with JWT/OIDC</text>
+
+  <line x1="500" y1="210" x2="590" y2="250" stroke="#0F62FE" stroke-width="2" marker-end="url(#arr)"/>
+  <rect x="610" y="210" width="140" height="80" rx="4" fill="#E0E0E0" stroke="#C6C6C6" stroke-width="2"/>
+  <text x="680" y="245" font-family="IBM Plex Sans, Arial, sans-serif" font-size="13" font-weight="bold" fill="#161616" text-anchor="middle">External App</text>
+  <text x="680" y="270" font-family="IBM Plex Sans, Arial, sans-serif" font-size="11" fill="#161616" text-anchor="middle">OIDC login flow</text>
+</svg>

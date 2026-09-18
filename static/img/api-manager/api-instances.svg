@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 400" width="100%" height="100%">
+  <defs><marker id="arr" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0 0, 10 3.5, 0 7" fill="#0F62FE"/></marker></defs>
+  <rect width="820" height="400" fill="#EDF5FF"/>
+  
+  <!-- Steps -->
+  <rect x="20" y="20" width="220" height="60" fill="#0F62FE" rx="4"/>
+  <text x="130" y="45" fill="#FFFFFF" font-family="IBM Plex Sans, Arial, sans-serif" font-size="13" font-weight="bold" text-anchor="middle">Name &amp; Type</text>
+  <text x="130" y="65" fill="#FFFFFF" font-family="IBM Plex Sans, Arial, sans-serif" font-size="11" text-anchor="middle">HTTP / gRPC / TLS / TCP</text>
+
+  <path d="M240 50 L270 50" stroke="#0F62FE" stroke-width="2" marker-end="url(#arr)"/>
+
+  <rect x="280" y="20" width="220" height="60" fill="#0F62FE" rx="4"/>
+  <text x="390" y="45" fill="#FFFFFF" font-family="IBM Plex Sans, Arial, sans-serif" font-size="13" font-weight="bold" text-anchor="middle">Gateway &amp; Backend</text>
+  <text x="390" y="65" fill="#FFFFFF" font-family="IBM Plex Sans, Arial, sans-serif" font-size="11" text-anchor="middle">Pick gateway · Pick K8s Service · Set weights</text>
+
+  <path d="M500 50 L530 50" stroke="#0F62FE" stroke-width="2" marker-end="url(#arr)"/>
+
+  <rect x="540" y="20" width="220" height="60" fill="#0F62FE" rx="4"/>
+  <text x="650" y="45" fill="#FFFFFF" font-family="IBM Plex Sans, Arial, sans-serif" font-size="13" font-weight="bold" text-anchor="middle">Hostname &amp; Rules</text>
+  <text x="650" y="65" fill="#FFFFFF" font-family="IBM Plex Sans, Arial, sans-serif" font-size="11" text-anchor="middle">Custom domain · Path prefix matching</text>
+
+  <!-- Arrow from Gateway box to API Instance below -->
+  <path d="M390 80 L390 130" stroke="#0F62FE" stroke-width="2" marker-end="url(#arr)"/>
+
+  <!-- API Instance -->
+  <rect x="60" y="140" width="700" height="200" fill="#FFFFFF" stroke="#0F62FE" stroke-width="2" rx="4"/>
+  <text x="410" y="165" fill="#161616" font-family="IBM Plex Sans, Arial, sans-serif" font-size="13" font-weight="bold" text-anchor="middle">API Instance</text>
+
+  <!-- Gateway -->
+  <rect x="100" y="190" width="150" height="40" fill="#E0E0E0" stroke="#C6C6C6" rx="4"/>
+  <text x="175" y="215" fill="#161616" font-family="IBM Plex Sans, Arial, sans-serif" font-size="13" text-anchor="middle">Gateway</text>
+  
+  <path d="M250 210 L300 210" stroke="#0F62FE" stroke-width="2" marker-end="url(#arr)"/>
+
+  <!-- Weighted Backends -->
+  <rect x="310" y="180" width="200" height="120" fill="#E0E0E0" stroke="#C6C6C6" rx="4"/>
+  <text x="410" y="205" fill="#161616" font-family="IBM Plex Sans, Arial, sans-serif" font-size="13" font-weight="bold" text-anchor="middle">Weighted Backends</text>
+  
+  <rect x="330" y="220" width="160" height="30" fill="#FFFFFF" stroke="#0F62FE" stroke-width="2" rx="4"/>
+  <text x="410" y="240" fill="#161616" font-family="IBM Plex Sans, Arial, sans-serif" font-size="13" text-anchor="middle">Service A 80%</text>
+
+  <rect x="330" y="260" width="160" height="30" fill="#FFFFFF" stroke="#0F62FE" stroke-width="2" rx="4"/>
+  <text x="410" y="280" fill="#161616" font-family="IBM Plex Sans, Arial, sans-serif" font-size="13" text-anchor="middle">Service B 20%</text>
+
+  <path d="M510 210 L560 210" stroke="#0F62FE" stroke-width="2" marker-end="url(#arr)"/>
+
+  <!-- Policies -->
+  <rect x="570" y="180" width="150" height="120" fill="#E0E0E0" stroke="#C6C6C6" rx="4"/>
+  <text x="645" y="205" fill="#161616" font-family="IBM Plex Sans, Arial, sans-serif" font-size="13" font-weight="bold" text-anchor="middle">Policies</text>
+
+  <rect x="590" y="220" width="110" height="25" fill="#FFFFFF" stroke="#0F62FE" stroke-width="2" rx="4"/>
+  <text x="645" y="237" fill="#161616" font-family="IBM Plex Sans, Arial, sans-serif" font-size="13" text-anchor="middle">JWT</text>
+
+  <rect x="590" y="250" width="110" height="25" fill="#FFFFFF" stroke="#0F62FE" stroke-width="2" rx="4"/>
+  <text x="645" y="267" fill="#161616" font-family="IBM Plex Sans, Arial, sans-serif" font-size="13" text-anchor="middle">Rate Limit</text>
+
+  <rect x="590" y="280" width="110" height="25" fill="#FFFFFF" stroke="#0F62FE" stroke-width="2" rx="4"/>
+  <text x="645" y="297" fill="#161616" font-family="IBM Plex Sans, Arial, sans-serif" font-size="13" text-anchor="middle">CORS</text>
+</svg>

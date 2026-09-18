@@ -7,6 +7,8 @@ API Manager is where integration flows built on the platform are exposed, routed
 APIs. It sits on top of the Kubernetes Gateway API (Envoy-based gateways) — no hand-written Gateway
 API YAML required.
 
+![Gateway Routing](/img/api-manager/gateway-routing.svg)
+
 ## Publish your first API
 
 1. Create a [Gateway](/api-manager/gateway) — an Envoy-based entry point (internal, external, or

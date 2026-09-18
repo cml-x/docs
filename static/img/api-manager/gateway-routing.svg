@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400">
+  <defs>
+    <marker id="arr" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#0F62FE"/>
+    </marker>
+  </defs>
+  <rect width="100%" height="100%" fill="#EDF5FF"/>
+  <!-- Client -->
+  <rect x="40" y="150" width="120" height="80" rx="4" fill="#E0E0E0" stroke="#C6C6C6" stroke-width="2"/>
+  <text x="100" y="195" font-family="IBM Plex Sans, Arial, sans-serif" font-size="13" fill="#161616" text-anchor="middle">Client</text>
+  
+  <line x1="160" y1="190" x2="220" y2="190" stroke="#0F62FE" stroke-width="2" marker-end="url(#arr)"/>
+
+  <!-- API Gateway -->
+  <rect x="230" y="100" width="180" height="180" rx="4" fill="#0F62FE"/>
+  <text x="320" y="130" font-family="IBM Plex Sans, Arial, sans-serif" font-size="13" font-weight="bold" fill="#FFFFFF" text-anchor="middle">API Gateway</text>
+  <text x="320" y="170" font-family="IBM Plex Sans, Arial, sans-serif" font-size="11" fill="#FFFFFF" text-anchor="middle">HTTP / gRPC / TLS / TCP</text>
+  <text x="320" y="190" font-family="IBM Plex Sans, Arial, sans-serif" font-size="11" fill="#FFFFFF" text-anchor="middle">Custom domain + TLS</text>
+  <text x="320" y="300" font-family="IBM Plex Sans, Arial, sans-serif" font-size="11" fill="#6F6F6F" text-anchor="middle">Envoy-based · Kubernetes Gateway API</text>
+
+  <line x1="410" y1="190" x2="450" y2="190" stroke="#0F62FE" stroke-width="2" marker-end="url(#arr)"/>
+
+  <!-- Policies -->
+  <rect x="460" y="100" width="140" height="180" rx="4" fill="#FFFFFF" stroke="#0F62FE" stroke-width="2"/>
+  <text x="530" y="130" font-family="IBM Plex Sans, Arial, sans-serif" font-size="13" font-weight="bold" fill="#161616" text-anchor="middle">Policies</text>
+  <text x="530" y="170" font-family="IBM Plex Sans, Arial, sans-serif" font-size="11" fill="#161616" text-anchor="middle">JWT / OIDC auth</text>
+  <text x="530" y="200" font-family="IBM Plex Sans, Arial, sans-serif" font-size="11" fill="#161616" text-anchor="middle">Rate limit</text>
+  <text x="530" y="230" font-family="IBM Plex Sans, Arial, sans-serif" font-size="11" fill="#161616" text-anchor="middle">CORS</text>
+  <text x="530" y="260" font-family="IBM Plex Sans, Arial, sans-serif" font-size="11" fill="#161616" text-anchor="middle">Circuit breaker</text>
+
+  <line x1="600" y1="140" x2="640" y2="120" stroke="#0F62FE" stroke-width="2" marker-end="url(#arr)"/>
+  <line x1="600" y1="240" x2="640" y2="260" stroke="#0F62FE" stroke-width="2" marker-end="url(#arr)"/>
+
+  <!-- Backends -->
+  <rect x="650" y="80" width="120" height="80" rx="4" fill="#0F62FE"/>
+  <text x="710" y="125" font-family="IBM Plex Sans, Arial, sans-serif" font-size="11" fill="#FFFFFF" text-anchor="middle">Kubernetes Service</text>
+
+  <rect x="650" y="220" width="120" height="80" rx="4" fill="#E0E0E0" stroke="#C6C6C6" stroke-width="2"/>
+  <text x="710" y="265" font-family="IBM Plex Sans, Arial, sans-serif" font-size="11" fill="#161616" text-anchor="middle">Upstream (external)</text>
+</svg>

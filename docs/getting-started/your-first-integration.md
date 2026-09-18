@@ -8,6 +8,8 @@ This walkthrough takes one integration from nothing to a running, observed flow,
 X apps in sequence: **Project Manager** builds it, **Environment Manager** provides somewhere to
 run it, **Runtime Manager** deploys and runs it, **Monitoring** lets you watch it work.
 
+![Platform flow](/img/getting-started/platform-flow.svg)
+
 ## 1. Build the integration in Project Manager
 
 Open [Project Manager](/projects/getting-start) and create a project of type **Integration**.
