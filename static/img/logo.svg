@@ -1,4 +1,4 @@
-<svg width="64" height="64" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
-  <rect width="64" height="64" rx="14" fill="#0F62FE"/>
-  <text x="33" y="34" font-family="Helvetica Neue, Arial, sans-serif" font-weight="700" font-size="26" letter-spacing="-1.5" fill="#FFFFFF" text-anchor="middle" dominant-baseline="central">CX</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 117 32" width="117" height="32" role="img" aria-label="Camel X">
+  <text x="5" y="16" font-family="Helvetica Neue, Arial, sans-serif" font-weight="500" font-size="26" letter-spacing="-0.5" fill="#161616" text-anchor="start" dominant-baseline="central">CAMEL</text>
+  <text x="94.6" y="16" font-family="Helvetica Neue, Arial, sans-serif" font-weight="800" font-size="26" fill="#0F62FE" text-anchor="start" dominant-baseline="central">X</text>
 </svg>

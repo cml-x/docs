@@ -91,10 +91,12 @@ const config: Config = {
       respectPrefersColorScheme: true,
     },
     navbar: {
-      title: 'Camel X',
       logo: {
-        alt: 'Camel X Logo',
+        alt: 'Camel X',
         src: 'img/logo.svg',
+        srcDark: 'img/logo-dark.svg',
+        width: 117,
+        height: 32,
       },
       items: [
         {to: '/blog', label: 'Changelog', position: 'left'},
