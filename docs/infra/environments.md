@@ -16,8 +16,8 @@ Each service is configured and status-monitored independently:
   Registry, Maven, and Build Config **traits**.
 - **Log Exporter** — routes and forwards application logs out of the environment, via Aggregator
   and Collector components.
-- **Network Policy** — ingress/egress traffic rules for the environment (configuration only, no
-  running service to monitor).
+- **Network** — [private links](/infra/private-links) to remote networks such as a datacenter or
+  a VPC, and the ingress/egress traffic rules of the environment.
 
 Each configured service shows a live health indicator (healthy, warning, or not yet configured)
 and drills into its own trait-based configuration page.
