@@ -261,20 +261,207 @@ the capacity of the remote equipment, and the figures above.
   on a connection that stays open and idle for more than an hour.
 - **If large transfers stall while small requests work**, lower **Largest packet**.
 
-## For the remote administrator
+## Addresses and allowlisting
 
-What the remote side needs to know, whatever its equipment:
+Two different addresses identify the environment, at two different levels. Mixing them up is
+the most common mistake when a firewall is involved.
 
-- **The environment opens the tunnel.** Allow one incoming UDP port (WireGuard) or UDP 500 and
-  4500 (IPsec). Nothing has to be opened towards the environment.
-- **The environment's public address is not fixed.** Recognise it by its key (WireGuard) or
-  its identity (IPsec), not by its source address.
-- **Every call arrives from one address**: the environment's tunnel address. Firewall rules for
-  the remote applications only need that single source.
-- **Route the replies.** The host carrying the tunnel must be the route back to the
-  environment's tunnel address for the remote applications, or translate addresses.
+| | Tunnel address of the link | Public address of a cluster node |
+|---|---|---|
+| Example | `10.250.0.2` | `142.93.106.75` |
+| Where it is visible | Inside the tunnel only | On the internet, around the tunnel |
+| What it carries | The calls themselves, once decrypted | The encrypted packets of the tunnel |
+| Stable | Yes — you choose it | No — it changes when a node is replaced or the link restarts elsewhere |
+
+### What to allow, and where
+
+| Who filters | What it sees | What to allow |
+|---|---|---|
+| **The remote application**, or the firewall in front of it | Calls coming from the link's tunnel address | The tunnel address (`10.250.0.2`), to the application's port |
+| **The internet-facing firewall**, where the tunnel arrives | Encrypted UDP packets from the public address of a node | The tunnel's UDP port, from any source |
+
+- **Allowlist the tunnel address on the application side.** It never changes, and every call
+  from the environment arrives from it.
+- **Do not allowlist the node's public address at the tunnel entry.** It is not fixed. The
+  link is recognised by its key (WireGuard) or its identity (IPsec), which is what actually
+  protects the entry: a packet from an unknown key is ignored.
+- **All integrations share the same source.** The remote side cannot tell two integrations of
+  the environment apart by their address. To apply different rules, rely on what the call
+  carries (a token, a client certificate), or create a second link: it has its own tunnel
+  address.
+
+:::note
+If the host carrying the tunnel on the remote side translates addresses to reach the other
+machines of its network, those machines see **that host's address**, not the tunnel address.
+Allowlist that host instead.
+:::
+
+## Guide: a WireGuard link
+
+### On the console
+
+1. **Network → New link.** Name it, keep **WireGuard**.
+2. **This side.** Keep the proposed tunnel address; enter the remote networks.
+3. **Remote side.** Leave empty. **Create the link**, then **Apply** on the environment.
+4. Open the link, tab **Setup**. Once the state is **Waiting for the remote side**, click
+   **Download the file** and send it to the remote administrator.
+
+### On the remote side
+
+The file is a standard WireGuard configuration. On a Linux host with WireGuard tools:
+
+1. **Create the key of this side** and put the private key in the file, in place of
+   `<private key of the remote side>`:
+
+   ```
+   wg genkey | tee remote.key | wg pubkey > remote.pub
+   ```
+
+2. **Load the file:**
+
+   ```
+   wg-quick up ./<environment>-<link>-wireguard.conf
+   ```
+
+3. **Open the port** given by `ListenPort` (UDP 51820 by default) on the internet-facing
+   firewall, from any source.
+
+4. **Let the remote applications answer.** The host carrying the tunnel reaches the
+   environment directly. For the other machines of the network, either route the tunnel
+   address through this host, or let the host translate addresses. For example:
+
+   ```
+   sysctl -w net.ipv4.ip_forward=1
+   # either, on the network's router: a route to the tunnel address through this host
+   ip route add 10.250.0.2/32 via <address of this host>
+   # or, on this host: translate, so that nothing else has to change
+   iptables -t nat -A POSTROUTING -s 10.250.0.2/32 -o <network interface> -j MASQUERADE
+   ```
+
+5. **Give back** to the environment's owner: the public address or name of this host, and the
+   content of `remote.pub`.
+
+What the file sets, and why:
+
+| Line | Meaning |
+|---|---|
+| `ListenPort` | The UDP port the environment connects to. |
+| `Address` | The remote side's own address in the tunnel, next to the environment's. It can be changed freely. |
+| `[Peer] PublicKey` | The key of the link. Only packets signed with it are accepted. |
+| `[Peer] AllowedIPs` | The environment's tunnel address: the only source accepted from this peer, and what is routed back to it. |
+| No `Endpoint` | Intended: the environment opens the tunnel and keeps it open, wherever it comes from. |
+
+### Back on the console
+
+1. Tab **Properties**: enter the **Remote entry point** and the **Public key of the remote
+   side**. **Apply**.
+2. The state becomes **Connected** within a minute.
+3. Add the applications to reach in **Remote Applications**, and **Apply**.
+
+### Checking
+
+On the remote side, `wg show` lists the peer with a recent **latest handshake** and growing
+**transfer** counters. From the environment, an integration calling `<name>:<port>` gets an
+answer.
+
+| Symptom | Likely cause |
+|---|---|
+| The link stays **Waiting for the remote side** | The UDP port is not open on the internet-facing firewall, the entry point is wrong, or the public key entered on either side is not the right one. |
+| `wg show` shows no handshake | The packets do not reach this host: check the firewall and any port forwarding in front of it. |
+| The link is **Connected** but calls time out | The remote application cannot answer: missing route or translation (step 4), or its firewall does not allow the tunnel address. |
+| Small requests work, large transfers stall | Lower **Largest packet** on the link. |
+
+## Guide: an IPsec link
+
+Choose IPsec when the remote equipment does not support WireGuard. More has to be agreed on,
+so settle these values with the remote administrator first:
+
+| To agree on | Default on the link | Notes |
+|---|---|---|
+| Protocol | IKEv2 | IKEv1 is not supported. |
+| Authentication | Shared key | Certificates are not supported. |
+| Who initiates | The environment | The remote side answers; it does not need to reach the environment. |
+| Transport | UDP 500 and 4500, with UDP encapsulation | The environment is behind address translation. |
+| Identity of the environment | `<link>@<environment>` | Free text; both sides must use the same value. |
+| Identity of the remote side | — | Chosen by the remote side. |
+| Proposals to open the tunnel (IKE) | AES-256, SHA-256, with ECP-256 or MODP-2048 | `aes256-sha256-ecp256, aes256-sha256-modp2048` |
+| Proposals to protect the traffic (ESP) | AES-256-GCM with ECP-256, or AES-256 with SHA-256 and MODP-2048 | `aes256gcm16-ecp256, aes256-sha256-modp2048` |
+| Networks carried | The environment's tunnel address `/32` on one side, the remote networks on the other | Often called traffic selectors, or local and remote subnets. |
+| Dead peer detection | Every 30 seconds | |
+
+### On the console
+
+1. **Network → New link.** Name it, choose **IPsec**.
+2. **This side.** Keep the proposed tunnel address; enter the remote networks.
+3. **Remote side.** Check the **Identity of this environment**; leave the rest empty if you do
+   not have it. **Create the link**, then **Apply**.
+4. Tab **Setup**: **Download the file**, or **Copy as text** for equipment that is not
+   strongSwan, and send it to the remote administrator.
+
+### On the remote side
+
+**With strongSwan**, the file is ready to use:
+
+1. Replace `<the shared key>` with the key agreed on, and `<identity of the remote side>` with
+   the chosen identity if it is not filled in. A key can be made with:
+
+   ```
+   openssl rand -hex 24
+   ```
+
+2. Place the file in `/etc/swanctl/conf.d/` and load it:
+
+   ```
+   swanctl --load-all
+   ```
+
+3. **Open UDP 500 and 4500** on the internet-facing firewall, from any source.
+
+4. **Let the remote applications answer**, as for WireGuard: route the environment's tunnel
+   address through this host, or translate addresses.
+
+5. **Give back**: the public address or name of this host, its identity, and — by a secure
+   channel, never by e-mail in clear — the shared key.
+
+**With other equipment** (firewall appliance, cloud VPN gateway), create a site-to-site,
+policy-based IKEv2 tunnel with the values of the table above. Two points differ from a usual
+site-to-site setup:
+
+- The peer has **no fixed public address**. Configure it as a dynamic or "any address" peer,
+  identified by its identity. Equipment that requires a fixed peer address cannot be used.
+- The peer is behind address translation: enable **NAT traversal**.
+
+### Back on the console
+
+1. Tab **Properties**: enter the **Remote entry point** and the **Identity of the remote
+   side**.
+2. **Shared key**: click **New secret**, create it with the agreed key, then **Make
+   available** for this environment and select it.
+3. **Apply**. The state becomes **Connected** within a minute.
+
+### Checking
+
+On strongSwan, `swanctl --list-sas` shows the connection `ESTABLISHED` and its child
+`INSTALLED`.
+
+| Symptom | Likely cause |
+|---|---|
+| The link stays **Waiting for the remote side** | UDP 500 or 4500 is filtered, the entry point is wrong, or the remote side expects a fixed peer address. |
+| The remote side logs an authentication failure | The shared key or one of the two identities differs between the sides. |
+| The remote side logs "no proposal chosen" | The proposals do not overlap: align them on the link's **Properties**. |
+| The tunnel is up but no traffic passes | The networks carried do not match on both sides, or the remote application cannot answer (route, translation or firewall). |
+
+## What every remote administrator should know
+
+Whatever the tunnel type and the equipment:
+
+- **The environment opens the tunnel.** Nothing has to be opened towards the environment.
+- **The environment's public address is not fixed.** Recognise it by its key or its identity.
+- **Every call arrives from one address**: the environment's tunnel address. This is the
+  address to allowlist on the applications.
+- **Route the replies** to that address through the host carrying the tunnel, or translate.
 - **To call an open service**, use the environment's tunnel address and the port listed in the
-  table. Create a DNS name for it on your side if you need one.
+  sheet. Create a DNS name for it on your side if you need one.
 
 ## Network rules
 
