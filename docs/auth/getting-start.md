@@ -32,7 +32,7 @@ never has to check a token itself.
 ## Where things are
 
 - **Auth gateways** are created in **API Manager**, under **Auth Gateways**.
-- **Lists of clients** are stored configurations: they live in **Secrets & Configuration**, and
+- **Lists of clients** are stored configurations: they live in **Secret Manager**, and
   can be created from the auth gateway itself.
 - **Policies** are attached from the page of an API instance or of a gateway.
 

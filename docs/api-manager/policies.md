@@ -131,6 +131,6 @@ The script is written in the policy, or reused from a stored configuration of th
 ## Stored configurations used by policies
 
 Several rules read a list or a credential you store once in
-[Secrets & Configuration](/config-sources/templates). In each of those fields you can choose an
+[Secret Manager](/config-sources/templates). In each of those fields you can choose an
 existing configuration, **create one** without leaving the form, or make available one that
 exists but is not yet in the environment.

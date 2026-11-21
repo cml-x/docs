@@ -3,20 +3,53 @@ title: Getting Started
 sidebar_position: 1
 ---
 
-Runtime Manager is where Apache Camel integration flows are deployed and operated. The deployable
-unit here is a **Capsule** — a KubeVela-backed application that groups one or more Camel routes,
-gateways, jobs and storage volumes, bound to a specific project and environment.
+Runtime Manager is where Apache Camel integrations are deployed and operated.
 
 ![Capsule lifecycle](/img/runtime/capsule-lifecycle.svg)
 
-## Deploy your first Capsule
+## What you work with
 
-1. Pick the project and [environment](/infra/environments) to deploy into.
-2. Follow the two-step wizard: fill in the Capsule's details, then configure each component with a
-   dynamic, definition-driven form (the fields shown depend on the component type you pick).
-3. Add [Integrations](/runtime/integrations) — Camel routes sourced directly from a Git repository
-   (choose the repo, then a branch or release).
-4. Attach [Storage](/runtime/storages) if the flow needs to persist data across restarts.
+| | What it is |
+|---|---|
+| **Integration** | A Camel route that the platform builds and runs. Its source is typed in the console (**inline**) or taken from a repository (**Git**). |
+| **Integration group** | Integrations and storage that are deployed and versioned together. |
+| **Storage** | A volume that keeps data across restarts. |
 
-Once deployed, you can watch real-time deployment status, drill into per-component health, and
-roll back to a previous revision from the Capsule's detail page.
+An integration is created **on its own** or **in a group**. On its own, it is deployed and
+versioned by itself — the simplest way to start. A group suits integrations that are always
+released together.
+
+## Your first integration, in five minutes
+
+1. Open **Integrations**, then **Create Integration**. Name it and choose **None — create it on
+   its own**.
+2. Keep the source mode **Inline** and type a route:
+
+   ```yaml
+   - route:
+       from:
+         uri: platform-http:/hello
+         steps:
+           - setBody:
+               constant: "Hello from Camel X"
+   ```
+
+3. **Bind** the integration to an [environment](/infra/environments).
+4. **Apply changes**. The platform builds an image from your route, then starts it.
+5. Follow the build and the instance on the page of the integration.
+
+The environment must have its
+[Camel Integration Service](/infra/camel-integration-service) activated.
+
+## Then
+
+| You want to | Read |
+|---|---|
+| Follow one example from this route to a secured API | [Tutorial](/tutorial/overview) |
+| Give the integration properties, variables and files | [Configure it](/tutorial/configure) |
+| Call a service signed by a private authority | [Trust a Private Certificate Authority](/runtime/trust-private-certificates) |
+| Build from a repository | [Move the source to Git](/tutorial/from-git) |
+| Publish it as an API | [Expose it as an API](/tutorial/expose) |
+
+Reference: [Integrations](/runtime/integrations), [Capsules](/runtime/capsule),
+[Storages](/runtime/storages).

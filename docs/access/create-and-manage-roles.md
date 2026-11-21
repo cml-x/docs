@@ -45,7 +45,7 @@ how many are selected. Categories you do not touch grant nothing.
 ### Step 3 — Restrict to environments *(optional)*
 
 Only categories that support environment restriction and have something selected appear here
-(API Manager, Auth Manager, Applications Manager).
+(API Manager, Applications Manager, Environment Services).
 
 1. Expand **API Manager**.
 2. Tick `dev` and `staging`.

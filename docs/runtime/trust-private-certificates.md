@@ -48,7 +48,7 @@ The file holds certificates, which are public. It never holds a private key.
 
 ### 1. Store the file
 
-In **Secrets & Configuration**, create a configuration of the kind **Resources File** and drop
+In **Secret Manager**, create a configuration of the kind **Resources File** and drop
 your PEM file in it. Make it available to the environment the integration runs in.
 
 You can also do it from the integration itself: in the field described below, **New secret**

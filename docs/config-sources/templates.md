@@ -59,7 +59,7 @@ orders.retries=3
 ```
 
 An integration loads them as a property file when the configuration is chosen in its
-**Property files** setting.
+**Configuration** setting.
 
 ### Secure Properties Configuration
 
@@ -72,7 +72,7 @@ One or several **files**, dropped into the form. Each file is kept under its own
 
 An integration receives them as files:
 
-- with its **Files** setting, at the place you choose;
+- with its **Resources** setting, at the place you choose;
 - with its **JVM** setting, for the certificate authorities it trusts — see
   [Trust a Private Certificate Authority](/runtime/trust-private-certificates).
 

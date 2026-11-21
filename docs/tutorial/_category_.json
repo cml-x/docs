@@ -1,0 +1,9 @@
+{
+  "label": "Tutorial: Integration to Secured API",
+  "position": 3,
+  "link": {
+    "type": "generated-index",
+    "description": "One example followed from end to end: write an integration, deploy it, configure it, expose it through a gateway and secure it, one step at a time.",
+    "slug": "/tutorial"
+  }
+}

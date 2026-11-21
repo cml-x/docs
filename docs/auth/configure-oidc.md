@@ -23,7 +23,7 @@ an address of your API, in HTTPS.
 
 ## 1. Store the credentials
 
-In **Secrets & Configuration**, create a configuration of the kind
+In **Secret Manager**, create a configuration of the kind
 [Client Credentials](/config-sources/templates#client-credentials) with the client ID and the
 client secret. You can also create it from the policy, in the next step.
 

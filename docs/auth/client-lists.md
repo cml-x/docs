@@ -13,14 +13,14 @@ A list is created **empty**, in one step, then filled in on its own page.
 
 - From an auth gateway: in its **Clients** setting, **New list of clients**. Give it a name and
   create it; it is selected for you.
-- From **Secrets & Configuration**: create a configuration of the kind **Auth Gateway Clients**.
+- From **Secret Manager**: create a configuration of the kind **Auth Gateway Clients**.
 
 Then make the list available to the environment of the auth gateway, and choose it in the
 **Clients** setting of that auth gateway.
 
 ## Add a client
 
-Open the list in **Secrets & Configuration** and choose **Add a client**. The clients of a list
+Open the list in **Secret Manager** and choose **Add a client**. The clients of a list
 are shown in a table you can search, filter and sort.
 
 | Field | What it is |

@@ -49,22 +49,27 @@ catalog — you cannot invent new permissions.
 
 | Category | Covers |
 |---|---|
-| API Manager | Gateways, API instances, upstreams, policies |
-| Cloud Resources | Custom domains, DNS and other cloud resources |
-| Auth Manager | Auth gateways, client apps, service accounts, users, groups |
-| Applications Manager | Integrations, storage, capsules |
+| API Manager | Gateways, API instances, auth gateways, upstreams, policies, cloud resources such as custom domains |
+| Applications Manager | Integrations, integration groups, storage, policies |
 | Environments Manager | Environments, targets, environment configs |
+| Environment Services | The Camel Integration, Logging and Network services of an environment |
+| Access Manager | Who has access to which resources |
 | Secrets Manager | Configs, distributions, config templates |
-| Monitoring Manager | Dashboards |
-| Project Manager | Repos, releases, tags, artifacts |
+| Monitoring Manager | Dashboards, exporters, log outputs and log flows |
+| Project Manager | Repos, releases, tags, artifacts, builds, teams |
+| Support Manager | Support cases |
 
-For each resource the catalog offers up to four actions:
+[Auth gateways](/auth/auth-gateway) are resources of the **API Manager** category: there is no
+separate category for authentication.
+
+For each resource the catalog offers up to five actions:
 
 | Action | Meaning |
 |---|---|
 | **View** | Read-only access. |
 | **Edit** | Create and modify. Also covers binding a resource to a new environment. |
 | **Deploy** | Apply changes — deploy, roll back and recycle. Only exists for resources that are deployed. |
+| **Recycle** | Remove from an environment what a service deployed there. Only exists for the services of an environment. |
 | **Delete** | Remove the resource, including removing it from an environment. |
 
 In the role editor these are presented as plain-language choices — **"Create and manage Gateway"**,
@@ -77,8 +82,9 @@ obviously see them. That is why you will not find a standalone "View" checkbox f
 
 ## Scope: everywhere or only in some environments
 
-Three categories — **API Manager, Auth Manager and Applications Manager** — hold resources that
-live *inside* an environment (gateways, capsules, integrations…). For these, every permission can
+Three categories — **API Manager, Applications Manager and Environment Services** — hold
+resources that live *inside* an environment (gateways, integration groups, integrations, the
+services of the environment…). For these, every permission can
 be granted in one of two scopes:
 
 - **Business-unit-wide** (default) — the permission applies in every environment, including
@@ -91,7 +97,7 @@ Role "Platform Editor Access"
 │   ├── Create and manage Gateway       → dev, staging        (restricted)
 │   └── Apply changes on Gateway        → dev, staging        (restricted)
 ├── Applications Manager
-│   └── Create and manage Capsule       → business-unit-wide
+│   └── Create and manage Integration   → business-unit-wide
 └── Secrets Manager
     └── Create and manage Config        → business-unit-wide  (not environment-scoped)
 ```
@@ -100,8 +106,8 @@ Rules worth knowing:
 
 1. **Restriction is per category, not per permission.** Within a category, either all its
    permissions are business-unit-wide or all are restricted to the environments you chose.
-   Categories are independent — API Manager can be restricted to `dev` while Auth Manager is
-   business-unit-wide.
+   Categories are independent — API Manager can be restricted to `dev` while Applications
+   Manager is business-unit-wide.
 2. **View stays business-unit-wide.** Even when a category is restricted, the ability to *see* its
    resources is kept business-unit-wide. Otherwise the resource would disappear from lists and
    detail pages, which are not tied to a single environment.
