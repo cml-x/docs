@@ -60,7 +60,7 @@ Choose **Another identity provider** and give:
 
 The application first obtains a token:
 
-```bash
+```bash title="1. Obtain a token"
 curl -u "<client-id>:<secret>" \
   https://auth.example.com/api/oidc/token \
   -d grant_type=client_credentials \
@@ -69,7 +69,7 @@ curl -u "<client-id>:<secret>" \
 
 then sends it with each request:
 
-```bash
+```bash title="2. Call the API"
 curl -H "Authorization: Bearer <token>" https://orders.example.com/orders
 ```
 

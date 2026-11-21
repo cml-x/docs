@@ -70,11 +70,11 @@ Deploy the API instance.
 
 ## 4. Call it
 
-```bash
+```bash title="From anywhere"
 curl https://orders.example.com/orders
 ```
 
-```json
+```json title="Answer"
 {"greeting":"Hello from orders","pageSize":20}
 ```
 

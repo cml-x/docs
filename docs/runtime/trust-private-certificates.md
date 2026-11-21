@@ -29,7 +29,7 @@ One **PEM file** holding the certificate of the authority. The file may hold **s
 certificates**, one after the other — for example a root authority and an intermediate one, or the
 authorities of two partners:
 
-```text
+```text title="company-ca.pem"
 -----BEGIN CERTIFICATE-----
 MIIDdzCCAl+gAwIBAgIE...
 -----END CERTIFICATE-----

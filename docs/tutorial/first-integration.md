@@ -3,6 +3,9 @@ title: 1. Write the Integration
 sidebar_position: 2
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 An **integration** is an Apache Camel route that the platform builds and runs for you. In
 **inline** mode you type the route in the console: there is no repository, no build file and no
 image to prepare.
@@ -19,12 +22,18 @@ Open **Runtime Manager**, go to **Integrations**, then **Create Integration**.
 
 ## Write the route
 
-In **Sources**, keep the language **YAML** and name the file `orders.camel.yaml`:
+In **Sources**, choose the language of the file and type the route. The three versions below
+do exactly the same thing: use the one you are most at ease with. The rest of the tutorial uses
+YAML.
 
-```yaml
+<Tabs groupId="camel-dsl">
+<TabItem value="yaml" label="YAML" default>
+
+```yaml title="orders.camel.yaml" showLineNumbers
 - route:
     id: orders
     from:
+      # highlight-next-line
       uri: platform-http:/orders
       parameters:
         httpMethodRestrict: GET
@@ -36,14 +45,52 @@ In **Sources**, keep the language **YAML** and name the file `orders.camel.yaml`
             constant: '{"service":"orders","status":"ok"}'
 ```
 
+</TabItem>
+<TabItem value="java" label="Java">
+
+```java title="Orders.java" showLineNumbers
+import org.apache.camel.builder.RouteBuilder;
+
+public class Orders extends RouteBuilder {
+    @Override
+    public void configure() {
+        // highlight-next-line
+        from("platform-http:/orders?httpMethodRestrict=GET")
+            .routeId("orders")
+            .setHeader("Content-Type", constant("application/json"))
+            .setBody(constant("{\"service\":\"orders\",\"status\":\"ok\"}"));
+    }
+}
+```
+
+</TabItem>
+<TabItem value="xml" label="XML">
+
+```xml title="orders.camel.xml" showLineNumbers
+<routes xmlns="http://camel.apache.org/schema/spring">
+  <route id="orders">
+    <!-- highlight-next-line -->
+    <from uri="platform-http:/orders?httpMethodRestrict=GET"/>
+    <setHeader name="Content-Type">
+      <constant>application/json</constant>
+    </setHeader>
+    <setBody>
+      <constant>{"service":"orders","status":"ok"}</constant>
+    </setBody>
+  </route>
+</routes>
+```
+
+</TabItem>
+</Tabs>
+
 What it says:
 
 - `platform-http:/orders` — listen for HTTP requests on the path `/orders`;
 - `httpMethodRestrict: GET` — only answer `GET`;
 - the two steps set the content type and the body of the answer.
 
-Routes can also be written in **Java** or **XML**; choose the language of each source file. One
-integration can hold several source files.
+One integration can hold several source files, each in its own language.
 
 ## Dependencies
 
@@ -76,7 +123,7 @@ Create the integration. It now exists, but nothing runs yet:
 
 ## What you have
 
-```text
+```text title="What exists so far"
 Runtime Manager
 └── orders-api        an integration on its own, inline, one YAML route
 ```

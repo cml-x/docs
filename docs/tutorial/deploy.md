@@ -47,11 +47,11 @@ does not rebuild the image. The integration only restarts.
 The integration has no public address yet. To check it from inside the environment, call its
 service by name — the name of the integration:
 
-```bash
+```bash title="From inside the environment"
 curl http://orders-api/orders
 ```
 
-```json
+```json title="Answer"
 {"service":"orders","status":"ok"}
 ```
 

@@ -3,6 +3,9 @@ title: Lists of Clients
 sidebar_position: 3
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 A **client** is an application allowed to obtain tokens from an
 [auth gateway](/auth/auth-gateway). Clients are kept in **lists of clients**: stored
 configurations that one or several auth gateways read.
@@ -68,18 +71,23 @@ Leaving the field empty is allowed: it suits APIs that do not check the audience
 The application asks the **token endpoint** of the auth gateway, shown on the page of the auth
 gateway.
 
-With a secret in the request header:
+The request depends on how the client proves who it is:
+
+<Tabs groupId="client-proof">
+<TabItem value="header" label="Secret in the header" default>
 
 ```bash
+# highlight-next-line
 curl -u "<client-id>:<secret>" \
   https://auth.example.com/api/oidc/token \
   -d grant_type=client_credentials \
   -d scope="orders.read"
 ```
 
-With a secret in the request body:
+</TabItem>
+<TabItem value="body" label="Secret in the body">
 
-```bash
+```bash {3-4}
 curl https://auth.example.com/api/oidc/token \
   -d grant_type=client_credentials \
   -d client_id="<client-id>" \
@@ -87,9 +95,12 @@ curl https://auth.example.com/api/oidc/token \
   -d scope="orders.read"
 ```
 
+</TabItem>
+</Tabs>
+
 The answer holds the token and how long it is valid:
 
-```json
+```json title="Answer"
 {
   "access_token": "eyJhbGciOi...",
   "token_type": "bearer",

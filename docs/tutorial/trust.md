@@ -10,14 +10,16 @@ certificate signed by your company's own authority.
 
 Add the call to the route:
 
-```yaml
+```yaml title="orders.camel.yaml"
+        # highlight-start
         - to:
             uri: https://inventory.corp.example/stock
+        # highlight-end
 ```
 
 Deploy. The integration starts, but the call fails, and the logs say:
 
-```text
+```log title="Logs of the integration"
 PKIX path building failed: unable to find valid certification path to requested target
 ```
 
@@ -32,6 +34,15 @@ Java only trusts the public certificate authorities it ships with. Yours is not 
 Get the certificate of the authority as a **PEM file** — `corp-ca.pem`. If the partner's
 certificate was signed by an intermediate authority, put the root and the intermediate in the same
 file, one after the other.
+
+```text title="corp-ca.pem"
+-----BEGIN CERTIFICATE-----
+MIIDdzCCAl+gAwIBAgIE...          the root authority
+-----END CERTIFICATE-----
+-----BEGIN CERTIFICATE-----
+MIIDqDCCApCgAwIBAgIJ...          an intermediate authority, if there is one
+-----END CERTIFICATE-----
+```
 
 In **Secret Manager**, create a **Resources File** configuration named `corp-ca` and drop the file
 in it. Make it available to the environment.

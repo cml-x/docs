@@ -3,6 +3,9 @@ title: 7. Secure the API
 sidebar_position: 8
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 The orders API answers anyone. This step closes it, in four ways, from the simplest to the most
 complete. They are alternatives: choose the one that fits who calls the API.
 
@@ -33,13 +36,34 @@ The quickest way to close an API.
    sent: the header `x-api-key`.
 3. Deploy.
 
-```bash
-curl https://orders.example.com/orders
-# refused
+<Tabs>
+<TabItem value="without" label="Without a key" default>
 
-curl -H "x-api-key: <key>" https://orders.example.com/orders
-# answered
+```bash
+curl -i https://orders.example.com/orders
 ```
+
+```http title="Answer"
+HTTP/1.1 401 Unauthorized
+```
+
+</TabItem>
+<TabItem value="with" label="With a key">
+
+```bash
+# highlight-next-line
+curl -i -H "x-api-key: <key>" https://orders.example.com/orders
+```
+
+```http title="Answer"
+HTTP/1.1 200 OK
+content-type: application/json
+
+{"greeting":"Hello from orders","region":"eu-west"}
+```
+
+</TabItem>
+</Tabs>
 
 Useful options: **Forward Client ID Header** passes the name of the client to the integration,
 which can then tell `mobile-app` from `backoffice`; **Sanitize Key** removes the key before the
@@ -54,7 +78,7 @@ it can call the API until you remove it.
 2. On the API instance, add the rule **user name and password**, and choose it.
 3. Deploy.
 
-```bash
+```bash title="With a user name and a password"
 curl -u alice:<password> https://orders.example.com/orders
 ```
 
@@ -79,13 +103,22 @@ signature of the token, that it has not expired, and that it was issued **for th
    **an auth gateway**, yours, with **Check the audience** on.
 4. Deploy.
 
-```bash
-# 1. obtain a token
+```bash title="1. Obtain a token from the auth gateway"
 curl -u "<client-id>:<secret>" https://auth.example.com/api/oidc/token \
-  -d grant_type=client_credentials -d scope="orders.read"
+  -d grant_type=client_credentials \
+  -d scope="orders.read"
+```
 
-# 2. call the API with it
-curl -H "Authorization: Bearer <token>" https://orders.example.com/orders
+```json title="Answer"
+{
+  "access_token": "eyJhbGciOi...",
+  "token_type": "bearer",
+  "expires_in": 3600
+}
+```
+
+```bash title="2. Call the API with the token"
+curl -H "Authorization: Bearer eyJhbGciOi..." https://orders.example.com/orders
 ```
 
 Why it is better than a key:

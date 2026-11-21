@@ -24,7 +24,7 @@ four.
 In **Secret Manager**, create a configuration of the kind **Properties Configuration**, named
 `orders-settings`:
 
-```properties
+```properties title="orders-settings — a Properties Configuration"
 orders.greeting=Hello from orders
 orders.page-size=20
 ```
@@ -40,8 +40,9 @@ files**. You can also create the configuration from this field with **New secret
 
 A property is read between double braces:
 
-```yaml
+```yaml title="orders.camel.yaml"
         - setBody:
+            # highlight-next-line
             simple: '{"greeting":"{{orders.greeting}}","pageSize":{{orders.page-size}}}'
 ```
 
@@ -62,8 +63,9 @@ Add the setting **Environment**. In **Environment Variables**, each line is one 
 
 In the route, a variable is read with `env:`:
 
-```yaml
+```yaml title="orders.camel.yaml"
         - setBody:
+            # highlight-next-line
             simple: '{"region":"${env:ORDERS_REGION}"}'
 ```
 
@@ -83,7 +85,7 @@ hand for one environment.
 In **Secret Manager**, create a configuration of the kind **Resources File**, named
 `orders-catalog`, and drop a file `catalog.json` in it:
 
-```json
+```json title="catalog.json — in orders-catalog, a Resources File"
 {"items":["keyboard","mouse","screen"]}
 ```
 
@@ -95,12 +97,45 @@ the place it is mounted at — `/etc/orders` for example. The file is then at
 
 ### Read it in the route
 
-```yaml
+```yaml title="orders.camel.yaml"
         - setBody:
+            # highlight-next-line
             simple: 'resource:file:/etc/orders/catalog.json'
 ```
 
 A configuration can hold several files: they are all mounted in the same place.
+
+## The route so far
+
+With the first two settings in place, the route reads its greeting from the property file and its
+region from a variable. The highlighted line is the one that changed since
+[step 1](/tutorial/first-integration).
+
+```yaml title="orders.camel.yaml" showLineNumbers
+- route:
+    id: orders
+    from:
+      uri: platform-http:/orders
+      parameters:
+        httpMethodRestrict: GET
+      steps:
+        - setHeader:
+            name: Content-Type
+            constant: application/json
+        - setBody:
+            # highlight-next-line
+            simple: '{"greeting":"{{orders.greeting}}","region":"${env:ORDERS_REGION}"}'
+```
+
+```json title="Answer"
+{"greeting":"Hello from orders","region":"eu-west"}
+```
+
+| The route reads | It comes from | Set in |
+|---|---|---|
+| `{{orders.greeting}}` | `orders-settings` | The **Configuration** setting |
+| `${env:ORDERS_REGION}` | `ORDERS_REGION=eu-west` | The **Environment** setting |
+| `/etc/orders/catalog.json` | `orders-catalog` | The **Resources** setting |
 
 ## CPU, memory and instances
 

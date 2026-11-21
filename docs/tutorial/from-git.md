@@ -25,7 +25,7 @@ Nothing else changes: settings, deployment, exposure and security work the same 
 In **Integration Fabric**, create a repository for the integration — or use one you already have
 — and add the route to it:
 
-```text
+```text title="A repository for the integration, for example"
 orders-api/
 └── src/main/resources/routes/
     └── orders.camel.yaml
