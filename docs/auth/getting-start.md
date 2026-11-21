@@ -3,18 +3,37 @@ title: Getting Started
 sidebar_position: 1
 ---
 
-Authentication Manager provisions and operates **Kanidm**-backed identity gateway instances — each
-one a self-contained OAuth2/OIDC identity provider that other platform services and external
-client applications authenticate against.
+Authentication answers one question for your APIs: **who is calling?**
 
-![Auth Flow](/img/auth/auth-flow.svg)
+Camel X covers the two usual situations:
 
-## Create your first auth gateway
+| Who calls the API | How it proves who it is | What to set up |
+|---|---|---|
+| An **application** — a backend, a partner system, a scheduled job | It obtains a token and sends it with each call | An [auth gateway](/auth/auth-gateway), a [list of clients](/auth/client-lists), and a [JWT policy](/auth/protect-api-with-jwt) on the API |
+| A **person**, in a browser | They sign in with your identity provider | A [sign-in policy](/auth/configure-oidc) on the API |
 
-1. Give it a name, alias, description and [environment](/infra/environments) binding. It's
-   provisioned as a Kanidm instance via the `kaniop.rs` Kubernetes operator.
-2. Choose how to expose it: **internally**, through a public **API Gateway** route, or through a
-   public **Load Balancer** — with an optional custom domain and TLS secret.
+Simpler means exist too — API keys, user name and password — described with the other
+[policies](/api-manager/policies).
 
-Once running, see [Auth Gateways](/auth/auth-gateway) to register client applications, service
-accounts, users and groups against it.
+## Tokens for applications, in four steps
+
+1. **Create an auth gateway.** It is the token service of the environment.
+2. **Register your applications as clients**, in a list of clients, and attach the list to the
+   auth gateway.
+3. **Protect the API** with a JWT policy that trusts the auth gateway.
+4. **Call the API**: the application asks the auth gateway for a token, then sends it with each
+   request.
+
+![Tokens for applications](/img/auth/token-flow.drawio.png)
+
+The application never talks to your service without going through the gateway, and your service
+never has to check a token itself.
+
+## Where things are
+
+- **Auth gateways** are created in **API Manager**, under **Auth Gateways**.
+- **Lists of clients** are stored configurations: they live in **Secrets & Configuration**, and
+  can be created from the auth gateway itself.
+- **Policies** are attached from the page of an API instance or of a gateway.
+
+Start with [Auth Gateways](/auth/auth-gateway).

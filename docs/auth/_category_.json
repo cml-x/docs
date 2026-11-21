@@ -3,7 +3,7 @@
   "position": 6,
   "link": {
     "type": "generated-index",
-    "description": "Manage OAuth2/OIDC identity gateways, client applications and service account credentials.",
+    "description": "Issue tokens to applications with an auth gateway, register the applications as clients, and make your APIs check the tokens they receive.",
     "slug": "/auth"
   }
 }

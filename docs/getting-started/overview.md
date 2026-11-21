@@ -18,7 +18,7 @@ CAMEL X
 ├── Project Manager       — build integrations, manage releases
 ├── Runtime Manager        — deploy and run integration flows
 ├── API Manager            — expose and secure APIs
-├── Authentication Manager — identity providers for APIs and apps
+├── Authentication         — tokens for the applications that call your APIs
 ├── Access Manager         — users, roles and permissions
 ├── Environment Manager    — where things run
 └── Monitoring             — observe what's running
@@ -34,7 +34,7 @@ flows) and **Assets Explorer** (a searchable catalog of everything already publi
 | [Project Manager](/projects/getting-start) | Git-backed repositories: Integrations, API Specifications, Kamelets, Pipes, and their releases |
 | [Runtime Manager](/runtime/getting-start) | Capsules — the deployed, running form of an integration |
 | [API Manager](/api-manager/getting-start) | Gateways and API Instances that expose flows as APIs |
-| [Authentication Manager](/auth/getting-start) | Auth Gateways — identity providers that protect APIs and apps |
+| [Authentication](/auth/getting-start) | Auth gateways and lists of clients — tokens for the applications that call your APIs. Managed from API Manager. |
 | [Access Manager](/access/users) | Users, project-scoped authorizations, connected apps, MFA |
 | [Environment Manager](/infra/getting-start) | Targets and Environments — the infrastructure everything deploys onto |
 | [Monitoring](/monitoring/getting-start) | Dashboards, and links into logs, metrics and traces |
@@ -57,7 +57,7 @@ through end to end.
 - Writing or changing Camel routes, or cutting a release → **Project Manager**.
 - Deploying a release, checking if it's running, rolling back → **Runtime Manager**.
 - Exposing a flow as an HTTP/gRPC API, attaching a domain → **API Manager**.
-- Standing up an identity provider to protect an API or app → **Authentication Manager**.
+- Issuing tokens to the applications that call an API → **Auth Gateways**, in API Manager.
 - Adding a teammate, granting project access, enforcing MFA → **Access Manager**.
 - Registering a cluster, creating an environment → **Environment Manager**.
 - Checking dashboards, logs, metrics or traces → **Monitoring**.

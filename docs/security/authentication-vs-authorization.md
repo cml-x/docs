@@ -24,7 +24,7 @@ user's login credentials.
 
 | | Authentication | Authorization |
 |---|---|---|
-| Who issues proof of identity | [Authentication Manager](/auth/getting-start): an Auth Gateway (Kanidm-backed OAuth2/OIDC) issues tokens to registered Client Apps or Service Accounts |
+| Who issues proof of identity | An [auth gateway](/auth/auth-gateway) issues tokens to the applications registered as [clients](/auth/client-lists) |
 | Who checks it at the door | [API Manager](/api-manager/getting-start): a Security policy (JWT, OIDC, API key, or basic auth) attached to the gateway or API Instance validates the token on every request |
 | Fine-grained authorization | Whether a validated token's specific claims or scopes are checked for finer-grained authorization (beyond "valid or not") is **[À CONFIRMER]** — verify against your policy's configuration |
 

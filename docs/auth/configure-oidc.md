@@ -1,27 +1,60 @@
 ---
-title: Configure OIDC
-sidebar_position: 4
+title: Sign In with an Identity Provider
+sidebar_position: 5
 ---
 
-Every [Auth Gateway](/auth/auth-gateway) is itself an OAuth2/OIDC identity provider. Configuring
-OIDC access for an application or API means registering that consumer as a **Client App** against
-the gateway.
+A **sign-in policy** sends the people who open an API or an application in their browser to the
+sign-in page of your identity provider — Google, Microsoft, Keycloak or any provider that speaks
+OpenID Connect. Once signed in, they are kept signed in with a session cookie. Nothing changes in
+your application.
 
-![OIDC Flow](/img/auth/oidc-flow.svg)
+It is meant for **people using a browser**. For applications calling an API, use
+[tokens and a JWT policy](/auth/protect-api-with-jwt) instead.
 
-## Steps
+## Before you start
 
-1. Open the Auth Gateway in [Authentication Manager](/auth/getting-start).
-2. Register a Client App:
-   - Choose **public** (for browser/mobile apps that can't hold a secret) or **confidential** (for
-     backend services that can).
-   - Set its redirect origin — where the gateway sends the user back after sign-in.
-3. Use the resulting client against the gateway's OIDC endpoints from your application or API.
+Register your application with the identity provider. It gives you:
 
-## Machine-to-machine access
+- a **client ID** and a **client secret**;
+- the address of the provider, such as `https://accounts.google.com`.
 
-For programmatic access instead of an interactive login flow, create a **Service Account** on the
-gateway rather than a Client App.
+It also asks for a **redirect URL**: the address users are sent back to after signing in. It is
+an address of your API, in HTTPS.
 
-Discovery endpoint URLs and other OIDC-specific parameters are **[À CONFIRMER]** — read them
-directly from the running Auth Gateway.
+## 1. Store the credentials
+
+In **Secrets & Configuration**, create a configuration of the kind
+[Client Credentials](/config-sources/templates#client-credentials) with the client ID and the
+client secret. You can also create it from the policy, in the next step.
+
+## 2. Add the policy
+
+On the page of the API instance or of the gateway, open its security policies and add **sign-in
+with an identity provider (OIDC)**.
+
+| Field | What it is | Default |
+|---|---|---|
+| **OIDC Issuer** | The address of the identity provider. | — |
+| **Credentials** | The stored client ID and secret of your application. | — |
+| **Client ID** | Leave empty: it is read from the credentials. Fill it only for a provider whose ID is not stored with its secret. | Empty |
+| **Redirect URL** | The address users are sent back to after signing in. It must be the one registered with the provider. | — |
+| **Scopes** | What is asked of the provider about the user. | `openid`, `email`, `profile` |
+| **Cookie Suffix** | Added to the name of the session cookie, to tell policies apart when several are in use. | Empty |
+
+Deploy.
+
+## What users see
+
+1. They open the address of the API in their browser.
+2. They are sent to the sign-in page of the identity provider.
+3. Once signed in, they are sent back and reach the application. They are not asked again until
+   their session ends.
+
+## Good to know
+
+- The redirect URL must match **exactly** what is registered with the provider, scheme and path
+  included.
+- When two sign-in policies protect two APIs on the same host name, give each a different
+  **Cookie Suffix**.
+- The [auth gateway](/auth/auth-gateway) of an environment issues tokens to applications; it is
+  not an identity provider for signing people in.

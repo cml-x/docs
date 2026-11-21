@@ -20,14 +20,15 @@ API YAML required.
 
 ## Secure it
 
-Traffic and security **policies** (JWT/OIDC/API-key auth, CORS, rate limiting, retries, circuit
-breaking, and more) can be layered onto gateways, API instances or upstreams once your first API is
-live — see [Protect an API with JWT](/auth/protect-api-with-jwt) for the concrete steps.
+Traffic and security [policies](/api-manager/policies) (JWT/OIDC/API-key auth, CORS, rate
+limiting, retries, circuit breaking, and more) can be layered onto gateways and API instances once
+your first API is live — see [Protect an API with JWT](/auth/protect-api-with-jwt) for the
+concrete steps.
 
-## How this fits with Auth Manager and Access Manager
+## How this fits with authentication and Access Manager
 
 - **API Manager** exposes the route and enforces the policy at the gateway.
-- **[Authentication Manager](/auth/getting-start)** is where the identity provider that issues the
-  tokens those policies check actually lives.
+- An **[auth gateway](/auth/getting-start)**, created here under **Auth Gateways**, issues the
+  tokens those policies check to the applications you registered as clients.
 - **[Access Manager](/access/users)** controls which Camel X users can manage this API and its
   gateway in the first place — a separate concern from who can *call* the API at runtime.
