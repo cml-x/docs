@@ -88,13 +88,51 @@ unit only when isolation must be complete — it cannot be relaxed afterwards wi
 resources.
 :::
 
-## Create and delete a business unit
+## Create a business unit
 
 On the **Organization** page, **Create Business Unit** asks for a name. The unit is created
 empty: add environments, then members and roles.
 
-:::danger[Deleting a business unit cannot be undone]
-Deletion asks you to type the name of the unit. Everything it owns goes with it.
+## Deleting a business unit or an organization
+
+Removing a business unit or an organization is a **critical action with contractual
+implications**. It is not done with a button.
+
+The **Delete** action of the Organization page exists, and asks you to type the name of the
+unit. But it only removes the business unit **from view**:
+
+| What the Delete button does | What it does not do |
+|---|---|
+| Removes the business unit from the console | Stop its integrations, gateways and environment services |
+| | Release the resources it uses on its runtime planes |
+| | Stop the billing of those resources |
+
+:::danger[A deleted business unit keeps running and keeps being billed]
+After a deletion from the console, everything the business unit owns **stays active** and
+continues to be invoiced according to your billing mode — see your billing policy. You simply no
+longer see it. Do not use the Delete button to stop a service or to reduce a bill.
+:::
+
+### To end a service
+
+Ending the service of a business unit, or of a whole organization, is a request made through
+the appropriate channels — your account contact or the support desk — and not an operation of
+the console.
+
+- It is handled as a contractual change, under the terms of your agreement.
+- **Processing can take several weeks.** Plan it ahead of the date you need.
+- Until it is confirmed as complete, the resources remain active and billed.
+
+:::warning[Reduce consumption yourself in the meantime]
+What you can do at once, from the console, is stop what consumes: **undeploy** the integrations
+and gateways of the business unit and **recycle** the services of its environments. That reduces
+what runs; it does not end the service or the contract.
+:::
+
+:::tip[Before asking for an end of service]
+Export what you must keep — repositories, schemas, configurations you are entitled to read —
+and tell the teams that call the APIs of the unit. Once the service is ended, none of it can be
+recovered from the console.
 :::
 
 ## Who administers what
