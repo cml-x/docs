@@ -44,7 +44,7 @@ example.
 
 The API is then open to everyone: protect it before giving the address out.
 
-:::danger A published API is open
+:::danger[A published API is open]
 A new API instance has no authentication. On a public gateway it answers anyone as soon as its
 host name resolves. Add its security policy before you give the address out.
 :::

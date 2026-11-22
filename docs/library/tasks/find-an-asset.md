@@ -9,7 +9,7 @@ Look in the catalogue for what already exists — a template, a connector, a sch
 
 The catalog searches names, descriptions and topics across your organization and the public catalogs. Indexes choose where to search; facets narrow the results by type, topic or owner.
 
-:::tip No result does not mean it does not exist
+:::tip[No result does not mean it does not exist]
 Clear the facets and try the name of the system rather than the name you would have given the project.
 :::
 

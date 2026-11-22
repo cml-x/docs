@@ -49,7 +49,7 @@ The container registry the integrations of this environment are published to.
 | **CA Secret** | The certificate authority of the registry, when it is a private one: a [TLS Certificate](/config-sources/templates#tls-certificate) or a [Secure Resources File](/config-sources/templates#secure-resources-file). | None |
 | **Insecure** | Allow connections to the registry without verifying its certificate. | Off |
 
-:::warning A wrong registry setting fails every build
+:::warning[A wrong registry setting fails every build]
 If the address, the pull secret or the CA of the registry is wrong, **every** integration of the
 environment fails at the push step. When all builds fail at once, look here, not at the
 integrations.
@@ -70,7 +70,7 @@ The Maven settings the builds of this environment use.
 Both fields choose among the same kind of configuration, because one Maven Settings
 configuration can hold the two files. Choose the same one in both when it holds both.
 
-:::tip Mirror Maven Central
+:::tip[Mirror Maven Central]
 Pointing the Maven settings at an internal mirror makes builds faster and independent of the
 internet, and gives you one place to control which artifacts may be used.
 :::

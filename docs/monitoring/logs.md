@@ -20,7 +20,7 @@ Integrations write their console output as JSON. Each entry is parsed into field
 level, logger name, message, thread — so that filters apply to a field rather than to a text
 match.
 
-:::warning Output that is not JSON is not parsed
+:::warning[Output that is not JSON is not parsed]
 The log flow of the environment parses JSON. A line that is not valid JSON — a stack trace
 printed directly to standard output, a library writing its own format — is not split into
 fields. Log through the Camel `log` step or a logger, not with `System.out`.

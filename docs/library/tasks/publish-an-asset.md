@@ -9,7 +9,7 @@ Make something you built findable and reusable by others in the business unit.
 
 Most assets publish themselves: a repository set as a template and each release of a repository are indexed without any action. Publishing by hand is for what does not come from a repository.
 
-:::tip Describe the use, not the making
+:::tip[Describe the use, not the making]
 Say which system it connects, what it expects and what it produces. That is what a reader decides on.
 :::
 

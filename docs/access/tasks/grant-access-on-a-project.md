@@ -9,7 +9,7 @@ Give a user one or several roles on a project. Without this, a user sees nothing
 
 A grant gives a user one or several roles on one project. It is what makes the project visible to them and decides what they may do in it.
 
-:::tip Least privilege
+:::tip[Least privilege]
 Grant the smallest role that covers the work, restricted to the environments the person works in.
 :::
 

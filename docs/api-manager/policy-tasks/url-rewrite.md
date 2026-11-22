@@ -9,7 +9,7 @@ Change the path or the host name of a request before it is forwarded, so that th
 
 The gateway changes the path or the host name of the request before forwarding it. The address you publish and the address the service expects can then differ: `/v1/orders` outside, `/orders` inside.
 
-:::info The service sees the rewritten request
+:::info[The service sees the rewritten request]
 Links or redirects the service builds from its own path will not include the public prefix.
 :::
 

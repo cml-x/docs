@@ -9,7 +9,7 @@ Find what an integration or a gateway logged, in a period, matching what you are
 
 Logs are searched by period and by field. Because integrations log in JSON, you filter on the level, the logger or the service name rather than on raw text, which is both faster and more precise.
 
-:::tip Narrow the period first
+:::tip[Narrow the period first]
 Start from the minute of the incident and widen. A search over a day of logs is slow and returns too much to read.
 :::
 

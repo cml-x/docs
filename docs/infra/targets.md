@@ -16,7 +16,7 @@ runtime plane, which namespace. Separating it from the environment lets the same
 namespace shared with others on a managed cluster and a namespace on a cluster of your own —
 and lets you move a stage by pointing its environment at another target.
 
-:::info A target is a namespace, not a cluster
+:::info[A target is a namespace, not a cluster]
 Several targets can sit on the same runtime plane, each in its own namespace. Creating a target
 does not create or reserve a cluster.
 :::

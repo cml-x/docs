@@ -17,7 +17,7 @@ applied to the response.
 | `set` | Headers set, replacing an existing value |
 | `remove` | Header names removed before forwarding |
 
-:::tip Strip what the backend must not trust
+:::tip[Strip what the backend must not trust]
 Remove from incoming requests the headers your backend treats as identity — `x-user-id`,
 `x-client-id` — then let the authentication rule set them.
 :::
@@ -51,7 +51,7 @@ A setting of the **gateway**: how it connects to backends that expect TLS.
 | `maxVersion` | `1.3` | Highest TLS version towards backends |
 | `clientCertificate` | — | A TLS Certificate configuration the gateway presents, for mutual TLS |
 
-:::info One client certificate per gateway
+:::info[One client certificate per gateway]
 The client certificate is set on the gateway and presented to every backend that asks for one.
 Backends that require different client identities need different gateways.
 :::

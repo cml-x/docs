@@ -9,7 +9,7 @@ Run an integration at set times instead of continuously: it starts, does its wor
 
 For an integration that runs on a schedule rather than continuously, this setting has the platform start it at the times of a cron expression and stop it when the work is done. Nothing runs, or is paid for, between two executions.
 
-:::info For periodic batches
+:::info[For periodic batches]
 It suits routes that start from a timer or a scheduler. A route that listens for requests must stay up.
 :::
 

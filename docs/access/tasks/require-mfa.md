@@ -9,7 +9,7 @@ Ask everyone for a second proof when they sign in, beyond their password.
 
 Enforcing MFA makes every user enroll a second factor at their next sign-in and present it afterwards. It protects against stolen and reused passwords.
 
-:::warning Announce it first
+:::warning[Announce it first]
 Users cannot skip enrollment. Tell them before turning it on, and make sure administrators are enrolled.
 :::
 

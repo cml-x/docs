@@ -9,7 +9,7 @@ Let through, or block, callers according to the address they come from.
 
 The gateway allows or refuses a request from its source address, before authentication. Use an allowlist to open an API to known networks only, or a denylist to block addresses that abuse it.
 
-:::warning Check which address the gateway sees
+:::warning[Check which address the gateway sees]
 Behind a CDN or a proxy, every request appears to come from the proxy. Test from the real client network before relying on a rule.
 :::
 

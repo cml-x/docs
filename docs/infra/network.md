@@ -20,7 +20,7 @@ else; only the gateway may call the integrations.
 Rules describe what is **allowed**. Once a list holds rules, what none of them allows is
 refused.
 
-:::warning Restricting egress cuts DNS unless you allow it
+:::warning[Restricting egress cuts DNS unless you allow it]
 The first symptom of an egress list without the DNS preset is that every outgoing call fails
 with "unknown host". Add **DNS — kube-dns** before any other egress rule.
 :::
@@ -61,7 +61,7 @@ A rule can start from a preset. **DNS — kube-dns** lets the environment resolv
 on port 53, to the name service of the cluster. Add it to the egress rules of an environment
 whose outgoing traffic you restrict, or its workloads will not find the services they call.
 
-:::tip Allow by label, not by address
+:::tip[Allow by label, not by address]
 Addresses of workloads change at every restart. Rules that select workloads by labels keep
 working; rules on internal IP ranges do not.
 :::

@@ -32,12 +32,12 @@ A configuration is managed from its page. Distribution is separate from creation
 | Edit, delete | As for [secrets](/config-sources/secrets#operations) |
 | **Distribute to environment** | Make it available in one more environment, without recreating it |
 
-:::warning Not for credentials
+:::warning[Not for credentials]
 A value in a Config Map is shown in clear to whoever can read the configuration. Passwords,
 tokens and keys belong in the **Secure** templates.
 :::
 
-:::tip Same keys, one configuration per environment
+:::tip[Same keys, one configuration per environment]
 Use the same property keys in `orders-settings-dev` and `orders-settings-prod`, and distribute
 each to its environment. The route reads the same placeholder and gets the value of the
 environment it runs in.

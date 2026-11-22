@@ -30,7 +30,7 @@ On the page of the repository, open **Actions** and choose **Set as template**. 
 then appears in the template selection of the wizard, and in
 [Assets Explorer](/library/templates) under **Templates**.
 
-:::info Setting as template changes nothing in the repository
+:::info[Setting as template changes nothing in the repository]
 Its content, its releases and the integrations built from it are untouched. The repository is
 only offered as a starting point in addition.
 :::

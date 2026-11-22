@@ -50,7 +50,7 @@ A public API needs more than a route: decide who may call it and what happens un
 | What if the integration is slow? | A **timeout**, shorter than the caller's own |
 | What if it fails briefly? | A **retry**, only for calls that can safely be repeated |
 
-:::warning Retries and writes
+:::warning[Retries and writes]
 A retry sends the same request again. That is safe for a read, and can create a duplicate for a
 write unless the integration recognises a request it has already handled.
 :::
@@ -85,7 +85,7 @@ Permissions can be restricted to some environments — see
 
 See [Monitoring](/monitoring/getting-start).
 
-:::warning Test the rollback before you need it
+:::warning[Test the rollback before you need it]
 Deploy a new release to a non-production environment, then roll back, at least once. A rollback
 that has never been tried is a plan, not a capability.
 :::

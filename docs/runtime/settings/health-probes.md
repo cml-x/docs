@@ -9,7 +9,7 @@ Adjust the checks that say whether an integration is alive, whether it is ready 
 
 Three probes tell the platform about an instance. **Startup**: has it finished starting? **Readiness**: may it receive traffic? **Liveness**: is it stuck and to be restarted? Wrong thresholds cause the two classic failures: traffic sent too early, and healthy instances restarted in a loop.
 
-:::tip Slow start: lengthen the startup probe, not liveness
+:::tip[Slow start: lengthen the startup probe, not liveness]
 A generous startup probe gives a slow integration time to start without weakening the detection of a hang later.
 :::
 

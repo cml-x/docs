@@ -9,7 +9,7 @@ Publish a new version of a schema while keeping the earlier ones available.
 
 A new version records a change to a contract while keeping the earlier versions available. Consumers move to it when they are ready.
 
-:::warning Publishing does not migrate consumers
+:::warning[Publishing does not migrate consumers]
 A breaking change needs a plan for each consumer; the registry only keeps both versions readable.
 :::
 

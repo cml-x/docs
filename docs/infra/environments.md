@@ -33,7 +33,7 @@ Because an environment only refers to a target, the same model covers very diffe
 An integration is bound to each environment it must run in, and is built and deployed separately
 in each. Multi-region is therefore explicit: one binding per region.
 
-:::tip Name environments after their stage, not their cluster
+:::tip[Name environments after their stage, not their cluster]
 `production` stays true when the environment moves to another region or to your own cluster;
 `aws-eu-west-1` does not.
 :::

@@ -6,7 +6,7 @@ sidebar_position: 3
 A connected app is a machine identity: a CI pipeline, a script or another system that calls the
 platform API without a person signing in. It is granted roles exactly like a user.
 
-:::info Not for the clients of your APIs
+:::info[Not for the clients of your APIs]
 Applications that call the APIs **you expose** are OAuth clients of an
 [auth gateway](/auth/client-lists), not connected apps.
 :::
@@ -18,7 +18,7 @@ acts with all of their rights, and makes the audit trail say a human did what a 
 service account fixes the three: it belongs to no one, has only the roles you grant it, and
 appears under its own name.
 
-:::tip One account per program
+:::tip[One account per program]
 When a credential leaks, you revoke one account and one program is affected. A shared account
 turns every leak into an outage for everything that used it.
 :::

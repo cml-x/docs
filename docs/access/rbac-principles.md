@@ -74,7 +74,7 @@ holds:
 For a **view** permission, two more paths exist: holding *edit* or *delete* on the same
 resource, and being **viewer** of the organization.
 
-:::info Permissions add up, they never subtract
+:::info[Permissions add up, they never subtract]
 There is no "deny". A user with two roles has the union of what both grant. To take a right
 away, remove it from the role or remove the role from the user.
 :::
@@ -91,7 +91,7 @@ catalog: they are given to a user for the whole organization.
 | **member** | Belongs to the organization; sees only the business units where a role is granted |
 | **support agent** | Handles support cases |
 
-:::warning Organization administrator is the widest right there is
+:::warning[Organization administrator is the widest right there is]
 It reaches every business unit, present and future. Give it to the few people who administer
 the platform itself, and use business unit roles for everyone else.
 :::
@@ -163,7 +163,7 @@ For each resource the catalog offers up to five actions:
 In the role editor these are presented as plain-language choices — **"Create and manage Gateway"**,
 **"Apply changes on Gateway"** — rather than raw action names.
 
-:::info View is never a checkbox of its own
+:::info[View is never a checkbox of its own]
 **View is implied** by Edit and Delete on the same resource: if a role can edit gateways, it can
 obviously see them. That is why you will not find a standalone "View" checkbox for most resources.
 :::

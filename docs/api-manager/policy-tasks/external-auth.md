@@ -9,7 +9,7 @@ Ask a service of yours, for each request, whether it may pass. The service answe
 
 The gateway asks a service of yours, for each request, whether to let it through. Your service receives the request details and answers yes or no. Use it when the decision needs data only you have: a contract, a quota, a risk score.
 
-:::danger Your service is now in the path of every call
+:::danger[Your service is now in the path of every call]
 Its latency is added to every request and its outage is an outage of the API. Make it fast, replicated, and decide deliberately on `failOpen`.
 :::
 

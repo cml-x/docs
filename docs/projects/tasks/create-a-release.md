@@ -9,7 +9,7 @@ Publish a named, fixed version of a repository. A release is what test and produ
 
 A release fixes one state of the repository under a version number. It is what environments beyond development build, so that what runs is known and can be rebuilt identically.
 
-:::warning Commit before releasing
+:::warning[Commit before releasing]
 A release tags what is committed. Work still open in the Web IDE is not part of it.
 :::
 

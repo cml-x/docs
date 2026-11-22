@@ -63,7 +63,7 @@ In Git mode you choose what to build. The choice decides whether two deployments
 
 Deploying a release means that what runs in production is exactly what was tested.
 
-:::warning Do not build production from a branch
+:::warning[Do not build production from a branch]
 A branch build takes whatever the branch holds at the moment of the deployment. Two production
 deployments a day apart may differ without anyone having decided it. Point production at a
 release.

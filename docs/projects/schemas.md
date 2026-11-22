@@ -26,7 +26,7 @@ artifact and version.
 | **Artifact** | One contract, in one format | Its **Artifact ID** can never be changed |
 | **Version** | One state of the content | Earlier versions stay readable |
 
-:::tip Group by domain, not by team
+:::tip[Group by domain, not by team]
 Teams are reorganized; domains last. `orders`, `billing`, `shipping` stay meaningful when the
 team that owns them changes.
 :::
@@ -64,7 +64,7 @@ one. Compatibility is a discipline of whoever owns the contract:
 - **Removing or renaming a field, or changing a type** breaks consumers. Publish it as a new
   major version and keep the previous one in service until every consumer has moved.
 
-:::warning A new version does not migrate anyone
+:::warning[A new version does not migrate anyone]
 Publishing version 4 changes nothing for a consumer reading version 3. Plan the migration of
 each consumer; the registry only makes both versions available.
 :::

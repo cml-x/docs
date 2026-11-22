@@ -40,7 +40,7 @@ Three actions stop someone from signing in, and they differ in what they keep. C
 
 Access to projects is not set here: see [Authorizations](/access/authorizations).
 
-:::tip Deactivate before deleting
+:::tip[Deactivate before deleting]
 A deactivated account keeps its grants and its history, and can be reactivated. Delete only when
 nothing — an audit, a transfer of ownership — still refers to the account.
 :::

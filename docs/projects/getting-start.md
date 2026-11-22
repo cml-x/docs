@@ -44,7 +44,7 @@ If you write integrations, you want **Routes**. Choose **Kamelet** when several 
 same connector logic and you want to publish it once; choose **Pipe** when a flow is only "read
 from this, write to that" with no logic in between.
 
-:::tip Start with one repository per deployable integration
+:::tip[Start with one repository per deployable integration]
 A repository is released as a whole. Routes that are deployed together belong together; routes
 that are released on different schedules are easier to manage in separate repositories.
 :::

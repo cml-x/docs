@@ -9,7 +9,7 @@ Require a valid access token on every request, issued by an auth gateway of the 
 
 The caller sends a signed token; the gateway verifies its signature with the public keys of the issuer, then its issuer, expiry and — when asked — audience. No call is made to the issuer per request, so verification is fast and keeps working if the issuer is briefly unavailable.
 
-:::warning Turn the audience check on
+:::warning[Turn the audience check on]
 Without it, a token issued for another API by the same issuer is accepted here.
 :::
 

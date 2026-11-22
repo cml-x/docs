@@ -37,7 +37,7 @@ from a library of yours.
 | `camel:<name>` | A Camel component, data format or language | `camel:jackson` |
 | `mvn:<group>:<artifact>:<version>` | Any Maven artifact | `mvn:org.postgresql:postgresql:42.7.3` |
 
-:::tip A class not found at startup is a missing dependency
+:::tip[A class not found at startup is a missing dependency]
 `ClassNotFoundException` or `No DataFormat with name ... could be found` in the logs of an
 integration that built fine means a dependency to declare here.
 :::
@@ -62,7 +62,7 @@ two places to add one, depending on who needs it:
 - The Maven settings of the [Camel Integration Service](/infra/camel-integration-service) — for
   repositories, mirrors and credentials shared by every integration of the environment.
 
-:::info A private repository needs credentials and trust
+:::info[A private repository needs credentials and trust]
 An artifact server behind authentication or signed by a private authority is configured in the
 Maven settings of the environment, not on each integration.
 :::

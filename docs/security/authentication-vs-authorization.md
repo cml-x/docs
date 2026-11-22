@@ -29,7 +29,7 @@ This is about the applications and people that **call** the APIs you publish.
 | Credentials issued by | An [auth gateway](/auth/auth-gateway) to registered [clients](/auth/client-lists), or your identity provider | — |
 | Enforced by | The gateway, before the request reaches the service | The gateway; then the service for business rules |
 
-:::warning Two independent systems
+:::warning[Two independent systems]
 A role in Access Manager gives no right to **call** an API, and a token for an API gives no
 right to **manage** anything in the console. A developer who manages an API still needs a client
 to call it.
@@ -47,7 +47,7 @@ The gateway checks that a token is genuine and meant for this API. It does not i
 
 For decisions on other claims, use external authorization, or check them in the route.
 
-:::tip Pass identity to the backend in a header
+:::tip[Pass identity to the backend in a header]
 The API key and Basic rules can forward the identity of the caller in a header. Remove that
 header from incoming requests first — see [Route filters](/api-manager/reference/route-filters).
 :::

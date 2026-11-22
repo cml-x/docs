@@ -9,7 +9,7 @@ Stop someone from signing in, for a while or for good.
 
 Three actions stop someone from signing in. Locking and deactivating keep the account and its grants; deleting removes them for good.
 
-:::danger Deletion is permanent
+:::danger[Deletion is permanent]
 The account and its grants cannot be restored. Deactivate first; delete when nothing refers to the account any more.
 :::
 

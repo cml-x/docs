@@ -29,7 +29,7 @@ else that runs.
 
 ## Storage and replicas
 
-:::warning A volume is usually writable from one node at a time
+:::warning[A volume is usually writable from one node at a time]
 Most storage can be mounted read-write by a single node. With several replicas spread over
 nodes, only some of them can mount it. Either keep one replica, use a storage whose access mode
 allows many writers, or keep the state outside the integration — a database, an object store.
@@ -40,7 +40,7 @@ allows many writers, or keep the state outside the integration — a database, a
 A storage can be a member of an [integration group](/runtime/integration-groups), next to the
 integrations that use it. It is then created and removed with the group.
 
-:::danger Deleting a storage deletes its data
+:::danger[Deleting a storage deletes its data]
 The volume and everything on it are removed. Unmount it from the integrations that use it and
 save what must be kept first.
 :::

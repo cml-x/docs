@@ -96,7 +96,7 @@ What it says:
 
 One integration can hold several source files, each in its own language.
 
-:::tip One route per concern
+:::tip[One route per concern]
 Several short routes with clear `id`s are easier to read in traces and metrics than one long
 route: every series and every span is labelled with the route ID.
 :::
@@ -122,7 +122,7 @@ Leave **Expose HTTP Endpoint** on. It gives the integration a service inside the
 that other integrations — and later the gateway — can call it. Turn it off for an integration that
 only consumes, such as one reading a queue or running on a timer.
 
-:::info Reachable inside the environment only
+:::info[Reachable inside the environment only]
 At this stage the integration has no address on the internet. Publishing it is
 [step 8](/tutorial/expose).
 :::

@@ -16,7 +16,7 @@ This also keeps offboarding and reorganizations simple. Moving someone to anothe
 removing one grant and adding another; their account, sign-in method and second factor are
 untouched.
 
-:::warning No grant, no access
+:::warning[No grant, no access]
 A user without a grant on a project does not see it at all — not even in the business unit
 selector. "I cannot see the project" almost always means a missing or deactivated grant.
 :::

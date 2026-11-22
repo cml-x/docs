@@ -32,7 +32,7 @@ Open **API Manager**, go to **Auth Gateways**, then create one.
 | **Gateway & Access Point** | The [gateway](/api-manager/gateway) and the access point the service is reached through, and the host name it answers on, such as `auth.example.com`. Only an **HTTPS** access point can carry it. |
 | **Version** | The version of the token service to run. |
 
-:::info The address is the issuer
+:::info[The address is the issuer]
 Tokens are issued in the name of the address you choose here: `https://auth.example.com`. APIs
 that check the tokens are given that same address. Changing it later means every token already
 issued is refused.

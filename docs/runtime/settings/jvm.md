@@ -9,7 +9,7 @@ Pass flags to the JVM of an integration, attach a debugger or an agent, extend i
 
 This setting passes options to the JVM that runs the routes: heap size, garbage collector, system properties, a debug port, an agent. It also selects the certificate authorities the integration trusts for outgoing TLS.
 
-:::tip Heap below the memory limit
+:::tip[Heap below the memory limit]
 Leave room for metaspace, threads and direct buffers: `-Xmx` at about two thirds of the memory limit is a sound start.
 :::
 

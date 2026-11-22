@@ -24,7 +24,7 @@ engineers already use, an archive with its own retention.
 Exporting does not move logs out of Monitoring. A flow copies the logs it selects to the
 destinations it names; what no flow selects stays where it was.
 
-:::info Three objects, in this order
+:::info[Three objects, in this order]
 Configure the **exporter**, then create a **destination**, then a **flow** that sends logs to
 it. A destination that no flow references receives nothing.
 :::
@@ -85,7 +85,7 @@ Once created, a destination can be given options. Which ones depends on the dest
 Credentials are stored configurations — see the
 [templates for log destinations](/config-sources/templates#for-log-destinations).
 
-:::warning Credentials of a destination are stored configurations
+:::warning[Credentials of a destination are stored configurations]
 An API key or a password is never typed into the destination itself: it is chosen among the
 configurations of Secret Manager, which must be made available to the environment.
 :::

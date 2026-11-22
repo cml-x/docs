@@ -19,7 +19,7 @@ One gateway can serve many APIs. You create a second one when traffic must be **
 public and internal APIs on different load balancers, a partner with its own certificate and
 limits, or a workload whose traffic must not compete with the rest.
 
-:::tip How many gateways
+:::tip[How many gateways]
 Start with one public gateway and, if needed, one internal. Each gateway has its own load
 balancer and its own instances: more gateways means more to pay for and to watch.
 :::
@@ -62,7 +62,7 @@ For each access point:
   it from the field.
 - **Who may publish on it** — by default, only what belongs to the same environment.
 
-:::tip HTTPS is where encryption ends
+:::tip[HTTPS is where encryption ends]
 With an HTTPS access point, the gateway holds the certificate and your services receive plain
 HTTP. Use TLS instead when the service must hold the certificate itself.
 :::
@@ -74,7 +74,7 @@ environment. One more choice is always offered, marked **internal**: the address
 inside the platform, `<gateway>.<namespace>`. It is what to choose for an access point reached
 only from inside the platform.
 
-:::warning TLS passthrough hides the request from the gateway
+:::warning[TLS passthrough hides the request from the gateway]
 On a **TLS** access point the gateway forwards encrypted bytes. It cannot read the path or the
 headers, so path routing and HTTP policies — authentication, rate limit, headers — do not apply.
 Use **HTTPS** unless the backend must terminate TLS itself.

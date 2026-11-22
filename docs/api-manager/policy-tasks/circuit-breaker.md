@@ -9,7 +9,7 @@ Stop sending traffic to a service that is overwhelmed, by capping what the gatew
 
 A backend that slows down makes requests pile up in front of it, which slows it further. A circuit breaker caps how many connections and requests the gateway keeps open to the backend; beyond the cap it answers `503` at once, which lets the backend recover and lets callers fail fast.
 
-:::tip Size the caps from normal traffic
+:::tip[Size the caps from normal traffic]
 Set them above the peak you observe in the gateway metrics, not at the default: too low a cap rejects healthy traffic.
 :::
 

@@ -158,7 +158,7 @@ request is refused: the API is unavailable but never open. On, the request goes 
 **Limits** — every request now waits for your service, and depends on it. Keep it fast and run
 more than one instance.
 
-:::warning Authentication on the gateway only protects what goes through the gateway
+:::warning[Authentication on the gateway only protects what goes through the gateway]
 A workload inside the environment can still call the integration directly by its service name.
 Restrict ingress to the integration with [network policies](/infra/network) if that matters.
 :::
@@ -172,7 +172,7 @@ A security policy can hold several rules. Two combinations are common:
 
 Add **CORS** when the API is called by a web page served from another site.
 
-:::tip Test the refusals, not only the success
+:::tip[Test the refusals, not only the success]
 A policy is proven by what it rejects. For each rule, make at least one call that must fail.
 :::
 

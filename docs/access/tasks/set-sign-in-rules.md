@@ -9,7 +9,7 @@ Choose how people may sign in, how strong passwords must be, and what happens af
 
 These policies decide which sign-in methods are accepted, how strong passwords must be, and when an account is locked after failures. They apply to accounts managed by the platform.
 
-:::danger Do not lock yourself out
+:::danger[Do not lock yourself out]
 Before disabling password login, verify that an administrator can sign in through the identity provider or a security key.
 :::
 

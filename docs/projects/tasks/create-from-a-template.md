@@ -9,7 +9,7 @@ Create a repository that already holds a working integration, taken from a templ
 
 Starting from a template gives you routes that already run and the conventions of whoever published it. The content is copied: your repository is independent from the first commit.
 
-:::info Read what the template expects
+:::info[Read what the template expects]
 Its documentation lists the properties and stored configurations to create before the first deployment.
 :::
 

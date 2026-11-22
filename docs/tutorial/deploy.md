@@ -32,7 +32,7 @@ The overview of the integration follows both. The build has a log of its own: wh
 that is where the reason is — most often a dependency that cannot be found, or a route that does
 not parse.
 
-:::tip Later deployments are faster
+:::tip[Later deployments are faster]
 A change that does not touch the route or its dependencies — a property, a variable, more memory —
 does not rebuild the image. The integration only restarts.
 :::
@@ -50,7 +50,7 @@ The page of the integration shows where the deployment stands. "Running" and "re
 | Running, not ready | The process started but the route did not: read the logs |
 | Error | The build failed, or the integration stops as soon as it starts |
 
-:::info Why "ready" matters
+:::info[Why "ready" matters]
 The gateway and other workloads only send traffic to instances that are ready. An integration
 that is running but not ready receives nothing, which looks like an outage from outside.
 :::
@@ -87,7 +87,7 @@ every integration carries.
 Edit the source of the integration, then **Apply changes** again. Each deployment is kept as a
 **revision**: you can see what was deployed and when, and go back to an earlier one.
 
-:::warning A rollback restores source and settings together
+:::warning[A rollback restores source and settings together]
 A revision records the whole integration. Rolling back also returns the settings to what they
 were — including a property you had corrected since.
 :::

@@ -39,7 +39,7 @@ A policy has a **target**: a whole gateway â€” it then covers every API on it â€
 | Gateway | A baseline every API must meet: TLS versions, a global connection limit, an IP allowlist |
 | API instance | What is specific to one API: its authentication, its rate limit, its timeouts |
 
-:::warning A policy on an API replaces the gateway's, it does not add to it
+:::warning[A policy on an API replaces the gateway's, it does not add to it]
 When a policy of the same family targets both a gateway and one of its API instances, the API
 instance uses **its own policy only**. A JWT rule set on the gateway is no longer enforced on an
 API that has its own security policy without that rule: repeat in the API's policy what must
@@ -56,7 +56,7 @@ One policy holds several rules. How they combine differs per family.
 | Backend traffic policy | Each rule covers its own aspect; they do not conflict |
 | Client traffic policy | One set of connection and TLS settings per target |
 
-:::tip Start with three rules
+:::tip[Start with three rules]
 For an API open to applications: **JWT authentication** with the audience check, a **rate limit**,
 and a **request timeout** below the timeout of your callers. Add retries only for idempotent
 operations.
@@ -86,7 +86,7 @@ Several rules read a list or a credential stored once in **Secret Manager**:
 | Lua policy, stored script | [Lua Script](/config-sources/templates#lua-script) |
 | Backend TLS, client certificate | [TLS Certificate](/config-sources/templates#tls-certificate) |
 
-:::info Make the configuration available first
+:::info[Make the configuration available first]
 A configuration can only be chosen in an environment it was made available to. The selectors of
 the policy forms offer to do it in place.
 :::

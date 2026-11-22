@@ -21,7 +21,7 @@ way. What it costs is that the build happens **in the environment**, at deployme
 dependency that cannot be resolved, or a registry that refuses the image, fails the deployment
 rather than a pipeline. The phases below are therefore worth knowing.
 
-:::info Built per environment
+:::info[Built per environment]
 Each environment builds its own image, with its own registry, Maven settings and base image.
 The same release built in two environments gives two images from the same source.
 :::
@@ -105,7 +105,7 @@ An integration can receive configuration in four ways. They differ in what they 
 | Files | [Resources](/runtime/settings/resources) | A path, such as `/etc/orders/catalog.json` |
 | Runtime properties | [Camel Runtime](/runtime/settings/camel-runtime) | Read by the runtime itself |
 
-:::tip Read the build log first
+:::tip[Read the build log first]
 When a deployment fails, the page of the integration shows the build with its log. Most failures
 are there, and the log names the missing artifact or the line that does not compile.
 :::

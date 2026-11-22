@@ -20,7 +20,7 @@ Each kind answers a different question. Knowing which question you have tells yo
 | **Concepts** | "Why does it work this way?" | Models, architecture, trade-offs | [Request routing](/api-manager/how-requests-are-routed) |
 | **Reference** | "What exactly is the default of Y?" | Every parameter, default and limit | [Backend Traffic Policy](/api-manager/reference/backend-traffic-policy) |
 
-:::tip Pick by situation, not by product area
+:::tip[Pick by situation, not by product area]
 Stuck on a `503` in production? Go to **How-to guides → Troubleshooting**. Deciding whether to
 group two integrations? **Concepts**. Looking for the default retry interval? **Reference**.
 :::

@@ -9,7 +9,7 @@ Change the headers of requests before they reach your service, and of responses 
 
 The gateway adds, replaces or removes headers on the request before it reaches the service, or on the response before it reaches the client. Typical uses: pass a tenant or a correlation ID to the service, remove internal headers from responses, strip identity headers a caller must not be able to forge.
 
-:::tip Add versus set
+:::tip[Add versus set]
 `set` replaces any value sent by the caller; `add` appends to it. For a header the service trusts, use `set`.
 :::
 

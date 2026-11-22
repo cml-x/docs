@@ -12,7 +12,7 @@ Read this page when an API does not answer as expected, or before designing how 
 share a gateway. It follows one request from the client to the service and names what decides
 at each step.
 
-:::info Vocabulary
+:::info[Vocabulary]
 An **access point** is a listener of the gateway. An **API instance** is a route attached to one
 access point. The console uses the first terms; logs and upstream documentation use the second.
 :::

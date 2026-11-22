@@ -71,7 +71,7 @@ One switch decides whether your authorities are added to the public ones or repl
 
 Turn it off only for an integration that must talk to your own systems and nothing else.
 
-:::danger Turning Keep Public Authorities off
+:::danger[Turning Keep Public Authorities off]
 With the switch off, the integration trusts **only** the authorities of your file. Every call to
 a service signed by a public authority — a SaaS API, a cloud provider — then fails. Turn it off
 only for an integration that must talk to private services exclusively.

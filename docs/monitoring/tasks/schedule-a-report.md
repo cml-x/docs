@@ -9,7 +9,7 @@ Have a dashboard sent to your team on a schedule.
 
 A report renders a dashboard on a schedule and sends it to recipients. Use it for people who need the figures regularly but do not open the console.
 
-:::info A snapshot
+:::info[A snapshot]
 A report shows the dashboard as it was when it was sent. For the live state, share the link to the dashboard.
 :::
 

@@ -72,7 +72,7 @@ listening on `/orders`. Turn **URL rewrite** off if your route expects the prefi
 
 Deploy the API instance.
 
-:::danger The API is now public and unprotected
+:::danger[The API is now public and unprotected]
 From this point anyone who knows the host name can call `orders`. On a real system, add the
 security policy of [step 9](/tutorial/secure) before publishing the name.
 :::
@@ -90,7 +90,7 @@ curl https://orders.example.com/orders
 The API is public and **open to everyone**. That is the subject of the
 [next step](/tutorial/secure).
 
-:::info Nothing changed in the integration
+:::info[Nothing changed in the integration]
 The route still listens on `platform-http:/orders`. The certificate, the host name and the
 exposure are entirely on the gateway side.
 :::

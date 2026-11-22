@@ -20,7 +20,7 @@ existing group.
 | Rollback | That integration only | Every member of the group |
 | Use for | Routes released on their own schedule | Routes that are always released together, with the storage they share |
 
-:::tip Default to "on its own"
+:::tip[Default to "on its own"]
 A group couples release cycles. Group integrations only when deploying one without the others
 would leave the system inconsistent.
 :::
@@ -45,7 +45,7 @@ environment.
 Each deployment of a group creates one revision for all its members. A rollback returns every
 member to the state of the chosen revision.
 
-:::warning A rollback is never partial
+:::warning[A rollback is never partial]
 Rolling a group back reverts every integration in it, including those that had not changed for
 the wrong reason. If one member must move independently, it does not belong in the group.
 :::

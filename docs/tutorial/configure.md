@@ -86,13 +86,13 @@ In the route, a variable is read with `env:`:
 Two switches are on by default: the integration is told its own namespace and instance name, and
 the proxy settings of the environment are passed on to it.
 
-:::tip Properties or variables?
+:::tip[Properties or variables?]
 Use **properties** for the configuration of the application: they are grouped, named and stored
 once. Use **variables** for the few values a library expects as variables, or that you set by
 hand for one environment.
 :::
 
-:::danger Environment variables typed in clear are not secret
+:::danger[Environment variables typed in clear are not secret]
 A variable written in the setting is stored with the integration and shown to whoever can open
 it. For a password or a token, read the variable from a stored configuration, or use Secure
 Properties.
@@ -174,7 +174,7 @@ Add the setting **Compute**.
 Choose **Apply changes**. None of these settings rebuilds the image: the integration restarts
 with its new configuration.
 
-:::tip Give a default where one makes sense
+:::tip[Give a default where one makes sense]
 `{{orders.batch.size:200}}` keeps the route working when the property is absent. Do not give a
 default to a credential or an address: failing at startup is better than calling the wrong
 system.

@@ -26,7 +26,7 @@ documentation applies:
 | Telemetry | OpenTelemetry, OpenObserve | OTLP metrics and traces, JSON logs, PromQL |
 | Where it runs | Any Kubernetes cluster | Managed runtime planes, or your own cluster |
 
-:::info The console hides the manifests, not the semantics
+:::info[The console hides the manifests, not the semantics]
 A rate limit is an Envoy rate limit; a readiness probe is a Kubernetes probe. When you need the
 fine print of a behavior, the upstream project's documentation applies.
 :::
@@ -58,7 +58,7 @@ The console always shows which business unit and which environment are selected,
 see follows that selection. This is the most common cause of "my integration has disappeared":
 it is in another environment.
 
-:::tip Check the selectors first
+:::tip[Check the selectors first]
 Before concluding that something is missing — an integration, a gateway, a log — check the
 business unit and the environment selected at the top of the console.
 :::

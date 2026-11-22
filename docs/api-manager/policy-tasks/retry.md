@@ -9,7 +9,7 @@ Send a request again when the service behind the API fails, so that a brief fail
 
 When a request to the backend fails for a transient reason, the gateway sends it again, after a short wait that grows with each attempt. The caller sees one request that succeeded.
 
-:::danger A retried request may be executed twice
+:::danger[A retried request may be executed twice]
 Retry on connection failures for any operation. Retry on `5xx` only for idempotent operations, or the backend may create two orders.
 :::
 

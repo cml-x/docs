@@ -9,7 +9,7 @@ Gather on one page the figures that tell whether a service is well: traffic, err
 
 A dashboard keeps the queries you run again and again on one page. Build it around what a caller experiences — traffic, errors, latency — plus the resource that runs out first.
 
-:::tip Use variables
+:::tip[Use variables]
 Filter panels on a `service_name` variable so that one dashboard serves every integration.
 :::
 

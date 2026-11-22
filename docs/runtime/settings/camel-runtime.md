@@ -9,7 +9,7 @@ Add properties to the application itself, and choose its runtime.
 
 Runtime properties are `key=value` pairs given to the Camel runtime at startup. Use them for the settings of the runtime and of components — a thread pool size, a log level — when they need not come from a stored configuration.
 
-:::warning Not for secrets
+:::warning[Not for secrets]
 A property typed here is stored with the integration in clear. Put credentials in a Secure Properties configuration.
 :::
 

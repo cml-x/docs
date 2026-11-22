@@ -9,7 +9,7 @@ Refuse requests beyond a number per second, minute or hour, before they reach yo
 
 The gateway counts requests over a window and answers `429` beyond the limit. It protects the service from overload and keeps one caller from consuming everything.
 
-:::info Counted per gateway instance
+:::info[Counted per gateway instance]
 Each instance of the gateway keeps its own counter: with three instances the effective limit is up to three times the value.
 :::
 

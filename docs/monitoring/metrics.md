@@ -15,7 +15,7 @@ failed — that is what traces and logs are for.
 Every integration and every gateway reports the series below without any configuration. To use
 them you only need to know their names and the labels that select one service.
 
-:::info Selecting one service
+:::info[Selecting one service]
 Filter on `service_name` — the name of the integration or of the gateway — and, to restrict to
 one environment, on `service_namespace`.
 :::

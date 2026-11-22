@@ -46,7 +46,7 @@ A business unit owns:
 | **Integrations, gateways, APIs** | Everything deployed, through its environments |
 | **Telemetry** | Logs, metrics and traces are read per business unit |
 
-:::warning A business unit is a hard boundary
+:::warning[A business unit is a hard boundary]
 Nothing is shared across business units: not a role, not a configuration, not a gateway. Two
 teams that must share a gateway or a secret belong in the same business unit, with roles that
 separate what each may do.
@@ -82,7 +82,7 @@ The right split follows **who must be kept apart**, not the org chart.
 | Two teams that must not see each other's source, secrets or traffic | Two business units |
 | A subsidiary with its own cluster and its own administrators | Its own business unit |
 
-:::tip Start with few business units
+:::tip[Start with few business units]
 Roles and environment restrictions already separate duties inside a unit. Create a new business
 unit only when isolation must be complete — it cannot be relaxed afterwards without moving
 resources.
@@ -93,7 +93,7 @@ resources.
 On the **Organization** page, **Create Business Unit** asks for a name. The unit is created
 empty: add environments, then members and roles.
 
-:::danger Deleting a business unit cannot be undone
+:::danger[Deleting a business unit cannot be undone]
 Deletion asks you to type the name of the unit. Everything it owns goes with it.
 :::
 

@@ -9,7 +9,7 @@ See the path one request took — through the gateway, the integration and what 
 
 A trace shows one request as a timeline of spans across the gateway, the integration and what it called. The longest span is where the time went.
 
-:::tip Find the trace from a log entry
+:::tip[Find the trace from a log entry]
 A log entry written during a request carries its trace ID. Search that ID to open the whole request.
 :::
 

@@ -9,7 +9,7 @@ Decide how the gateway spreads requests across the instances of the service, and
 
 When the service has several instances, the gateway chooses one per request. Round robin suits identical instances and short requests. Choose another algorithm when request durations vary widely, or when the same caller must reach the same instance.
 
-:::info Affinity breaks on scaling
+:::info[Affinity breaks on scaling]
 With consistent hashing, adding or removing an instance sends part of the callers to a different instance. Do not keep session state only in memory.
 :::
 

@@ -31,7 +31,7 @@ uses: metaspace, thread stacks and direct buffers come on top. Set the heap belo
 A container that exceeds its memory limit is killed and restarts in a loop: raise the limit, or
 lower `-Xmx`.
 
-:::tip Set requests from what you measure
+:::tip[Set requests from what you measure]
 Run the integration under representative load and read `jvm_memory_used` and
 `process_cpu_usage`. Requests near the observed steady state and limits with headroom avoid
 both wasted capacity and throttling.
@@ -66,7 +66,7 @@ An explicit trigger for a Kafka consumer:
     lagThreshold: "50"
 ```
 
-:::warning Scale to zero and HTTP
+:::warning[Scale to zero and HTTP]
 With `minReplicaCount: 0`, no replica is listening while the integration is idle. An HTTP route
 such as `platform-http:/orders` then refuses calls until a trigger starts a replica. Keep at
 least one replica for an integration that serves requests; reserve scale to zero for consumers of

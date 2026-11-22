@@ -32,7 +32,7 @@ Runtime Manager works with three objects.
 | [**Integration group**](/runtime/integration-groups) | Integrations and storage deployed and versioned together | When several integrations must always be released together |
 | [**Storage**](/runtime/storages) | A volume that keeps data across restarts | When a route keeps files or state on disk |
 
-:::tip Start with an integration on its own
+:::tip[Start with an integration on its own]
 Create integrations with **None — create it on its own**. Group them only when deploying one
 without the others would break something.
 :::
@@ -59,7 +59,7 @@ The environment must have its
 4. **Apply changes**. The environment builds an image from your route, then starts it.
 5. Follow the build and the instance on the page of the integration.
 
-:::info The first build takes a few minutes
+:::info[The first build takes a few minutes]
 Maven downloads the dependencies and the image is pushed to the registry of the environment.
 Later builds reuse what was downloaded; a change of settings alone does not build at all.
 :::

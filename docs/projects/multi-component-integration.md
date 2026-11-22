@@ -29,7 +29,7 @@ state that does not work.
 | An importer and an exporter that share a message format | One group | A new format must reach both at once |
 | A route and the volume it writes to | One group | The storage is created and removed with the route |
 
-:::tip When in doubt, do not group
+:::tip[When in doubt, do not group]
 An integration on its own can always be coordinated with others by releasing them in sequence.
 A group cannot be partially deployed.
 :::

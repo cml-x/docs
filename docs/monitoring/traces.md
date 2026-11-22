@@ -44,7 +44,7 @@ The shape of a trace usually points at the cause of a slow request.
 | Many short sequential children | Calls made one by one that could be batched or made in parallel |
 | A span in error with no child | The failure happened before any outgoing call: validation, marshalling |
 
-:::tip Start from the slowest
+:::tip[Start from the slowest]
 Sort traces by duration and open the slowest of the period. One slow trace usually shows the
 pattern behind a degraded average.
 :::

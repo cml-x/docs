@@ -9,7 +9,7 @@ Give an integration environment variables, written in the setting or read from a
 
 Environment variables are read by the runtime, by libraries, and by routes through `{{env:NAME}}`. Use them for the few values software expects in that form; prefer property files for the settings of your routes.
 
-:::danger A variable typed here is stored in clear
+:::danger[A variable typed here is stored in clear]
 For a secret value, read the variable from a stored configuration instead of typing it.
 :::
 

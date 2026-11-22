@@ -37,7 +37,7 @@ production belongs in Git, where it has a history and releases — see
 it, so that other workloads and the gateway can call it. Turn it off for an integration that only
 consumes — a queue listener, a timer.
 
-:::info A service inside the environment is not a public address
+:::info[A service inside the environment is not a public address]
 With **Expose HTTP Endpoint** on, the integration is reachable from the environment only.
 Publishing it is done in API Manager, with a gateway and an API instance.
 :::
@@ -61,7 +61,7 @@ runs, and each has [a page of its own](/runtime/settings). The ones used most:
 Several settings can give files to the same integration. What each one mounts is added to what
 the others mount, whatever the order they were added in.
 
-:::tip Keep values out of the routes
+:::tip[Keep values out of the routes]
 Anything that differs between environments — an address, a credential, a batch size — belongs in
 a setting, read by the route through a placeholder. The same release then runs everywhere.
 :::
@@ -75,7 +75,7 @@ returns the integration to an earlier revision, reusing the image that was built
 **Undeploy** removes the integration from the selected environment and keeps its definition.
 **Delete** removes the integration itself.
 
-:::warning Revisions are per environment
+:::warning[Revisions are per environment]
 Rolling back in production does not change development, and the reverse. Check the environment
 selected before rolling back.
 :::

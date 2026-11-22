@@ -26,7 +26,7 @@ starving the others.
 
 **Consequences.** Beyond the limit the gateway answers `429`.
 
-:::info The limit is local to each gateway instance
+:::info[The limit is local to each gateway instance]
 The counter is kept by each instance of the gateway, not shared. With two instances, the
 effective limit is up to twice the configured value. Size it per instance, and remember that
 autoscaling the gateway changes the total.
@@ -47,7 +47,7 @@ Procedure: [Rate limiting](/api-manager/policy-tasks/rate-limit).
 **Consequences.** A request that exceeds `requestTimeout` is answered `504` and the backend call
 is abandoned — the backend may still complete it.
 
-:::tip Order the timeouts
+:::tip[Order the timeouts]
 Client timeout above gateway `requestTimeout` above the timeout the route applies to its own
 outgoing calls. Otherwise the caller gives up first and the work is wasted.
 :::
@@ -67,7 +67,7 @@ Procedure: [Request timeouts](/api-manager/policy-tasks/timeout).
 | `baseInterval` | `25ms` | Wait before the first retry; grows exponentially |
 | `maxInterval` | `250ms` | Upper bound of the wait |
 
-:::warning Retries repeat side effects
+:::warning[Retries repeat side effects]
 A retried `POST` may be executed twice by the backend. Retry on `connect-failure` and `reset`
 for any operation; retry on `5xx` only when the operation is idempotent or deduplicated.
 :::
@@ -125,7 +125,7 @@ By default the gateway relies on the readiness reported by the platform. An acti
 | `healthCheck.unhealthyThreshold` | `3` | Consecutive failures before an instance is removed |
 | `healthCheck.httpPath` | `/healthz` | Path probed over HTTP |
 
-:::info Affinity is not a guarantee
+:::info[Affinity is not a guarantee]
 With `ConsistentHash`, a change in the number of backend instances remaps part of the keys. Keep
 session state outside the instances when it must survive a scale-out.
 :::

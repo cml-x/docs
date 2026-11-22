@@ -42,7 +42,7 @@ MIIDqDCCApCgAwIBAgIJ...
 
 Lines outside the `BEGIN` / `END` blocks, such as comments, are ignored.
 
-:::info Certificates only
+:::info[Certificates only]
 The file holds certificates, which are public. It never holds a private key.
 :::
 
@@ -94,7 +94,7 @@ Two fields decide what the integration trusts. These are the combinations that m
 | Public services **and** several private authorities | One file holding them all | On |
 | **Only** your authority, and nothing public | Your file | Off |
 
-:::warning Turning public authorities off
+:::warning[Turning public authorities off]
 With **Keep Public Authorities** off, every call to a public HTTPS service — a cloud API, a SaaS
 — is refused. Use it only for an integration that must talk to your own systems and nothing else.
 :::

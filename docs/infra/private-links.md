@@ -71,7 +71,7 @@ Both protocols give an encrypted tunnel. The choice usually follows what the equ
 | Port to open on the remote side | UDP 51820 (configurable) | UDP 500 and 4500 |
 | Measured throughput | Higher | About half — see [Performance and limits](#performance-and-limits) |
 
-:::caution
+:::warning
 The tunnel type cannot be changed once the link exists. To switch, create a new link.
 :::
 

@@ -44,7 +44,7 @@ offers values that exist.
 | Visibility | Public or private | — |
 | Owner | The organization that owns the asset | "What team X published" |
 
-:::tip Topics are what make an asset findable
+:::tip[Topics are what make an asset findable]
 Search matches names, descriptions and topics. An asset named `flow-12` with no topic is
 invisible. Add topics for the system, the protocol and the pattern when you publish.
 :::
@@ -65,7 +65,7 @@ reuse it before opening its repository.
 | **Version Manager** | The versions of the asset |
 | Documentation | The documentation of the asset, rendered from its repository |
 
-:::info Read the documentation and the dates
+:::info[Read the documentation and the dates]
 An asset last updated two years ago for a system that has since changed may cost more to adapt
 than to rewrite. The dates and the version history tell you whether it is maintained.
 :::

@@ -31,7 +31,7 @@ instances **in** it: the creation form of an API instance offers the group, or n
 A group is bound to an environment before it can be deployed there. A group not yet bound to the
 selected environment says so and offers to bind it.
 
-:::info The choice is made at creation
+:::info[The choice is made at creation]
 An API instance is created in a group or on its own. Decide before creating it: the group is
 part of how it is deployed and versioned.
 :::

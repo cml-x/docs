@@ -24,7 +24,7 @@ signature alone: no lookup, no shared secret travelling with every call.
 The price is one more component — the token service — and one more call for the application.
 The platform provides the token service: the **auth gateway**.
 
-:::tip When an API key is enough
+:::tip[When an API key is enough]
 A handful of internal callers, a tool that cannot run OAuth, a quick integration test: an API key
 is a reasonable choice. Move to tokens when callers multiply or when one credential must not
 open every API.
@@ -44,7 +44,7 @@ open every API.
 The application never talks to your service without going through the gateway, and your service
 never has to check a token itself.
 
-:::warning A token is valid until it expires
+:::warning[A token is valid until it expires]
 Removing a client stops it from obtaining new tokens; tokens already issued stay valid until
 their expiry. Keep token lifetimes short for sensitive APIs.
 :::

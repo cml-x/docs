@@ -36,7 +36,7 @@ the gateway verifies locally, with the public keys of the issuer.
 - Validity covers signature, issuer and expiry. Without `checkAudience`, a token issued for
   another API of the same issuer is accepted.
 
-:::warning Turn the audience check on
+:::warning[Turn the audience check on]
 An issuer shared by several APIs makes every token valid everywhere unless the audience is
 checked. Leave it off only while migrating clients.
 :::
@@ -81,7 +81,7 @@ Procedure: [OIDC authentication](/auth/configure-oidc).
 | `forwardClientIDHeader` | — | Header in which the identity of the caller is passed to the backend |
 | `sanitize` | Off | Remove the key from the request before forwarding |
 
-:::tip Prefer the header, and sanitize
+:::tip[Prefer the header, and sanitize]
 A key in a query parameter ends up in access logs and browser history. Carry it in a header and
 turn `sanitize` on so that the backend never sees it.
 :::
@@ -118,7 +118,7 @@ Procedure: [HTTP Basic authentication](/api-manager/policy-tasks/basic-auth).
 | `maxAge` | `3600s` | How long a browser caches the preflight answer |
 | `allowCredentials` | Off | Allow cookies and `Authorization` on cross-origin requests |
 
-:::warning Wildcard origin and credentials
+:::warning[Wildcard origin and credentials]
 Browsers refuse `allowCredentials` together with the origin `*`. List the origins explicitly
 when credentials are allowed.
 :::
@@ -138,7 +138,7 @@ Procedure: [CORS](/api-manager/policy-tasks/cors).
 Rules are evaluated in order; the first match wins. `defaultAction: Deny` with `Allow` rules is an
 allowlist; `defaultAction: Allow` with `Deny` rules is a denylist.
 
-:::info Which address is evaluated
+:::info[Which address is evaluated]
 The address is the one the gateway sees. Behind a proxy or a CDN, that is the address of the
 proxy unless the original address is preserved up to the gateway.
 :::
@@ -160,7 +160,7 @@ Procedure: [IP allowlist and denylist](/api-manager/policy-tasks/ip-rules).
 **Consequences.** Every request waits for the authorization service: its latency is added to
 every call, and its availability becomes that of the API.
 
-:::danger failOpen removes the protection during an outage
+:::danger[failOpen removes the protection during an outage]
 With `failOpen` on, an unavailable authorization service means **no check at all**. Keep it off
 unless availability matters more than access control for that API.
 :::

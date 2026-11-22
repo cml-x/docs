@@ -30,12 +30,12 @@ you can change anything, and later changes to the template do not reach you.
    select it — see [Create from a template](/projects/tasks/create-from-a-template).
 3. Set the properties it expects, then deploy.
 
-:::tip Search by topic
+:::tip[Search by topic]
 Topics are the reliable way to find a template: the system (`sap`, `salesforce`, `kafka`), the
 protocol (`sftp`, `jms`, `rest`), the pattern (`content-based-router`, `aggregator`).
 :::
 
-:::warning A template is a starting point, not a dependency
+:::warning[A template is a starting point, not a dependency]
 Because it is copied, a fix made later in the template does not reach your repository. If you
 need shared logic that stays up to date, publish it as a **Kamelet** and use it from your routes.
 :::

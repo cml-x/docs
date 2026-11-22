@@ -16,7 +16,7 @@ A good one is small. Four panels that map to what a caller experiences — traff
 latency — and to the one resource that runs out first, usually memory, tell more than forty
 panels of everything that can be measured.
 
-:::tip Build from templates, then remove
+:::tip[Build from templates, then remove]
 Start from a ready-made template and delete the panels you never look at. A dashboard nobody
 reads in full is a dashboard nobody trusts.
 :::

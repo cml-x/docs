@@ -66,7 +66,7 @@ that is still open in the Web IDE and not committed is not part of it. Before re
 
 A release can be deleted from the repository page.
 
-:::warning A deleted release cannot be rebuilt
+:::warning[A deleted release cannot be rebuilt]
 An integration already built from that release keeps running on its image. But a new build of
 the same release — for another environment, or after the image is gone — is no longer possible.
 Delete only releases that no environment uses.

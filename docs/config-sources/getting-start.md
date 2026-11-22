@@ -45,14 +45,14 @@ content lives in a secured vault and reaches only the instances that need it.**
 | **Write-only values** | Keys of an API Keys list, passwords of Basic Auth Users and secrets of OAuth clients are kept as fingerprints: they can be replaced, never read back |
 | **Masked display** | Other sensitive values are hidden on screen until explicitly revealed, by someone whose role allows it |
 
-:::info Vault-backed storage
+:::info[Vault-backed storage]
 Storage of contents in a dedicated vault is the target architecture and is being rolled out. The
 model above — references in the platform, contents mounted only on instances — is the one to
 design for: never copy a secret value into a route, a property committed to Git, or an
 environment variable typed in clear.
 :::
 
-:::danger What defeats the model
+:::danger[What defeats the model]
 A secret pasted into a route, into an inline property or into a clear-text environment variable
 is stored with the integration and visible to whoever can read it. Always choose a stored
 configuration instead.
@@ -78,7 +78,7 @@ configuration is one such thing; its distribution says where it can be used.
    service.
 4. **Rotate** — change its value in place; consumers follow without being edited.
 
-:::tip Created and distributed from the form that needs it
+:::tip[Created and distributed from the form that needs it]
 Every field that expects a configuration lists the ones of the right template, offers **New
 secret** to create one in a side panel, and **Make available** when one exists but is not yet
 distributed to the environment.

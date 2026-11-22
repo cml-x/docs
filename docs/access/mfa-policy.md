@@ -35,7 +35,7 @@ You choose which methods users may enroll. They are not equivalent: a code typed
 A second factor (2FA) proves possession. A multi-factor method (MFA) with user verification — a
 security key with a PIN or a biometric check — proves possession and presence in one step.
 
-:::tip Prefer security keys for administrators
+:::tip[Prefer security keys for administrators]
 A security key or a device's biometric check verifies the site it talks to: it cannot be
 replayed on a fake page. Codes sent by SMS or email can.
 :::

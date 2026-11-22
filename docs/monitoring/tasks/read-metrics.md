@@ -9,7 +9,7 @@ See how much traffic a service takes, how fast it answers and how often it fails
 
 A metric query selects series by name and labels, then aggregates them over time. Selecting by `service_name` isolates one integration; grouping by `routeid` shows which route is responsible.
 
-:::info Rates, not raw counters
+:::info[Rates, not raw counters]
 A counter only ever grows. Wrap it in `rate(...[5m])` to see requests per second.
 :::
 

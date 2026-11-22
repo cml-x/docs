@@ -39,7 +39,7 @@ The console shows, for each provider, the value to register on the provider side
 
 The value must be registered exactly as shown: scheme, host, path, no trailing slash added.
 
-:::warning Test with a second session
+:::warning[Test with a second session]
 Before requiring the provider for everyone, sign in through it in a private window while keeping
 an administrator session open. A mistake in the redirect URL locks out whoever depends on it.
 :::

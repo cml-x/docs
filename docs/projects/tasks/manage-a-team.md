@@ -9,7 +9,7 @@ Gather people into a team and give the team access to repositories, instead of g
 
 A team gives a group of people the same access to repositories. Managing access by team rather than person by person keeps it correct when people join, move or leave.
 
-:::info Repositories only
+:::info[Repositories only]
 A team governs access to source. What someone may deploy or expose is granted by roles in Access Manager.
 :::
 

@@ -9,7 +9,7 @@ Create an identity for a program — a script, a pipeline, another system — th
 
 A service account is an identity for a program. It has its own credentials and its own roles, so that automation neither borrows a person's rights nor stops when that person leaves.
 
-:::danger The secret is shown once
+:::danger[The secret is shown once]
 Copy it when it is created. It cannot be displayed again, only replaced.
 :::
 

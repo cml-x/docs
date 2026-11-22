@@ -9,7 +9,7 @@ Open a repository in the editor of the platform to write and change routes, with
 
 The Web IDE opens a repository in the route designer of the platform, in the browser. It is the quickest way to change a route without cloning anything. What you save there becomes commits, exactly as with a Git client.
 
-:::warning Saving is not deploying
+:::warning[Saving is not deploying]
 A commit changes the repository only. The change runs once an integration built from that branch is applied.
 :::
 

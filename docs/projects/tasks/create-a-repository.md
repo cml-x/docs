@@ -9,7 +9,7 @@ Create the Git repository that holds an integration project: its routes, its his
 
 A repository gives a project a history, reviews and releases — everything an inline integration lacks. Its type tells the platform what it contains; its name is what integrations will refer to.
 
-:::tip Choose the name to last
+:::tip[Choose the name to last]
 Integrations and releases refer to the repository by name. Renaming later means updating them.
 :::
 

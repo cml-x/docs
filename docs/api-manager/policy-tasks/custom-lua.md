@@ -9,7 +9,7 @@ Run a script on each request and each response: read and change headers, inspect
 
 When no built-in rule fits, a Lua script runs in the gateway on each request and response. It can read and change headers, log, or reject a request. It runs in the request path, so every millisecond it takes is added to every call.
 
-:::warning Last resort
+:::warning[Last resort]
 Use a built-in rule whenever one exists: it is validated, documented and observable. A script is code you must maintain.
 :::
 

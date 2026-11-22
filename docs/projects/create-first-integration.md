@@ -62,7 +62,7 @@ Bind `orders-api` to `production`. For this environment, point the Git source at
 Production now runs exactly the commit you released. Further commits on the branch are built in
 development and do not reach production.
 
-:::info One integration, two sources
+:::info[One integration, two sources]
 The same integration is bound to both environments, and each binding has its own source: the
 branch in development, a release in production. That is what keeps the two apart.
 :::

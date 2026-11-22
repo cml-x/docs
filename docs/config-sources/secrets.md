@@ -28,7 +28,7 @@ A secret is managed from its page. Each operation takes effect for every consume
 
 Values are masked until revealed. Values kept as fingerprints are never shown again.
 
-:::danger Deleting a configuration that is in use
+:::danger[Deleting a configuration that is in use]
 Deleting a configuration, or withdrawing its distribution, breaks what references it at the
 next restart or reload: an integration no longer starts, a policy refuses every caller. Remove
 the references first.
@@ -45,7 +45,7 @@ Rotating a secret without interrupting callers means that the old and the new va
 | TLS certificate | Replace the certificate in the same configuration before it expires |
 | Database password in Secure Properties | Change it at the source and in the configuration, then restart the integration |
 
-:::tip Rotate in place
+:::tip[Rotate in place]
 Keep the same configuration and change its value. Creating a new configuration means updating
 every reference to it.
 :::

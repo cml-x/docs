@@ -9,7 +9,7 @@ Give up on a request when the service behind the API takes too long, instead of 
 
 The gateway stops waiting for the backend after a set time and answers `504`. Without a timeout, a backend that hangs holds connections and callers indefinitely.
 
-:::tip Shorter than your callers
+:::tip[Shorter than your callers]
 Set the request timeout below the timeout of the applications that call the API, so that they get a clear `504` rather than giving up first.
 :::
 

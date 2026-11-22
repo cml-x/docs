@@ -25,7 +25,7 @@ These parameters protect the gateway itself from too many or too slow clients. T
 | `requestReceivedTimeout` | Gateway default | Maximum time to receive the request headers, such as `30s` |
 | `idleTimeout` | Gateway default | Close client connections idle for this long, such as `90s` |
 
-:::tip Slow clients
+:::tip[Slow clients]
 `requestReceivedTimeout` is the defence against clients that open connections and send headers
 very slowly. Set it on public gateways.
 :::
@@ -43,7 +43,7 @@ These parameters decide which TLS handshakes the gateway accepts from clients. T
 | `tlsSignatureAlgorithms` | Gateway default | Signature algorithms supported |
 | `tlsAlpnProtocols` | Gateway default | `h2`, `http/1.1`, `http/1.0` |
 
-:::warning Raising the minimum version cuts off old clients
+:::warning[Raising the minimum version cuts off old clients]
 Setting `tlsMinVersion` to `1.3` refuses every client limited to TLS 1.2. Check the access
 logs for the versions in use before raising it.
 :::

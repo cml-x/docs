@@ -46,7 +46,7 @@ end
 - A runtime error in the script fails the request.
 - A stored script is shared by every policy that references it: a change reaches all of them.
 
-:::warning Prefer a built-in rule when one exists
+:::warning[Prefer a built-in rule when one exists]
 Header changes, URL rewrite, authentication and rate limiting have dedicated rules that are
 validated and observable. Keep Lua for what none of them covers.
 :::

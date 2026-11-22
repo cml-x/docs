@@ -36,7 +36,7 @@ Read this table from the threat you are worried about to the control that addres
 | Header spoofing of identity | Remove identity headers on the way in |
 | Cascading failure of a slow backend | Timeout, circuit breaker |
 
-:::danger An API without a security policy is open
+:::danger[An API without a security policy is open]
 A new API instance has no authentication. On a **Public** gateway it is reachable by anyone as
 soon as it is created. Add its security policy before publishing the host name.
 :::
@@ -49,7 +49,7 @@ soon as it is created. Add its security policy before publishing the host name.
 4. Identity headers removed on the way in.
 5. Ingress to the backend restricted to the gateway.
 
-:::info Policy precedence
+:::info[Policy precedence]
 A security policy on an API instance replaces the gateway's for that API — see
 [Policies](/api-manager/policies#policy-targets-gateway-or-api-instance).
 :::

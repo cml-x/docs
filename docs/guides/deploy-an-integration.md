@@ -34,7 +34,7 @@ Applying an integration runs two phases. Knowing which phase failed tells you wh
 
 A change of settings alone skips the build phase.
 
-:::tip Promote the release you tested
+:::tip[Promote the release you tested]
 Point the next environment at the **same release** that was verified in the previous one. A
 branch may have moved in between.
 :::

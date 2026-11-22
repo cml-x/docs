@@ -37,7 +37,7 @@ are deployed through an integration in Runtime Manager.
 | **Set as template** | Makes the repository a [template](/projects/create-template) others can start from |
 | **Delete** | Deletes the repository |
 
-:::danger Deleting a repository is irreversible
+:::danger[Deleting a repository is irreversible]
 The code, the issues and every release are deleted. An integration already built from it keeps
 running on its existing image, but can never be rebuilt. Check in Runtime Manager that no
 integration still points at the repository.
