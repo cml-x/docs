@@ -50,6 +50,11 @@ The page of the integration shows where the deployment stands. "Running" and "re
 | Running, not ready | The process started but the route did not: read the logs |
 | Error | The build failed, or the integration stops as soon as it starts |
 
+:::info Why "ready" matters
+The gateway and other workloads only send traffic to instances that are ready. An integration
+that is running but not ready receives nothing, which looks like an outage from outside.
+:::
+
 ## Call the in-cluster service
 
 The integration has no public address yet. To check it from inside the environment, call its
@@ -81,6 +86,11 @@ every integration carries.
 
 Edit the source of the integration, then **Apply changes** again. Each deployment is kept as a
 **revision**: you can see what was deployed and when, and go back to an earlier one.
+
+:::warning A rollback restores source and settings together
+A revision records the whole integration. Rolling back also returns the settings to what they
+were — including a property you had corrected since.
+:::
 
 ## Undeploy
 

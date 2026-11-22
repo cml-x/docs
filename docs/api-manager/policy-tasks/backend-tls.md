@@ -5,6 +5,16 @@ sidebar_position: 14
 
 Choose the TLS versions the gateway uses towards the services it forwards to, and the certificate it presents to a service that requires one.
 
+## How it works
+
+By default the gateway talks to a backend as the backend is declared. When a backend requires TLS — and possibly a client certificate — this setting says which versions the gateway uses and which certificate it presents. It protects the hop between the gateway and the service, which TLS on the access point does not cover.
+
+:::info Set on the gateway
+The setting applies to every backend the gateway connects to, not to one API.
+:::
+
+Every parameter and its default: [reference](/api-manager/reference/route-filters#backend-tls).
+
 ## Use cases
 
 When a backend requires a recent TLS version, or mutual TLS.

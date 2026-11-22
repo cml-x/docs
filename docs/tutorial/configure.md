@@ -17,6 +17,16 @@ four.
 | A file | **Resources** | A *Resources File* configuration |
 | More CPU, memory or instances | **Compute** | The setting itself |
 
+## Why externalize
+
+A route that contains the address of the partner, the batch size and the password works in one
+place only. Externalized, the same route — the same release — runs in development and in
+production, each with its own values, and a credential is changed without touching the code.
+
+Three mechanisms are used here, each for what it suits: **properties** for settings read by
+name, **environment variables** for a few values the runtime or a library expects, **files** for
+content the route reads as a whole.
+
 ## Camel properties from a stored configuration
 
 ### Create the Properties Configuration
@@ -80,6 +90,12 @@ the proxy settings of the environment are passed on to it.
 Use **properties** for the configuration of the application: they are grouped, named and stored
 once. Use **variables** for the few values a library expects as variables, or that you set by
 hand for one environment.
+:::
+
+:::danger Environment variables typed in clear are not secret
+A variable written in the setting is stored with the integration and shown to whoever can open
+it. For a password or a token, read the variable from a stored configuration, or use Secure
+Properties.
 :::
 
 ## Mounted resource files
@@ -157,6 +173,12 @@ Add the setting **Compute**.
 
 Choose **Apply changes**. None of these settings rebuilds the image: the integration restarts
 with its new configuration.
+
+:::tip Give a default where one makes sense
+`{{orders.batch.size:200}}` keeps the route working when the property is absent. Do not give a
+default to a credential or an address: failing at startup is better than calling the wrong
+system.
+:::
 
 ## Per-environment overrides
 

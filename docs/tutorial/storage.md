@@ -32,6 +32,11 @@ On `orders-api`, choose **Add Capability**, then **Volumes**.
 
 **Apply changes** restarts the integration without rebuilding its image.
 
+:::info The mount path is yours to choose
+Routes refer to the path, not to the storage. Use the same path in every environment so that
+the route does not change between them.
+:::
+
 ## Use the volume from a route
 
 A file-based idempotent repository on the volume keeps the keys already processed across

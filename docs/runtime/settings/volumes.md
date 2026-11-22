@@ -5,6 +5,14 @@ sidebar_position: 12
 
 Mount storage that survives restarts, or a temporary directory, inside an integration.
 
+## How it works
+
+The setting mounts storage in the integration: a persistent volume, which keeps its content across restarts, or an EmptyDir, a temporary directory that lives as long as the instance. Use it when a route writes files.
+
+:::warning Persistent volumes and replicas
+Most volumes can be written from one node at a time: check the access mode before running several replicas.
+:::
+
 ## Prerequisites
 
 - An [integration](/runtime/integrations), created and bound to an environment.

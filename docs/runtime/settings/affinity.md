@@ -5,6 +5,14 @@ sidebar_position: 11
 
 Keep the instances of an integration on separate nodes, or place them on nodes of a certain kind.
 
+## How it works
+
+Kubernetes decides on which node each instance runs. Affinity rules constrain that choice: require nodes with a given label, keep instances of the same integration on different nodes, or keep an integration close to another. Use it for availability or to reach dedicated hardware.
+
+:::warning A rule that cannot be satisfied leaves instances pending
+A required rule with no matching node means the instance never starts. Prefer "preferred" rules unless the constraint is absolute.
+:::
+
 ## Prerequisites
 
 - An [integration](/runtime/integrations), created and bound to an environment.

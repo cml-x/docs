@@ -5,6 +5,16 @@ sidebar_position: 4
 
 Ask a service of yours, for each request, whether it may pass. The service answers allowed or denied, and can add headers to the request.
 
+## How it works
+
+The gateway asks a service of yours, for each request, whether to let it through. Your service receives the request details and answers yes or no. Use it when the decision needs data only you have: a contract, a quota, a risk score.
+
+:::danger Your service is now in the path of every call
+Its latency is added to every request and its outage is an outage of the API. Make it fast, replicated, and decide deliberately on `failOpen`.
+:::
+
+Every parameter and its default: [reference](/api-manager/reference/security-policy#external-authorization).
+
 ## Use cases
 
 When the decision follows rules of your own that no other rule expresses: a contract, a directory, a time of day.

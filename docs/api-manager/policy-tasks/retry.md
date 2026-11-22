@@ -5,6 +5,16 @@ sidebar_position: 9
 
 Send a request again when the service behind the API fails, so that a brief failure is not seen by the caller.
 
+## How it works
+
+When a request to the backend fails for a transient reason, the gateway sends it again, after a short wait that grows with each attempt. The caller sees one request that succeeded.
+
+:::danger A retried request may be executed twice
+Retry on connection failures for any operation. Retry on `5xx` only for idempotent operations, or the backend may create two orders.
+:::
+
+Every parameter and its default: [reference](/api-manager/reference/backend-traffic-policy#retries).
+
 ## Use cases
 
 For requests that are safe to repeat: reads, and writes that your service recognises when it receives them twice.

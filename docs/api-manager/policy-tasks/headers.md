@@ -5,6 +5,16 @@ sidebar_position: 15
 
 Change the headers of requests before they reach your service, and of responses before they reach the caller.
 
+## How it works
+
+The gateway adds, replaces or removes headers on the request before it reaches the service, or on the response before it reaches the client. Typical uses: pass a tenant or a correlation ID to the service, remove internal headers from responses, strip identity headers a caller must not be able to forge.
+
+:::tip Add versus set
+`set` replaces any value sent by the caller; `add` appends to it. For a header the service trusts, use `set`.
+:::
+
+Every parameter and its default: [reference](/api-manager/reference/route-filters).
+
 ## Use cases
 
 To pass a fixed value to a service, to hide a header that reveals too much, or to add a security header to every response.

@@ -40,6 +40,11 @@ Each step is one page and adds one capability to the same integration.
 | [10. Observe](/tutorial/observe) | Read logs, metrics and traces | OTLP pipeline, resource attributes, PromQL |
 | [11. Production readiness](/tutorial/production) | Review before real traffic | Sizing, availability, environments, RBAC |
 
+:::info How to use this tutorial
+Follow the steps in order the first time: each one changes the integration built in the previous
+one. Afterwards, each page stands on its own as a worked example of one concept.
+:::
+
 ## Prerequisites
 
 You need:

@@ -5,6 +5,14 @@ sidebar_position: 10
 
 Say how many instances of an integration must stay up while nodes are being maintained.
 
+## How it works
+
+Maintenance of the cluster — an upgrade, a node replaced — evicts instances. A disruption budget tells the cluster how many instances of this integration must stay available while it does so, so that it never evicts them all at once.
+
+:::warning Needs at least two replicas
+A budget requiring one available instance on an integration with one replica blocks maintenance of its node.
+:::
+
 ## Prerequisites
 
 - An [integration](/runtime/integrations), created and bound to an environment.

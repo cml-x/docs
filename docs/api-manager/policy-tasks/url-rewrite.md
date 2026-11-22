@@ -5,6 +5,16 @@ sidebar_position: 16
 
 Change the path or the host name of a request before it is forwarded, so that the address callers use need not be the one your service expects.
 
+## How it works
+
+The gateway changes the path or the host name of the request before forwarding it. The address you publish and the address the service expects can then differ: `/v1/orders` outside, `/orders` inside.
+
+:::info The service sees the rewritten request
+Links or redirects the service builds from its own path will not include the public prefix.
+:::
+
+Every parameter and its default: [reference](/api-manager/reference/route-filters#url-rewrite).
+
 ## Use cases
 
 When an API is published under a path the service does not know, or when the service expects a particular host name.

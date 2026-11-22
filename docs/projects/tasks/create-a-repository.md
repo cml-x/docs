@@ -5,6 +5,14 @@ sidebar_position: 1
 
 Create the Git repository that holds an integration project: its routes, its history and its releases.
 
+## How it works
+
+A repository gives a project a history, reviews and releases — everything an inline integration lacks. Its type tells the platform what it contains; its name is what integrations will refer to.
+
+:::tip Choose the name to last
+Integrations and releases refer to the repository by name. Renaming later means updating them.
+:::
+
 ## Use cases
 
 For anything that will be deployed beyond a first try. An integration typed inline in the console has no repository; see [Move the source to Git](/tutorial/from-git).

@@ -82,6 +82,11 @@ Open **Distributed Traces** and filter on the service `orders-api`. A trace show
 each route as a span, and the calls made to other systems as child spans. The trace context is
 propagated on outgoing HTTP calls, so a call from one integration to another is one trace.
 
+:::tip Put a business identifier in the logs
+Log the order number or the message ID in each route. A trace tells you which step was slow;
+the identifier tells you which order it was.
+:::
+
 ## Gateway metrics
 
 The gateway reports the same request from the outside: request rate, response code classes,

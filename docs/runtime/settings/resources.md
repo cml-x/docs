@@ -5,6 +5,14 @@ sidebar_position: 2
 
 Mount the files of a stored configuration inside an integration, at the place you choose.
 
+## How it works
+
+The setting mounts stored files — a mapping, a catalog, a stylesheet, a certificate bundle — at a path inside the integration, read-only. Routes read them like local files, and the content is changed in Secret Manager without rebuilding.
+
+:::info Same path in every environment
+Mount each environment's file at the same path so that the route does not change between them.
+:::
+
 ## Prerequisites
 
 - An [integration](/runtime/integrations), created and bound to an environment.

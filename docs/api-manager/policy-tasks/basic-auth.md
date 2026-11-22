@@ -5,6 +5,16 @@ sidebar_position: 2
 
 Ask every caller for a user name and a password. A browser shows its own sign-in prompt.
 
+## How it works
+
+The gateway checks the user name and password of the `Authorization: Basic` header against a list of users whose passwords are stored hashed. It suits internal tools and callers that cannot do better.
+
+:::warning HTTPS only
+Basic credentials are sent with every request, merely encoded. Never enable this on an HTTP access point.
+:::
+
+Every parameter and its default: [reference](/api-manager/reference/security-policy#http-basic-authentication).
+
 ## Use cases
 
 For an internal tool or a test environment. The password travels with every request: for a public API, use [tokens](/auth/protect-api-with-jwt).

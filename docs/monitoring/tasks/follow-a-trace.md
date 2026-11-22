@@ -5,6 +5,14 @@ sidebar_position: 3
 
 See the path one request took — through the gateway, the integration and what it called — and where its time went.
 
+## How it works
+
+A trace shows one request as a timeline of spans across the gateway, the integration and what it called. The longest span is where the time went.
+
+:::tip Find the trace from a log entry
+A log entry written during a request carries its trace ID. Search that ID to open the whole request.
+:::
+
 ## Use cases
 
 When a request is slow or fails and the logs of one service are not enough to say why.

@@ -5,6 +5,14 @@ sidebar_position: 1
 
 Load stored properties into an integration, so that its routes read their values from outside the code.
 
+## How it works
+
+The setting mounts one or several stored configurations of properties and loads them as Camel properties. Routes read them with `{{key}}` placeholders. The values live in Secret Manager, not in the source, so each environment gets its own.
+
+:::info Read at startup
+A changed property is picked up when the integration restarts, not while it runs.
+:::
+
 ## Prerequisites
 
 - An [integration](/runtime/integrations), created and bound to an environment.

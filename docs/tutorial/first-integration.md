@@ -96,6 +96,11 @@ What it says:
 
 One integration can hold several source files, each in its own language.
 
+:::tip One route per concern
+Several short routes with clear `id`s are easier to read in traces and metrics than one long
+route: every series and every span is labelled with the route ID.
+:::
+
 ## Camel and Maven dependencies
 
 **Dependencies** lists the Camel components and libraries the integration needs.

@@ -5,6 +5,14 @@ sidebar_position: 2
 
 Create a repository that already holds a working integration, taken from a template, instead of an empty one.
 
+## How it works
+
+Starting from a template gives you routes that already run and the conventions of whoever published it. The content is copied: your repository is independent from the first commit.
+
+:::info Read what the template expects
+Its documentation lists the properties and stored configurations to create before the first deployment.
+:::
+
 ## Use cases
 
 When a template matches what you are about to build: an API over a database, a file transfer, a queue listener.

@@ -5,6 +5,14 @@ sidebar_position: 4
 
 Gather on one page the figures that tell whether a service is well: traffic, errors, response time, resources.
 
+## How it works
+
+A dashboard keeps the queries you run again and again on one page. Build it around what a caller experiences — traffic, errors, latency — plus the resource that runs out first.
+
+:::tip Use variables
+Filter panels on a `service_name` variable so that one dashboard serves every integration.
+:::
+
 ## Prerequisites
 
 - Something running in the environment: an integration, a gateway.

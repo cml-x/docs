@@ -5,6 +5,16 @@ sidebar_position: 8
 
 Give up on a request when the service behind the API takes too long, instead of keeping the caller waiting.
 
+## How it works
+
+The gateway stops waiting for the backend after a set time and answers `504`. Without a timeout, a backend that hangs holds connections and callers indefinitely.
+
+:::tip Shorter than your callers
+Set the request timeout below the timeout of the applications that call the API, so that they get a clear `504` rather than giving up first.
+:::
+
+Every parameter and its default: [reference](/api-manager/reference/backend-traffic-policy#timeouts).
+
 ## Use cases
 
 Always, on an API in production: without a timeout, a slow service holds connections until the caller gives up.

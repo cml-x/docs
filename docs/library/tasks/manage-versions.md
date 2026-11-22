@@ -5,6 +5,14 @@ sidebar_position: 3
 
 See the versions of an asset, what changed in each, and choose the one to use.
 
+## How it works
+
+An asset keeps every version that was published. The version manager shows them with what changed, so that you can choose one deliberately.
+
+:::warning Pin a version outside development
+Use a fixed version in test and production. "Latest" changes under you.
+:::
+
 ## Prerequisites
 
 - An asset with at least one version.

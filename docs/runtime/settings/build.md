@@ -5,6 +5,14 @@ sidebar_position: 7
 
 Pass properties to the build of an integration, choose the image it is built on, and size the build.
 
+## How it works
+
+This setting changes how the image of this integration is built: build-time properties, Maven profiles, the resources given to the build. Most integrations never need it. Reach for it when a dependency needs a build-time property or when a large build runs out of memory.
+
+:::info Changes here rebuild the image
+Unlike most settings, this one triggers a new build at the next apply.
+:::
+
 ## Prerequisites
 
 - An [integration](/runtime/integrations), created and bound to an environment.

@@ -31,6 +31,12 @@ uses: metaspace, thread stacks and direct buffers come on top. Set the heap belo
 A container that exceeds its memory limit is killed and restarts in a loop: raise the limit, or
 lower `-Xmx`.
 
+:::tip Set requests from what you measure
+Run the integration under representative load and read `jvm_memory_used` and
+`process_cpu_usage`. Requests near the observed steady state and limits with headroom avoid
+both wasted capacity and throttling.
+:::
+
 ## KEDA Autoscaler
 
 {/* screenshot: tutorial-keda-autoscaler */}

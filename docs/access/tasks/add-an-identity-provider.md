@@ -5,6 +5,14 @@ sidebar_position: 5
 
 Let the people of your company sign in to the console with the accounts they already have.
 
+## How it works
+
+Federation lets people sign in with their company account. The console redirects them to the provider and receives a signed assertion of who they are. Roles are still granted in the console.
+
+:::warning Keep a way back in
+Keep an administrator session open, and a local administrator account, until sign-in through the provider is verified.
+:::
+
 ## Prerequisites
 
 - An administrator of your identity provider, to register the console there.

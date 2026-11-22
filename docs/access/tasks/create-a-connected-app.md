@@ -5,6 +5,14 @@ sidebar_position: 4
 
 Create an identity for a program — a script, a pipeline, another system — that calls the platform without a person signing in.
 
+## How it works
+
+A service account is an identity for a program. It has its own credentials and its own roles, so that automation neither borrows a person's rights nor stops when that person leaves.
+
+:::danger The secret is shown once
+Copy it when it is created. It cannot be displayed again, only replaced.
+:::
+
 ## Use cases
 
 For automation that manages the platform itself. For applications that call **your APIs**, register a client on an [auth gateway](/auth/client-lists) instead.

@@ -5,6 +5,16 @@ sidebar_position: 13
 
 Cap the connections a gateway accepts, set how long clients may take, and choose the TLS versions they may use.
 
+## How it works
+
+This policy governs the connection between a client and the gateway, before any route is chosen: how many clients may connect, how long the gateway waits for them, which TLS versions it accepts. It protects the gateway itself and sets the security floor of everything published on it.
+
+:::warning Affects every API of the gateway
+Raising the minimum TLS version or lowering a timeout applies to all callers of all APIs on that gateway.
+:::
+
+Every parameter and its default: [reference](/api-manager/reference/client-traffic-policy).
+
 ## Use cases
 
 To protect a gateway from too many connections, or to require a minimum TLS version.

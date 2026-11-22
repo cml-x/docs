@@ -5,6 +5,16 @@ sidebar_position: 7
 
 Refuse requests beyond a number per second, minute or hour, before they reach your service.
 
+## How it works
+
+The gateway counts requests over a window and answers `429` beyond the limit. It protects the service from overload and keeps one caller from consuming everything.
+
+:::info Counted per gateway instance
+Each instance of the gateway keeps its own counter: with three instances the effective limit is up to three times the value.
+:::
+
+Every parameter and its default: [reference](/api-manager/reference/backend-traffic-policy#rate-limit).
+
 ## Use cases
 
 To protect a service from overload, from a client that loops, or from an unexpected peak.

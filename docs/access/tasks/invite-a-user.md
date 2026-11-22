@@ -5,6 +5,14 @@ sidebar_position: 1
 
 Create an account for someone and let them choose their password.
 
+## How it works
+
+Creating a user gives someone an account and sends them an invitation to set their password. The account can sign in but sees nothing until a role is granted.
+
+:::info Not needed with an identity provider
+People who sign in through your company provider get their account at first sign-in.
+:::
+
 ## Prerequisites
 
 - The right to manage users.

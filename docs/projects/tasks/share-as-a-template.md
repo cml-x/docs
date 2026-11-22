@@ -5,6 +5,14 @@ sidebar_position: 5
 
 Mark a repository as a template so that others can start new projects from it.
 
+## How it works
+
+Marking a repository as a template offers it as a starting point in the creation wizard and in the asset catalog. Nothing changes in the repository itself.
+
+:::tip Prepare it for strangers
+Replace every address and credential with a property placeholder and document them in the README before sharing.
+:::
+
 ## Use cases
 
 When a project is a good starting point for others: a house style, a recurring pattern.

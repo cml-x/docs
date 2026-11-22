@@ -5,6 +5,16 @@ sidebar_position: 3
 
 Require a valid access token on every request, issued by an auth gateway of the environment or by your own identity provider.
 
+## How it works
+
+The caller sends a signed token; the gateway verifies its signature with the public keys of the issuer, then its issuer, expiry and — when asked — audience. No call is made to the issuer per request, so verification is fast and keeps working if the issuer is briefly unavailable.
+
+:::warning Turn the audience check on
+Without it, a token issued for another API by the same issuer is accepted here.
+:::
+
+Every parameter and its default: [reference](/api-manager/reference/security-policy#jwt-authentication).
+
 ## Use cases
 
 For APIs called by applications. A token expires and names the API it is for, which a key does not.

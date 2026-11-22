@@ -85,6 +85,11 @@ Permissions can be restricted to some environments — see
 
 See [Monitoring](/monitoring/getting-start).
 
+:::warning Test the rollback before you need it
+Deploy a new release to a non-production environment, then roll back, at least once. A rollback
+that has never been tried is a plan, not a capability.
+:::
+
 ## Checklist
 
 - [ ] The integration is built from a release.

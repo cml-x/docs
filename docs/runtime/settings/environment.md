@@ -5,6 +5,14 @@ sidebar_position: 3
 
 Give an integration environment variables, written in the setting or read from a stored configuration.
 
+## How it works
+
+Environment variables are read by the runtime, by libraries, and by routes through `{{env:NAME}}`. Use them for the few values software expects in that form; prefer property files for the settings of your routes.
+
+:::danger A variable typed here is stored in clear
+For a secret value, read the variable from a stored configuration instead of typing it.
+:::
+
 ## Prerequisites
 
 - An [integration](/runtime/integrations), created and bound to an environment.

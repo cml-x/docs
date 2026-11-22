@@ -5,6 +5,14 @@ sidebar_position: 13
 
 Set how the container of an integration runs: as which user, with which privileges.
 
+## How it works
+
+The security context restricts what the container may do: run as a non-root user, forbid privilege escalation, make the root file system read-only, drop Linux capabilities. Hardening it limits what an attacker gains from a compromised integration.
+
+:::warning A read-only file system breaks routes that write locally
+Give such routes an EmptyDir volume for their temporary files.
+:::
+
 ## Prerequisites
 
 - An [integration](/runtime/integrations), created and bound to an environment.

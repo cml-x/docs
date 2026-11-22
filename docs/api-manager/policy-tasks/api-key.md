@@ -5,6 +5,16 @@ sidebar_position: 1
 
 Refuse every request that does not carry a key you issued. Each client has its own key, so that a key can be withdrawn without disturbing the others.
 
+## How it works
+
+The gateway compares a key sent by the caller with a list you store. A request without a key from the list is answered `401` before it reaches the service. Each caller should have its own key, so that one can be withdrawn without affecting the others.
+
+:::warning A key never expires on its own
+Plan its rotation: add the new key to the list, move the caller, then remove the old one.
+:::
+
+Every parameter and its default: [reference](/api-manager/reference/security-policy#api-key-authentication).
+
 ## Use cases
 
 For a small number of known applications, when a key in a header is enough. For APIs called by many applications, or when a token must expire, use [tokens](/auth/protect-api-with-jwt).

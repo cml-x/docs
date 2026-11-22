@@ -5,6 +5,14 @@ sidebar_position: 5
 
 Be told when a figure crosses a threshold, instead of watching a dashboard.
 
+## How it works
+
+An alert evaluates a query on a schedule and notifies a destination when the result crosses a threshold. It replaces watching a dashboard.
+
+:::warning Require a duration
+Alert when the threshold is crossed for several minutes. A single slow request should wake no one, and an alert that fires too often is ignored.
+:::
+
 ## Prerequisites
 
 - Something running in the environment: an integration, a gateway.

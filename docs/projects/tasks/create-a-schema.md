@@ -5,6 +5,14 @@ sidebar_position: 6
 
 Store the contract of an API or of a message — its fields and their types — so that integrations and teams share one definition.
 
+## How it works
+
+An artifact is one contract — an OpenAPI document, an Avro schema — stored under a stable identifier and versioned on its own. Producers and consumers refer to it instead of exchanging files.
+
+:::danger The artifact ID is permanent
+It cannot be changed after creation. Choose a stable, lowercase identifier without a version number in it.
+:::
+
 ## Prerequisites
 
 - A business unit in which you may create schemas.

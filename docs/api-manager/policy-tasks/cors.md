@@ -5,6 +5,16 @@ sidebar_position: 5
 
 Let web pages served from another site call the API. Browsers refuse such calls unless the API says they are allowed.
 
+## How it works
+
+Browsers refuse a page from one origin calling an API on another unless the API allows it. The gateway answers the preflight `OPTIONS` request and adds the CORS headers, so the service does not have to. This matters only for calls made from a browser; server-to-server calls ignore CORS.
+
+:::info CORS is not access control
+It tells browsers what to allow. A client that is not a browser ignores it: authenticate the API as well.
+:::
+
+Every parameter and its default: [reference](/api-manager/reference/security-policy#cors).
+
 ## Use cases
 
 When the API is called from JavaScript running in a browser, on a page that is not served from the same address as the API. Calls from servers and scripts are not concerned.

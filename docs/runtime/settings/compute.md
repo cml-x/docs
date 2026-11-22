@@ -5,6 +5,14 @@ sidebar_position: 4
 
 Set how many instances of an integration run, and the CPU and memory of each.
 
+## How it works
+
+Requests are what an instance is guaranteed and what the scheduler reserves; limits are the most it may use. CPU above the limit is throttled; memory above the limit kills the container. Replicas are identical instances behind the same service.
+
+:::tip Two replicas for anything that must stay up
+With one replica, every restart — a deployment, a node drain — is an interruption.
+:::
+
 ## Prerequisites
 
 - An [integration](/runtime/integrations), created and bound to an environment.
