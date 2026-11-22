@@ -3,10 +3,33 @@ title: Environments
 sidebar_position: 2
 ---
 
-An **Environment** (e.g. "Production", "Staging") is a named, described scope bound to one
-[Target](/infra/targets), under which the platform's per-environment services are configured.
+An **environment** is a named stage — development, staging, production — bound to one
+[target](/infra/targets), that is to one namespace on one
+[runtime plane](/infra/runtime-planes). Everything that runs is deployed *in an environment*,
+never directly on a cluster.
 
-![Environment and Targets](/img/infra/env-targets.svg)
+![Control plane, runtime planes, targets and environments](/img/infra/runtime-planes.drawio.png)
+
+## Abstraction over clusters
+
+An environment hides the cluster under it. Whether its target is on a managed runtime plane or on
+a cluster of yours, in a public or a private cloud, in one region or another:
+
+- the same services are activated the same way;
+- integrations, gateways and configurations are bound to it the same way;
+- its state is followed in the same screens.
+
+## Multi-cluster topologies
+
+| Topology | Environments | Targets |
+|---|---|---|
+| Stages on one cluster | `development`, `production` | Two namespaces on one runtime plane |
+| Stages isolated per cluster | `development`, `production` | One runtime plane each |
+| Multi-region production | `production`, `production-us` | Runtime planes in two regions |
+| Hybrid | `production`, `production-onprem` | A managed runtime plane and your own cluster |
+
+An integration is bound to each environment it must run in, and is built and deployed separately
+in each. Multi-region is therefore explicit: one binding per region.
 
 ## Environment services
 
@@ -43,6 +66,12 @@ While a deployment is in progress, the page follows it and shows when it has set
 
 ## Target binding
 
-By default, one target backs only one environment. Turning on "allow target conflict" when
-creating an environment lets several environments share the same physical target — useful for
-smaller setups where a full cluster per environment isn't justified.
+An environment is bound to exactly one target, chosen at creation.
+
+By default, a target backs one environment. **Allow target conflict**, at creation, lets several
+environments share one target — for small setups where a namespace per environment is not
+justified. The environments then share that namespace: prefer one target per environment for
+production.
+
+To move an environment to another cluster or region, bind it to another target, then apply its
+services again there.

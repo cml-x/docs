@@ -36,7 +36,7 @@ While capturing, compare what the page says with what the screen shows — names
 of fields — and correct the page where they differ: the pages were written from the code and the
 forms of the platform, not from the screens.
 
-## The captures (97)
+## The captures (99)
 
 ### `docs/access/connected-apps.md`
 
@@ -256,6 +256,18 @@ forms of the platform, not from the screens.
 | ID | After | Screen | How to reach it | Status |
 |---|---|---|---|---|
 | `env-network-rule` | Rule definition: peers and ports | An egress rule being edited: who, ports, and the DNS preset | Infrastructure > Environments > an environment > Network > Egress Rules | to do |
+
+### `docs/infra/runtime-planes.md`
+
+| ID | After | Screen | How to reach it | Status |
+|---|---|---|---|---|
+| `infra-runtime-plane-card` | Attributes of a runtime plane | The list of clusters with their provider, region and health, one managed and one connected by the organization | Environment Manager > Targets > Create target > Cluster | to do |
+
+### `docs/infra/targets.md`
+
+| ID | After | Screen | How to reach it | Status |
+|---|---|---|---|---|
+| `infra-create-target` | Create a target | The Create target screen: identity filled, a healthy cluster selected with its region | Environment Manager > Targets > Create target | to do |
 
 ### `docs/library/assets.md`
 
