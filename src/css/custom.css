@@ -69,3 +69,9 @@ h6 {
   --ifm-background-color: #161616;
   --docusaurus-highlighted-code-line-bg: rgba(69, 137, 255, 0.15);
 }
+
+/* Page titles in the IBM blue of the console. The variable follows the theme:
+   #0f62fe on light, #4589ff on dark. */
+main h1 {
+  color: var(--ifm-color-primary);
+}
