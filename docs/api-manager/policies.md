@@ -39,6 +39,21 @@ A policy has a **target**: a whole gateway â€” it then covers every API on it â€
 | Gateway | A baseline every API must meet: TLS versions, a global connection limit, an IP allowlist |
 | API instance | What is specific to one API: its authentication, its rate limit, its timeouts |
 
+### Where a policy lives
+
+A policy is not a separate object to manage: it is deployed **with** the gateway or the API
+instance it protects.
+
+- It is added to the same application as its target, as one more component. In an API group,
+  each API instance carries its own policies beside it.
+- It is named after its target and its family, for example `orders-api-security-policy`.
+- It depends on its target: the target is deployed first, and the policy is applied once the
+  target is ready.
+- Applying the gateway or the API group applies its policies; deleting it removes them.
+
+Activating or deactivating a policy therefore changes the application of its target, and takes
+effect at the next **Apply**.
+
 :::warning[A policy on an API replaces the gateway's, it does not add to it]
 When a policy of the same family targets both a gateway and one of its API instances, the API
 instance uses **its own policy only**. A JWT rule set on the gateway is no longer enforced on an
