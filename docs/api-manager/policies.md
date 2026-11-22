@@ -51,8 +51,19 @@ instance it protects.
   target is ready.
 - Applying the gateway or the API group applies its policies; deleting it removes them.
 
-Activating or deactivating a policy therefore changes the application of its target, and takes
-effect at the next **Apply**.
+A gateway and an API instance are created with their policies already beside them, empty:
+
+| Created | Policies it starts with |
+|---|---|
+| Gateway | Security, backend traffic, client traffic |
+| API instance, on its own or in an API group | Security, backend traffic |
+
+An empty policy enforces nothing; it is there so that a rule can be added to it without creating
+anything first. A custom policy is not created by default: activate it from its tab when you need
+one.
+
+Adding a rule to a policy, activating one or deactivating one changes the application of its
+target, and takes effect at the next **Apply**.
 
 :::warning[A policy on an API replaces the gateway's, it does not add to it]
 When a policy of the same family targets both a gateway and one of its API instances, the API
