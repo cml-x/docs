@@ -1,31 +1,39 @@
 ---
-title: Monitoring
+title: Telemetry
 sidebar_position: 7
 ---
 
-### Metrics missing
+### Views are empty
 
-- **Possible cause** — no environment is selected. Monitoring requires an environment to resolve
-  which OpenObserve stream/org to read from — until one is picked, a dialog blocks the page.
-- **Check** — confirm an environment is selected in Monitoring for this project.
-- **Fix** — select the environment your integration is actually deployed to. Metrics for a
-  different environment than the one selected won't appear.
+| Cause | Check | Fix |
+|---|---|---|
+| No environment selected, or another one | The environment selector of the console | Select the environment the workload runs in |
+| A shared link carries another scope | `org_identifier` and `stream` in the address | Open the view from the menu |
+| Period too narrow | The time range | Widen it |
 
-### Flow not visible
+### One chart stays empty
 
-- **Possible cause** — the integration is deployed to a different project or environment than the
-  one currently selected in Monitoring, or no dashboard has been created yet for this project's
-  `default` OpenObserve folder.
-- **Check** — confirm the project and environment selected in Monitoring match where the Capsule
-  was deployed in [Runtime Manager](/runtime/getting-start).
-- **Fix** — switch to the matching project/environment, or create a dashboard from the template
-  gallery if none exists yet.
+The stream of its metric does not exist yet. `camel_route_policy_*` appears after the first
+exchange, `jvm_gc_pause_*` after the first collection.
 
-### Monitoring error
+### No metric for one integration
 
-- **Possible cause** — the dashboard template catalog couldn't be fetched, or the project/
-  environment scope needed to build an OpenObserve link is incomplete.
-- **Check** — confirm the template gallery loads on the Dashboards page, and that both a project
-  and an environment are selected.
-- **Fix** — select a valid project and environment, then retry. Specific error payloads from the
-  template catalog or OpenObserve are **[À CONFIRMER]**.
+| Cause | Check | Fix |
+|---|---|---|
+| Wrong label value | `service_name` is the name of the integration, `service_namespace` the alias of the environment | Correct the selector |
+| The integration cannot reach the collector | OTLP export errors in its logs | Egress of the [network policies](/infra/network) |
+
+### Logs present but not split into fields
+
+The line is not JSON. Output written with `System.out`, or by a library with its own format, is
+not parsed. Log through the Camel `log` step or a logger — see [Logs Insight](/monitoring/logs).
+
+### A trace stops at the gateway or at one integration
+
+The trace context is not propagated by the next hop: a non-instrumented system, or a call made
+with a client that does not forward the `traceparent` header.
+
+### Alert never fires
+
+Run the query of the rule in **Metrics** over the period: an empty result means a selector that
+matches nothing. Then check that the rule has a destination.

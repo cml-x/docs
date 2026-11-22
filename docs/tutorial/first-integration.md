@@ -1,5 +1,5 @@
 ---
-title: "1. Create a Camel Integration With a REST Route"
+title: 1. Create the Integration
 sidebar_position: 2
 ---
 

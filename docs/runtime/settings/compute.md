@@ -1,5 +1,5 @@
 ---
-title: "Compute: Replicas, CPU and Memory"
+title: Compute Resources
 sidebar_position: 4
 ---
 

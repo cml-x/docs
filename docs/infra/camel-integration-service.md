@@ -1,5 +1,5 @@
 ---
-title: Camel Integration Service (Camel K Operator)
+title: Camel Integration Service
 sidebar_position: 5
 ---
 

@@ -1,5 +1,5 @@
 ---
-title: Create a Repository From a Template
+title: Create From a Template
 sidebar_position: 2
 ---
 

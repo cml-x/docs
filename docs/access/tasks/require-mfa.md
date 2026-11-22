@@ -1,5 +1,5 @@
 ---
-title: Enforce Multi-Factor Authentication
+title: Enforce MFA
 sidebar_position: 6
 ---
 

@@ -1,5 +1,5 @@
 ---
-title: Metrics (PromQL)
+title: Metrics
 sidebar_position: 4
 ---
 

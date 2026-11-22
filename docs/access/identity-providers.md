@@ -1,5 +1,5 @@
 ---
-title: "Identity Providers: OIDC, SAML 2.0 and Social Login"
+title: Identity Providers
 sidebar_position: 4
 ---
 

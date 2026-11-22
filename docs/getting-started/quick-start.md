@@ -1,5 +1,5 @@
 ---
-title: "Quick Start: Inline Route to Public HTTPS Endpoint"
+title: Quick Start
 sidebar_position: 2
 ---
 

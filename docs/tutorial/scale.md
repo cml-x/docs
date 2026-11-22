@@ -1,5 +1,5 @@
 ---
-title: "5. Scale: Replicas, Resources, KEDA Autoscaler"
+title: 5. Scaling
 sidebar_position: 6
 ---
 

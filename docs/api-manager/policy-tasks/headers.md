@@ -1,5 +1,5 @@
 ---
-title: Request and Response Header Modification
+title: Header Modification
 sidebar_position: 15
 ---
 

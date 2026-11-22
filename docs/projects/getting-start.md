@@ -1,5 +1,5 @@
 ---
-title: "Project Manager: Repositories, Releases, Schemas"
+title: Overview
 sidebar_position: 1
 ---
 

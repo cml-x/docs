@@ -1,21 +1,44 @@
 ---
-title: Project Manager
+title: Repositories and Releases
 sidebar_position: 1
 ---
 
-### Integration invalid or can't be created
+### Repository creation refused
 
-- **Possible cause** — no Git provider is configured for the project. Project Manager can't list
-  or create repositories without one.
-- **Check** — confirm a Git provider (GitHub, GitLab or Bitbucket) is set up before creating a
-  project.
-- **Fix** — configure the Git provider, then retry creating the Integration project.
+| Cause | Fix |
+|---|---|
+| Name already used in the business unit | Another name |
+| Invalid name | Start with a letter or a digit; letters, digits, dashes, dots, underscores |
+| Description over 100 characters | Shorten it |
 
-### Release problem
+### Release refused: invalid version format
 
-- **Possible cause** — the repository state at the time of tagging wasn't what you expected (e.g.
-  changes not yet saved from IT Designer).
-- **Check** — open the repository in [Integrations](/projects/repos) and confirm its latest
-  commits match what you built in IT Designer before cutting the release.
-- **Fix** — save your work in IT Designer, then create the release again. A release can be deleted
-  and recreated if it was tagged too early.
+The version must be semantic: `MAJOR.MINOR.PATCH`, optionally `-prerelease` — `1.2.0`,
+`1.2.0-rc.1`. No `v` prefix: the tag adds it.
+
+### Release refused: version must be greater than the latest release
+
+Versions only go up. Use the next PATCH, MINOR or MAJOR — see
+[Releases](/projects/create-release).
+
+### The release does not contain the last change
+
+A release tags what is committed on the default branch at that moment. Check **Actions**,
+**Changes**: a change still open in the Web IDE and not committed is not in the release.
+
+### Integration built from Git does not pick up a commit
+
+| Source | Behavior |
+|---|---|
+| Branch | Built at the head of the branch at each **Apply changes** |
+| Release | Fixed: create a new release and point the integration at it |
+
+### Repository not listed in Git source mode
+
+Repositories are listed per business unit. Check the business unit selected, and that your role
+gives access to the repository.
+
+### Schema: artifact ID cannot be changed
+
+By design. Create a new artifact and retire the old one — see
+[Schema Registry](/projects/schemas).

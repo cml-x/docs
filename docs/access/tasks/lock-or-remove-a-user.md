@@ -1,5 +1,5 @@
 ---
-title: Lock, Deactivate or Delete a User
+title: Lock or Delete a User
 sidebar_position: 3
 ---
 

@@ -1,5 +1,5 @@
 ---
-title: "4. Add a Private CA to the JVM Truststore"
+title: 4. JVM Truststore
 sidebar_position: 5
 ---
 

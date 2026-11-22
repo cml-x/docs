@@ -1,5 +1,5 @@
 ---
-title: Authentication vs Authorization
+title: Authn and Authz
 sidebar_position: 1
 ---
 
@@ -26,7 +26,7 @@ user's login credentials.
 |---|---|---|
 | Who issues proof of identity | An [auth gateway](/auth/auth-gateway) issues tokens to the applications registered as [clients](/auth/client-lists) |
 | Who checks it at the door | [API Manager](/api-manager/getting-start): a Security policy (JWT, OIDC, API key, or basic auth) attached to the gateway or API Instance validates the token on every request |
-| Fine-grained authorization | Whether a validated token's specific claims or scopes are checked for finer-grained authorization (beyond "valid or not") is **[À CONFIRMER]** — verify against your policy's configuration |
+| Fine-grained authorization | The JWT rule validates the signature, the issuer, the expiry and, when enabled, the audience. For decisions on other claims or scopes, use [external authorization](/api-manager/policy-tasks/external-auth), or check them in the route |
 
 See [Secure an API](/guides/secure-an-api) for the end-to-end setup, and
 [API Security in Camel X](/security/api-security) for the full list of available policies.

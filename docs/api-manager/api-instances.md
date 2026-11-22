@@ -1,5 +1,5 @@
 ---
-title: API Instances (Routes)
+title: API Instances
 sidebar_position: 3
 ---
 

@@ -1,5 +1,5 @@
 ---
-title: Manage Team Members and Permissions
+title: Manage a Team
 sidebar_position: 8
 ---
 

@@ -1,5 +1,5 @@
 ---
-title: OIDC Authentication With an Identity Provider
+title: OIDC Authentication
 sidebar_position: 5
 ---
 

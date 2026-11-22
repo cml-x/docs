@@ -1,5 +1,5 @@
 ---
-title: Volumes and Persistent Storage
+title: Volumes
 sidebar_position: 12
 ---
 

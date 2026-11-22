@@ -1,5 +1,5 @@
 ---
-title: Inspect a Distributed Trace
+title: Inspect a Trace
 sidebar_position: 3
 ---
 

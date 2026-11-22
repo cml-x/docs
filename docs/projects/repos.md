@@ -1,5 +1,5 @@
 ---
-title: Integrations (Git Repositories)
+title: Repositories
 sidebar_position: 2
 ---
 

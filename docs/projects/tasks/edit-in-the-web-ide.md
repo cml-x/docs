@@ -1,5 +1,5 @@
 ---
-title: Edit Routes in the Web IDE
+title: Edit in the Web IDE
 sidebar_position: 3
 ---
 

@@ -1,5 +1,5 @@
 ---
-title: "Learning Path: From Inline Route to Production"
+title: Learning Path
 sidebar_position: 3
 ---
 

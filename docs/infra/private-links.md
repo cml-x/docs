@@ -1,5 +1,5 @@
 ---
-title: Private Links (WireGuard and IPsec)
+title: Private Links
 sidebar_position: 4
 ---
 

@@ -1,5 +1,5 @@
 ---
-title: "11. Production Readiness Checklist"
+title: 11. Production Readiness
 sidebar_position: 12
 ---
 

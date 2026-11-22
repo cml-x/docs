@@ -1,5 +1,5 @@
 ---
-title: Create a Connected App (Service Account)
+title: Create a Service Account
 sidebar_position: 4
 ---
 

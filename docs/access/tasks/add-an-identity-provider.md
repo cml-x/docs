@@ -1,5 +1,5 @@
 ---
-title: Add an OIDC or SAML Identity Provider
+title: Add an Identity Provider
 sidebar_position: 5
 ---
 

@@ -1,5 +1,5 @@
 ---
-title: "Runtime Planes: Managed Clusters and Bring Your Own Cluster (BYOC)"
+title: Runtime Planes and BYOC
 sidebar_position: 1.5
 ---
 

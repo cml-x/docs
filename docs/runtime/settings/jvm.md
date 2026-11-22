@@ -1,5 +1,5 @@
 ---
-title: "JVM: Options, Classpath and Truststore"
+title: JVM Options
 sidebar_position: 5
 ---
 

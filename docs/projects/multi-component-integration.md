@@ -1,5 +1,5 @@
 ---
-title: "Integration Groups: Several Components in One Deployment"
+title: Integration Groups
 sidebar_position: 8
 ---
 

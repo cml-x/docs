@@ -1,5 +1,5 @@
 ---
-title: Authentication
+title: Tokens and Sign-In
 sidebar_position: 5
 ---
 

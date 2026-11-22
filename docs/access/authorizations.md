@@ -1,5 +1,5 @@
 ---
-title: "Authorizations: Role Grants on Projects"
+title: Role Grants
 sidebar_position: 2
 ---
 

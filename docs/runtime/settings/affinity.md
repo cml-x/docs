@@ -1,5 +1,5 @@
 ---
-title: "Affinity: Node Selection and Pod Anti-Affinity"
+title: Affinity
 sidebar_position: 11
 ---
 

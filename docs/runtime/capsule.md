@@ -1,5 +1,5 @@
 ---
-title: Capsules (Integration Groups)
+title: Capsules
 sidebar_position: 2
 ---
 

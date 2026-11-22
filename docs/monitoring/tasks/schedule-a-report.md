@@ -1,5 +1,5 @@
 ---
-title: Schedule a Dashboard Report
+title: Schedule a Report
 sidebar_position: 6
 ---
 

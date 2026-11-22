@@ -1,5 +1,5 @@
 ---
-title: "Schema Registry: OpenAPI, AsyncAPI, JSON Schema, Avro"
+title: Schema Registry
 sidebar_position: 3
 ---
 

@@ -1,5 +1,5 @@
 ---
-title: "Configuration: Property Files"
+title: Property Files
 sidebar_position: 1
 ---
 

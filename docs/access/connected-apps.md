@@ -1,5 +1,5 @@
 ---
-title: "Connected Apps: Service Accounts for the Platform API"
+title: Service Accounts
 sidebar_position: 3
 ---
 

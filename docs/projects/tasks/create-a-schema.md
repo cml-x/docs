@@ -1,5 +1,5 @@
 ---
-title: Create an OpenAPI, AsyncAPI, JSON Schema or Avro Artifact
+title: Create a Schema Artifact
 sidebar_position: 6
 ---
 

@@ -1,5 +1,5 @@
 ---
-title: "8. Expose the Integration: Gateway, Listener, HTTP Route"
+title: 8. Expose as an API
 sidebar_position: 9
 ---
 

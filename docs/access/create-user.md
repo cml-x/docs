@@ -1,5 +1,5 @@
 ---
-title: "Onboard a User: Account, Roles, First Sign-In"
+title: User Onboarding
 sidebar_position: 7
 ---
 

@@ -1,5 +1,5 @@
 ---
-title: "Walkthrough: Repository to Deployed Release"
+title: Repository to Release
 sidebar_position: 4
 ---
 

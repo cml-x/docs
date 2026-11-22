@@ -1,5 +1,5 @@
 ---
-title: Auth Gateways (OAuth 2.0 Token Service)
+title: Auth Gateways
 sidebar_position: 2
 ---
 

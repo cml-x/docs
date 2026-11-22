@@ -1,5 +1,5 @@
 ---
-title: "Policies: Security, Backend Traffic, Client Traffic, Lua"
+title: Policies
 sidebar_position: 6
 ---
 

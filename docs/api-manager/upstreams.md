@@ -1,5 +1,5 @@
 ---
-title: Upstreams (External Backends)
+title: Upstreams
 sidebar_position: 5
 ---
 

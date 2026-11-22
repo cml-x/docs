@@ -1,5 +1,5 @@
 ---
-title: "Targets: Namespaces on Runtime Planes"
+title: Targets
 sidebar_position: 1.7
 ---
 

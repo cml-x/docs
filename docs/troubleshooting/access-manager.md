@@ -1,5 +1,5 @@
 ---
-title: Access Manager
+title: Access and Permissions
 sidebar_position: 6
 ---
 

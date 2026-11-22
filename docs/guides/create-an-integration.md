@@ -3,54 +3,42 @@ title: Create an Integration
 sidebar_position: 1
 ---
 
-The complete path from an empty project to a running, observed integration — one app at a time.
+The shortest path from a route to an integration that exists in the platform. Two starting
+points lead to the same object.
 
-![Integration Journey](/img/guides/integration-journey.svg)
+## Choose the source mode
 
-```
-Project Manager                Environment Manager        Runtime Manager           Monitoring
-project → integration          environment                deploy → execute          observe
-  → configure → release
-```
+| | Inline | Git |
+|---|---|---|
+| Source lives in | The integration itself | A [repository](/projects/repos) |
+| History, review, releases | No | Yes |
+| Use for | Prototypes, small glue routes | Anything that reaches test or production |
 
-## 1. Repository and routes (Project Manager)
+## Inline
 
-1. Create a project of type **Integration**.
-2. Build the routes: start from the template gallery, from Apache Camel Main sources, or from a
-   blank canvas — this opens **IT Designer**, the visual canvas where routes are actually built.
-3. Configure the components your route needs inside IT Designer.
-4. Test the integration. A dedicated testing feature inside Project Manager/IT Designer is
-   **[À CONFIRMER]** — not verified in this audit; confirm what's available in your IT Designer
-   version before relying on a specific workflow here.
-5. Once it works, cut a **release** — see [Create a Release](/projects/create-release). Everything
-   downstream deploys a release, not a moving branch.
+1. In **Runtime Manager**, **Integrations**, **Create Integration**.
+2. Name it, choose **None — create it on its own**, keep **Source mode** on **Inline**.
+3. Add one or several source files — YAML, Java or XML DSL.
+4. Leave **Expose HTTP Endpoint** on if a route consumes HTTP, then create.
 
-## 2. Target and environment (Environment Manager)
+Detail and a complete route: [tutorial, step 1](/tutorial/first-integration).
 
-Make sure a target environment exists: register a **target** bound to a healthy cluster, then
-create an **environment** bound to it — or run the guided `/new` wizard, which provisions the
-target, environment and Camel K Integration Platform together. See
-[Create Your First Environment](/infra/getting-start).
+## Git
 
-## 3. Deployment (Runtime Manager)
+1. In **Integration Center**, [create a repository](/projects/tasks/create-a-repository) of type
+   **Routes**, or [from a template](/projects/tasks/create-from-a-template).
+2. Commit the routes, from the Web IDE or with Git.
+3. In **Runtime Manager**, create the integration with **Source mode** on **Git** and choose the
+   repository, then a branch or a release.
 
-Select that environment from the environment switcher, then either:
+Detail: [tutorial, step 7](/tutorial/from-git).
 
-- Open the release's repository in Project Manager, go to its **Applications** tab, and use the
-  one-click **Deploy** action; or
-- Create a **Capsule** directly in [Runtime Manager](/runtime/getting-start) and attach the
-  integration by picking its Git repository and release.
+## Dependencies
 
-The Capsule's Camel routes start running once deployed. Watch real-time deployment status and
-per-component health on the Capsule's page.
+Components used in endpoint URIs are resolved for you. Declare the rest in **Dependencies** —
+see [Camel dependencies](/projects/use-a-component).
 
-## 4. Telemetry (Monitoring)
+## Verification
 
-Open [Monitoring](/monitoring/getting-start) for the same project and environment. If it's the
-first dashboard here, pick one from the template gallery — it's created in one click. From there,
-jump into logs, metrics or distributed traces for the running integration.
-
----
-
-Already have a release and just need to deploy it? See the shorter
-[Deploy an Integration](/guides/deploy-an-integration) guide instead.
+The integration is listed in **Runtime Manager**, not yet deployed. Next:
+[Deploy an integration](/guides/deploy-an-integration).

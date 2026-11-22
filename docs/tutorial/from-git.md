@@ -1,5 +1,5 @@
 ---
-title: "7. Build From a Git Repository"
+title: 7. Build From Git
 sidebar_position: 8
 ---
 

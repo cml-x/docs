@@ -3,24 +3,42 @@ title: Monitor an Integration
 sidebar_position: 5
 ---
 
-Once an integration is deployed, two apps tell you what it's doing right now.
+Where to look, in which order, to know whether an integration is healthy.
 
-## 1. Deployment health, in Runtime Manager
+## Signals and where they are
 
-Open the [Capsule](/runtime/capsule) the integration runs in. It shows real-time deployment status
-and per-component health (running, succeeded, failed), plus a revision history if you need to
-check what changed or roll back.
+| Question | Signal | Where |
+|---|---|---|
+| Is it deployed and ready? | Phase, instances, revision | Page of the integration, Runtime Manager |
+| Did the build succeed? | Build log | Page of the integration |
+| What did the routes do? | Logs, JSON, per `service.name` | Monitoring, **Logs Insight** |
+| Throughput, failures, latency per route | `camel_exchanges_total`, `camel_route_policy_*` | Monitoring, **Metrics** |
+| Memory, GC, threads | `jvm_*`, `process_cpu_usage` | Monitoring, **Metrics** |
+| Where one request spent its time | Trace | Monitoring, **Distributed Traces** |
+| What callers experienced | Gateway request rate, code classes, duration | Monitoring, **Metrics** |
 
-## 2. Dashboards, logs, metrics and traces, in Monitoring
+## Minimal dashboard
 
-In [Monitoring](/monitoring/getting-start), for the same project and environment:
+Four panels per integration — queries on the [Metrics](/monitoring/metrics) page:
 
-- **Dashboards** — browse existing ones, or create one from the template gallery in one click if
-  this is the first time you're monitoring this project.
-- **Logs Insight**, **Metrics** and **Distributed Traces** — each opens the corresponding
-  OpenObserve view in a new tab, already scoped to the current project and environment.
+1. exchange rate per route;
+2. mean processing time per route;
+3. heap used against the memory limit;
+4. share of 5xx responses at the gateway.
+
+## Minimal alerts
+
+| Alert | Condition |
+|---|---|
+| Errors | Share of 5xx above a threshold for five minutes |
+| Latency | Mean processing time above the target for five minutes |
+| Stalled | Exchange rate at zero while traffic is expected |
 
 ## Diagnosis order
 
-Start with the Capsule's per-component health in Runtime Manager — a failed or not-running
-component is often visible there before it shows up as missing data in a dashboard.
+1. Phase and instances of the integration: not ready, restarting?
+2. Logs of the last minutes, filtered on `ERROR` and `WARN`.
+3. A trace of a slow or failed request.
+4. Gateway metrics, to tell a route problem from a routing or policy problem.
+
+Detail: [tutorial, step 10](/tutorial/observe).

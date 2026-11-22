@@ -1,5 +1,5 @@
 ---
-title: API Security in Camel X
+title: API Security
 sidebar_position: 2
 ---
 
@@ -44,5 +44,6 @@ manual certificate management.
 
 Security, backend traffic, and client traffic policies can all be attached at the **gateway**
 level (affecting every API Instance on it), the **API Instance** level (one route only), or an
-**upstream** (one external backend). Attaching the same kind of policy at more than one level and
-how conflicts resolve is **[À CONFIRMER]**.
+**upstream** (one external backend). When a policy of the same family is attached
+to a gateway and to one of its API instances, the policy of the API instance applies to that API
+in place of the gateway's.

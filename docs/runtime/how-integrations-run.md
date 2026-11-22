@@ -1,5 +1,5 @@
 ---
-title: Build and Run Lifecycle of an Integration (Camel K)
+title: Build and Run Lifecycle
 sidebar_position: 1.5
 ---
 

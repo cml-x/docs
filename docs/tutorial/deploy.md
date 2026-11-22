@@ -1,5 +1,5 @@
 ---
-title: "2. Deploy: Environment Binding, Build, Rollout"
+title: 2. Deploy
 sidebar_position: 3
 ---
 

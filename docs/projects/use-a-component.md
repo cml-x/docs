@@ -1,5 +1,5 @@
 ---
-title: Camel Components and Maven Dependencies
+title: Camel Dependencies
 sidebar_position: 7
 ---
 

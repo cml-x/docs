@@ -3,38 +3,45 @@ title: Deploy an Integration
 sidebar_position: 2
 ---
 
-For when you already have a release and just need to get it running — the deployment half of
-[Create an Integration](/guides/create-an-integration).
+Deploying builds an image from the source of the integration and rolls it out in an environment.
 
-```
-Project Manager        Environment Manager        Runtime Manager        Monitoring
-Release                 target environment          Deployment              Observation
-```
+## Prerequisites
 
-## 1. Confirm the release
+- An integration — see [Create an integration](/guides/create-an-integration).
+- An [environment](/infra/environments) with its
+  [Camel Integration Service](/infra/camel-integration-service) activated and healthy.
 
-The release you want to deploy already exists in [Integrations](/projects/repos) in Project
-Manager — a tagged, frozen snapshot of the repository.
+## Procedure
 
-## 2. Pick the target environment
+1. Open the integration and choose **Bind to environment**.
+2. For a Git source, choose what to build: a branch in development, a release elsewhere.
+3. Add the settings the environment needs — [property files](/runtime/settings/configuration),
+   [environment variables](/runtime/settings/environment),
+   [compute resources](/runtime/settings/compute).
+4. Choose **Apply changes**.
 
-In [Environment Manager](/infra/getting-start), make sure the environment you're deploying into
-exists and is bound to a healthy target. Select it from the environment switcher — Runtime Manager
-deploys into whichever environment is currently selected.
+## What happens
 
-## 3. Deploy
+| Phase | Work done | Fails on |
+|---|---|---|
+| Build | Maven resolves dependencies, the image is built and pushed to the registry of the environment | Unresolved dependency, source that does not compile, registry credentials |
+| Rollout | The image is started with its settings | Missing property or file, memory limit, failing readiness |
 
-Two equivalent paths:
+A change of settings alone skips the build phase.
 
-- From the release's repository in Project Manager, open its **Applications** tab and use the
-  one-click **Deploy** action.
-- From [Runtime Manager](/runtime/getting-start), create or update a **Capsule** and attach the
-  integration by selecting that release as its source.
+## Promotion across environments
 
-Either way, the Capsule shows real-time deployment status and per-component health. If something
-goes wrong, its **revision history** lets you roll back to the previous working deployment.
+Bind the same integration to the next environment and point it at the same release. Each
+environment builds and deploys on its own [runtime plane](/infra/runtime-planes), with its own
+settings.
 
-## 4. Confirm it's running, in Monitoring
+## Rollback
 
-Open [Monitoring](/monitoring/getting-start) for the same project and environment to confirm the
-deployment is live and check its dashboards, logs, metrics or traces.
+Each deployment is a revision. Roll back to an earlier revision from the page of the integration.
+
+## Verification
+
+- The integration is **running** and **ready**.
+- Its service answers inside the environment: `curl http://<integration>/<path>`.
+
+If not, see [Builds and deployments](/troubleshooting/runtime-manager).

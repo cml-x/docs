@@ -1,5 +1,5 @@
 ---
-title: "3. Externalize Configuration: Properties, Environment Variables, Files"
+title: 3. Configuration
 sidebar_position: 4
 ---
 

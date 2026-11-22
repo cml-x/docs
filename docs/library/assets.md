@@ -1,5 +1,5 @@
 ---
-title: "Assets Explorer: Search Indexes and Facets"
+title: Asset Catalog
 sidebar_position: 1
 ---
 

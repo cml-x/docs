@@ -1,5 +1,5 @@
 ---
-title: Storages (Persistent Volumes)
+title: Storages
 sidebar_position: 4
 ---
 

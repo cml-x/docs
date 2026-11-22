@@ -1,5 +1,5 @@
 ---
-title: Login, Password and Lockout Policies
+title: Set Sign-In Policies
 sidebar_position: 7
 ---
 

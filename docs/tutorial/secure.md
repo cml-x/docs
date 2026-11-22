@@ -1,5 +1,5 @@
 ---
-title: "9. Secure the API: API Key, Basic Auth, JWT, External Authorization"
+title: 9. Secure the API
 sidebar_position: 10
 ---
 

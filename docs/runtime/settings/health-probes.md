@@ -1,5 +1,5 @@
 ---
-title: Liveness, Readiness and Startup Probes
+title: Health Probes
 sidebar_position: 8
 ---
 

@@ -1,5 +1,5 @@
 ---
-title: Distributed Traces (OpenTelemetry)
+title: Distributed Traces
 sidebar_position: 5
 ---
 

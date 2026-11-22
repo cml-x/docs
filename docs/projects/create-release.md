@@ -1,5 +1,5 @@
 ---
-title: Releases and Semantic Versioning
+title: Releases
 sidebar_position: 5
 ---
 

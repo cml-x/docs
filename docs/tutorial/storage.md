@@ -1,5 +1,5 @@
 ---
-title: "6. Persistent Volume and Temporary Storage"
+title: 6. Persistent Storage
 sidebar_position: 7
 ---
 

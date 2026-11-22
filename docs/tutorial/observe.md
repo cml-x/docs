@@ -1,5 +1,5 @@
 ---
-title: "10. Observe: Logs, Metrics, Traces"
+title: 10. Observability
 sidebar_position: 11
 ---
 

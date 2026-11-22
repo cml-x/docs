@@ -1,5 +1,5 @@
 ---
-title: "MFA Policy: Second Factors and Enforcement"
+title: MFA Policy
 sidebar_position: 5
 ---
 
