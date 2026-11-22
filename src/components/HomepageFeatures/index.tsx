@@ -43,7 +43,7 @@ const FeatureList: FeatureItem[] = [
   },
   {
     title: 'Authentication',
-    description: 'Kanidm-backed identity provider gateways.',
+    description: 'Tokens for the applications that call your APIs.',
     href: '/auth',
     img: '/img/sections/auth.svg',
   },
