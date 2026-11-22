@@ -8,12 +8,18 @@ call it, how many calls it takes, what happens when the service behind it is slo
 
 ## Where a policy applies
 
+{/* screenshot: api-policies-overview */}
+
 A policy has a **target**: a whole gateway, or one [API instance](/api-manager/api-instances).
 
 | Target | What it covers |
 |---|---|
 | A gateway | Everything published on that gateway |
 | An API instance | That API only |
+
+Each rule has a page of its own, with its procedure and how to check it: see
+[Policy tasks](/api-manager/policy-tasks). How a request crosses the gateway is explained in
+[How Requests Are Routed](/api-manager/how-requests-are-routed).
 
 Policies come in four families. A policy holds one or several **rules** of its family.
 

@@ -35,6 +35,8 @@ This page describes every template, what to put in it, and where it is used.
 
 ## How a configuration is used
 
+{/* screenshot: secret-create-configuration */}
+
 1. **Create** it from a template and fill it in.
 2. **Make it available** to the environments that need it. A configuration that exists but was
    not made available to an environment cannot be used there.
@@ -67,6 +69,8 @@ The same as a Properties Configuration, for sensitive values such as passwords: 
 hidden on its page until you ask to see it.
 
 ### Resources File
+
+{/* screenshot: secret-resources-file */}
 
 One or several **files**, dropped into the form. Each file is kept under its own name.
 

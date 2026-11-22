@@ -8,12 +8,16 @@ from your route, then start it there.
 
 ## Bind it to an environment
 
+{/* screenshot: tutorial-bind-environment */}
+
 Open `orders-api`. Choose **Bind to environment** and pick the environment — `dev` for example.
 
 An integration can be bound to several environments. Each one is deployed separately, which is how
 the same integration goes from development to production.
 
 ## Deploy
+
+{/* screenshot: tutorial-build-progress */}
 
 With the environment selected, choose **Apply changes**.
 
@@ -34,6 +38,8 @@ does not rebuild the image. The integration only restarts.
 :::
 
 ## What "running" means
+
+{/* screenshot: tutorial-integration-running */}
 
 | What you see | What it means |
 |---|---|

@@ -10,6 +10,8 @@ An **Environment** (e.g. "Production", "Staging") is a named, described scope bo
 
 ## The services of an environment
 
+{/* screenshot: env-services */}
+
 ![The services of an environment](/img/infra/env-services.drawio.png)
 
 An environment has three services. Each is configured on its own, and shows whether it is

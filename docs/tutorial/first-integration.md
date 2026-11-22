@@ -12,6 +12,8 @@ image to prepare.
 
 ## Create it
 
+{/* screenshot: tutorial-create-integration */}
+
 Open **Runtime Manager**, go to **Integrations**, then **Create Integration**.
 
 1. **Name** it `orders-api` and describe what it does.
@@ -21,6 +23,8 @@ Open **Runtime Manager**, go to **Integrations**, then **Create Integration**.
 3. **Source mode** — keep **Inline**.
 
 ## Write the route
+
+{/* screenshot: tutorial-inline-source */}
 
 In **Sources**, choose the language of the file and type the route. The three versions below
 do exactly the same thing: use the one you are most at ease with. The rest of the tutorial uses

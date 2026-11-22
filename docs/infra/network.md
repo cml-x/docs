@@ -21,6 +21,8 @@ Rules come in two lists, each with its own page under **Network**:
 
 ### A rule
 
+{/* screenshot: env-network-rule */}
+
 A rule names who is on the other side, and on which ports.
 
 **Who** — one or several of:

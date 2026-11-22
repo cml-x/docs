@@ -33,6 +33,8 @@ Make it available to the environment the integration runs in.
 
 ### Give them to the integration
 
+{/* screenshot: tutorial-configuration-setting */}
+
 On `orders-api`, add the setting **Configuration** and choose `orders-settings` in **Property
 files**. You can also create the configuration from this field with **New secret**.
 
@@ -53,6 +55,8 @@ For passwords and other sensitive values, use a **Secure Properties Configuratio
 way: its content is hidden in the console.
 
 ## Environment variables
+
+{/* screenshot: tutorial-environment-setting */}
 
 Add the setting **Environment**. In **Environment Variables**, each line is one variable:
 
@@ -90,6 +94,8 @@ In **Secret Manager**, create a configuration of the kind **Resources File**, na
 ```
 
 ### Mount it
+
+{/* screenshot: tutorial-resources-setting */}
 
 On `orders-api`, add the setting **Resources**. In **Files**, choose `orders-catalog`, then set
 the place it is mounted at — `/etc/orders` for example. The file is then at

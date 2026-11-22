@@ -11,6 +11,8 @@ An environment cannot run integrations until this service is activated.
 
 ## Activate it
 
+{/* screenshot: env-camel-activate */}
+
 Open the environment, go to **Camel Integration**, then **Activate Camel integrations**.
 
 | Field | What it is | Default |
@@ -25,6 +27,8 @@ Six settings adjust the service. Each has its own page under **Camel Integration
 
 ### Registry
 
+{/* screenshot: env-camel-registry */}
+
 The container registry the integrations of this environment are published to.
 
 | Field | What it is | Default |
@@ -36,6 +40,8 @@ The container registry the integrations of this environment are published to.
 | **Insecure** | Allow connections to the registry without verifying its certificate. | Off |
 
 ### Maven
+
+{/* screenshot: env-camel-maven */}
 
 The Maven settings the builds of this environment use.
 

@@ -28,6 +28,8 @@ Security rules are added from the page of the API instance, in its security poli
 
 ## A. An API key
 
+{/* screenshot: tutorial-api-key-rule */}
+
 The quickest way to close an API.
 
 1. In **Secret Manager**, create an **API Keys** configuration named `orders-keys`. Add one entry
@@ -89,6 +91,8 @@ to the integration.
 public API.
 
 ## C. Tokens
+
+{/* screenshot: tutorial-jwt-rule */}
 
 The way to protect APIs called by applications. The caller first obtains a **token** from an auth
 gateway, valid for a limited time, then sends it with each request. The gateway checks the

@@ -20,6 +20,8 @@ a Capsule — everything else (gateways, policies, storage) exists to support th
 
 ## Settings of an integration
 
+{/* screenshot: runtime-integration-settings */}
+
 Once created, an integration is tuned through its settings. Several of them give it files or
 values stored in [Secret Manager](/config-sources/templates):
 
@@ -30,6 +32,10 @@ values stored in [Secret Manager](/config-sources/templates):
 | **Environment** | Environment variables, written in the setting or read from a stored configuration. |
 | **Compute** | The number of instances, and the CPU and memory of each. |
 | **JVM** | Extra JVM flags, remote debugging, and the certificate authorities it trusts — see [Trust a Private Certificate Authority](/runtime/trust-private-certificates). |
+
+Every setting has a page of its own: see [Integration settings](/runtime/settings). What happens
+between a route and a running service is explained in
+[How Integrations Are Built and Run](/runtime/how-integrations-run).
 
 Several settings can give files to the same integration: what each one mounts is added to what
 the others mount, whatever the order they were added in.

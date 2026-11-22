@@ -23,6 +23,8 @@ Open **API Manager**, go to **Gateways**, then create one. Two things are asked 
 
 ### Access points
 
+{/* screenshot: gateway-access-points */}
+
 An access point is a port the gateway listens on, with the kind of traffic it takes. A gateway
 starts with one HTTP access point on port 80; add the ones you need.
 
@@ -56,6 +58,8 @@ inside the platform, `<gateway>.<namespace>`. It is what to choose for an access
 only from inside the platform.
 
 ## Settings of a gateway
+
+{/* screenshot: gateway-settings */}
 
 Once created, a gateway is tuned through its settings.
 

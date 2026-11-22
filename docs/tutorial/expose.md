@@ -33,6 +33,8 @@ from the gateway, in the next step.
 
 ## 2. Create the gateway
 
+{/* screenshot: tutorial-create-gateway */}
+
 Open **API Manager**, go to **API Gateways**, and create `public-gateway`.
 
 - **Exposure Mode** — **Public**, to be reached from the internet. **Private** keeps it on your
@@ -50,6 +52,8 @@ Deploy the gateway. One gateway serves many APIs: you create it once per environ
 exposure, not once per API.
 
 ## 3. Publish the integration
+
+{/* screenshot: tutorial-create-api-instance */}
 
 Go to **API Instances** and create `orders`.
 

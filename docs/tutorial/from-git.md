@@ -36,6 +36,8 @@ of the repository.
 
 ## Build the integration from it
 
+{/* screenshot: tutorial-git-project */}
+
 Create a new integration, or edit `orders-api`, and set **Source mode** to **Git**. In **Git
 Project**:
 

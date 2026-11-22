@@ -12,6 +12,8 @@ configurations that one or several auth gateways read.
 
 ## Create a list
 
+{/* screenshot: client-list-create */}
+
 A list is created **empty**, in one step, then filled in on its own page.
 
 - From an auth gateway: in its **Clients** setting, **New list of clients**. Give it a name and
@@ -22,6 +24,8 @@ Then make the list available to the environment of the auth gateway, and choose 
 **Clients** setting of that auth gateway.
 
 ## Add a client
+
+{/* screenshot: client-list-add-client */}
 
 Open the list in **Secret Manager** and choose **Add a client**. The clients of a list
 are shown in a table you can search, filter and sort.

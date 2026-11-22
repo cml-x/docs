@@ -1,0 +1,49 @@
+---
+title: Add Logic of Your Own (Lua)
+sidebar_position: 12
+---
+
+Run a script on each request and each response: read and change headers, inspect the content, or call another service.
+
+## When to use it
+
+For a small adjustment that no rule covers. Anything substantial belongs in an integration.
+
+## Before you begin
+
+- An [API instance](/api-manager/api-instances) that is deployed and answers.
+
+## Procedure
+
+{/* screenshot: api-manager-policy-tasks-custom-lua */}
+
+1. In **API Manager**, go to **API Instances** and open the API.
+2. Open its **Custom** policies and add a custom policy.
+3. In **Script**, choose **Written here** and type the script, or **A stored script** and choose a [Lua Script](/config-sources/templates#lua-script) configuration shared between policies.
+4. Deploy.
+
+## Field reference
+
+| Field | What it is | Default |
+|---|---|---|
+| **Script** | Written in the policy, or taken from a stored script. | Written here |
+| **Stored Script** | The stored script the policy runs. | — |
+| **Lua Script** | The script. It defines `envoy_on_request`, `envoy_on_response`, or both. | An example |
+
+## Verify
+
+```lua title="A script that adds a header to every request"
+function envoy_on_request(request_handle)
+  request_handle:headers():add("x-checked-by", "gateway")
+end
+```
+
+## Good to know
+
+- A script that fails is logged and the request goes on: do not rely on a script alone to refuse access.
+- Store a script once when several policies use it: changing it then changes them all.
+
+## See also
+
+- [Policies](/api-manager/policies) — every rule at a glance
+- [Templates: Lua Script](/config-sources/templates#lua-script)

@@ -44,6 +44,8 @@ how many are selected. Categories you do not touch grant nothing.
 
 ### Step 3 — Restrict to environments *(optional)*
 
+{/* screenshot: access-role-restrict */}
+
 Only categories that support environment restriction and have something selected appear here
 (API Manager, Applications Manager, Environment Services).
 

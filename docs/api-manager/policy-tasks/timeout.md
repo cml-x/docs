@@ -1,0 +1,52 @@
+---
+title: Stop Waiting for a Slow Service
+sidebar_position: 8
+---
+
+Give up on a request when the service behind the API takes too long, instead of keeping the caller waiting.
+
+## When to use it
+
+Always, on an API in production: without a timeout, a slow service holds connections until the caller gives up.
+
+## Before you begin
+
+- An [API instance](/api-manager/api-instances) that is deployed and answers.
+
+## Procedure
+
+{/* screenshot: api-manager-policy-tasks-timeout */}
+
+1. In **API Manager**, go to **API Instances** and open the API. To cover everything published on a gateway instead, open the gateway.
+2. Open its **Backend traffic** policies and add the rule **timeout**.
+3. In **Request Timeout**, give the longest a whole request may take, such as `30s`.
+4. Optionally give a **Connect Timeout** and an **Idle Timeout**.
+5. Deploy.
+
+## Field reference
+
+| Field | What it is | Default |
+|---|---|---|
+| **Request Timeout** | The longest a whole request may take. | `30s` |
+| **Connect Timeout** | The longest the gateway waits to open a connection to the service. | — |
+| **Idle Timeout** | How long a connection may stay idle before it is closed. | — |
+
+## Verify
+
+```bash title="A request that takes too long"
+curl -i https://orders.example.com/orders/slow
+```
+
+```http title="Answer"
+HTTP/1.1 504 Gateway Timeout
+```
+
+## Good to know
+
+- Set the timeout shorter than the one of the caller, so that the gateway answers before the caller gives up.
+- A timeout does not stop the work already started in your service: make long operations asynchronous.
+
+## See also
+
+- [Policies](/api-manager/policies) — every rule at a glance
+- [Retry failed requests](/api-manager/policy-tasks/retry)

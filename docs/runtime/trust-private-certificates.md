@@ -56,6 +56,8 @@ opens the same creation panel and selects what you created.
 
 ### 2. Choose it on the integration
 
+{/* screenshot: runtime-jvm-trusted-ca */}
+
 Open the integration, add or edit its **JVM** setting, and fill in **Trusted CA Certificates**:
 
 1. choose the configuration that holds the file;

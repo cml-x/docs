@@ -49,6 +49,8 @@ in it. Make it available to the environment.
 
 ### 2. Choose it on the integration
 
+{/* screenshot: tutorial-jvm-trusted-ca */}
+
 On `orders-api`, add the setting **JVM**. In **Trusted CA Certificates**, choose the configuration
 `corp-ca`, then the file `corp-ca.pem`. Leave **Keep Public Authorities** on.
 

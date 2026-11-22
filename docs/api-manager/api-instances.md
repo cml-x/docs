@@ -14,6 +14,8 @@ Open **API Manager**, go to **API Instances**, then create one. Two things are a
 
 ### Gateway & access point
 
+{/* screenshot: api-instance-gateway-select */}
+
 Choose the gateway, then one of its access points. The kind of the access point decides the kind
 of route: an HTTP or HTTPS access point gives an HTTP API, a TLS access point a TLS route, a TCP
 access point a TCP route.
@@ -40,6 +42,8 @@ Choose what answers the requests:
 - an [upstream](/api-manager/upstreams) — a service outside the environment that you declared.
 
 ## The audience ID of an API
+
+{/* screenshot: api-instance-audience-id */}
 
 Every API instance is given an **audience ID**, shown on its page. It identifies this API in the
 tokens that are issued for it:

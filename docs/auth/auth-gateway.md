@@ -13,6 +13,8 @@ sign-in page for people: for that, see
 
 ## Create an auth gateway
 
+{/* screenshot: auth-gateway-create */}
+
 Open **API Manager**, go to **Auth Gateways**, then create one.
 
 | Field | What it is |
@@ -30,6 +32,8 @@ The gateway ends the encryption with the certificate of its access point; nothin
 installed on the token service.
 
 ## Its addresses
+
+{/* screenshot: auth-gateway-addresses */}
 
 The page of an auth gateway lists the addresses applications and APIs need:
 
@@ -53,6 +57,8 @@ The discovery document is also shown on the page, ready to copy.
 | **Logging** | How much it logs: info, debug or trace. | Info |
 
 ### Clients
+
+{/* screenshot: auth-gateway-clients-setting */}
 
 Choose one or several lists. A list that is not yet available in the environment is offered
 apart, with what makes it available. **New list of clients** creates one — empty — and selects

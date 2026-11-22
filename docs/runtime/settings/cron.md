@@ -1,0 +1,41 @@
+---
+title: Run an Integration on a Schedule
+sidebar_position: 9
+---
+
+Run an integration at set times instead of continuously: it starts, does its work and stops.
+
+## Before you begin
+
+- An [integration](/runtime/integrations), created and bound to an environment.
+- A route that starts from a timer, a cron expression or a scheduler.
+
+## Procedure
+
+{/* screenshot: runtime-settings-cron */}
+
+1. In **Runtime Manager**, go to **Integrations** and open the integration.
+2. Choose **Add Capability**, then **Cron Schedule**.
+3. In **Schedule**, give the cron expression, such as `0/5 * * * *` for every five minutes.
+4. Optionally give the **Time Zone** and what happens when a run is still going at the next one.
+5. Choose **Apply changes**.
+
+## Field reference
+
+| Field | What it is | Default |
+|---|---|---|
+| **Schedule** | When the integration runs, as a cron expression. | — |
+| **Time Zone** | The time zone of the schedule, such as `Europe/Paris`. | — |
+| **Concurrency Policy** | When a run is still going at the next one: **Allow** both, **Forbid** the new one, or **Replace** the old one. | — |
+| **Starting Deadline** | How late a missed run may still start, in seconds. | — |
+| **Active Deadline** | The longest a run may take, in seconds. | 60 |
+| **Backoff Limit** | How many times a failed run is tried again. | 2 |
+
+## Good to know
+
+- Between two runs nothing runs: a scheduled integration uses no CPU or memory while it waits.
+- It is not exposed and cannot be called: it is for batch work.
+
+## See also
+
+- [Integrations](/runtime/integrations) — every setting at a glance

@@ -30,6 +30,8 @@ Then click **Apply** on the environment.
 
 ## Destinations
 
+{/* screenshot: env-log-destinations */}
+
 A destination is a place logs are sent to. Create as many as you need.
 
 | Destination | What you give |
@@ -70,6 +72,8 @@ Credentials are stored configurations — see the
 [templates for log destinations](/config-sources/templates#for-log-destinations).
 
 ## Flows
+
+{/* screenshot: env-log-flows */}
 
 A flow says which logs go where.
 
