@@ -9,7 +9,7 @@ permissions belong to a **role** and can apply to the whole business unit or to 
 **environments**.
 
 **What you will build:** a role called *Platform Editor Access* that lets people manage gateways
-and capsules, deploy only to `dev` and `staging`, and read everything else.
+and integration groups, deploy only to `dev` and `staging`, and read everything else.
 
 ## 1. Open the Roles tab
 
@@ -135,7 +135,7 @@ revokes access immediately.
 
 Sign in as the user (or ask them) and check:
 
-- They can open gateways and capsules.
+- They can open gateways and integration groups.
 - They can deploy a gateway in `dev`, but **not** in `prod`.
 - Pages for resources the role does not cover show an **Access denied** panel.
 

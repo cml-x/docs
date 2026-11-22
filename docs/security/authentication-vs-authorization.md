@@ -3,30 +3,45 @@ title: Authn and Authz
 sidebar_position: 1
 ---
 
-Camel X keeps these two concerns in different apps — mixing them up is the most common source of
-confusion when something is unexpectedly denied.
-
-- **Authentication** answers *"who is this?"*
-- **Authorization** answers *"what are they allowed to do?"*
+Two questions, asked at two different places: **who is calling** (authentication) and **what
+may they do** (authorization). The platform answers them separately for the console and for the
+APIs you expose.
 
 ## Console access
 
 | | Authentication | Authorization |
 |---|---|---|
-| Signing in | [Access Manager](/access/configure-organization-access): password login, or a federated [Identity Provider](/access/identity-providers) (Google, GitHub, Microsoft, GitLab, Apple, OIDC, SAML), plus [MFA](/access/mfa-policy) | [Access Manager](/access/assign-roles-and-permissions): organization-level admin roles (Owner, Viewer, User Manager, Permission Editor, Project Editor, Project Creator) and project-scoped Authorizations |
-| Programmatic access | A [Connected App](/access/connected-apps)'s client secret, personal access token, or JSON Web Key | Whatever project authorizations are granted to the account the Connected App acts as |
-
-Authentication happens once, at sign-in. Authorization is checked continuously — a project
-authorization can be deactivated at any time, immediately revoking access without touching the
-user's login credentials.
+| Question | Who is signing in? | What may they manage? |
+| Mechanism | Sign-in, optionally through an [identity provider](/access/identity-providers), with a [second factor](/access/mfa-policy) | [Roles](/access/rbac-principles) granted on projects, optionally restricted to environments |
+| Managed in | Access Manager: Users, Identity Providers, MFA Policy, Settings | Access Manager: RBAC |
+| For programs | [Service accounts](/access/connected-apps) | The same roles |
 
 ## Exposed APIs
 
 | | Authentication | Authorization |
 |---|---|---|
-| Who issues proof of identity | An [auth gateway](/auth/auth-gateway) issues tokens to the applications registered as [clients](/auth/client-lists) |
-| Who checks it at the door | [API Manager](/api-manager/getting-start): a Security policy (JWT, OIDC, API key, or basic auth) attached to the gateway or API Instance validates the token on every request |
-| Fine-grained authorization | The JWT rule validates the signature, the issuer, the expiry and, when enabled, the audience. For decisions on other claims or scopes, use [external authorization](/api-manager/policy-tasks/external-auth), or check them in the route |
+| Question | Which application or person is calling the API? | Is this call allowed? |
+| Mechanism | A [security policy](/api-manager/reference/security-policy) rule: JWT, OIDC, API key, Basic | Audience check, IP rules, [external authorization](/api-manager/policy-tasks/external-auth) |
+| Credentials issued by | An [auth gateway](/auth/auth-gateway) to registered [clients](/auth/client-lists), or your identity provider | — |
+| Enforced by | The gateway, before the request reaches the service | The gateway; then the service for business rules |
 
-See [Secure an API](/guides/secure-an-api) for the end-to-end setup, and
-[API Security in Camel X](/security/api-security) for the full list of available policies.
+:::warning Two independent systems
+A role in Access Manager gives no right to **call** an API, and a token for an API gives no
+right to **manage** anything in the console. A developer who manages an API still needs a client
+to call it.
+:::
+
+## What the JWT rule verifies
+
+| Verified by the gateway | Left to you |
+|---|---|
+| Signature, against the keys of the issuer | Scopes and custom claims |
+| Issuer (`iss`) and expiry (`exp`) | Per-resource rules: "this customer, this order" |
+| Audience (`aud`), when the check is on | — |
+
+For decisions on other claims, use external authorization, or check them in the route.
+
+:::tip Pass identity to the backend in a header
+The API key and Basic rules can forward the identity of the caller in a header. Remove that
+header from incoming requests first — see [Route filters](/api-manager/reference/route-filters).
+:::

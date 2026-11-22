@@ -3,12 +3,45 @@ title: Secrets
 sidebar_position: 2
 ---
 
-The **Secrets** view shows your **sensitive** configurations — credentials, tokens and API keys —
-separately from plain application settings.
+**Secrets** lists the **sensitive** configurations of the business unit: credentials, tokens,
+keys and certificates.
 
-A configuration becomes a secret by being created from a template that's inherently sensitive, or
-by having the `sensitive` flag set explicitly. Sensitive values are handled accordingly wherever
-they're distributed and displayed.
+## What makes a configuration a secret
 
-See [Config Maps](/config-sources/configs) for the equivalent view over non-sensitive
-configuration.
+Its template. Templates such as Secure Properties, TLS Certificate, API Keys or Client
+Credentials are sensitive by nature; Properties and Resources File are not — see
+[Templates](/config-sources/templates).
+
+## Operations
+
+| Operation | Effect |
+|---|---|
+| **New configuration** | Create from a template |
+| Edit | Change values; consumers pick the change up as described in the [overview](/config-sources/getting-start#what-changing-a-configuration-triggers) |
+| **Distribute to environment** | Make it available in one more environment |
+| **Delete distribution** | Withdraw it from an environment |
+| **Delete configuration** | Remove it everywhere |
+
+## Display of sensitive values
+
+Values are masked until revealed. Values kept as fingerprints are never shown again.
+
+:::danger Deleting a configuration that is in use
+Deleting a configuration, or withdrawing its distribution, breaks what references it at the
+next restart or reload: an integration no longer starts, a policy refuses every caller. Remove
+the references first.
+:::
+
+## Rotation
+
+| Kind | Rotation without interruption |
+|---|---|
+| API key list | Add the new key, move callers, remove the old key |
+| OAuth client secret | Generate a new secret on the client, deploy it to the application |
+| TLS certificate | Replace the certificate in the same configuration before it expires |
+| Database password in Secure Properties | Change it at the source and in the configuration, then restart the integration |
+
+:::tip Rotate in place
+Keep the same configuration and change its value. Creating a new configuration means updating
+every reference to it.
+:::

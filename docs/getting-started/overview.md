@@ -32,7 +32,7 @@ flows) and **Assets Explorer** (a searchable catalog of everything already publi
 | App | Responsible for |
 |---|---|
 | [Project Manager](/projects/getting-start) | Git-backed repositories: Integrations, API Specifications, Kamelets, Pipes, and their releases |
-| [Runtime Manager](/runtime/getting-start) | Capsules — the deployed, running form of an integration |
+| [Runtime Manager](/runtime/getting-start) | Integrations and integration groups: what is built, deployed and running |
 | [API Manager](/api-manager/getting-start) | Gateways and API Instances that expose flows as APIs |
 | [Authentication](/auth/getting-start) | Auth gateways and lists of clients — tokens for the applications that call your APIs. Managed from API Manager. |
 | [Access Manager](/access/users) | Users, project-scoped authorizations, connected apps, MFA |

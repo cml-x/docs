@@ -3,140 +3,88 @@ title: Policies
 sidebar_position: 6
 ---
 
-A **policy** changes how a [gateway](/api-manager/gateway) treats the traffic of an API: who may
-call it, how many calls it takes, what happens when the service behind it is slow.
+A policy changes how the gateway treats traffic without touching the service behind it:
+who may call, how much, how long the gateway waits, what happens when the backend fails.
+
+## Why policies sit at the gateway
+
+- **One enforcement point.** A rule holds for every instance of the service, whatever its
+  language or version.
+- **Rejected early.** An unauthenticated or throttled request never reaches the integration and
+  costs it nothing.
+- **Changed without a build.** A policy is applied in seconds; the integration is neither rebuilt
+  nor restarted.
+
+## Policy families
+
+| Family | Controls | Rules | Reference |
+|---|---|---|---|
+| **Security policy** | Who may call | JWT, OIDC, API key, Basic, CORS, IP rules, external authorization | [Security Policy](/api-manager/reference/security-policy) |
+| **Backend traffic policy** | How the gateway talks to the backend | Rate limit, timeouts, retries, circuit breaker, load balancing | [Backend Traffic Policy](/api-manager/reference/backend-traffic-policy) |
+| **Client traffic policy** | How clients connect to the gateway | Connection limit, timeouts, TLS versions and ciphers | [Client Traffic Policy](/api-manager/reference/client-traffic-policy) |
+| **Custom policy** | Anything else, in Lua | Script on request and response | [Lua Policy](/api-manager/reference/lua-policy) |
+| Route filters | The request and response of one API | Headers, URL rewrite | [Route Filters](/api-manager/reference/route-filters) |
 
 ## Policy targets: gateway or API instance
 
 {/* screenshot: api-policies-overview */}
 
-A policy has a **target**: a whole gateway, or one [API instance](/api-manager/api-instances).
+A policy has a **target**: a whole gateway — it then covers every API on it — or one
+[API instance](/api-manager/api-instances).
 
-| Target | What it covers |
+| Target | Use it for |
 |---|---|
-| A gateway | Everything published on that gateway |
-| An API instance | That API only |
+| Gateway | A baseline every API must meet: TLS versions, a global connection limit, an IP allowlist |
+| API instance | What is specific to one API: its authentication, its rate limit, its timeouts |
 
-Each rule has a page of its own, with its procedure and how to check it: see
-[Policy tasks](/api-manager/policy-tasks). How a request crosses the gateway is explained in
-[How Requests Are Routed](/api-manager/how-requests-are-routed).
+:::warning A policy on an API replaces the gateway's, it does not add to it
+When a policy of the same family targets both a gateway and one of its API instances, the API
+instance uses **its own policy only**. A JWT rule set on the gateway is no longer enforced on an
+API that has its own security policy without that rule: repeat in the API's policy what must
+still hold.
+:::
 
-Policies come in four families. A policy holds one or several **rules** of its family.
+## How rules combine inside a policy
 
-| Family | What its rules decide |
+| Family | Combination |
 |---|---|
-| [Security](#security-policy-rules) | Who is let through |
-| [Backend traffic](#backend-traffic-policy) | How the gateway talks to the service behind the API |
-| [Client traffic](#client-traffic-policy) | How callers connect to the gateway |
-| [Custom](#lua-filter) | Logic of your own, as a script |
+| Security policy | Every rule present must pass. CORS answers preflights before authentication |
+| Backend traffic policy | Each rule covers its own aspect; they do not conflict |
+| Client traffic policy | One set of connection and TLS settings per target |
 
-## Security policy rules
+:::tip Start with three rules
+For an API open to applications: **JWT authentication** with the audience check, a **rate limit**,
+and a **request timeout** below the timeout of your callers. Add retries only for idempotent
+operations.
+:::
 
-### JWT authentication
+## Consequences to anticipate
 
-Requires a valid access token on every request. Nobody is redirected: the caller — an application
-or another service — sends the token it obtained, and a request without a valid one is refused.
-
-| Field | What it is |
-|---|---|
-| **Tokens issued by** | **An auth gateway** of the environment, or **another identity provider** |
-| **Auth gateway** | When tokens come from an [auth gateway](/auth/auth-gateway): choose it. Its address gives the issuer and where its keys are published. |
-| **Provider Name**, **Issuer**, **JWKS URI** | When tokens come from another provider: a short name, the issuer written in the tokens, and the address where its public keys are published. |
-| **Check the audience** | Refuse a token that was not issued for this API. Off by default. |
-| **Audience of this API** | Filled in for you with the audience ID of the API. A token is checked against it first. |
-| **Other audiences** | Other values a token may be intended for. |
-
-The complete walk-through is in [Protect an API with JWT](/auth/protect-api-with-jwt).
-
-### OIDC authentication
-
-Sends visitors to the sign-in page of your identity provider before they reach the API, then
-keeps them signed in with a session cookie. Meant for people using a browser. See
-[Sign In with an Identity Provider](/auth/configure-oidc).
-
-### API key authentication
-
-Requires a key on every request.
-
-| Field | What it is |
-|---|---|
-| **API Keys** | A stored list of keys, one per client — a configuration of the kind [API Keys](/config-sources/templates#api-keys). |
-| **Extract from Header / Query Param / Cookie** | Where callers put the key, for example the header `x-api-key`. |
-| **Forward Client ID Header** | Pass the name of the client that called to your service, in this header. |
-| **Sanitize Key** | Remove the key from the request before it reaches your service. |
-
-### HTTP Basic authentication
-
-Asks for a user name and a password; a browser shows its sign-in prompt.
-
-| Field | What it is |
-|---|---|
-| **Users** | A stored list of users — a configuration of the kind [Basic Auth Users](/config-sources/templates#basic-auth-users). |
-| **Forward Username Header** | Pass the verified user name to your service, in this header. |
-
-### CORS
-
-Lets pages of other websites call the API.
-
-| Field | Default |
-|---|---|
-| **Allowed Origins** | `*` — every site |
-| **Allowed Methods** | `GET`, `POST`, `PUT`, `DELETE`, `OPTIONS` |
-| **Allowed Headers** | `Content-Type`, `Authorization` |
-| **Exposed Headers** | None |
-| **Cache Duration** | `3600s` |
-| **Allow Credentials** | Off. Requires named origins, not `*`. |
-
-### IP allowlist and denylist
-
-Lets through, or blocks, callers by where they come from.
-
-| Field | What it is |
-|---|---|
-| **Default Action** | What happens to a caller no rule matches. **Deny** by default: only the addresses you allow get through. |
-| **Rules** | In order, each with an action — allow or deny — and address ranges. The first rule that matches decides. |
-
-### External authorization
-
-Asks a service of yours whether each request may pass.
-
-| Field | What it is |
-|---|---|
-| **Protocol** | HTTP or gRPC |
-| **Authentication Service** | The service that decides — a service of the platform, or an [upstream](/api-manager/upstreams). |
-| **Fail Open** | Let requests through when that service does not answer. Off by default: they are refused. |
-
-## Backend traffic policy
-
-| Rule | What it does | Defaults |
+| Rule | Effect on callers | Watch |
 |---|---|---|
-| **Rate limit** | Refuses requests beyond a number per second, minute or hour. | 100 per minute |
-| **Retry** | Sends a request again when the backend fails. | 3 retries, on `5xx`, `gateway-error` and `reset`; from 100 ms to 10 s between attempts |
-| **Timeout** | Stops waiting for a slow backend: for the whole request, for opening the connection, for an idle connection. | 30 s for the whole request |
-| **Circuit breaker** | Stops sending to a backend that is overwhelmed, by capping connections, waiting requests, parallel requests and parallel retries. | 1024 each |
-| **Load balancing** | Chooses how requests are spread across the instances of the backend — round robin, least requests, random or consistent hash — and whether a client stays on the same instance. | Round robin |
-
-## Client traffic policy
-
-A client traffic policy targets a gateway. It sets:
-
-- the most simultaneous connections the gateway accepts, and how long it waits before closing the
-  ones above the limit;
-- how long a client has to send its request, and how long an idle connection is kept;
-- the TLS versions a client may use (1.2 to 1.3 by default) and, when needed, the cipher suites,
-  curves, signature algorithms and ALPN protocols.
-
-## Lua filter
-
-A custom policy runs a **Lua script** on each request and each response. The script can read and
-change headers, inspect the content, or call another service.
-
-The script is written in the policy, or reused from a stored configuration of the kind
-[Lua Script](/config-sources/templates#lua-script) shared between several policies.
+| Authentication | `401` without valid credentials | Preflight `OPTIONS` requests carry none: add CORS |
+| Rate limit | `429` beyond the limit | The limit is counted per gateway instance |
+| Timeout | `504` when the backend is slower | Long-running calls, streaming, uploads |
+| Retries | The backend may receive the same request several times | Non-idempotent operations |
+| Circuit breaker | `503` beyond the caps | Caps too low for peak traffic |
 
 ## Configurations referenced by policies
 
-Several rules read a list or a credential you store once in
-[Secret Manager](/config-sources/templates). In each of those fields you can choose an
-existing configuration, **create one** without leaving the form, or make available one that
-exists but is not yet in the environment.
+Several rules read a list or a credential stored once in **Secret Manager**:
+
+| Rule | Template |
+|---|---|
+| API key authentication | [API Keys](/config-sources/templates#api-keys) |
+| HTTP Basic authentication | [Basic Auth Users](/config-sources/templates#basic-auth-users) |
+| OIDC authentication | [Client Credentials](/config-sources/templates#client-credentials) |
+| Lua policy, stored script | [Lua Script](/config-sources/templates#lua-script) |
+| Backend TLS, client certificate | [TLS Certificate](/config-sources/templates#tls-certificate) |
+
+:::info Make the configuration available first
+A configuration can only be chosen in an environment it was made available to. The selectors of
+the policy forms offer to do it in place.
+:::
+
+## Procedures
+
+One page per rule, with its procedure and verification: [Policy tasks](/api-manager/policy-tasks).

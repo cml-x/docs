@@ -147,14 +147,14 @@ Used for:
 A list of keys, **one per client**. The name of the client is what your service receives when the
 policy forwards the caller's identity. A key cannot be read back once saved.
 
-Chosen in the [API key rule](/api-manager/policies#api-key-authentication) of a security policy.
+Chosen in the [API key rule](/api-manager/reference/security-policy#api-key-authentication) of a security policy.
 
 ### Basic Auth Users
 
 A list of users with their passwords. Passwords are kept as fingerprints: they cannot be
 recovered, only replaced.
 
-Chosen in the [user name and password rule](/api-manager/policies#http-basic-authentication)
+Chosen in the [user name and password rule](/api-manager/reference/security-policy#http-basic-authentication)
 of a security policy.
 
 ### Client Credentials
@@ -167,7 +167,7 @@ Chosen in a [sign-in policy](/auth/configure-oidc).
 ### Lua Script
 
 A script stored once and used in any number of
-[custom policies](/api-manager/policies#lua-filter). It runs on each request and response.
+[custom policies](/api-manager/reference/lua-policy). It runs on each request and response.
 
 ### Auth Gateway Clients
 

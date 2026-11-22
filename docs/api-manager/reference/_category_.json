@@ -1,0 +1,9 @@
+{
+  "label": "Reference",
+  "position": 8,
+  "link": {
+    "type": "generated-index",
+    "slug": "/api-manager/reference",
+    "description": "Reference pages: every parameter of a policy, its default, what it changes and what to watch."
+  }
+}

@@ -5,18 +5,18 @@ sidebar_position: 3
 
 An **Integration** is a Camel route that the platform builds and runs. Its source is typed in the
 console (**inline** mode) or taken from a Git repository (**Git** mode). It is created on its
-own, or inside a group — see [Capsules](/runtime/capsule).
+own, or inside a group — see [Integration groups](/runtime/integration-groups).
 
 ## Create an integration
 
 - Choose the source mode: **Inline**, and type the route, or **Git**, and pick the repository
   then a **branch or release** to build from.
-- Attach it to an existing Capsule, or create a new one on the spot.
+- Choose **None — create it on its own**, or an existing [integration group](/runtime/integration-groups).
 - Configure component-level secrets inline while creating it — Git credentials, properties, and
   resource files the route needs at runtime.
 
-Integrations are what actually route messages, transform data and call out to other systems inside
-a Capsule — everything else (gateways, policies, storage) exists to support them.
+Integrations are what route messages, transform data and call other systems. Gateways, policies
+and storage exist to support them.
 
 ## Integration settings
 

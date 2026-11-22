@@ -36,7 +36,7 @@ While capturing, compare what the page says with what the screen shows — names
 of fields — and correct the page where they differ: the pages were written from the code and the
 forms of the platform, not from the screens.
 
-## The captures (99)
+## The captures (100)
 
 ### `docs/access/connected-apps.md`
 
@@ -91,6 +91,12 @@ forms of the platform, not from the screens.
 | ID | After | Screen | How to reach it | Status |
 |---|---|---|---|---|
 | `access-tasks-set-sign-in-rules` | Procedure | The Settings page: authentication methods, password rules, lockout policy | Access Manager > Settings | to do |
+
+### `docs/api-manager/api-groups.md`
+
+| ID | After | Screen | How to reach it | Status |
+|---|---|---|---|---|
+| `api-group-create` | Create an API group | The API Groups list with one group, and the API instance creation form showing the group choice | API Manager > API Groups | to do |
 
 ### `docs/api-manager/api-instances.md`
 

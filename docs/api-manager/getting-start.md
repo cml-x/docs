@@ -36,10 +36,10 @@ The API is then open to everyone: protect it before giving the address out.
 
 | Who calls | Use |
 |---|---|
-| A few known applications | [API keys](/api-manager/policies#api-key-authentication) |
+| A few known applications | [API keys](/api-manager/reference/security-policy#api-key-authentication) |
 | Applications, at scale | [Tokens (JWT)](/auth/protect-api-with-jwt) |
 | People, in a browser | [Sign-in with an identity provider](/auth/configure-oidc) |
-| Anything, by rules of your own | [External authentication](/api-manager/policies#external-authorization) |
+| Anything, by rules of your own | [External authentication](/api-manager/reference/security-policy#external-authorization) |
 
 The [tutorial](/tutorial/secure) goes through each of them on the same example.
 

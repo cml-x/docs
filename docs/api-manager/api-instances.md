@@ -6,7 +6,7 @@ sidebar_position: 3
 An **API Instance** exposes one service through a [gateway](/api-manager/gateway): it says on
 which access point the API is reached, at which address, and which service answers.
 
-![API Instances](/img/api-manager/api-instances.svg)
+![API Instances](/img/api-manager/api-instance.drawio.png)
 
 ## Create an API instance
 

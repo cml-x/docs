@@ -4,7 +4,7 @@ sidebar_position: 8
 ---
 
 An integration created **on its own** is deployed and versioned by itself. An **integration
-group** — a [Capsule](/runtime/capsule) — deploys several components together, under one status
+group** — a [integration group](/runtime/integration-groups) — deploys several components together, under one status
 and one revision history.
 
 ## When to group
@@ -18,7 +18,7 @@ and one revision history.
 ## Components of a group
 
 A group can hold several Camel integrations, Pipes, jobs and cron tasks, and persistent volumes.
-The full list is on the [Capsules](/runtime/capsule) page.
+The full list is on the [Integration groups](/runtime/integration-groups) page.
 
 ## Revisions and rollback
 
@@ -32,5 +32,5 @@ group pins a set of sources that were validated together.
 
 ## Related pages
 
-- [Capsules](/runtime/capsule)
+- [Integration groups](/runtime/integration-groups)
 - [Storages](/runtime/storages)

@@ -3,47 +3,55 @@ title: API Security
 sidebar_position: 2
 ---
 
-[API Manager](/api-manager/getting-start) secures traffic through **policies** — reusable rules
-attached to a gateway, an API Instance, or an upstream. They're grouped into four confirmed
-families.
+The controls available on an exposed API, layer by layer, and which threat each one addresses.
 
-## Security policies
+## Layers
 
-Control who and what can call the API:
+| Layer | Control | Where |
+|---|---|---|
+| Network reachability | Exposure mode of the gateway: Public, Private, Internal | [API Gateways](/api-manager/gateway) |
+| Transport | TLS on the access point; versions and ciphers | [Client Traffic Policy](/api-manager/reference/client-traffic-policy) |
+| Source | IP allowlist and denylist | [Security Policy](/api-manager/reference/security-policy#ip-allowlist-and-denylist) |
+| Identity | JWT, OIDC, API key, Basic | [Security Policy](/api-manager/reference/security-policy) |
+| Decision | Audience check, external authorization | [Security Policy](/api-manager/reference/security-policy#external-authorization) |
+| Abuse and overload | Rate limit, connection limit, circuit breaker | [Backend Traffic Policy](/api-manager/reference/backend-traffic-policy) |
+| Backend link | TLS and mutual TLS towards the backend | [Route Filters](/api-manager/reference/route-filters#backend-tls) |
+| Environment | Network policies between workloads | [Network Policies](/infra/network) |
 
-- **JWT auth** — validate a bearer JWT, typically issued by an [Auth Gateway](/auth/getting-start).
-- **OIDC auth** — validate against an OpenID Connect provider.
-- **API key auth** — require a static API key.
-- **Basic auth** — username/password over the request.
-- **CORS** — control which origins can call the API from a browser.
-- **IP allow/deny** — restrict callers by IP.
-- **External auth** — delegate the authentication decision to an external service.
+## Threats and controls
 
-See [Protect an API with JWT](/auth/protect-api-with-jwt) for the concrete setup steps.
+| Threat | Control |
+|---|---|
+| Anonymous access | An authentication rule on the API |
+| Token issued for another API replayed here | JWT audience check |
+| Leaked API key | Rotation of the key list; header transport with `sanitize` |
+| Credential stuffing, scraping | Rate limit; IP rules |
+| Slow clients exhausting connections | `requestReceivedTimeout`, `maxConnections` |
+| Downgrade to weak TLS | `tlsMinVersion` |
+| Backend bypassing the gateway | Network policies: ingress to the integration from the gateway only |
+| Header spoofing of identity | Remove identity headers on the way in |
+| Cascading failure of a slow backend | Timeout, circuit breaker |
 
-## Backend traffic policies
+:::danger An API without a security policy is open
+A new API instance has no authentication. On a **Public** gateway it is reachable by anyone as
+soon as it is created. Add its security policy before publishing the host name.
+:::
 
-Protect the backend the API routes to: rate limiting, circuit breaker, retry, timeout, load
-balancing, resilience.
+## Baseline for a production API
 
-## Client traffic policies
+1. HTTPS access point, TLS 1.2 minimum.
+2. JWT authentication with the audience check — or OIDC for browser users.
+3. Rate limit and request timeout.
+4. Identity headers removed on the way in.
+5. Ingress to the backend restricted to the gateway.
 
-Shape traffic on the client-facing side of the gateway.
+:::info Policy precedence
+A security policy on an API instance replaces the gateway's for that API — see
+[Policies](/api-manager/policies#policy-targets-gateway-or-api-instance).
+:::
 
-## Custom policies
+## Secrets used by security rules
 
-Free-form policy definitions for anything not covered by the built-in families.
-
-## Transport security
-
-Attach a custom [Domain](/api-manager/domains) to a project to serve the API on your own hostname,
-with TLS certificates issued automatically (Let's Encrypt via a Route53 cluster issuer) — no
-manual certificate management.
-
-## Where policies attach
-
-Security, backend traffic, and client traffic policies can all be attached at the **gateway**
-level (affecting every API Instance on it), the **API Instance** level (one route only), or an
-**upstream** (one external backend). When a policy of the same family is attached
-to a gateway and to one of its API instances, the policy of the API instance applies to that API
-in place of the gateway's.
+Keys, user lists and client credentials are stored configurations. Several are kept as
+fingerprints only and cannot be read back — see
+[Configuration templates](/config-sources/templates).

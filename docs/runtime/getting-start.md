@@ -5,7 +5,7 @@ sidebar_position: 1
 
 Runtime Manager is where Apache Camel integrations are deployed and operated.
 
-![Capsule lifecycle](/img/runtime/capsule-lifecycle.svg)
+![On its own, in an integration group, in an API group](/img/runtime/groups.drawio.png)
 
 ## Objects
 
@@ -51,5 +51,5 @@ The environment must have its
 | Build from a repository | [Move the source to Git](/tutorial/from-git) |
 | Publish it as an API | [Expose it as an API](/tutorial/expose) |
 
-Reference: [Integrations](/runtime/integrations), [Capsules](/runtime/capsule),
+Reference: [Integrations](/runtime/integrations), [Integration groups](/runtime/integration-groups),
 [Storages](/runtime/storages).

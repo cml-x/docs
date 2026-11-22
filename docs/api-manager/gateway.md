@@ -7,7 +7,7 @@ A **Gateway** is the entry point of traffic for one [environment](/infra/environ
 load balancer of its own, and one or several **access points** through which
 [API Instances](/api-manager/api-instances) and [Auth Gateways](/auth/auth-gateway) are reached.
 
-![Gateway Routing](/img/api-manager/gateway-routing.svg)
+![Gateway Routing](/img/api-manager/gateway.drawio.png)
 
 ## Create a gateway
 
