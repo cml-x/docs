@@ -15,6 +15,8 @@ Applications that call the APIs **you expose** are OAuth clients of an
 
 {/* screenshot: access-connected-app-credentials */}
 
+A service account can authenticate in three ways. They differ in what is stored where and in how the credential is presented; an account may have several at once.
+
 | Credential | Use | Shown |
 |---|---|---|
 | **Client ID** and **Client Secret** | OAuth 2.0 client credentials grant | The secret, once, at creation |
@@ -23,6 +25,8 @@ Applications that call the APIs **you expose** are OAuth clients of an
 
 ## Choosing a credential
 
+The right credential depends on what the calling program can do and on how much you want to limit a leak.
+
 | Situation | Credential |
 |---|---|
 | A script, a quick automation | Personal access token with a short expiration |
@@ -30,6 +34,8 @@ Applications that call the APIs **you expose** are OAuth clients of an
 | No shared secret may be stored on the platform side | JWT key: only the public key is kept |
 
 ## States
+
+Each credential can be revoked on its own, and the whole account can be suspended. Revocation is immediate: the next call with that credential is refused.
 
 | Action | Effect |
 |---|---|

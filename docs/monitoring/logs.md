@@ -19,6 +19,8 @@ fields. Log through the Camel `log` step or a logger, not with `System.out`.
 
 ## Fields added by the platform
 
+On top of what the integration logs, each entry carries the fields that tell you where it comes from.
+
 | Field | Value |
 |---|---|
 | `service.name` | Name of the integration |

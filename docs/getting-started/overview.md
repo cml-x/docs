@@ -29,6 +29,8 @@ flows) and **Assets Explorer** (a searchable catalog of everything already publi
 
 ## Applications and responsibilities
 
+The console is a set of applications, each responsible for one part of the life of an integration. Knowing which one owns what tells you where to go.
+
 | App | Responsible for |
 |---|---|
 | [Project Manager](/projects/getting-start) | Git-backed repositories: Integrations, API Specifications, Kamelets, Pipes, and their releases |

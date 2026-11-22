@@ -9,6 +9,8 @@ Runtime Manager is where Apache Camel integrations are deployed and operated.
 
 ## Objects
 
+Runtime Manager works with three objects.
+
 | | What it is |
 |---|---|
 | **Integration** | A Camel route that the platform builds and runs. Its source is typed in the console (**inline**) or taken from a repository (**Git**). |
@@ -42,6 +44,8 @@ The environment must have its
 [Camel Integration Service](/infra/camel-integration-service) activated.
 
 ## Next steps
+
+Once an integration is deployed, these pages take it further.
 
 | You want to | Read |
 |---|---|

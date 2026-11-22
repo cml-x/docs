@@ -3,44 +3,74 @@ title: Releases
 sidebar_position: 5
 ---
 
-A release is a Git tag on a repository, with a description. It is the unit that test and
-production environments build from.
+A **release** is a named, fixed version of a repository: a Git tag on one commit, with a
+description of what changed. It is what you deploy outside development.
+
+## Why deploy releases and not branches
+
+A branch changes with every commit. If production builds from a branch, two deployments a week
+apart can produce two different integrations without anyone deciding it, and a rollback cannot
+say precisely what it returns to. A release removes that uncertainty: `1.4.0` is the same
+source today and in a year.
 
 ## Version format
 
-The **Version** field accepts semantic versioning only:
+The platform enforces [semantic versioning](https://semver.org). The **Version** field accepts
+`MAJOR.MINOR.PATCH`, optionally followed by a pre-release suffix, and refuses anything else.
 
 ```text title="Accepted"
-MAJOR.MINOR.PATCH
-MAJOR.MINOR.PATCH-PRERELEASE      1.2.0-beta, 2.0.0-rc.1
+1.0.0
+1.2.0-beta
+2.0.0-rc.1
 ```
 
-| Rule | Detail |
-|---|---|
-| Format | `1.0.0` or `1.0.0-beta`. Anything else is refused |
-| Ordering | The version must be greater than the latest release |
-| Pre-release | A version with a suffix sorts before the same version without it: `1.2.0-rc.1` then `1.2.0` |
-| Tag | The tag created is `v` followed by the version: `v1.2.0` |
+Two further rules are checked when you create a release:
 
-## Release markers
+- **The version must be greater than the latest release.** You cannot publish `1.3.0` after
+  `1.4.0`. Versions only go up.
+- **The tag is the version prefixed with `v`.** Enter `1.2.0`; the tag created is `v1.2.0`. Do
+  not type the `v` yourself.
 
-| Marker | Meaning |
-|---|---|
-| **Draft** | Not published yet |
-| **Pre** | A pre-release |
+A pre-release sorts before the version it prepares: `1.2.0-rc.1` comes before `1.2.0`. That is
+what lets you publish release candidates and then the final version.
 
 ## Which number to increase
 
-| Change | Increase |
+The three numbers tell whoever deploys the release what to expect. The question to ask is: *what
+does a caller of this integration have to change?*
+
+| The change | Callers must | Increase |
+|---|---|---|
+| Fixes a defect, same behavior otherwise | Do nothing | PATCH |
+| Adds a route, an endpoint, an optional field | Do nothing; may use the addition | MINOR |
+| Removes or renames an endpoint or a field, changes a contract | Adapt | MAJOR |
+
+## Release markers
+
+A release can carry one of two markers, shown next to it on the repository page. They are
+information for people choosing what to deploy; the platform builds a marked release like any
+other.
+
+| Marker | Meaning |
 |---|---|
-| Fix with no change of behavior for callers | PATCH |
-| New route, new optional field, new endpoint | MINOR |
-| Removed or renamed endpoint or field, changed contract | MAJOR |
+| **Draft** | The release is being prepared and is not published yet |
+| **Pre** | A pre-release: a candidate, not meant for production |
 
-## Deletion
+## What a release contains
 
-A release can be deleted from the repository page. An integration built from it keeps running on
-the image already built, but cannot be rebuilt from that release.
+A release tags the repository **as committed at that moment** on its default branch. A change
+that is still open in the Web IDE and not committed is not part of it. Before releasing, check
+**Actions**, **Changes** for the commit you expect.
+
+## Deleting a release
+
+A release can be deleted from the repository page.
+
+:::warning A deleted release cannot be rebuilt
+An integration already built from that release keeps running on its image. But a new build of
+the same release — for another environment, or after the image is gone — is no longer possible.
+Delete only releases that no environment uses.
+:::
 
 ## Related pages
 

@@ -18,6 +18,8 @@ The index selector chooses where to search. Several indexes can be searched at o
 
 ## Facets
 
+Facets narrow a search to a kind of asset. They are computed from the results, so a facet only offers values that exist.
+
 | Facet | Values |
 |---|---|
 | Type | `release`, `template` |
@@ -30,6 +32,8 @@ The **Templates** entry of the menu is this search with the type facet set to `t
 ## Asset page
 
 {/* screenshot: assets-asset-page */}
+
+Opening an asset shows what it is and where it comes from, so that you can decide whether to reuse it before opening its repository.
 
 | Element | Content |
 |---|---|

@@ -16,6 +16,8 @@ Envoy Gateway `ClientTrafficPolicy`.
 
 ## Connections
 
+These parameters protect the gateway itself from too many or too slow clients. They act before any route is chosen.
+
 | Parameter | Default | Meaning |
 |---|---|---|
 | `maxConnections` | No limit | Clients connected at the same time |
@@ -29,6 +31,8 @@ very slowly. Set it on public gateways.
 :::
 
 ## TLS
+
+These parameters decide which TLS handshakes the gateway accepts from clients. Tightening them improves security and may exclude old clients.
 
 | Parameter | Default | Meaning |
 |---|---|---|

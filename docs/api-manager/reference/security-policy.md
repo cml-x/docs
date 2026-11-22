@@ -93,6 +93,8 @@ Procedure: [API key authentication](/api-manager/policy-tasks/api-key).
 
 ## HTTP Basic authentication
 
+**Why.** A user name and password checked by the gateway: supported by every HTTP client and every browser, with no token service to run. Suitable for internal tools and legacy callers.
+
 | Parameter | Default | Meaning |
 |---|---|---|
 | `usersSecretName` | Required | Stored Basic Auth Users: user names and hashed passwords |
@@ -124,6 +126,8 @@ when credentials are allowed.
 Procedure: [CORS](/api-manager/policy-tasks/cors).
 
 ## IP allowlist and denylist
+
+**Why.** Restrict an API to known networks — your offices, a partner — or block addresses that misbehave. It is a coarse filter, best combined with authentication.
 
 | Parameter | Default | Meaning |
 |---|---|---|

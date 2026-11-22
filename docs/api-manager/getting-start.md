@@ -10,6 +10,8 @@ It works with gateways, and asks for no configuration file.
 
 ## Objects
 
+API Manager works with a handful of objects. A request crosses them in this order, so knowing them tells you where to look when something does not answer.
+
 | | What it is |
 |---|---|
 | [Gateway](/api-manager/gateway) | The entry point of traffic for an environment, with its access points |
@@ -33,6 +35,8 @@ example.
 The API is then open to everyone: protect it before giving the address out.
 
 ## Authentication options
+
+An API is open until a security policy says otherwise. Which rule to use depends on who calls it.
 
 | Who calls | Use |
 |---|---|

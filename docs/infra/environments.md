@@ -21,6 +21,8 @@ a cluster of yours, in a public or a private cloud, in one region or another:
 
 ## Multi-cluster topologies
 
+Because an environment only refers to a target, the same model covers very different layouts. These are the common ones.
+
 | Topology | Environments | Targets |
 |---|---|---|
 | Stages on one cluster | `development`, `production` | Two namespaces on one runtime plane |

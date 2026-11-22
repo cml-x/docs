@@ -5,6 +5,8 @@ sidebar_position: 1
 
 ### Repository creation refused
 
+The wizard refuses to create the repository.
+
 | Cause | Fix |
 |---|---|
 | Name already used in the business unit | Another name |
@@ -27,6 +29,8 @@ A release tags what is committed on the default branch at that moment. Check **A
 **Changes**: a change still open in the Web IDE and not committed is not in the release.
 
 ### Integration built from Git does not pick up a commit
+
+What is built depends on what the integration points at.
 
 | Source | Behavior |
 |---|---|

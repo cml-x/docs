@@ -22,6 +22,8 @@ Deploying builds an image from the source of the integration and rolls it out in
 
 ## What happens
 
+Applying an integration runs two phases. Knowing which phase failed tells you where to look.
+
 | Phase | Work done | Fails on |
 |---|---|---|
 | Build | Maven resolves dependencies, the image is built and pushed to the registry of the environment | Unresolved dependency, source that does not compile, registry credentials |

@@ -16,6 +16,8 @@ A target backs one environment by default. Create another target, or create the 
 
 ### Service stays "not configured" or in warning
 
+A service of the environment does not reach the healthy state.
+
 | Cause | Check | Fix |
 |---|---|---|
 | Changes saved but not applied | The service shows pending changes | **Apply** |
@@ -29,6 +31,8 @@ The cause is in the environment, not in the integrations: the Registry or Maven 
 pull secret and the CA secret, then **Apply**.
 
 ### Logs do not reach a destination
+
+Logs are visible in Monitoring but do not arrive in your own system.
 
 | Cause | Check | Fix |
 |---|---|---|

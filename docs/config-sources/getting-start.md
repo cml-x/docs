@@ -11,6 +11,8 @@ in their source: credentials, certificates, property files, key lists. A stored 
 
 ## Model
 
+Three notions are enough to use Secret Manager. A template says what kind of thing is stored; a configuration is one such thing; its distribution says where it can be used.
+
 | Object | What it is |
 |---|---|
 | **Template** | The kind of a configuration: its fields, its validation, whether it is sensitive — see [Templates](/config-sources/templates) |
@@ -34,6 +36,8 @@ distributed to the environment.
 
 ## Views
 
+The menu offers three ways into the same configurations, split by sensitivity or by template.
+
 | View | Shows |
 |---|---|
 | [Secrets](/config-sources/secrets) | Sensitive configurations: credentials, keys, tokens, certificates |
@@ -46,6 +50,8 @@ are kept as fingerprints. Copy them when they are created: afterwards they can o
 :::
 
 ## What changing a configuration triggers
+
+A change to a configuration does not reach every consumer at the same moment. Know when it takes effect before rotating a credential.
 
 | Consumer | Effect of a change |
 |---|---|

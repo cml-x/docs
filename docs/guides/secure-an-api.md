@@ -7,6 +7,8 @@ Require every caller of an API to authenticate, with tokens issued by the platfo
 
 ## Choose the method
 
+The right authentication method depends on who calls the API. Pick the row that matches the caller.
+
 | Caller | Method | Page |
 |---|---|---|
 | Applications, service to service | JWT with OAuth 2.0 client credentials | This guide |

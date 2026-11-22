@@ -8,6 +8,8 @@ An authorization grants a [user](/access/users) one or several roles on one proj
 
 ## Structure of a grant
 
+A grant answers one question: *what may this person do in this project?* It ties three things together. Without a grant, an account can sign in but sees no project.
+
 | Element | Content |
 |---|---|
 | User | One account |
@@ -18,6 +20,8 @@ What a role allows, and in which environments, is defined on the role — see th
 [RBAC model](/access/rbac-principles).
 
 ## States
+
+A grant can be switched off without being lost. This is the difference between suspending access — someone on leave, an audit in progress — and removing it.
 
 | Action | Effect |
 |---|---|

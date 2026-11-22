@@ -8,6 +8,8 @@ sidebar_position: 1
 
 ## Account fields
 
+An account is identified by its user name and reached through its email address. Only four fields are required to create one.
+
 | Field | Rule |
 |---|---|
 | **Email** | Required. An invitation is sent to it; changing it sends a verification link |
@@ -16,6 +18,8 @@ sidebar_position: 1
 | **Display Name**, **Nickname** | Optional |
 
 ## Account states and actions
+
+Three actions stop someone from signing in, and they differ in what they keep. Choose the least destructive one that solves the problem.
 
 | Action | Effect | Reversible |
 |---|---|---|

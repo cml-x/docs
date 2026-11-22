@@ -15,6 +15,8 @@ Open **API Manager**, go to **Gateways**, then create one. Two things are asked 
 
 ### Exposure mode
 
+The exposure mode decides from where the gateway can be reached. It determines the kind of load balancer the gateway gets, and cannot be worked around with a policy: a gateway that is not exposed to the internet is unreachable from it, whatever its routes.
+
 | Mode | Who can reach the gateway |
 |---|---|
 | **Public** | Anyone on the internet. This is the default. |

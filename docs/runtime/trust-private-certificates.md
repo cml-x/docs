@@ -14,6 +14,8 @@ The **JVM** setting of an integration lets you add your own authorities to the o
 
 ## Default truststore behavior
 
+A JVM only trusts the certificate authorities in its truststore. Out of the box that is the public authorities shipped with Java, which decides what an integration can call over TLS.
+
 | The service is signed by | Without this setting | With this setting |
 |---|---|---|
 | A public authority (Let's Encrypt, DigiCert…) | The call works | The call works |
@@ -82,6 +84,8 @@ The truststore only holds certificates, which are public: its password protects 
 The default is the one Java itself uses, and there is rarely a reason to change it.
 
 ## Trust scenarios
+
+Two fields decide what the integration trusts. These are the combinations that make sense.
 
 | You want the integration to trust | Trusted CA Certificates | Keep Public Authorities |
 |---|---|---|

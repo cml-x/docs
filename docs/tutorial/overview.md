@@ -24,6 +24,8 @@ An **orders** service:
 
 ## Tutorial steps
 
+Each step is one page and adds one capability to the same integration.
+
 | Step | Task | Concepts |
 |---|---|---|
 | [1. Create a Camel integration](/tutorial/first-integration) | Type a REST route in the console | Inline source, route DSLs, dependency resolution |
@@ -50,6 +52,8 @@ You need:
 If you only have a few minutes, steps 1, 2 and 6 give you a working API.
 
 ## Console application per task
+
+The tutorial moves between applications of the console. This table says which one each kind of task belongs to.
 
 | You want to | Go to |
 |---|---|

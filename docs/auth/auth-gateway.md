@@ -49,6 +49,8 @@ The discovery document is also shown on the page, ready to copy.
 
 ## Settings
 
+Once created, an auth gateway is tuned through four settings. Only **Clients** is required for it to issue tokens.
+
 | Setting | What it sets | Defaults |
 |---|---|---|
 | **Clients** | The [lists of clients](/auth/client-lists) the service reads. Several lists can be chosen: their clients are gathered. | None |

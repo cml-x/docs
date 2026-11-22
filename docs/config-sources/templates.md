@@ -11,6 +11,8 @@ This page describes every template, what to put in it, and where it is used.
 
 ## Template summary
 
+Every configuration is created from a template. The table lists them by who consumes the configuration; the sections below describe each one.
+
 | Template | Holds | Used by |
 |---|---|---|
 | [Properties Configuration](#properties-configuration) | Settings as `key=value` | Integrations |

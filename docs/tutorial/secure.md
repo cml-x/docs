@@ -16,6 +16,8 @@ integration, and the route does not change.
 
 ## Authentication method by client type
 
+There is no single best protection. Start from who calls the API.
+
 | Who calls | Protection | What the caller sends | What you manage |
 |---|---|---|---|
 | A few known applications, simply | **API key** | A key in a header | A list of keys |
@@ -166,6 +168,8 @@ A security policy can hold several rules. Two combinations are common:
 Add **CORS** when the API is called by a web page served from another site.
 
 ## Test matrix
+
+Run these calls after each change of policy. Each row checks one behavior.
 
 | Test | Expected |
 |---|---|

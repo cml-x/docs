@@ -62,6 +62,8 @@ working.
 
 ## Keep Public Authorities: public CAs plus yours, or yours only
 
+One switch decides whether your authorities are added to the public ones or replace them.
+
 | Keep Public Authorities | The integration trusts |
 |---|---|
 | **On** (default) | Public services **and** your authority |
@@ -79,6 +81,8 @@ The complete reference is in
 [Trust a Private Certificate Authority](/runtime/trust-private-certificates).
 
 ## Other JVM options
+
+The JVM setting is not only about certificates.
 
 | Field | Use it to |
 |---|---|

@@ -7,6 +7,8 @@ An identity provider lets people sign in to the console with an account managed 
 
 ## Supported providers
 
+Popular providers have a dedicated form that asks only for what that provider needs. Any other provider that speaks OpenID Connect or SAML 2.0 is configured with the generic forms.
+
 | Provider | Protocol | What you give |
 |---|---|---|
 | **Google** | OIDC | Client ID, client secret |
@@ -29,6 +31,8 @@ The console shows, for each provider, the value to register on the provider side
 The value must be registered exactly as shown: scheme, host, path, no trailing slash added.
 
 ## Lifecycle
+
+A provider is added once and can then be switched on and off. Switching it off is how you test a change, or cut a provider quickly, without losing its configuration.
 
 | Action | Effect |
 |---|---|

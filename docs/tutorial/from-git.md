@@ -10,6 +10,8 @@ This step is a detour: the integration does the same thing, built from Git.
 
 ## Inline source versus Git source
 
+Both modes build the same integration. They differ in where the source lives and in what you can do with it.
+
 | | Inline | Git |
 |---|---|---|
 | Where the route lives | In the integration, in the console | In a repository |
@@ -51,6 +53,8 @@ For a private repository, the integration needs credentials: a configuration of 
 Deploy. The build now starts from the repository instead of the text typed in the console.
 
 ## Branch builds versus release builds
+
+In Git mode you choose what to build. The choice decides whether two deployments can differ without a decision.
 
 | Build from | You get | Use it in |
 |---|---|---|

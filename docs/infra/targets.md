@@ -31,6 +31,8 @@ In **Environment Manager**, go to **Targets**, then **Create target**.
 
 ## Target page
 
+The page of a target shows where it is: which cluster, which region. Use it to confirm where an environment really runs.
+
 | Element | Content |
 |---|---|
 | **Identity** | Name, alias, business unit, creation and update dates |

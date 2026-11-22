@@ -7,6 +7,8 @@ sidebar_position: 6
 
 ## Login settings
 
+These switches decide which sign-in methods the organization accepts at all, and what the sign-in page reveals. They apply to every user.
+
 | Setting | Effect |
 |---|---|
 | **Password Login** | Allow sign-in with user name and password |
@@ -19,6 +21,8 @@ sidebar_position: 6
 
 ## Password policy
 
+The password policy applies when a password is set or changed. It does not invalidate existing passwords: a stricter rule takes effect at each user's next change.
+
 | Setting | Effect |
 |---|---|
 | **Minimum Length** | Minimum number of characters |
@@ -27,6 +31,8 @@ sidebar_position: 6
 | **Symbols** | Require at least one special character |
 
 ## Lockout policy
+
+The lockout policy limits guessing. After the configured number of failures the account is locked until an administrator unlocks it.
 
 | Setting | Effect |
 |---|---|

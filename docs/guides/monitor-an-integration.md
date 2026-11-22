@@ -7,6 +7,8 @@ Where to look, in which order, to know whether an integration is healthy.
 
 ## Signals and where they are
 
+Each question about an integration has one signal that answers it. This table maps the question to the place to look.
+
 | Question | Signal | Where |
 |---|---|---|
 | Is it deployed and ready? | Phase, instances, revision | Page of the integration, Runtime Manager |
@@ -27,6 +29,8 @@ Four panels per integration — queries on the [Metrics](/monitoring/metrics) pa
 4. share of 5xx responses at the gateway.
 
 ## Minimal alerts
+
+Three alerts cover most incidents. Each one corresponds to something a caller would notice.
 
 | Alert | Condition |
 |---|---|

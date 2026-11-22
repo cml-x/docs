@@ -8,6 +8,8 @@ than a task: the right answer depends on your context.
 
 ## Source and versioning
 
+Production must be reproducible: you should be able to say exactly what runs and to rebuild it.
+
 | Question | Recommendation |
 |---|---|
 | Where is the route? | In a repository, not inline — [step 7](/tutorial/from-git) |
@@ -25,6 +27,8 @@ than a task: the right answer depends on your context.
 
 ## Replicas, resources and disruption budget
 
+Development defaults are sized for one person testing. Production needs room for load and for the loss of an instance.
+
 | Setting | Development | Production |
 |---|---|---|
 | **Replicas** | 1 | 2 or more |
@@ -35,6 +39,8 @@ than a task: the right answer depends on your context.
 On the gateway, **Autoscaling** adds instances when traffic rises; keep at least two.
 
 ## Gateway and API policies
+
+A public API needs more than a route: decide who may call it and what happens under load.
 
 | Question | Recommendation |
 |---|---|

@@ -11,6 +11,8 @@ tuning.
 
 ## Lifecycle phases
 
+Between the moment you apply an integration and the moment it answers, the platform goes through these phases in order. A failure stops the sequence at one of them.
+
 | Step | What happens | What it depends on |
 |---|---|---|
 | **1. Source** | The route is taken from what you typed (inline) or from a repository (Git). | The source mode of the integration |
@@ -63,6 +65,8 @@ by what your team reads most easily.
 
 ## Dependency notation
 
+Dependencies are written with a prefix that says where they come from.
+
 | Written | Means |
 |---|---|
 | `camel:kafka` | The Camel component `kafka` |
@@ -75,6 +79,8 @@ your own. A library that is not in a public repository needs its repository list
 
 ## Configuration sources
 
+An integration can receive configuration in four ways. They differ in what they suit and in how a route reads the value.
+
 | Way | Set with | Read in a route as |
 |---|---|---|
 | Property files | [Configuration](/runtime/settings/configuration) | `{{name}}` |
@@ -83,6 +89,8 @@ your own. A library that is not in a public repository needs its repository list
 | Runtime properties | [Camel Runtime](/runtime/settings/camel-runtime) | Read by the runtime itself |
 
 ## Troubleshooting by phase
+
+Start from what the page of the integration shows, then look where the table says.
 
 | What you see | Where to look | Usual cause |
 |---|---|---|

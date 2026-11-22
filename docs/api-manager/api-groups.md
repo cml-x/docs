@@ -10,6 +10,8 @@ either on its own or in a group.
 
 ## On its own or in a group
 
+The choice is about deployment, not about traffic: grouped API instances are deployed and rolled back together.
+
 | | API instance on its own | API instances in a group |
 |---|---|---|
 | Deployed | By itself | With the other members of the group |

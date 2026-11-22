@@ -41,6 +41,8 @@ are shown in a table you can search, filter and sort.
 
 ### Client authentication methods
 
+A client proves its identity when it asks for a token. The method is chosen per client; it decides what the application must keep secret.
+
 | Choice | How it works | When to choose it |
 |---|---|---|
 | **A secret, in the request header** | The client sends its ID and secret as HTTP Basic credentials. | By default |

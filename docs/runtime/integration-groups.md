@@ -27,6 +27,8 @@ would leave the system inconsistent.
 
 ## Members of a group
 
+A group holds two kinds of members.
+
 | Member | Page |
 |---|---|
 | Integrations, each with its own source and settings | [Integrations](/runtime/integrations) |

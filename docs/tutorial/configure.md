@@ -167,6 +167,8 @@ environment only.
 
 ## Other integration settings
 
+This step used four settings. The others follow the same pattern: add the capability, fill it in, apply.
+
 | Setting | What it does |
 |---|---|
 | **Camel Runtime** | Runtime properties added to the application |

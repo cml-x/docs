@@ -146,6 +146,8 @@ refused rather than allowed.
 
 ## Management screens
 
+Each part of the model is managed in its own screen of Access Manager. This table tells you where to go for what.
+
 | Task | Where |
 |---|---|
 | Create, edit, clone and delete roles; view what a role grants | Business unit → **Roles Base Access** tab |

@@ -14,6 +14,8 @@ Credentials are sensitive by nature; Properties and Resources File are not — s
 
 ## Operations
 
+A secret is managed from its page. Each operation takes effect for every consumer that references the secret.
+
 | Operation | Effect |
 |---|---|
 | **New configuration** | Create from a template |
@@ -33,6 +35,8 @@ the references first.
 :::
 
 ## Rotation
+
+Rotating a secret without interrupting callers means that the old and the new value are both accepted for a while. How to achieve that depends on the kind of secret.
 
 | Kind | Rotation without interruption |
 |---|---|

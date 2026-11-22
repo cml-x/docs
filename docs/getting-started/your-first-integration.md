@@ -8,6 +8,8 @@ Each step adds one concept to the `orders-api` integration of the
 
 ## Build and deploy
 
+Start here. These pages take a route typed in the console to a running integration and explain what the platform does in between.
+
 | Concept | Page |
 |---|---|
 | Inline source, route DSLs, dependency resolution, HTTP service | [1. Create a Camel integration](/tutorial/first-integration) |
@@ -15,6 +17,8 @@ Each step adds one concept to the `orders-api` integration of the
 | Build phases, operator, build cache | [Build and run lifecycle](/runtime/how-integrations-run) |
 
 ## Configuration
+
+An integration that runs in several environments must not carry its settings in its source. These pages show how values, files and certificates are supplied from outside.
 
 | Concept | Page |
 |---|---|
@@ -24,6 +28,8 @@ Each step adds one concept to the `orders-api` integration of the
 
 ## Capacity and state
 
+Once the integration works, size it for its load and decide where it keeps what must survive a restart.
+
 | Concept | Page |
 |---|---|
 | Replicas, requests and limits, heap sizing, KEDA autoscaling, disruption budget | [5. Scale](/tutorial/scale) |
@@ -31,12 +37,16 @@ Each step adds one concept to the `orders-api` integration of the
 
 ## Source control
 
+Inline source is enough to learn. To review, version and promote an integration, its source moves to a repository.
+
 | Concept | Page |
 |---|---|
 | Git source mode, branch builds, release builds | [7. Build from a Git repository](/tutorial/from-git) |
 | Repositories, releases, templates | [Project Manager](/projects/getting-start) |
 
 ## Exposure and security
+
+An integration is reachable only inside its environment until it is published on a gateway. Publishing and protecting are two separate steps.
 
 | Concept | Page |
 |---|---|
@@ -46,6 +56,8 @@ Each step adds one concept to the `orders-api` integration of the
 | Rate limiting, timeouts, retries, circuit breaker | [Policy tasks](/api-manager/policy-tasks) |
 
 ## Operations
+
+What remains is to see what the integration does once it carries traffic, and to check that nothing is missing before production.
 
 | Concept | Page |
 |---|---|

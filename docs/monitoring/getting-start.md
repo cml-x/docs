@@ -6,11 +6,23 @@ sidebar_position: 1
 Monitoring embeds the OpenObserve views — dashboards, logs, metrics, traces, alerts and reports —
 inside the console, scoped to the business unit and the environment selected.
 
-![Observability overview](/img/monitoring/observability.svg)
+![Telemetry pipeline: from an integration and a gateway to the Monitoring views](/img/monitoring/telemetry-pipeline.drawio.png)
+
+## How telemetry reaches the views
+
+Nothing is configured per integration. Every integration is built with the libraries that
+produce metrics and traces, and writes its logs as JSON. In the environment, a collector receives
+metrics and traces over OTLP and a log flow reads the logs. Both forward to the telemetry store,
+labelled with the business unit and the environment. The views of Monitoring read that store.
+
+The same log flow can also copy logs to systems of yours — that is the
+[Log Exporter](/infra/log-exporter).
 
 ## Scope of the views
 
 {/* screenshot: monitoring-embedded-scope */}
+
+Every view shows the data of one business unit and one environment. You do not choose them in Monitoring: they follow what is selected in the console.
 
 | OpenObserve notion | Mapped to |
 |---|---|
@@ -45,6 +57,8 @@ Gateways report Envoy statistics — downstream requests, response code classes,
 connections, TLS handshakes — listed under [Metrics](/monitoring/metrics).
 
 ## Views
+
+Monitoring has one view per kind of signal, plus what is built on top of them.
 
 | View | Content |
 |---|---|

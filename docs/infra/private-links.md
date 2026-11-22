@@ -62,6 +62,8 @@ Then click **Apply** on the environment.
 
 ### WireGuard or IPsec
 
+Both protocols give an encrypted tunnel. The choice usually follows what the equipment on the remote side supports.
+
 | | WireGuard | IPsec (IKEv2) |
 |---|---|---|
 | When to choose it | By default | When the remote side requires it |
@@ -129,7 +131,11 @@ tunnel address of `10.250.0.2` and an open port `8443`, the call is made to `10.
 
 ## Field reference
 
+The fields of a private link, grouped as in the form.
+
 ### Link
+
+What identifies the link and the protocol it uses.
 
 | Field | Meaning | Example | Notes |
 |---|---|---|---|
@@ -138,12 +144,16 @@ tunnel address of `10.250.0.2` and an open port `8443`, the call is made to `10.
 
 ### This side
 
+What the platform side of the tunnel uses. These values are given to the remote administrator.
+
 | Field | Meaning | Example | Notes |
 |---|---|---|---|
 | **Address of this environment in the tunnel** | The address the environment takes inside the tunnel. The remote side sees every call as coming from it, and calls open services on it. | `10.250.0.2` | Filled in for you and different for each link of the environment (`10.250.0.2`, `10.250.1.2`, …). Change it only if it overlaps a range the remote network already uses. |
 | **Remote networks** | The address ranges of the remote network that are sent through the tunnel. Only traffic to these ranges uses the link. | `10.20.0.0/16` | At least one. Written as a network, with its prefix length. |
 
 ### Remote side
+
+What describes the other end of the tunnel. These values come from the remote administrator.
 
 | Field | Meaning | Example | Notes |
 |---|---|---|---|
@@ -170,6 +180,8 @@ tunnel address of `10.250.0.2` and an open port `8443`, the call is made to `10.
 
 ### Remote applications
 
+The services on the remote network that workloads of the environment may call through the link.
+
 | Field | Meaning | Example | Notes |
 |---|---|---|---|
 | **Name** | The name integrations call. It becomes a service of the environment. | `sap-erp` | Must be unique in the environment. |
@@ -177,6 +189,8 @@ tunnel address of `10.250.0.2` and an open port `8443`, the call is made to `10.
 | **Port** | The port the application answers on. Integrations call the same port. | `443` | |
 
 ### Open services
+
+The services of the environment that the remote side may call through the link.
 
 | Field | Meaning | Example | Notes |
 |---|---|---|---|
@@ -186,6 +200,8 @@ tunnel address of `10.250.0.2` and an open port `8443`, the call is made to `10.
 | **Port the remote side calls** | The port opened on the environment's tunnel address. | `8443` | Between 1024 and 19999, different for each open service of the link. |
 
 ## Link states
+
+The state shown on a link tells you how far its setup has gone and whether the tunnel is up.
 
 | State | Meaning |
 |---|---|
@@ -199,6 +215,8 @@ tunnel address of `10.250.0.2` and an open port `8443`, the call is made to `10.
 The state refreshes by itself, including on a page opened in the middle of a deployment.
 
 ## Performance and limits
+
+A private link is an encrypted tunnel through a single gateway: its capacity is bounded. Check these figures against the traffic you plan to send through it.
 
 ### Throughput
 
@@ -218,6 +236,8 @@ In practice the bandwidth of a link is the lowest of: the internet path between 
 the capacity of the remote equipment, and the figures above.
 
 ### Connections and timeouts
+
+Limits that apply to the connections carried by the link.
 
 | Limit | Value |
 |---|---|
@@ -275,6 +295,8 @@ the most common mistake when a firewall is involved.
 
 ### What to allow, and where
 
+Both sides have firewalls to open. This table lists what each side must allow for the tunnel to come up and for traffic to pass.
+
 | Who filters | What it sees | What to allow |
 |---|---|---|
 | **The remote application**, or the firewall in front of it | Calls coming from the link's tunnel address | The tunnel address (`10.250.0.2`), to the application's port |
@@ -297,6 +319,8 @@ Allowlist that host instead.
 :::
 
 ## Guide: a WireGuard link
+
+A complete setup with WireGuard, from the console to a working tunnel.
 
 ### On the console
 

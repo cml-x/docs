@@ -8,12 +8,16 @@ methods are offered.
 
 ## Enforcement
 
+Two switches decide who is asked for a second factor. The second one exists because users of an external identity provider usually already pass a second factor there.
+
 | Setting | Effect |
 |---|---|
 | **Require MFA** | Every user must set up a second factor at the next sign-in |
 | **Local MFA Only** | Users who sign in through an external identity provider are not asked: their provider is trusted for it |
 
 ## Methods
+
+You choose which methods users may enroll. They are not equivalent: a code typed by the user can be captured by a fake sign-in page, a security key cannot.
 
 | Method | Kind | Resists phishing |
 |---|---|---|

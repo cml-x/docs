@@ -14,6 +14,8 @@ OTLP with the resource attributes `service.name`, `service.namespace` and
 
 ## What a trace contains
 
+A trace is a tree of spans. Each span is one piece of work with a start, a duration and a status.
+
 | Span | Represents |
 |---|---|
 | Server span | The exchange started by a consumer endpoint — `platform-http`, `kafka`, `timer` |
@@ -23,6 +25,8 @@ The trace context is propagated on outgoing calls. An integration called by anot
 the gateway, continues the trace it receives instead of starting a new one.
 
 ## Reading a timeline
+
+The shape of a trace usually points at the cause of a slow request.
 
 | Pattern | Likely cause |
 |---|---|

@@ -9,6 +9,8 @@ APIs you expose.
 
 ## Console access
 
+This is about the people and programs that **manage** the platform.
+
 | | Authentication | Authorization |
 |---|---|---|
 | Question | Who is signing in? | What may they manage? |
@@ -17,6 +19,8 @@ APIs you expose.
 | For programs | [Service accounts](/access/connected-apps) | The same roles |
 
 ## Exposed APIs
+
+This is about the applications and people that **call** the APIs you publish.
 
 | | Authentication | Authorization |
 |---|---|---|
@@ -32,6 +36,8 @@ to call it.
 :::
 
 ## What the JWT rule verifies
+
+The gateway checks that a token is genuine and meant for this API. It does not interpret what the token says about the caller.
 
 | Verified by the gateway | Left to you |
 |---|---|

@@ -8,6 +8,8 @@ points lead to the same object.
 
 ## Choose the source mode
 
+An integration takes its source from one of two places. The choice is made at creation and can be changed later.
+
 | | Inline | Git |
 |---|---|---|
 | Source lives in | The integration itself | A [repository](/projects/repos) |

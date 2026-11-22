@@ -5,6 +5,8 @@ sidebar_position: 2
 
 ### Build fails: dependency not resolved
 
+Maven cannot download an artifact. The build log names it.
+
 | Cause | Check | Fix |
 |---|---|---|
 | The artifact is not in any configured repository | The build log names the missing coordinates | Add the repository in **Repositories** on the integration, or in the Maven settings of the [Camel Integration Service](/infra/camel-integration-service) |
@@ -12,6 +14,8 @@ sidebar_position: 2
 | The repository needs credentials or a private CA | `401` or a TLS error in the build log | Maven Settings configuration; CA secret of the Maven setting |
 
 ### Build fails: image push refused
+
+The image was built but the registry of the environment refused it.
 
 | Cause | Check | Fix |
 |---|---|---|
@@ -25,6 +29,8 @@ under `from`.
 
 ### Integration running but never ready
 
+The process started, but its routes did not: the readiness check keeps failing.
+
 | Cause | Check | Fix |
 |---|---|---|
 | Missing property | `Property with key [...] not found` in the logs | [Property files](/runtime/settings/configuration) setting, or a default: `{{key:default}}` |
@@ -33,6 +39,8 @@ under `from`.
 | Probe too strict for the startup time | Restarts before the routes are up | [Health probes](/runtime/settings/health-probes) |
 
 ### Restart loop
+
+The integration starts, stops and starts again.
 
 | Cause | Check | Fix |
 |---|---|---|
@@ -46,6 +54,8 @@ The server is signed by an authority the JVM does not trust. Add the CA in the *
 **Trusted CA Certificates** — see [JVM truststore](/runtime/trust-private-certificates).
 
 ### Outgoing call times out
+
+A route calls a system and gets no answer at all, rather than an error.
 
 | Cause | Check | Fix |
 |---|---|---|

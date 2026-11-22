@@ -13,6 +13,8 @@ Open **API Manager**, go to **Upstreams**, then create one.
 
 ### Target types
 
+An upstream points at one destination. How you designate it depends on where the service runs.
+
 | Target | What you give | Example |
 |---|---|---|
 | **Host name** | One or several public host names, each with its port | `api.partner.com:443` |
@@ -20,6 +22,8 @@ Open **API Manager**, go to **Upstreams**, then create one.
 | **Platform service** | A service of the platform, chosen by name | — |
 
 ### Connection options
+
+These options tune how the gateway connects to the destination. The defaults suit a plain HTTP service; an HTTPS destination needs TLS turned on.
 
 | Option | What it does | Default |
 |---|---|---|

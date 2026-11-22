@@ -75,6 +75,8 @@ curl -H "Authorization: Bearer <token>" https://orders.example.com/orders
 
 ## Validation outcomes
 
+The gateway decides on each request from the token alone. This table lists what it accepts and what it refuses, so that you can tell a configuration problem from an expected refusal.
+
 | The request carries | Result |
 |---|---|
 | A valid token naming this API | Reaches your service |

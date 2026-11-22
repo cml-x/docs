@@ -8,6 +8,8 @@ second factor.
 
 ## Target state
 
+The steps below lead to this configuration. Read it first: it tells you whether this hardening fits your organization before you change anything.
+
 | Aspect | Setting |
 |---|---|
 | Sign-in | Through the company identity provider |

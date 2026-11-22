@@ -5,6 +5,8 @@ sidebar_position: 7
 
 ### Views are empty
 
+Every view shows nothing at all: the scope or the period is wrong more often than the data is missing.
+
 | Cause | Check | Fix |
 |---|---|---|
 | No environment selected, or another one | The environment selector of the console | Select the environment the workload runs in |
@@ -17,6 +19,8 @@ The stream of its metric does not exist yet. `camel_route_policy_*` appears afte
 exchange, `jvm_gc_pause_*` after the first collection.
 
 ### No metric for one integration
+
+Other integrations report metrics; this one does not.
 
 | Cause | Check | Fix |
 |---|---|---|

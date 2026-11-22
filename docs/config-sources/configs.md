@@ -8,6 +8,8 @@ that integrations read.
 
 ## Typical content
 
+Two templates produce non-sensitive configurations. One holds key-value properties, the other holds files.
+
 | Template | Holds | Read by an integration as |
 |---|---|---|
 | **Properties Configuration** | Key-value properties | Property placeholders — see [Property files](/runtime/settings/configuration) |
@@ -20,6 +22,8 @@ orders.batch.size=200
 ```
 
 ## Operations
+
+A configuration is managed from its page. Distribution is separate from creation: an existing configuration can be made available to more environments at any time.
 
 | Operation | Effect |
 |---|---|

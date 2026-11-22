@@ -9,6 +9,8 @@ stays on the runtime plane and never crosses the control plane.
 
 ## Two kinds of runtime plane
 
+What differs between the two kinds is who operates the cluster and where it runs. What you do in the console is the same.
+
 | | Managed runtime plane | Your cluster (BYOC) |
 |---|---|---|
 | Operated by | The platform | You |
@@ -24,6 +26,8 @@ matter to what you deploy: the console shows them for information.
 
 {/* screenshot: infra-runtime-plane-card */}
 
+A runtime plane is shown as a card when you choose where to create a target. These attributes help you pick the right one.
+
 | Attribute | Content |
 |---|---|
 | Name, description | Identification |
@@ -38,6 +42,8 @@ A target can only be created on a **healthy** runtime plane.
 
 ## Choosing where a workload runs
 
+The runtime plane is chosen through the target of the environment. These are the usual reasons to prefer one over another.
+
 | Constraint | Choice |
 |---|---|
 | Latency to users or to the systems called | A runtime plane in the closest region |
@@ -47,6 +53,8 @@ A target can only be created on a **healthy** runtime plane.
 | Nothing to operate | Managed runtime plane |
 
 ## Bring Your Own Cluster (BYOC)
+
+BYOC lets you run environments on a cluster that you own and operate, while managing them from the same console as any other environment.
 
 ### What connecting a cluster does
 

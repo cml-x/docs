@@ -25,6 +25,8 @@ Publish a service of an environment on a host name, through a gateway.
 
 ## Listener kind and route kind
 
+The kind of access point you choose decides what kind of route the API instance is, and whether the gateway can read the traffic.
+
 | Access point | Route created | TLS |
 |---|---|---|
 | HTTP | HTTP route | None |

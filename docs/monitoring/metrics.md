@@ -8,6 +8,8 @@ sidebar_position: 4
 
 ## Camel metrics
 
+These series describe what the routes do: how many exchanges, how many at once, how long. They are the first place to look when a flow is slow or stalled.
+
 | Metric | Type | Useful labels |
 |---|---|---|
 | `camel_routes_running` | Gauge | `camelcontext` |
@@ -26,6 +28,8 @@ sum(rate(camel_exchanges_total{service_name="orders-api"}[5m])) by (routeid)
 
 ## JVM and process metrics
 
+These series describe the health of the process that runs the routes. Look here when an integration restarts, slows down over time, or reaches its memory limit.
+
 | Metric | Type | Useful labels |
 |---|---|---|
 | `jvm_memory_used` | Gauge, bytes | `area` (`heap`, `nonheap`), `id` |
@@ -39,6 +43,8 @@ sum(rate(camel_exchanges_total{service_name="orders-api"}[5m])) by (routeid)
 ```
 
 ## Gateway metrics (Envoy)
+
+These series describe traffic as the gateway sees it: what callers sent and what they received. They exist even when the backend is down.
 
 | Metric | Meaning | Useful labels |
 |---|---|---|

@@ -10,6 +10,8 @@ one decides what tells you where to look, and where to change things.
 
 ## Resource model
 
+Four objects take part in routing a request. Each decides one thing, and each is managed in its own place.
+
 | Object | Decides | You manage it in |
 |---|---|---|
 | **Gateway** | Who can reach it at all: the internet, your private network, or the platform only | [API Gateways](/api-manager/gateway) |
@@ -33,6 +35,8 @@ one decides what tells you where to look, and where to change things.
 | `other.example.com/` | None for that name | `404` |
 
 ## TLS termination and passthrough
+
+Where TLS ends decides who holds the certificate and what the gateway can see. Only when the gateway terminates TLS can it read the request, and therefore route on the path and apply HTTP policies.
 
 | Access point | The gateway | Your service receives |
 |---|---|---|
@@ -65,6 +69,8 @@ to its **gateway**: the gateway's applies to the APIs that have none of their ow
   [Monitoring](/monitoring/getting-start).
 
 ## Troubleshooting by response code
+
+What the caller receives tells you which stage refused the request. Start from the answer and look at the object named in the last column.
 
 | Answer | Meaning | Look at |
 |---|---|---|

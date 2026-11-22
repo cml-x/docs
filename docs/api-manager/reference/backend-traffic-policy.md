@@ -36,6 +36,8 @@ Procedure: [Rate limiting](/api-manager/policy-tasks/rate-limit).
 
 ## Timeouts
 
+**Why.** Without a timeout, a backend that stops answering holds a connection and a caller indefinitely. Timeouts bound how long the gateway waits at each stage.
+
 | Parameter | Default | Meaning |
 |---|---|---|
 | `connectTimeout` | Gateway default | Maximum time to open a connection to the backend, such as `5s` |
@@ -53,6 +55,8 @@ outgoing calls. Otherwise the caller gives up first and the work is wasted.
 Procedure: [Request timeouts](/api-manager/policy-tasks/timeout).
 
 ## Retries
+
+**Why.** Many failures are transient: a connection reset, an instance restarting. A retry hides them from the caller — at the cost of sending the request again.
 
 | Parameter | Default | Meaning |
 |---|---|---|
@@ -93,6 +97,8 @@ Procedure: [Circuit breaker](/api-manager/policy-tasks/circuit-breaker).
 
 ## Load balancing
 
+**Why.** When a backend has several instances, the algorithm decides which one receives each request. The default suits most cases; change it for uneven request durations or for session affinity.
+
 | Parameter | Default | Meaning |
 |---|---|---|
 | `algorithm` | `RoundRobin` | `RoundRobin`, `LeastRequest`, `Random`, `ConsistentHash` |
@@ -108,6 +114,8 @@ Procedure: [Circuit breaker](/api-manager/policy-tasks/circuit-breaker).
 | `ConsistentHash` | Session affinity, local caches |
 
 ### Active health check
+
+By default the gateway relies on the readiness reported by the platform. An active health check makes the gateway probe each instance itself and stop sending to those that fail.
 
 | Parameter | Default | Meaning |
 |---|---|---|

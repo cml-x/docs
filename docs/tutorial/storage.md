@@ -8,6 +8,8 @@ repository, a staging directory, a download cache — needs a volume.
 
 ## EmptyDir versus persistent volume
 
+Two kinds of volume can be mounted in an integration. They differ in how long the data lives.
+
 | | EmptyDir | Persistent volume |
 |---|---|---|
 | Lifetime | The instance | Independent of instances and deployments |

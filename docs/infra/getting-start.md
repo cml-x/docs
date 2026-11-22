@@ -11,6 +11,8 @@ and presents them through one model.
 
 ## Resource model
 
+Four objects, each contained in the previous one. Read the table from top to bottom: it goes from the platform as a whole down to where one integration runs.
+
 | Object | What it is | Scope |
 |---|---|---|
 | **Control plane** | The console, its API and the deployment engine | One for the platform |

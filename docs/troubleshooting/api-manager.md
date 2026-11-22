@@ -7,6 +7,8 @@ Start from what the caller receives.
 
 ### Host name does not resolve
 
+The caller cannot find an address for the host name: the request never leaves it.
+
 | Cause | Check | Fix |
 |---|---|---|
 | The DNS record is not published yet | `dig <host>` | Wait for propagation; check the [domain](/api-manager/domains) of the environment |
@@ -14,12 +16,16 @@ Start from what the caller receives.
 
 ### Connection refused or timeout
 
+The name resolves but nothing answers on the port.
+
 | Cause | Check | Fix |
 |---|---|---|
 | Exposure mode does not match the caller | **Internal** or **Private** gateway called from the internet | Exposure mode of the [gateway](/api-manager/gateway) |
 | No access point on that port | The access points of the gateway | Add the access point |
 
 ### TLS certificate error
+
+The connection opens but the client rejects the certificate presented by the gateway.
 
 | Cause | Check | Fix |
 |---|---|---|
@@ -42,6 +48,8 @@ name and that the key is in the list; for IP rules, the source address seen by t
 The [rate limit](/api-manager/policy-tasks/rate-limit) was reached.
 
 ### `503`
+
+The gateway found the route but could not hand the request to a backend.
 
 | Cause | Check | Fix |
 |---|---|---|

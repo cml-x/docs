@@ -7,6 +7,8 @@ The controls available on an exposed API, layer by layer, and which threat each 
 
 ## Layers
 
+A request crosses several controls before it reaches your service. Each layer stops a different kind of problem; none replaces the others.
+
 | Layer | Control | Where |
 |---|---|---|
 | Network reachability | Exposure mode of the gateway: Public, Private, Internal | [API Gateways](/api-manager/gateway) |
@@ -19,6 +21,8 @@ The controls available on an exposed API, layer by layer, and which threat each 
 | Environment | Network policies between workloads | [Network Policies](/infra/network) |
 
 ## Threats and controls
+
+Read this table from the threat you are worried about to the control that addresses it.
 
 | Threat | Control |
 |---|---|

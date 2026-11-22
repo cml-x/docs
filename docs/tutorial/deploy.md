@@ -41,6 +41,8 @@ does not rebuild the image. The integration only restarts.
 
 {/* screenshot: tutorial-integration-running */}
 
+The page of the integration shows where the deployment stands. "Running" and "ready" are two different things: the process can be up while its routes have not started.
+
 | What you see | What it means |
 |---|---|
 | Build in progress | The image is being made |

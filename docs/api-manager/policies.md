@@ -17,6 +17,8 @@ who may call, how much, how long the gateway waits, what happens when the backen
 
 ## Policy families
 
+Policies are grouped by the side of the gateway they act on. Knowing the family tells you where a rule is configured and what it can affect.
+
 | Family | Controls | Rules | Reference |
 |---|---|---|---|
 | **Security policy** | Who may call | JWT, OIDC, API key, Basic, CORS, IP rules, external authorization | [Security Policy](/api-manager/reference/security-policy) |
@@ -46,6 +48,8 @@ still hold.
 
 ## How rules combine inside a policy
 
+One policy holds several rules. How they combine differs per family.
+
 | Family | Combination |
 |---|---|
 | Security policy | Every rule present must pass. CORS answers preflights before authentication |
@@ -59,6 +63,8 @@ operations.
 :::
 
 ## Consequences to anticipate
+
+Every rule changes what some callers receive. Decide on these effects before turning a rule on in production, and tell the teams that call the API.
 
 | Rule | Effect on callers | Watch |
 |---|---|---|
