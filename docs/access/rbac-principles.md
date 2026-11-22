@@ -3,26 +3,114 @@ title: RBAC Model
 sidebar_position: 3
 ---
 
-Access Manager's RBAC (role-based access control) answers one question: **what is this user
+Access control answers one question: **what is this user
 allowed to do, and where?** This page explains the model behind it. To put it into practice, follow
 the [Create and Manage Roles](/access/create-and-manage-roles) tutorial.
 
 ## Authorization model
 
-```
-User ──granted──▶ Role ──carries──▶ Permissions ──apply to──▶ Business unit  (everywhere)
-                                                          └─▶ Environment    (only where restricted)
-```
+![A user is assignee of a role; the role holds permissions on a business unit or on one environment; organization administrators and viewers reach every business unit](/img/access/role-structure.drawio.png)
 
-- A **user** never holds permissions directly. They are **granted one or more roles** on a
-  business unit (see [Authorizations](/access/authorizations)).
-- A **role** is a named bundle of permissions — for example *Platform Editor Access*.
-- A **permission** is one action on one kind of resource — for example "edit gateways".
-- A permission applies either to the **whole business unit** or, for some resources, to **specific
+The model is **relationship-based**: access is not a list of rights attached to a user, it is a
+set of **relations between objects**. A user is *assignee* of a role; the role holds a
+permission *on* a business unit; an environment *belongs to* a business unit. Deciding whether
+a request is allowed means following those relations. The platform evaluates them with
+OpenFGA.
+
+Four ideas summarize it:
+
+- A **user** never holds permissions directly. They are **assigned roles** in a business unit
+  (see [Role grants](/access/authorizations)).
+- A **role** is a named bundle of permissions, defined in one business unit.
+- A **permission** is one action on one kind of resource — "edit gateways".
+- A permission holds on the **whole business unit** or, for some resources, on **specific
   environments only**.
 
-Every request a backend service receives is checked against this model. If the user's roles do not
-grant the required permission, the service answers **403 Forbidden**.
+Every request a backend service receives is checked against this model. If no relation grants
+the required permission, the service answers **403 Forbidden**.
+
+## How roles are structured
+
+A role sits between people and permissions, and each side of it is a relation.
+
+| Relation | From | To | Meaning |
+|---|---|---|---|
+| `assignee` | User, service account | Role | This identity has the role |
+| `business_unit` | Role | Business unit | The role is defined in, and limited to, this unit |
+| `can_<action>_<resource>` | Role | Business unit | Everyone with the role may do this action in the whole unit |
+| `can_<action>_<resource>` | Role | Environment | Everyone with the role may do this action in that environment only |
+| `business_unit` | Environment | Business unit | The environment belongs to the unit and inherits its permissions |
+| `organization` | Business unit | Organization | The unit belongs to the organization |
+
+A permission is named after what it allows: `can_edit_gateway`, `can_deploy_integration`,
+`can_view_secret_config`. The role editor shows them in plain language — **Create and manage
+Gateway**, **Apply changes on Integration** — but the name is what a `403` reports and what an
+exported role contains.
+
+### Reading the diagram
+
+Take the role *Platform Editor Access* of the business unit `payments`:
+
+1. `alice`, `bob` and the service account `ci-deployer` are **assignees** of the role.
+2. The role holds **Create and manage Integration** on the business unit: its assignees may
+   edit integrations in every environment of `payments`, including ones created later.
+3. The role holds **Apply changes on Gateway** on the environment `development` only: its
+   assignees may deploy gateways there, and nowhere else.
+4. Nothing links the role to `production` for gateways: a deployment there is refused.
+
+### How a check is resolved
+
+When `alice` deploys a gateway in `development`, the service asks one question: *does `alice`
+have `can_deploy_gateway` on `environment:development`?* The answer is yes if **any** of these
+holds:
+
+| Path | Why it grants |
+|---|---|
+| A role of `alice` holds the permission on that environment | Direct grant, restricted |
+| A role of `alice` holds the permission on the business unit | The environment inherits from its business unit |
+| `alice` is administrator of the business unit | Administrators hold every permission of the unit |
+| `alice` is administrator of the organization | An organization administrator is administrator of every unit |
+
+For a **view** permission, two more paths exist: holding *edit* or *delete* on the same
+resource, and being **viewer** of the organization.
+
+:::info Permissions add up, they never subtract
+There is no "deny". A user with two roles has the union of what both grant. To take a right
+away, remove it from the role or remove the role from the user.
+:::
+
+## Organization-level relations
+
+Above business units, the organization has relations of its own. They are not part of the role
+catalog: they are given to a user for the whole organization.
+
+| Relation | Effect |
+|---|---|
+| **admin** | Administrator of every business unit: bypasses the catalog everywhere |
+| **viewer** | Read access to every resource of every business unit; no change allowed |
+| **member** | Belongs to the organization; sees only the business units where a role is granted |
+| **support agent** | Handles support cases |
+
+:::warning Organization administrator is the widest right there is
+It reaches every business unit, present and future. Give it to the few people who administer
+the platform itself, and use business unit roles for everyone else.
+:::
+
+The structure of organizations and business units is described in
+[Organization and units](/access/organization-and-business-units).
+
+## Finer grants on configurations
+
+For stored configurations, the model goes below the business unit. Besides the permissions a
+role holds on the whole unit, access can be given to:
+
+| Level | Covers |
+|---|---|
+| One **template** | Every configuration of that template, present and to come — all TLS certificates, for instance |
+| One **configuration** | That configuration alone |
+
+This lets a team manage its own credentials without reading those of the others in the same
+business unit.
 
 ## Business units and environments
 

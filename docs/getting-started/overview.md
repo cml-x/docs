@@ -49,8 +49,9 @@ deployed, exposed, secured, observed.
 
 ## Two scopes: business unit and environment
 
-Everything you create belongs to a **business unit** — the tenant: a team, a department, a
-product. Most of what runs additionally belongs to an **environment** — a stage such as
+Your company is an **organization**, divided into **business units** — see
+[Organization and units](/access/organization-and-business-units). Everything you create belongs
+to a business unit: a team, a department, a product. Most of what runs additionally belongs to an **environment** — a stage such as
 development or production, on one cluster.
 
 The console always shows which business unit and which environment are selected, and what you

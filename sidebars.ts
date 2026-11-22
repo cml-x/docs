@@ -292,6 +292,7 @@ const sidebars: SidebarsConfig = {
             "auth/getting-start",
             "security/authentication-vs-authorization",
             "security/api-security",
+            "access/organization-and-business-units",
             "access/rbac-principles"
           ],
           "link": {
