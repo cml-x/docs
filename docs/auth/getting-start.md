@@ -15,6 +15,21 @@ Camel X covers the two usual situations:
 Simpler means exist too — API keys, user name and password — described with the other
 [policies](/api-manager/policies).
 
+## Why tokens rather than keys
+
+An API key is a shared secret that never expires and says nothing about what it may be used
+for. A token is issued for a short time, for named APIs, and is verified by the gateway from its
+signature alone: no lookup, no shared secret travelling with every call.
+
+The price is one more component — the token service — and one more call for the application.
+The platform provides the token service: the **auth gateway**.
+
+:::tip When an API key is enough
+A handful of internal callers, a tool that cannot run OAuth, a quick integration test: an API key
+is a reasonable choice. Move to tokens when callers multiply or when one credential must not
+open every API.
+:::
+
 ## Client credentials flow in four steps
 
 1. **Create an auth gateway.** It is the token service of the environment.
@@ -28,6 +43,11 @@ Simpler means exist too — API keys, user name and password — described with 
 
 The application never talks to your service without going through the gateway, and your service
 never has to check a token itself.
+
+:::warning A token is valid until it expires
+Removing a client stops it from obtaining new tokens; tokens already issued stay valid until
+their expiry. Keep token lifetimes short for sensitive APIs.
+:::
 
 ## Console locations
 

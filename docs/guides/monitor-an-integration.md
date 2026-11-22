@@ -5,6 +5,9 @@ sidebar_position: 5
 
 Where to look, in which order, to know whether an integration is healthy.
 
+Use this guide to set up the minimum that lets you notice a problem before your callers report
+it, and to know where to look when they do.
+
 ## Signals and where they are
 
 Each question about an integration has one signal that answers it. This table maps the question to the place to look.

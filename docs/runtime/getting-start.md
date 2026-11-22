@@ -3,25 +3,44 @@ title: Overview
 sidebar_position: 1
 ---
 
-Runtime Manager is where Apache Camel integrations are deployed and operated.
+Runtime Manager is where integrations are **deployed, configured and operated**. Project Manager
+holds their source; Runtime Manager decides what runs, where, and with which settings.
 
 ![On its own, in an integration group, in an API group](/img/runtime/groups.drawio.png)
+
+## What an integration is here
+
+An integration is the **deployable unit**: a set of Camel routes plus everything needed to run
+them — dependencies, properties, files, memory, replicas. It is not a file and not an image: the
+platform builds the image from it each time its source or dependencies change.
+
+Two properties of this model explain most of what you will do in Runtime Manager:
+
+- **Source and settings are separate.** The routes say what the integration does; its settings
+  say how it runs in a given environment. Changing a setting never rebuilds the image.
+- **One integration, several environments.** An integration is bound to each environment it must
+  run in, and is built and deployed separately in each. Development and production can run
+  different versions of the same integration with different settings.
 
 ## Objects
 
 Runtime Manager works with three objects.
 
-| | What it is |
-|---|---|
-| **Integration** | A Camel route that the platform builds and runs. Its source is typed in the console (**inline**) or taken from a repository (**Git**). |
-| **Integration group** | Integrations and storage that are deployed and versioned together. |
-| **Storage** | A volume that keeps data across restarts. |
+| Object | What it is | When you need it |
+|---|---|---|
+| [**Integration**](/runtime/integrations) | Camel routes that the platform builds and runs | Always |
+| [**Integration group**](/runtime/integration-groups) | Integrations and storage deployed and versioned together | When several integrations must always be released together |
+| [**Storage**](/runtime/storages) | A volume that keeps data across restarts | When a route keeps files or state on disk |
 
-An integration is created **on its own** or **in a group**. On its own, it is deployed and
-versioned by itself — the simplest way to start. A group suits integrations that are always
-released together.
+:::tip Start with an integration on its own
+Create integrations with **None — create it on its own**. Group them only when deploying one
+without the others would break something.
+:::
 
 ## Quick start: create and deploy an integration
+
+The environment must have its
+[Camel Integration Service](/infra/camel-integration-service) activated.
 
 1. Open **Integrations**, then **Create Integration**. Name it and choose **None — create it on
    its own**.
@@ -37,11 +56,26 @@ released together.
    ```
 
 3. **Bind** the integration to an [environment](/infra/environments).
-4. **Apply changes**. The platform builds an image from your route, then starts it.
+4. **Apply changes**. The environment builds an image from your route, then starts it.
 5. Follow the build and the instance on the page of the integration.
 
-The environment must have its
-[Camel Integration Service](/infra/camel-integration-service) activated.
+:::info The first build takes a few minutes
+Maven downloads the dependencies and the image is pushed to the registry of the environment.
+Later builds reuse what was downloaded; a change of settings alone does not build at all.
+:::
+
+## What "Apply changes" does
+
+Nothing you edit in Runtime Manager takes effect until it is applied. **Apply changes** sends the
+current definition of the integration to the selected environment, which works out what to do:
+
+| You changed | The environment |
+|---|---|
+| A route, a dependency | Rebuilds the image, then rolls it out |
+| A setting: properties, variables, memory, replicas | Rolls out the existing image with the new settings |
+| Nothing | Does nothing |
+
+Each apply that changes something creates a **revision**, which you can roll back to.
 
 ## Next steps
 
@@ -49,11 +83,8 @@ Once an integration is deployed, these pages take it further.
 
 | You want to | Read |
 |---|---|
-| Follow one example from this route to a secured API | [Tutorial](/tutorial/overview) |
-| Give the integration properties, variables and files | [Configure it](/tutorial/configure) |
-| Call a service signed by a private authority | [Trust a Private Certificate Authority](/runtime/trust-private-certificates) |
-| Build from a repository | [Move the source to Git](/tutorial/from-git) |
-| Publish it as an API | [Expose it as an API](/tutorial/expose) |
-
-Reference: [Integrations](/runtime/integrations), [Integration groups](/runtime/integration-groups),
-[Storages](/runtime/storages).
+| Understand what happens between apply and running | [Build and run lifecycle](/runtime/how-integrations-run) |
+| Give it properties, variables and files | [3. Configuration](/tutorial/configure) |
+| Call a service signed by a private authority | [JVM truststore](/runtime/trust-private-certificates) |
+| Build from a repository | [7. Build from Git](/tutorial/from-git) |
+| Publish it as an API | [8. Expose as an API](/tutorial/expose) |

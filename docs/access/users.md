@@ -6,6 +6,15 @@ sidebar_position: 1
 **Users** lists the human accounts of the organization. Programs use
 [connected apps](/access/connected-apps) instead.
 
+## Accounts, and what they do not give
+
+An account lets a person **sign in**. It gives no access to any project: a new user sees an
+empty console until a role is granted to them on a project. Identity and access are managed in
+two different screens on purpose — you can suspend one without touching the other.
+
+People who sign in through your company's [identity provider](/access/identity-providers) get
+their account at first sign-in. Create accounts here only for people outside it.
+
 ## Account fields
 
 An account is identified by its user name and reached through its email address. Only four fields are required to create one.
@@ -30,6 +39,11 @@ Three actions stop someone from signing in, and they differ in what they keep. C
 | **Manage Roles** | Organization-level roles of the user | — |
 
 Access to projects is not set here: see [Authorizations](/access/authorizations).
+
+:::tip Deactivate before deleting
+A deactivated account keeps its grants and its history, and can be reactivated. Delete only when
+nothing — an audit, a transfer of ownership — still refers to the account.
+:::
 
 ## Second factors of a user
 

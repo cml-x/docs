@@ -5,6 +5,16 @@ sidebar_position: 6
 
 **Settings** holds the sign-in policies of the organization.
 
+## What these policies protect
+
+These settings apply to **local accounts** — those that sign in with a user name and a password
+kept by the platform. Users of an external identity provider follow that provider's rules for
+passwords and lockout.
+
+Tighten them in proportion to how many local accounts remain. An organization that signs in
+entirely through its identity provider needs strong rules for a handful of emergency accounts,
+not for everyone.
+
 ## Login settings
 
 These switches decide which sign-in methods the organization accepts at all, and what the sign-in page reveals. They apply to every user.

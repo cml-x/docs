@@ -11,6 +11,18 @@ Applications that call the APIs **you expose** are OAuth clients of an
 [auth gateway](/auth/client-lists), not connected apps.
 :::
 
+## Why programs get their own identity
+
+A pipeline or a script that uses a person's credentials stops working when that person leaves,
+acts with all of their rights, and makes the audit trail say a human did what a robot did. A
+service account fixes the three: it belongs to no one, has only the roles you grant it, and
+appears under its own name.
+
+:::tip One account per program
+When a credential leaks, you revoke one account and one program is affected. A shared account
+turns every leak into an outage for everything that used it.
+:::
+
 ## Credentials
 
 {/* screenshot: access-connected-app-credentials */}

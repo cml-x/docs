@@ -8,6 +8,16 @@ It works with gateways, and asks for no configuration file.
 
 ![The path of a request, from the caller to the integration](/img/tutorial/exposure.drawio.png)
 
+## Why a gateway in front of an integration
+
+An integration that exposes HTTP is reachable only inside its environment. To be called from
+elsewhere it needs an address, TLS, and a place to decide who may call it. Doing that in each
+integration would mean certificates, authentication and rate limiting written into every route.
+
+A gateway does it once, in front. The integration keeps to business logic; the gateway carries
+the address, the certificate and the policies. The same integration can be published on several
+gateways — public for partners, internal for other teams — without changing a line of it.
+
 ## Objects
 
 API Manager works with a handful of objects. A request crosses them in this order, so knowing them tells you where to look when something does not answer.
@@ -33,6 +43,11 @@ example.
 3. **Deploy**, then call the address.
 
 The API is then open to everyone: protect it before giving the address out.
+
+:::danger A published API is open
+A new API instance has no authentication. On a public gateway it answers anyone as soon as its
+host name resolves. Add its security policy before you give the address out.
+:::
 
 ## Authentication options
 

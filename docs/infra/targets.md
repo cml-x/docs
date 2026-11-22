@@ -9,6 +9,18 @@ cluster and which namespace*, the environment says *which stage and which servic
 
 ![Control plane, runtime planes, targets and environments](/img/infra/runtime-planes.drawio.png)
 
+## Why targets exist
+
+An environment needs a place on a cluster. A target is that place, described once: which
+runtime plane, which namespace. Separating it from the environment lets the same model cover a
+namespace shared with others on a managed cluster and a namespace on a cluster of your own —
+and lets you move a stage by pointing its environment at another target.
+
+:::info A target is a namespace, not a cluster
+Several targets can sit on the same runtime plane, each in its own namespace. Creating a target
+does not create or reserve a cluster.
+:::
+
 ## Create a target
 
 {/* screenshot: infra-create-target */}

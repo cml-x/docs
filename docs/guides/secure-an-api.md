@@ -5,6 +5,8 @@ sidebar_position: 4
 
 Require every caller of an API to authenticate, with tokens issued by the platform.
 
+Use this guide when an API is published and must only answer callers you know.
+
 ## Choose the method
 
 The right authentication method depends on who calls the API. Pick the row that matches the caller.
@@ -38,6 +40,11 @@ TOKEN=$(curl -s https://auth.example.com/api/oidc/token \
 curl -i https://orders.example.com/orders                                  # 401
 curl -i https://orders.example.com/orders -H "Authorization: Bearer $TOKEN" # 200
 ```
+
+:::warning Never put the client secret in a URL or a repository
+Read it from a stored configuration or from the secret store of the calling application. A
+secret that reached a log or a commit must be regenerated.
+:::
 
 ## Who may manage the API
 

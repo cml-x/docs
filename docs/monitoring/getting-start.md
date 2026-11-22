@@ -18,6 +18,17 @@ labelled with the business unit and the environment. The views of Monitoring rea
 The same log flow can also copy logs to systems of yours — that is the
 [Log Exporter](/infra/log-exporter).
 
+## Which signal for which question
+
+| Your question | Signal | Why this one |
+|---|---|---|
+| Is the service healthy right now? | Metrics | Cheap aggregates over time; what dashboards and alerts are built on |
+| Why was this request slow or refused? | Traces | One request, step by step, across services |
+| What exactly did the route do? | Logs | The message, the exception, the business identifier |
+
+In an incident the usual order is metrics, then a trace, then logs: from "something is wrong" to
+"here" to "because".
+
 ## Scope of the views
 
 {/* screenshot: monitoring-embedded-scope */}

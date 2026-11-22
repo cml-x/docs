@@ -8,6 +8,20 @@ which access point the API is reached, at which address, and which service answe
 
 ![API Instances](/img/api-manager/api-instance.drawio.png)
 
+## What an API instance decides
+
+An API instance is the link between an address and a service. It answers three questions:
+**where** the API is reached — a gateway, an access point, a host name; **what** answers — an
+integration or an upstream; and **under which rules** — the policies attached to it.
+
+It contains no logic. Transforming a payload or calling two systems is the work of the
+integration behind it; the API instance only routes and enforces.
+
+:::info One API instance, one backend
+An API instance routes to one service. To publish two integrations under one host name, create
+two API instances on that host name with different paths.
+:::
+
 ## Create an API instance
 
 Open **API Manager**, go to **API Instances**, then create one. Two things are asked for.
@@ -55,6 +69,11 @@ tokens that are issued for it:
 
 The audience ID is worked out from the API itself: it does not change when the API is deployed
 again, and two different APIs never share one.
+
+:::warning The audience ID is what ties tokens to this API
+Tokens are issued for audiences. If the JWT rule of this API does not check its audience, a
+token obtained for any other API of the same issuer is accepted here.
+:::
 
 ## API instance page
 

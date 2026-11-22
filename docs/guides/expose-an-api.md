@@ -5,6 +5,13 @@ sidebar_position: 3
 
 Publish a service of an environment on a host name, through a gateway.
 
+Use this guide when a service runs in an environment and must be called from outside it. It
+gives the service an address; protecting it is the [next guide](/guides/secure-an-api).
+
+:::danger Exposed means open
+Until a security policy is added, anyone who can reach the gateway can call the API.
+:::
+
 ## Prerequisites
 
 - A running service: an integration with **Expose HTTP Endpoint** on, or an

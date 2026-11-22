@@ -6,6 +6,9 @@ sidebar_position: 1
 The shortest path from a route to an integration that exists in the platform. Two starting
 points lead to the same object.
 
+Use this guide when you have a route in mind and want it to exist in the platform. It stops
+before deployment: at the end, the integration is defined but nothing runs.
+
 ## Choose the source mode
 
 An integration takes its source from one of two places. The choice is made at creation and can be changed later.

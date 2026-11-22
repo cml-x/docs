@@ -5,6 +5,9 @@ sidebar_position: 2
 
 Deploying builds an image from the source of the integration and rolls it out in an environment.
 
+Use this guide to put an integration into an environment for the first time, or to move a
+verified version to the next environment.
+
 ## Prerequisites
 
 - An integration — see [Create an integration](/guides/create-an-integration).
@@ -30,6 +33,11 @@ Applying an integration runs two phases. Knowing which phase failed tells you wh
 | Rollout | The image is started with its settings | Missing property or file, memory limit, failing readiness |
 
 A change of settings alone skips the build phase.
+
+:::tip Promote the release you tested
+Point the next environment at the **same release** that was verified in the previous one. A
+branch may have moved in between.
+:::
 
 ## Promotion across environments
 

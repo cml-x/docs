@@ -9,6 +9,23 @@ tuning.
 
 {/* screenshot: runtime-concept-build-and-run */}
 
+## Why the platform builds for you
+
+With plain Camel you maintain a Maven project, a Dockerfile, a pipeline and Kubernetes manifests
+for each integration. Here you provide routes only. The environment generates the project,
+resolves the dependencies from the routes, builds an image and writes the deployment — the model
+of Apache Camel K.
+
+What this buys is speed and uniformity: every integration is built and instrumented the same
+way. What it costs is that the build happens **in the environment**, at deployment time: a
+dependency that cannot be resolved, or a registry that refuses the image, fails the deployment
+rather than a pipeline. The phases below are therefore worth knowing.
+
+:::info Built per environment
+Each environment builds its own image, with its own registry, Maven settings and base image.
+The same release built in two environments gives two images from the same source.
+:::
+
 ## Lifecycle phases
 
 Between the moment you apply an integration and the moment it answers, the platform goes through these phases in order. A failure stops the sequence at one of them.
@@ -87,6 +104,11 @@ An integration can receive configuration in four ways. They differ in what they 
 | Environment variables | [Environment](/runtime/settings/environment) | `${env:NAME}` |
 | Files | [Resources](/runtime/settings/resources) | A path, such as `/etc/orders/catalog.json` |
 | Runtime properties | [Camel Runtime](/runtime/settings/camel-runtime) | Read by the runtime itself |
+
+:::tip Read the build log first
+When a deployment fails, the page of the integration shows the build with its log. Most failures
+are there, and the log names the missing artifact or the line that does not compile.
+:::
 
 ## Troubleshooting by phase
 

@@ -6,6 +6,21 @@ sidebar_position: 2
 **Dashboards** lists the dashboards of the business unit, in the `default` folder, and opens them
 inside the console on the environment selected.
 
+## What a dashboard is for
+
+A dashboard answers "is this service well?" at a glance, for someone who did not build it. It is
+worth building when you find yourself running the same three queries every morning, or when a
+colleague on call needs to judge the state of a service they do not know.
+
+A good one is small. Four panels that map to what a caller experiences — traffic, errors,
+latency — and to the one resource that runs out first, usually memory, tell more than forty
+panels of everything that can be measured.
+
+:::tip Build from templates, then remove
+Start from a ready-made template and delete the panels you never look at. A dashboard nobody
+reads in full is a dashboard nobody trusts.
+:::
+
 ## Dashboard templates
 
 When no dashboard exists yet, the page offers ready-made templates. A template bundles one or

@@ -5,6 +5,15 @@ sidebar_position: 4
 
 An identity provider lets people sign in to the console with an account managed elsewhere.
 
+## Why federate sign-in
+
+Without an identity provider, every user has one more password, and leaving the company does not
+remove access to the console until someone remembers to. With one, people sign in with their
+company account: its password policy, its second factor and its offboarding apply here too.
+
+The console still decides **what** each person may do, through roles. The provider only answers
+**who** they are.
+
 ## Supported providers
 
 Popular providers have a dedicated form that asks only for what that provider needs. Any other provider that speaks OpenID Connect or SAML 2.0 is configured with the generic forms.
@@ -29,6 +38,11 @@ The console shows, for each provider, the value to register on the provider side
 | SAML 2.0 | **ACS URL** (Assertion Consumer Service) | Service provider settings |
 
 The value must be registered exactly as shown: scheme, host, path, no trailing slash added.
+
+:::warning Test with a second session
+Before requiring the provider for everyone, sign in through it in a private window while keeping
+an administrator session open. A mistake in the redirect URL locks out whoever depends on it.
+:::
 
 ## Lifecycle
 

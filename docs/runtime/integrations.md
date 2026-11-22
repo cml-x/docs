@@ -3,39 +3,84 @@ title: Integrations
 sidebar_position: 3
 ---
 
-An **Integration** is a Camel route that the platform builds and runs. Its source is typed in the
-console (**inline** mode) or taken from a Git repository (**Git** mode). It is created on its
-own, or inside a group — see [Integration groups](/runtime/integration-groups).
+An **integration** is a set of Camel routes that the platform builds and runs, together with the
+settings it runs with. This page describes what an integration is made of and what each part
+controls.
+
+## Anatomy of an integration
+
+| Part | What it holds | Changing it |
+|---|---|---|
+| **Source** | The routes: inline files, or a Git repository with a branch or release | Rebuilds the image |
+| **Dependencies** | Camel components and Maven artifacts beyond those detected in the routes | Rebuilds the image |
+| **Settings** | How it runs: properties, files, variables, compute, JVM, probes… | Restarts without rebuilding |
+| **Bindings** | The environments it is deployed in | Deploys or undeploys |
+
+The distinction between the first two rows and the third is the one to remember: a rebuild takes
+minutes, a restart seconds.
 
 ## Create an integration
 
-- Choose the source mode: **Inline**, and type the route, or **Git**, and pick the repository
-  then a **branch or release** to build from.
-- Choose **None — create it on its own**, or an existing [integration group](/runtime/integration-groups).
-- Configure component-level secrets inline while creating it — Git credentials, properties, and
-  resource files the route needs at runtime.
+In **Runtime Manager**, **Integrations**, **Create Integration**. Three choices are made at
+creation.
 
-Integrations are what route messages, transform data and call other systems. Gateways, policies
-and storage exist to support them.
+**Integration group.** **None — create it on its own**, or an existing
+[integration group](/runtime/integration-groups). On its own, the integration is deployed and
+versioned by itself.
+
+**Source mode.** **Inline**: you type the routes in the console. **Git**: you choose a
+repository, then a branch or a release. Inline suits prototypes; anything that reaches
+production belongs in Git, where it has a history and releases — see
+[Build from a Git repository](/tutorial/from-git).
+
+**Expose HTTP Endpoint.** On: the integration gets a service inside the environment, named after
+it, so that other workloads and the gateway can call it. Turn it off for an integration that only
+consumes — a queue listener, a timer.
+
+:::info A service inside the environment is not a public address
+With **Expose HTTP Endpoint** on, the integration is reachable from the environment only.
+Publishing it is done in API Manager, with a gateway and an API instance.
+:::
 
 ## Integration settings
 
 {/* screenshot: runtime-integration-settings */}
 
-Once created, an integration is tuned through its settings. Several of them give it files or
-values stored in [Secret Manager](/config-sources/templates):
+Settings are added with **Add Capability**. Each one covers one aspect of how the integration
+runs, and each has [a page of its own](/runtime/settings). The ones used most:
 
-| Setting | What it gives the integration |
-|---|---|
-| **Configuration** | Configurations of the kind Properties, loaded as property files. |
-| **Resources** | Configurations of the kind Resources File, each mounted at the place you choose. |
-| **Environment** | Environment variables, written in the setting or read from a stored configuration. |
-| **Compute** | The number of instances, and the CPU and memory of each. |
-| **JVM** | Extra JVM flags, remote debugging, and the certificate authorities it trusts — see [Trust a Private Certificate Authority](/runtime/trust-private-certificates). |
+| Setting | What it gives the integration | Page |
+|---|---|---|
+| **Configuration** | Property files, read with placeholders | [Property files](/runtime/settings/configuration) |
+| **Resources** | Files mounted at a path you choose | [Mounted files](/runtime/settings/resources) |
+| **Environment** | Environment variables | [Environment variables](/runtime/settings/environment) |
+| **Compute** | Replicas, CPU and memory | [Compute resources](/runtime/settings/compute) |
+| **JVM** | JVM flags, debugging, trusted certificate authorities | [JVM options](/runtime/settings/jvm) |
+| **Volumes** | Persistent and temporary storage | [Volumes](/runtime/settings/volumes) |
 
-Every setting has a page of its own: see [Integration settings](/runtime/settings). What happens
-between a route and a running service is explained in
-[How Integrations Are Built and Run](/runtime/how-integrations-run).
-
-Several settings can give files to the same integration: what each one mounts is added to what
+Several settings can give files to the same integration. What each one mounts is added to what
 the others mount, whatever the order they were added in.
+
+:::tip Keep values out of the routes
+Anything that differs between environments — an address, a credential, a batch size — belongs in
+a setting, read by the route through a placeholder. The same release then runs everywhere.
+:::
+
+## Bindings, revisions and rollback
+
+An integration is **bound** to an environment before it can be deployed there. Each **Apply
+changes** that changes something creates a **revision** in that environment. Rolling back
+returns the integration to an earlier revision, reusing the image that was built for it.
+
+**Undeploy** removes the integration from the selected environment and keeps its definition.
+**Delete** removes the integration itself.
+
+:::warning Revisions are per environment
+Rolling back in production does not change development, and the reverse. Check the environment
+selected before rolling back.
+:::
+
+## Related pages
+
+- [Build and run lifecycle](/runtime/how-integrations-run)
+- [Integration settings](/runtime/settings)

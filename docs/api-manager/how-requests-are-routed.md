@@ -8,6 +8,15 @@ one decides what tells you where to look, and where to change things.
 
 ![The path of a request, from the caller to the integration](/img/tutorial/exposure.drawio.png)
 
+Read this page when an API does not answer as expected, or before designing how several APIs
+share a gateway. It follows one request from the client to the service and names what decides
+at each step.
+
+:::info Vocabulary
+An **access point** is a listener of the gateway. An **API instance** is a route attached to one
+access point. The console uses the first terms; logs and upstream documentation use the second.
+:::
+
 ## Resource model
 
 Four objects take part in routing a request. Each decides one thing, and each is managed in its own place.
