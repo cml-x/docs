@@ -59,8 +59,18 @@ A gateway and an API instance are created with their policies already beside the
 | API instance, on its own or in an API group | Security, backend traffic |
 
 An empty policy enforces nothing; it is there so that a rule can be added to it without creating
-anything first. A custom policy is not created by default: activate it from its tab when you need
-one.
+anything first.
+
+| Policy | Number per gateway or API | Can be removed |
+|---|---|---|
+| Security | One, created with its target | No: remove its rules instead |
+| Backend traffic | One, created with its target | No: remove its rules instead |
+| Client traffic (gateways only) | One, created with the gateway | Yes |
+| Custom | As many as needed, none by default | Yes, each one separately |
+
+The **Custom Policies** tab lists the custom policies of the gateway or the API. Each is added,
+edited and deleted on its own, and gets a unique name ending in `custom-policy`, for example
+`orders-api-k3x9q2-custom-policy`.
 
 Adding a rule to a policy, activating one or deactivating one changes the application of its
 target, and takes effect at the next **Apply**.
