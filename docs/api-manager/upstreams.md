@@ -1,5 +1,5 @@
 ---
-title: Upstreams
+title: Upstreams (External Backends)
 sidebar_position: 5
 ---
 
@@ -11,7 +11,7 @@ the platform.
 
 Open **API Manager**, go to **Upstreams**, then create one.
 
-### Target
+### Target types
 
 | Target | What you give | Example |
 |---|---|---|
@@ -19,7 +19,7 @@ Open **API Manager**, go to **Upstreams**, then create one.
 | **IP address** | One or several public IP addresses, each with its port | `203.0.113.10:8443` |
 | **Platform service** | A service of the platform, chosen by name | — |
 
-### Options
+### Connection options
 
 | Option | What it does | Default |
 |---|---|---|
@@ -31,7 +31,7 @@ An upstream points at public host names and public addresses, or at a service of
 chosen by name. Addresses inside the platform cannot be typed in by hand.
 :::
 
-## Use an upstream
+## Reference an upstream from an API instance
 
 When creating an API instance, choose the upstream as its **Backend Service**. The upstream comes
 with its own ports: none is asked for on the API.

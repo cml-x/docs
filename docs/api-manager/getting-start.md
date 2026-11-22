@@ -8,7 +8,7 @@ It works with gateways, and asks for no configuration file.
 
 ![The path of a request, from the caller to the integration](/img/tutorial/exposure.drawio.png)
 
-## What you work with
+## Objects
 
 | | What it is |
 |---|---|
@@ -19,7 +19,7 @@ It works with gateways, and asks for no configuration file.
 | [Auth gateway](/auth/auth-gateway) | The service that issues tokens to the applications calling your APIs |
 | [Domain](/api-manager/domains) | A domain name of your own, for the addresses of your APIs |
 
-## Publish your first API
+## Quick start: publish an API
 
 You need a service to publish — an [integration](/runtime/getting-start) that is running, for
 example.
@@ -32,18 +32,18 @@ example.
 
 The API is then open to everyone: protect it before giving the address out.
 
-## Protect it
+## Authentication options
 
 | Who calls | Use |
 |---|---|
-| A few known applications | [API keys](/api-manager/policies#api-keys) |
+| A few known applications | [API keys](/api-manager/policies#api-key-authentication) |
 | Applications, at scale | [Tokens (JWT)](/auth/protect-api-with-jwt) |
 | People, in a browser | [Sign-in with an identity provider](/auth/configure-oidc) |
-| Anything, by rules of your own | [External authentication](/api-manager/policies#external-authentication) |
+| Anything, by rules of your own | [External authentication](/api-manager/policies#external-authorization) |
 
 The [tutorial](/tutorial/secure) goes through each of them on the same example.
 
-## Who does what
+## Responsibilities per application
 
 - **API Manager** publishes the API and applies its policies at the gateway.
 - An **[auth gateway](/auth/getting-start)** issues the tokens those policies check.

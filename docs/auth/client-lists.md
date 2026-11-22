@@ -1,5 +1,5 @@
 ---
-title: Lists of Clients
+title: OAuth Clients (Lists of Clients)
 sidebar_position: 3
 ---
 
@@ -10,7 +10,7 @@ A **client** is an application allowed to obtain tokens from an
 [auth gateway](/auth/auth-gateway). Clients are kept in **lists of clients**: stored
 configurations that one or several auth gateways read.
 
-## Create a list
+## Create a client list
 
 {/* screenshot: client-list-create */}
 
@@ -23,7 +23,7 @@ A list is created **empty**, in one step, then filled in on its own page.
 Then make the list available to the environment of the auth gateway, and choose it in the
 **Clients** setting of that auth gateway.
 
-## Add a client
+## Register a client
 
 {/* screenshot: client-list-add-client */}
 
@@ -37,9 +37,9 @@ are shown in a table you can search, filter and sort.
 | **Client ID** | What the application presents itself as. Given when the client is made, and never changed. |
 | **Secret** or **Public keys** | The proof, according to the choice above. |
 | **Permissions it may ask for** | The scopes, separated by spaces, such as `orders.read orders.write`. At least one. A token carries those the application asked for, among these. |
-| **APIs its tokens are for** | Optional. The [audience ID](/api-manager/api-instances#the-audience-id-of-an-api) of each API the client calls, or its address. Add them one by one. |
+| **APIs its tokens are for** | Optional. The [audience ID](/api-manager/api-instances#audience-id-aud-claim) of each API the client calls, or its address. Add them one by one. |
 
-### How a client proves who it is
+### Client authentication methods
 
 | Choice | How it works | When to choose it |
 |---|---|---|
@@ -56,7 +56,7 @@ pair**, or give the public key you were sent. The downloaded file holds the priv
 offered **once**: it is kept nowhere else. A client can have several keys, which lets you replace
 one without interruption.
 
-### APIs its tokens are for
+### Token audiences
 
 Every token a client obtains names **all** the APIs listed here. An API whose
 [JWT policy](/auth/protect-api-with-jwt) checks the audience refuses a token that does not name
@@ -70,7 +70,7 @@ it.
 
 Leaving the field empty is allowed: it suits APIs that do not check the audience.
 
-## Obtain a token
+## Token request (client credentials grant)
 
 The application asks the **token endpoint** of the auth gateway, shown on the page of the auth
 gateway.
@@ -122,7 +122,7 @@ A client that proves itself with a key signs a short assertion with its private 
 in place of the secret, as the `private_key_jwt` method of OpenID Connect describes. Most OAuth
 libraries do it for you when given the key file.
 
-## Change or remove a client
+## Edit, rotate or delete a client
 
 - **Edit** a client to change its name, permissions or APIs. Its ID never changes.
 - **Generate a new secret** or key to replace a lost or leaked one. The old one stops working.
@@ -131,7 +131,7 @@ libraries do it for you when given the key file.
 
 Changes are picked up by the auth gateways that read the list within a couple of minutes.
 
-## Several lists
+## Multiple client lists
 
 An auth gateway can read several lists: use one per team, per partner or per application family.
 A client belongs to one list only.

@@ -1,11 +1,11 @@
 ---
-title: Set Environment Variables
+title: Environment Variables
 sidebar_position: 3
 ---
 
 Give an integration environment variables, written in the setting or read from a stored configuration.
 
-## Before you begin
+## Prerequisites
 
 - An [integration](/runtime/integrations), created and bound to an environment.
 
@@ -18,7 +18,7 @@ Give an integration environment variables, written in the setting or read from a
 3. In **Environment Variables**, add one variable per line: `NAME=value`, or `NAME=secret:configuration/key` to read a stored value.
 4. Choose **Apply changes**.
 
-## Field reference
+## Parameters
 
 | Field | What it is | Default |
 |---|---|---|
@@ -26,14 +26,14 @@ Give an integration environment variables, written in the setting or read from a
 | **Inject Container Metadata** | Give the integration its namespace and instance name, as `NAMESPACE` and `POD_NAME`. | On |
 | **Propagate HTTP Proxy** | Pass the proxy settings of the environment on to the integration. | On |
 
-## Verify
+## Verification
 
 ```yaml title="Reading a variable in a route"
 - setBody:
     simple: "${env:ORDERS_REGION}"
 ```
 
-## Good to know
+## Behavior and limits
 
 - Applying this setting restarts the integration; it does not rebuild its image.
 - A value written in the setting is visible to anyone who can see the integration: read sensitive values from a stored configuration.

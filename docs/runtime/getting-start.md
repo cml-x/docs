@@ -7,7 +7,7 @@ Runtime Manager is where Apache Camel integrations are deployed and operated.
 
 ![Capsule lifecycle](/img/runtime/capsule-lifecycle.svg)
 
-## What you work with
+## Objects
 
 | | What it is |
 |---|---|
@@ -19,7 +19,7 @@ An integration is created **on its own** or **in a group**. On its own, it is de
 versioned by itself — the simplest way to start. A group suits integrations that are always
 released together.
 
-## Your first integration, in five minutes
+## Quick start: create and deploy an integration
 
 1. Open **Integrations**, then **Create Integration**. Name it and choose **None — create it on
    its own**.
@@ -41,7 +41,7 @@ released together.
 The environment must have its
 [Camel Integration Service](/infra/camel-integration-service) activated.
 
-## Then
+## Next steps
 
 | You want to | Read |
 |---|---|

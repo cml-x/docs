@@ -1,15 +1,15 @@
 ---
-title: Choose How Requests Are Spread
+title: Load Balancing
 sidebar_position: 11
 ---
 
 Decide how the gateway spreads requests across the instances of the service, and whether a client stays on the same instance.
 
-## When to use it
+## Use cases
 
 When instances are not interchangeable — a session kept in memory — or when requests differ a lot in cost.
 
-## Before you begin
+## Prerequisites
 
 - An [API instance](/api-manager/api-instances) that is deployed and answers.
 - A service running several instances.
@@ -24,14 +24,14 @@ When instances are not interchangeable — a session kept in memory — or when 
 4. Turn **Session Persistence** on to keep a client on the same instance.
 5. Deploy.
 
-## Field reference
+## Parameters
 
 | Field | What it is | Default |
 |---|---|---|
 | **Algorithm** | **Round Robin**: each instance in turn. **Least Request**: the least busy. **Random**. **Consistent Hash**: the same client to the same instance. | Round Robin |
 | **Session Persistence** | Keep the requests of a client on the same instance. | Off |
 
-## Good to know
+## Behavior and limits
 
 - **Least Request** suits requests of very different durations.
 - Keeping a client on one instance is a workaround: a service that keeps nothing in memory scales and restarts better.

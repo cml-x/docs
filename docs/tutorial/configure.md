@@ -1,5 +1,5 @@
 ---
-title: 3. Configure It
+title: "3. Externalize Configuration: Properties, Environment Variables, Files"
 sidebar_position: 4
 ---
 
@@ -17,9 +17,9 @@ four.
 | A file | **Resources** | A *Resources File* configuration |
 | More CPU, memory or instances | **Compute** | The setting itself |
 
-## Properties
+## Camel properties from a stored configuration
 
-### Store them
+### Create the Properties Configuration
 
 In **Secret Manager**, create a configuration of the kind **Properties Configuration**, named
 `orders-settings`:
@@ -31,14 +31,14 @@ orders.page-size=20
 
 Make it available to the environment the integration runs in.
 
-### Give them to the integration
+### Mount the properties with the Configuration setting
 
 {/* screenshot: tutorial-configuration-setting */}
 
 On `orders-api`, add the setting **Configuration** and choose `orders-settings` in **Property
 files**. You can also create the configuration from this field with **New secret**.
 
-### Use them in the route
+### Property placeholders in the route
 
 A property is read between double braces:
 
@@ -82,9 +82,9 @@ once. Use **variables** for the few values a library expects as variables, or th
 hand for one environment.
 :::
 
-## A file
+## Mounted resource files
 
-### Store it
+### Create the Resources File configuration
 
 In **Secret Manager**, create a configuration of the kind **Resources File**, named
 `orders-catalog`, and drop a file `catalog.json` in it:
@@ -93,7 +93,7 @@ In **Secret Manager**, create a configuration of the kind **Resources File**, na
 {"items":["keyboard","mouse","screen"]}
 ```
 
-### Mount it
+### Mount path of the resource
 
 {/* screenshot: tutorial-resources-setting */}
 
@@ -101,7 +101,7 @@ On `orders-api`, add the setting **Resources**. In **Files**, choose `orders-cat
 the place it is mounted at — `/etc/orders` for example. The file is then at
 `/etc/orders/catalog.json`.
 
-### Read it in the route
+### Read the mounted file from the route
 
 ```yaml title="orders.camel.yaml"
         - setBody:
@@ -111,7 +111,7 @@ the place it is mounted at — `/etc/orders` for example. The file is then at
 
 A configuration can hold several files: they are all mounted in the same place.
 
-## The route so far
+## Complete route with placeholders
 
 With the first two settings in place, the route reads its greeting from the property file and its
 region from a variable. The highlighted line is the one that changed since
@@ -143,7 +143,7 @@ region from a variable. The highlighted line is the one that changed since
 | `${env:ORDERS_REGION}` | `ORDERS_REGION=eu-west` | The **Environment** setting |
 | `/etc/orders/catalog.json` | `orders-catalog` | The **Resources** setting |
 
-## CPU, memory and instances
+## Replicas, CPU and memory (Compute)
 
 Add the setting **Compute**.
 
@@ -153,19 +153,19 @@ Add the setting **Compute**.
 | **CPU Request**, **Memory Request** | 125m, 128Mi | What the integration is guaranteed |
 | **CPU Limit**, **Memory Limit** | 500m, 512Mi | The most it may use. Raise the memory when the integration is stopped for using too much |
 
-## Deploy the changes
+## Rollout without an image rebuild
 
 Choose **Apply changes**. None of these settings rebuilds the image: the integration restarts
 with its new configuration.
 
-## A different value per environment
+## Per-environment overrides
 
 Everything above applies to every environment the integration is bound to. To give **one**
 environment a different value — more memory in production, another property file — select that
 environment on the integration and set the value there: it overrides the common one for that
 environment only.
 
-## Other settings
+## Other integration settings
 
 | Setting | What it does |
 |---|---|
@@ -180,4 +180,4 @@ environment only.
 Several settings can mount files into the same integration: what each one mounts is added to what
 the others mount.
 
-Next: [trust a private authority](/tutorial/trust).
+Next: [add a private CA to the JVM truststore](/tutorial/trust).

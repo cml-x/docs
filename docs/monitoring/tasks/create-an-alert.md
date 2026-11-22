@@ -1,11 +1,11 @@
 ---
-title: Be Alerted When Something Goes Wrong
+title: Create an Alert Rule
 sidebar_position: 5
 ---
 
 Be told when a figure crosses a threshold, instead of watching a dashboard.
 
-## Before you begin
+## Prerequisites
 
 - Something running in the environment: an integration, a gateway.
 - The business unit and the environment selected in the console: the views open on them.
@@ -20,7 +20,7 @@ Be told when a figure crosses a threshold, instead of watching a dashboard.
 3. Create a **rule**: what is watched, the threshold, for how long it must be crossed.
 4. Choose the destination of the rule and save.
 
-## Good to know
+## Behavior and limits
 
 - Alert on what a user feels — errors, response time — before alerting on causes.
 - Require the threshold to be crossed for some minutes: a single slow request should wake no one.

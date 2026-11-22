@@ -1,15 +1,15 @@
 ---
-title: Start From a Template
+title: Create a Repository From a Template
 sidebar_position: 2
 ---
 
 Create a repository that already holds a working integration, taken from a template, instead of an empty one.
 
-## When to use it
+## Use cases
 
 When a template matches what you are about to build: an API over a database, a file transfer, a queue listener.
 
-## Before you begin
+## Prerequisites
 
 - A business unit in which you may create repositories.
 
@@ -22,7 +22,7 @@ When a template matches what you are about to build: an API over a database, a f
 3. In **Repo Configuration**, name the repository, then create.
 4. Open the repository and adapt the routes to your systems.
 
-## Good to know
+## Behavior and limits
 
 - A template is copied when the repository is created: later changes to the template do not reach your repository.
 - Any repository of yours can become a template — see [Share a repository as a template](/projects/tasks/share-as-a-template).

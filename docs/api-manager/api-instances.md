@@ -1,5 +1,5 @@
 ---
-title: API Instances
+title: API Instances (Routes)
 sidebar_position: 3
 ---
 
@@ -12,7 +12,7 @@ which access point the API is reached, at which address, and which service answe
 
 Open **API Manager**, go to **API Instances**, then create one. Two things are asked for.
 
-### Gateway & access point
+### Gateway, listener and host name
 
 {/* screenshot: api-instance-gateway-select */}
 
@@ -33,7 +33,7 @@ expects the prefix.
 
 A host name that is not a wildcard is also declared in DNS for you.
 
-### Backend service
+### Backend reference
 
 Choose what answers the requests:
 
@@ -41,7 +41,7 @@ Choose what answers the requests:
   port;
 - an [upstream](/api-manager/upstreams) — a service outside the environment that you declared.
 
-## The audience ID of an API
+## Audience ID (`aud` claim)
 
 {/* screenshot: api-instance-audience-id */}
 
@@ -56,7 +56,7 @@ tokens that are issued for it:
 The audience ID is worked out from the API itself: it does not change when the API is deployed
 again, and two different APIs never share one.
 
-## After creation
+## API instance page
 
 The page of an API instance shows its address, its backend, its audience ID and whether the
 gateway accepted it.

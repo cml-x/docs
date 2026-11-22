@@ -1,12 +1,12 @@
 ---
-title: 4. Trust a Private Authority
+title: "4. Add a Private CA to the JVM Truststore"
 sidebar_position: 5
 ---
 
 The orders service now has to call a partner system over HTTPS. That system presents a
 certificate signed by your company's own authority.
 
-## What goes wrong first
+## Symptom: TLS handshake failure on a private CA
 
 Add the call to the route:
 
@@ -25,11 +25,11 @@ PKIX path building failed: unable to find valid certification path to requested 
 
 Java only trusts the public certificate authorities it ships with. Yours is not one of them.
 
-## Give it your authority
+## Truststore built from a PEM bundle
 
 ![How the truststore of an integration is built](/img/runtime/truststore.drawio.png)
 
-### 1. Store the certificate
+### 1. PEM file in a Resources File configuration
 
 Get the certificate of the authority as a **PEM file** — `corp-ca.pem`. If the partner's
 certificate was signed by an intermediate authority, put the root and the intermediate in the same
@@ -47,7 +47,7 @@ MIIDqDCCApCgAwIBAgIJ...          an intermediate authority, if there is one
 In **Secret Manager**, create a **Resources File** configuration named `corp-ca` and drop the file
 in it. Make it available to the environment.
 
-### 2. Choose it on the integration
+### 2. JVM setting: Trusted CA Certificates
 
 {/* screenshot: tutorial-jvm-trusted-ca */}
 
@@ -60,7 +60,7 @@ On `orders-api`, add the setting **JVM**. In **Trusted CA Certificates**, choose
 authorities, plus yours. The call to the partner now succeeds, and calls to public services keep
 working.
 
-## The switch that matters
+## Keep Public Authorities: public CAs plus yours, or yours only
 
 | Keep Public Authorities | The integration trusts |
 |---|---|
@@ -69,7 +69,7 @@ working.
 
 Turn it off only for an integration that must talk to your own systems and nothing else.
 
-## If the integration no longer starts
+## Truststore build failures
 
 The step that builds the truststore fails when the file holds no certificate: the integration then
 does not start, and the instance shows which step failed. Check that the file is a PEM file, with
@@ -78,7 +78,7 @@ its `-----BEGIN CERTIFICATE-----` lines.
 The complete reference is in
 [Trust a Private Certificate Authority](/runtime/trust-private-certificates).
 
-## What else the JVM setting does
+## Other JVM options
 
 | Field | Use it to |
 |---|---|
@@ -87,4 +87,4 @@ The complete reference is in
 | **Extra Classpath** | Add a driver or a library mounted as a file |
 | **Agents** | Attach a Java agent |
 
-Next: [move the source to Git](/tutorial/from-git).
+Next: [scale the integration](/tutorial/scale).

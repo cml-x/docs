@@ -1,11 +1,11 @@
 ---
-title: Tune the JVM
+title: "JVM: Options, Classpath and Truststore"
 sidebar_position: 5
 ---
 
 Pass flags to the JVM of an integration, attach a debugger or an agent, extend its classpath, and choose the certificate authorities it trusts.
 
-## Before you begin
+## Prerequisites
 
 - An [integration](/runtime/integrations), created and bound to an environment.
 
@@ -18,7 +18,7 @@ Pass flags to the JVM of an integration, attach a debugger or an agent, extend i
 3. Fill what you need: **JVM Options**, **Remote Debugging**, **Trusted CA Certificates**.
 4. Choose **Apply changes**.
 
-## Field reference
+## Parameters
 
 | Field | What it is | Default |
 |---|---|---|
@@ -33,7 +33,7 @@ Pass flags to the JVM of an integration, attach a debugger or an agent, extend i
 | **Keep Public Authorities** | Also trust the public authorities Java ships with. | On |
 | **Truststore Password** | The password of the truststore that is built. | `changeit` |
 
-## Good to know
+## Behavior and limits
 
 - Applying this setting restarts the integration; it does not rebuild its image.
 - Set the heap with `-Xmx` below the memory limit of the integration, leaving room for the rest of the JVM.

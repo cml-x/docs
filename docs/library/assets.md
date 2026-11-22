@@ -1,44 +1,52 @@
 ---
-title: Assets
+title: "Assets Explorer: Search Indexes and Facets"
 sidebar_position: 1
 ---
 
-Assets Explorer is a searchable catalog over everything already published across
-[Project Manager](/projects/getting-start)'s repositories and the schema registry — it doesn't
-create integration content itself, it helps you find and reuse what already exists instead of
-rebuilding it.
+Assets Explorer is a full-text search over what is published: the repositories and releases of
+your organization, and the public catalogs of Apache Camel and Camel X.
 
-## Searching
+## Search indexes
 
-- **Full-text, faceted search** across all published assets, with instant results and active-filter
-  chips.
-- Scope a search to one or several indexes at once via the **index selector**.
-- Results scroll infinitely; each card shows an icon/logo, name, description, topic
-  (`integration` / `api-specification`), type badge (`release` / `template`), and version.
+The index selector chooses where to search. Several indexes can be searched at once.
 
-## Asset types
+| Index | Content |
+|---|---|
+| **My Org** | Repositories, templates and releases of the business unit |
+| **Apache Camel** | The Apache Camel catalog |
+| **CamelX** | The catalog published by the platform |
 
-- **Integration** — a Camel integration route; creating one hands off to Project Manager's
-  repository/template picker.
-- **API Specification** — OpenAPI, AsyncAPI, JSON Schema or Avro; creating one hands off to the
-  schema registry.
-- **Kamelet** — a reusable, pluggable Camel DSL connector component.
-- **Pipe** — a declarative event-driven pipeline built by chaining Kamelets together.
+## Facets
 
-Search results also surface finer-grained indexed types extracted from published repositories —
-`release`, `operation`, `component`, `api`, `policy`, `service` — not just the four top-level types
-above.
+| Facet | Values |
+|---|---|
+| Type | `release`, `template` |
+| Topics | The topics of the repositories: project type, systems, protocols |
+| Visibility | Public or private |
+| Owner | The organization that owns the asset |
 
-## Asset details
+The **Templates** entry of the menu is this search with the type facet set to `template`.
 
-Opening an asset shows an API spec viewer (for OpenAPI-type assets), lets you **publish a new
-version** (version number + package file), and includes an embedded wiki/documentation editor for
-that asset. Assets can also be deleted from here.
+## Asset page
+
+{/* screenshot: assets-asset-page */}
+
+| Element | Content |
+|---|---|
+| **Asset Details** | Type, version, author, default branch, size, creation, last update and publication dates |
+| **Topics** | Add or remove topics |
+| **Version Manager** | The versions of the asset |
+| Documentation | The documentation of the asset, rendered from its repository |
+
+## Publication
+
+Nothing is published by hand in the common case: a repository set as a template, and each release
+of a repository, are indexed as assets. **Create Asset** starts a new project of the chosen type.
 
 ## Tasks
 
-| You want to | Read |
+| Task | Page |
 |---|---|
-| Look for what already exists | [Find and reuse an asset](/library/tasks/find-an-asset) |
-| Share what you built | [Publish an asset](/library/tasks/publish-an-asset) |
-| Choose a version | [Manage the versions of an asset](/library/tasks/manage-versions) |
+| Search with indexes and facets | [Search the asset catalog](/library/tasks/find-an-asset) |
+| Make something reusable | [Publish an asset](/library/tasks/publish-an-asset) |
+| Choose or add a version | [Manage asset versions](/library/tasks/manage-versions) |

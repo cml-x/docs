@@ -1,15 +1,15 @@
 ---
-title: Require an API Key
+title: API Key Authentication
 sidebar_position: 1
 ---
 
 Refuse every request that does not carry a key you issued. Each client has its own key, so that a key can be withdrawn without disturbing the others.
 
-## When to use it
+## Use cases
 
 For a small number of known applications, when a key in a header is enough. For APIs called by many applications, or when a token must expire, use [tokens](/auth/protect-api-with-jwt).
 
-## Before you begin
+## Prerequisites
 
 - An [API instance](/api-manager/api-instances) that is deployed and answers.
 - A list of keys: a stored configuration of the kind [API Keys](/config-sources/templates#api-keys). It can be created from the rule.
@@ -25,7 +25,7 @@ For a small number of known applications, when a key in a header is enough. For 
 5. Optionally fill **Forward Client ID Header** and turn **Sanitize Key** on.
 6. Deploy.
 
-## Field reference
+## Parameters
 
 | Field | What it is | Default |
 |---|---|---|
@@ -36,7 +36,7 @@ For a small number of known applications, when a key in a header is enough. For 
 | **Forward Client ID Header** | Header in which the name of the client is passed to your service, such as `x-client-id`. | — |
 | **Sanitize Key** | Remove the key from the request before it reaches your service. | Off |
 
-## Verify
+## Verification
 
 ```bash title="Without a key"
 curl -i https://orders.example.com/orders
@@ -54,7 +54,7 @@ curl -i -H "x-api-key: <key>" https://orders.example.com/orders
 HTTP/1.1 200 OK
 ```
 
-## Good to know
+## Behavior and limits
 
 - A key does not expire. Remove a client from the list to withdraw its key.
 - A key in a query parameter ends up in logs and browser histories: prefer a header.

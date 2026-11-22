@@ -13,7 +13,7 @@ project → integration          environment                deploy → execute  
   → configure → release
 ```
 
-## 1. Project Manager
+## 1. Repository and routes (Project Manager)
 
 1. Create a project of type **Integration**.
 2. Build the routes: start from the template gallery, from Apache Camel Main sources, or from a
@@ -25,14 +25,14 @@ project → integration          environment                deploy → execute  
 5. Once it works, cut a **release** — see [Create a Release](/projects/create-release). Everything
    downstream deploys a release, not a moving branch.
 
-## 2. Environment Manager
+## 2. Target and environment (Environment Manager)
 
 Make sure a target environment exists: register a **target** bound to a healthy cluster, then
 create an **environment** bound to it — or run the guided `/new` wizard, which provisions the
 target, environment and Camel K Integration Platform together. See
 [Create Your First Environment](/infra/getting-start).
 
-## 3. Runtime Manager
+## 3. Deployment (Runtime Manager)
 
 Select that environment from the environment switcher, then either:
 
@@ -44,7 +44,7 @@ Select that environment from the environment switcher, then either:
 The Capsule's Camel routes start running once deployed. Watch real-time deployment status and
 per-component health on the Capsule's page.
 
-## 4. Monitoring
+## 4. Telemetry (Monitoring)
 
 Open [Monitoring](/monitoring/getting-start) for the same project and environment. If it's the
 first dashboard here, pick one from the template gallery — it's created in one click. From there,

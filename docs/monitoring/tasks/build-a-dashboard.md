@@ -1,11 +1,11 @@
 ---
-title: Build a Dashboard
+title: Create a Dashboard
 sidebar_position: 4
 ---
 
 Gather on one page the figures that tell whether a service is well: traffic, errors, response time, resources.
 
-## Before you begin
+## Prerequisites
 
 - Something running in the environment: an integration, a gateway.
 - The business unit and the environment selected in the console: the views open on them.
@@ -19,7 +19,7 @@ Gather on one page the figures that tell whether a service is well: traffic, err
 3. Add a panel: choose what it shows and how — a line, a number, a table.
 4. Arrange the panels and save.
 
-## Good to know
+## Behavior and limits
 
 - Start with four panels per service: requests, errors, response time, and what it uses of its memory.
 - A dashboard can be shared by its address: the period and the filters travel with it.

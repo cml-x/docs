@@ -1,5 +1,5 @@
 ---
-title: What You Will Build
+title: Tutorial Overview
 sidebar_position: 1
 ---
 
@@ -12,7 +12,7 @@ works.
 
 ![The example, from the caller to the integration](/img/tutorial/architecture.drawio.png)
 
-## The example
+## Example: the orders REST service
 
 An **orders** service:
 
@@ -22,20 +22,23 @@ An **orders** service:
 - it calls a partner over HTTPS, signed by a **private certificate authority**;
 - it is published as `https://orders.example.com`, then protected.
 
-## The steps
+## Tutorial steps
 
-| Step | What you do | What you learn |
+| Step | Task | Concepts |
 |---|---|---|
-| [1. Write the integration](/tutorial/first-integration) | Type a Camel route in the console | Inline mode, dependencies, what an integration is |
-| [2. Deploy and watch it](/tutorial/deploy) | Bind it to an environment and deploy | Build, instances, logs, what "healthy" means |
-| [3. Configure it](/tutorial/configure) | Add properties, variables, a file, more memory | Settings, stored configurations, what restarts |
-| [4. Trust a private authority](/tutorial/trust) | Give it your company's certificate | The JVM setting and its truststore |
-| [5. Move the source to Git](/tutorial/from-git) | Build the same integration from a repository | Git mode, releases, when to choose which |
-| [6. Expose it as an API](/tutorial/expose) | Create a gateway and an API instance | Access points, host names, paths, HTTPS |
-| [7. Secure the API](/tutorial/secure) | Add an API key, then tokens, then your own check | Which protection for which caller |
-| [8. Ready for production](/tutorial/production) | Review what to settle before real traffic | Sizing, availability, environments, access |
+| [1. Create a Camel integration](/tutorial/first-integration) | Type a REST route in the console | Inline source, route DSLs, dependency resolution |
+| [2. Deploy](/tutorial/deploy) | Bind to an environment and apply | Image build, rollout, phases, revisions |
+| [3. Externalize configuration](/tutorial/configure) | Add properties, variables and a mounted file | Property placeholders, stored configurations, restart without rebuild |
+| [4. Private CA in the JVM truststore](/tutorial/trust) | Trust a partner signed by a private CA | JVM setting, PEM bundle, truststore build |
+| [5. Scale](/tutorial/scale) | Size the integration and autoscale it | Requests and limits, heap sizing, KEDA triggers, disruption budget |
+| [6. Persistent volume](/tutorial/storage) | Mount storage that survives restarts | EmptyDir, persistent volumes, access modes |
+| [7. Build from a Git repository](/tutorial/from-git) | Build the same integration from a repository | Git source mode, branch and release builds |
+| [8. Expose the integration](/tutorial/expose) | Create a gateway and an API instance | Listeners, TLS termination, host names, HTTP routes |
+| [9. Secure the API](/tutorial/secure) | Add API key, Basic, JWT, external authorization | Authentication method per client type |
+| [10. Observe](/tutorial/observe) | Read logs, metrics and traces | OTLP pipeline, resource attributes, PromQL |
+| [11. Production readiness](/tutorial/production) | Review before real traffic | Sizing, availability, environments, RBAC |
 
-## Before you start
+## Prerequisites
 
 You need:
 
@@ -46,7 +49,7 @@ You need:
 
 If you only have a few minutes, steps 1, 2 and 6 give you a working API.
 
-## Where each thing lives
+## Console application per task
 
 | You want to | Go to |
 |---|---|

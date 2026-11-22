@@ -1,5 +1,5 @@
 ---
-title: Private Links
+title: Private Links (WireGuard and IPsec)
 sidebar_position: 4
 ---
 
@@ -12,7 +12,7 @@ as many links as it has remote networks to reach.
 
 ![A private link between an environment and a remote network](/img/infra/private-link.svg)
 
-## How it works
+## Architecture
 
 A link is a tunnel that the **environment opens** towards the remote network. Nothing is
 exposed on the environment's side; the remote side only has to accept one incoming connection.
@@ -36,7 +36,7 @@ A link involves three kinds of addresses, and they are easy to mix up:
 | **Remote networks** | `10.20.0.0/16` | What is routed into the tunnel | Step **This side** |
 | **Address of a remote application** | `10.20.1.15` | The final destination of a call | **Remote Applications** tab |
 
-## Two sides, set up in turn
+## Setup sequence
 
 A link needs both sides to agree, and they are usually run by different people. The console is
 built around that:
@@ -73,7 +73,7 @@ Then click **Apply** on the environment.
 The tunnel type cannot be changed once the link exists. To switch, create a new link.
 :::
 
-## Give the configuration file to the remote side
+## Remote-side configuration file
 
 Open the link. Its **Setup** tab shows where the link stands, and offers:
 
@@ -93,7 +93,7 @@ For a WireGuard link, the file is available once the link has been applied a fir
 link creates its own key when it starts.
 :::
 
-## Enter what the remote side answers
+## Remote-side parameters
 
 In the link's **Properties** tab, enter the values the remote administrator gave back (see the
 **Remote side** fields in the [field reference](#field-reference)), then click **Apply**. The
@@ -247,7 +247,7 @@ the capacity of the remote equipment, and the figures above.
 - The downloadable IPsec file is in strongSwan format. For other equipment, use **Copy as
   text** and enter the values by hand.
 
-### Advice
+### Recommendations
 
 - **Prefer WireGuard** when the remote side accepts it: it is simpler to agree on and about
   twice as fast.
@@ -451,7 +451,7 @@ On strongSwan, `swanctl --list-sas` shows the connection `ESTABLISHED` and its c
 | The remote side logs "no proposal chosen" | The proposals do not overlap: align them on the link's **Properties**. |
 | The tunnel is up but no traffic passes | The networks carried do not match on both sides, or the remote application cannot answer (route, translation or firewall). |
 
-## What every remote administrator should know
+## Notes for the remote administrator
 
 Whatever the tunnel type and the equipment:
 

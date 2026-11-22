@@ -1,15 +1,15 @@
 ---
-title: Secure the Connection to a Backend
+title: Backend TLS
 sidebar_position: 14
 ---
 
 Choose the TLS versions the gateway uses towards the services it forwards to, and the certificate it presents to a service that requires one.
 
-## When to use it
+## Use cases
 
 When a backend requires a recent TLS version, or mutual TLS.
 
-## Before you begin
+## Prerequisites
 
 - A [gateway](/api-manager/gateway) that forwards to a service over TLS, typically an [upstream](/api-manager/upstreams).
 - For mutual TLS, a [TLS Certificate](/config-sources/templates#tls-certificate) configuration holding the certificate the gateway presents.
@@ -24,7 +24,7 @@ When a backend requires a recent TLS version, or mutual TLS.
 4. In **Client Certificate**, choose the certificate the gateway presents, or leave it empty when the backend does not ask for one.
 5. Deploy.
 
-## Field reference
+## Parameters
 
 | Field | What it is | Default |
 |---|---|---|
@@ -32,7 +32,7 @@ When a backend requires a recent TLS version, or mutual TLS.
 | **Maximum TLS Version** | The highest TLS version the gateway uses towards backends. | 1.3 |
 | **Client Certificate** | The certificate the gateway presents to a backend that requires mutual TLS. | None |
 
-## Good to know
+## Behavior and limits
 
 - This is about the connection from the gateway to the backend. The connection from callers to the gateway is set by its access points and its client traffic policy.
 

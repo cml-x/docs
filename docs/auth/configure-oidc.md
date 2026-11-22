@@ -1,5 +1,5 @@
 ---
-title: Sign In with an Identity Provider
+title: OIDC Authentication With an Identity Provider
 sidebar_position: 5
 ---
 
@@ -11,7 +11,7 @@ your application.
 It is meant for **people using a browser**. For applications calling an API, use
 [tokens and a JWT policy](/auth/protect-api-with-jwt) instead.
 
-## Before you start
+## Prerequisites
 
 Register your application with the identity provider. It gives you:
 
@@ -21,13 +21,13 @@ Register your application with the identity provider. It gives you:
 It also asks for a **redirect URL**: the address users are sent back to after signing in. It is
 an address of your API, in HTTPS.
 
-## 1. Store the credentials
+## 1. Client credentials configuration
 
 In **Secret Manager**, create a configuration of the kind
 [Client Credentials](/config-sources/templates#client-credentials) with the client ID and the
 client secret. You can also create it from the policy, in the next step.
 
-## 2. Add the policy
+## 2. OIDC rule on the security policy
 
 On the page of the API instance or of the gateway, open its security policies and add **sign-in
 with an identity provider (OIDC)**.
@@ -43,14 +43,14 @@ with an identity provider (OIDC)**.
 
 Deploy.
 
-## What users see
+## Authorization code flow as seen by the user
 
 1. They open the address of the API in their browser.
 2. They are sent to the sign-in page of the identity provider.
 3. Once signed in, they are sent back and reach the application. They are not asked again until
    their session ends.
 
-## Good to know
+## Behavior and limits
 
 - The redirect URL must match **exactly** what is registered with the provider, scheme and path
   included.

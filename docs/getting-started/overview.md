@@ -1,5 +1,5 @@
 ---
-title: Understanding Camel X
+title: Platform Architecture
 sidebar_label: Overview
 sidebar_position: 1
 ---
@@ -10,7 +10,7 @@ and observe Apache Camel integrations.
 
 ![Camel X platform architecture](/img/getting-started/architecture.svg)
 
-## The platform, at a glance
+## Architecture diagram
 
 ```
 CAMEL X
@@ -27,7 +27,7 @@ CAMEL X
 Two more apps support these seven: **Secrets Manager** (credentials and configuration for your
 flows) and **Assets Explorer** (a searchable catalog of everything already published).
 
-## What each app is responsible for
+## Applications and responsibilities
 
 | App | Responsible for |
 |---|---|
@@ -41,7 +41,7 @@ flows) and **Assets Explorer** (a searchable catalog of everything already publi
 | [Secrets Manager](/config-sources/getting-start) | Configurations and secrets distributed to environments |
 | [Assets Explorer](/library/assets) | Search across everything already published |
 
-## How they work together
+## End-to-end flow
 
 The apps are independent, but a real integration touches several of them in sequence:
 
@@ -52,7 +52,7 @@ The apps are independent, but a real integration touches several of them in sequ
 This is the exact path [Your First Integration](/getting-started/your-first-integration) walks
 through end to end.
 
-## Which app do I need?
+## Application per task
 
 - Writing or changing Camel routes, or cutting a release → **Project Manager**.
 - Deploying a release, checking if it's running, rolling back → **Runtime Manager**.

@@ -1,11 +1,11 @@
 ---
-title: Add Runtime Properties
+title: Camel Runtime Properties
 sidebar_position: 6
 ---
 
 Add properties to the application itself, and choose its runtime.
 
-## Before you begin
+## Prerequisites
 
 - An [integration](/runtime/integrations), created and bound to an environment.
 
@@ -18,7 +18,7 @@ Add properties to the application itself, and choose its runtime.
 3. In **Runtime Properties**, add one property per line, written `key=value`.
 4. Choose **Apply changes**.
 
-## Field reference
+## Parameters
 
 | Field | What it is | Default |
 |---|---|---|
@@ -26,14 +26,14 @@ Add properties to the application itself, and choose its runtime.
 | **Runtime Version Override** | Another version of the runtime, when a route needs one. | — |
 | **Runtime Provider** | The runtime the integration runs on. | Quarkus |
 
-## Verify
+## Verification
 
 ```properties title="Examples of runtime properties"
 quarkus.http.limits.max-body-size=20M
 camel.main.streamCachingEnabled=true
 ```
 
-## Good to know
+## Behavior and limits
 
 - For your own application settings, prefer a [properties configuration](/runtime/settings/configuration): it is stored once and can differ by environment.
 - Changing the runtime version rebuilds the image.

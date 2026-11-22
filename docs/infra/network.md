@@ -1,5 +1,5 @@
 ---
-title: Network
+title: Network Policies
 sidebar_position: 7
 ---
 
@@ -10,7 +10,7 @@ The **Network** service of an [environment](/infra/environments) holds two thing
 
 This page covers the traffic rules. Private links have [a page of their own](/infra/private-links).
 
-## Traffic rules
+## Ingress and egress rules
 
 Rules come in two lists, each with its own page under **Network**:
 
@@ -19,7 +19,7 @@ Rules come in two lists, each with its own page under **Network**:
 | **Ingress Rules** | Traffic coming **into** the environment: who may call what runs in it |
 | **Egress Rules** | Traffic going **out of** the environment: what it may call |
 
-### A rule
+### Rule definition: peers and ports
 
 {/* screenshot: env-network-rule */}
 
@@ -40,7 +40,7 @@ Labels are written `key=value`, separated by commas.
 **Ports** — each with its protocol, **TCP**, **UDP** or **SCTP**. Leave the ports empty for every
 port.
 
-### Ready-made rules
+### Preset rules
 
 A rule can start from a preset. **DNS — kube-dns** lets the environment resolve names: UDP and TCP
 on port 53, to the name service of the cluster. Add it to the egress rules of an environment
@@ -51,7 +51,7 @@ whose outgoing traffic you restrict, or its workloads will not find the services
 Rules take effect when you click **Apply** on the environment. The Network service only holds
 configuration: it has no running part of its own to watch.
 
-## Good to know
+## Behavior and limits
 
 - Rules are about the network. To decide **who** may call an API, and with which credentials,
   use [policies](/api-manager/policies) on the gateway.

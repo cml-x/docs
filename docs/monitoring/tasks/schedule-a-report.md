@@ -1,11 +1,11 @@
 ---
-title: Send a Report Regularly
+title: Schedule a Dashboard Report
 sidebar_position: 6
 ---
 
 Have a dashboard sent to your team on a schedule.
 
-## Before you begin
+## Prerequisites
 
 - A dashboard — see [Build a dashboard](/monitoring/tasks/build-a-dashboard).
 
@@ -17,7 +17,7 @@ Have a dashboard sent to your team on a schedule.
 2. Create a report and choose the dashboard.
 3. Choose when it is sent and to whom.
 
-## Good to know
+## Behavior and limits
 
 - A report is a picture of the dashboard at the time it is sent, over the period you choose.
 

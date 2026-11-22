@@ -1,15 +1,15 @@
 ---
-title: Add, Replace or Remove Headers
+title: Request and Response Header Modification
 sidebar_position: 15
 ---
 
 Change the headers of requests before they reach your service, and of responses before they reach the caller.
 
-## When to use it
+## Use cases
 
 To pass a fixed value to a service, to hide a header that reveals too much, or to add a security header to every response.
 
-## Before you begin
+## Prerequisites
 
 - An [API instance](/api-manager/api-instances) that is deployed and answers.
 
@@ -22,7 +22,7 @@ To pass a fixed value to a service, to hide a header that reveals too much, or t
 3. Fill **Add Headers**, **Set Headers** and **Remove Headers**.
 4. Deploy.
 
-## Field reference
+## Parameters
 
 | Field | What it is | Default |
 |---|---|---|
@@ -30,13 +30,13 @@ To pass a fixed value to a service, to hide a header that reveals too much, or t
 | **Set Headers** | Headers set: an existing value is replaced. | — |
 | **Remove Headers** | Names of the headers removed. | — |
 
-## Verify
+## Verification
 
 ```bash title="See the headers of a response"
 curl -sI https://orders.example.com/orders
 ```
 
-## Good to know
+## Behavior and limits
 
 - **Add** keeps an existing header and adds another; **Set** replaces it. Use **Set** when the value must be the only one.
 

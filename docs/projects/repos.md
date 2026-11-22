@@ -1,19 +1,47 @@
 ---
-title: Integrations
+title: Integrations (Git Repositories)
 sidebar_position: 2
 ---
 
-The Integrations list shows every Git repository behind your projects — Camel routes, API specs,
-Kamelets and pipes alike.
+**Integrations** lists the Git repositories of the business unit. Each repository is one project:
+routes, a Kamelet, a Pipe or an API specification.
 
-## What you can do
+## Repository page
 
-- **List, search and paginate** repositories.
-- Each entry shows its **visibility** (public/private), **fork status**, **archived state**, and
-  last-updated time.
-- **Delete** a repository.
-- **Releases** — create and delete tagged releases per repository.
-- **Applications tab** — for a given repository, see which [Capsules](/runtime/capsule) (deployed
-  integration flow groups) were built from it, per environment, with live deployment status and a
-  one-click **Deploy** action. This is the bridge between a project's source code and its running
-  instances in Runtime Manager.
+{/* screenshot: projects-repository-page */}
+
+| Element | Content |
+|---|---|
+| **Details** | Description, topics, default branch, visibility |
+| **Releases** | The tags of the repository, newest first, with **Draft** and **Pre** markers |
+| **Edit in Web IDE** | Opens the repository in the route designer of the platform |
+| **Apply** | Kamelet repositories only: applies the Kamelet to an environment |
+| **Actions** | The menu described below |
+
+## Actions menu
+
+| Action | Effect |
+|---|---|
+| **Changes** | Commit history of the repository, searchable by message or author |
+| **Deployments** | Kamelet repositories only: where the Kamelet is applied, per environment, with a **Deploy** action |
+| **Edit metadata** | Change the description and the topics |
+| **Set as template** | Marks the repository as a [template](/projects/create-template). Not reversible from this menu |
+| **Delete** | Deletes the repository with its code, issues and releases. Irreversible |
+
+## Naming rules
+
+| Field | Rule |
+|---|---|
+| **Name** | Starts with a letter or a digit; letters, digits, dashes, dots and underscores |
+| **Description** | Optional, 100 characters at most |
+
+## Topics
+
+Topics classify a repository and feed the search of [Assets Explorer](/library/assets). The
+project type is itself a topic. Add the systems and protocols the routes touch — `kafka`, `sftp`,
+`salesforce` — so that the repository can be found.
+
+## Related pages
+
+- [Releases and semantic versioning](/projects/create-release)
+- [Build from a Git repository](/tutorial/from-git)

@@ -3,8 +3,21 @@ title: Templates
 sidebar_position: 2
 ---
 
-The Templates view filters [Assets](/library/assets) down to pre-built, ready-to-use integration
-patterns — a faster starting point than a blank Integration project.
+**Templates** is the asset search restricted to the type `template`: repositories that can be
+used as the starting point of a new one.
 
-Templates surface in the same search and detail experience as any other asset: search, filter, and
-open one to see what it includes before reusing it.
+## Where templates come from
+
+A repository becomes a template through **Actions**, **Set as template** on its page — see
+[Repository templates](/projects/create-template).
+
+## Use a template
+
+Open the template to read its documentation and topics, then create a repository from it in the
+creation wizard of **Integration Center** — see
+[Create a repository from a template](/projects/tasks/create-from-a-template).
+
+## Search by topic
+
+Topics are the reliable way to find a template: the system (`sap`, `salesforce`, `kafka`), the
+protocol (`sftp`, `jms`, `rest`), the pattern (`content-based-router`, `aggregator`).

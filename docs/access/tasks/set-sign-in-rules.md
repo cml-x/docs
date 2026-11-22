@@ -1,11 +1,11 @@
 ---
-title: Set Sign-In and Password Rules
+title: Login, Password and Lockout Policies
 sidebar_position: 7
 ---
 
 Choose how people may sign in, how strong passwords must be, and what happens after failed attempts.
 
-## Before you begin
+## Prerequisites
 
 - The right to change the security policies of the organization.
 
@@ -18,7 +18,7 @@ Choose how people may sign in, how strong passwords must be, and what happens af
 3. In the password rules, set the length and the characters required.
 4. In the lockout policy, set after how many failed attempts an account is locked.
 
-## Field reference
+## Parameters
 
 | Field | What it is | Default |
 |---|---|---|
@@ -27,7 +27,7 @@ Choose how people may sign in, how strong passwords must be, and what happens af
 | **Allow sign in with WebAuthn/FIDO2** | Security keys and device biometrics. | — |
 | **Allow new users to register** | Let anyone create an account. Leave off for a private organization. | — |
 
-## Good to know
+## Behavior and limits
 
 - Before turning user name and password off, check that an administrator can still sign in another way.
 - Settings can be reset to their default values.

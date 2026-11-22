@@ -1,11 +1,11 @@
 ---
-title: Size an Integration
+title: "Compute: Replicas, CPU and Memory"
 sidebar_position: 4
 ---
 
 Set how many instances of an integration run, and the CPU and memory of each.
 
-## Before you begin
+## Prerequisites
 
 - An [integration](/runtime/integrations), created and bound to an environment.
 
@@ -18,7 +18,7 @@ Set how many instances of an integration run, and the CPU and memory of each.
 3. Set **Replicas**, then the CPU and memory requests and limits.
 4. Choose **Apply changes**.
 
-## Field reference
+## Parameters
 
 | Field | What it is | Default |
 |---|---|---|
@@ -28,7 +28,7 @@ Set how many instances of an integration run, and the CPU and memory of each.
 | **CPU Limit** | The most CPU an instance may use. | 500m |
 | **Memory Limit** | The most memory an instance may use. Beyond it, the instance is stopped. | 512Mi |
 
-## Good to know
+## Behavior and limits
 
 - Applying this setting restarts the integration; it does not rebuild its image.
 - `1000m` is one core. Memory is written `128Mi`, `1Gi`.

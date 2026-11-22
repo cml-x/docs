@@ -1,11 +1,11 @@
 ---
-title: Change How an Integration Is Built
+title: Build Configuration
 sidebar_position: 7
 ---
 
 Pass properties to the build of an integration, choose the image it is built on, and size the build.
 
-## Before you begin
+## Prerequisites
 
 - An [integration](/runtime/integrations), created and bound to an environment.
 
@@ -18,7 +18,7 @@ Pass properties to the build of an integration, choose the image it is built on,
 3. Fill **Build Properties**, **Base Image**, or the CPU and memory of the build.
 4. Choose **Apply changes**.
 
-## Field reference
+## Parameters
 
 | Field | What it is | Default |
 |---|---|---|
@@ -30,7 +30,7 @@ Pass properties to the build of an integration, choose the image it is built on,
 | **Builder CPU Limit** | The most CPU a build may use. | 1000m |
 | **Builder Memory Limit** | The most memory a build may use. | 2Gi |
 
-## Good to know
+## Behavior and limits
 
 - This setting rebuilds the image.
 - A build that fails for lack of memory needs a higher **Builder Memory Limit**.

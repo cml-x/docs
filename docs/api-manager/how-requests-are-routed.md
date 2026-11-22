@@ -1,6 +1,6 @@
 ---
-title: How Requests Are Routed
-sidebar_position: 2
+title: "Request Routing: Listener, Host Name, Route, Backend"
+sidebar_position: 1.5
 ---
 
 A request to one of your APIs crosses several objects before it reaches a service. Knowing which
@@ -8,7 +8,7 @@ one decides what tells you where to look, and where to change things.
 
 ![The path of a request, from the caller to the integration](/img/tutorial/exposure.drawio.png)
 
-## The objects
+## Resource model
 
 | Object | Decides | You manage it in |
 |---|---|---|
@@ -18,7 +18,7 @@ one decides what tells you where to look, and where to change things.
 | **Policy** | Whether a request may go on, and how the gateway treats it | [Policies](/api-manager/policies) |
 | **Service or upstream** | Where the request finally goes | The integration, or [Upstreams](/api-manager/upstreams) |
 
-## How a request finds its API
+## Route matching
 
 1. The request arrives on an **access point** of the gateway.
 2. Among the API instances published on that access point, the gateway keeps those whose **host
@@ -32,7 +32,7 @@ one decides what tells you where to look, and where to change things.
 | `api.example.com/orders/12` | `api.example.com` + `/orders`, `api.example.com` + `/` | The one on `/orders` |
 | `other.example.com/` | None for that name | `404` |
 
-## Where encryption ends
+## TLS termination and passthrough
 
 | Access point | The gateway | Your service receives |
 |---|---|---|
@@ -43,7 +43,7 @@ one decides what tells you where to look, and where to change things.
 Policies that read the request — a key, a token, a header — need the gateway to see it: they
 apply to HTTP and HTTPS access points, not to TLS or TCP ones.
 
-## In which order policies apply
+## Policy evaluation order
 
 A request passes, in this order:
 
@@ -56,7 +56,7 @@ A request passes, in this order:
 A policy attached to an **API instance** takes precedence over the same kind of policy attached
 to its **gateway**: the gateway's applies to the APIs that have none of their own.
 
-## What the gateway adds for you
+## DNS and wiring automated by the platform
 
 - A host name that is not a wildcard is **declared in DNS**.
 - With a path on a shared address, the **prefix is removed** before the request reaches your
@@ -64,7 +64,7 @@ to its **gateway**: the gateway's applies to the APIs that have none of their ow
 - Every request is **logged, measured and traced**, visible in
   [Monitoring](/monitoring/getting-start).
 
-## When a call does not arrive
+## Troubleshooting by response code
 
 | Answer | Meaning | Look at |
 |---|---|---|

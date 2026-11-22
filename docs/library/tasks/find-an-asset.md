@@ -1,11 +1,11 @@
 ---
-title: Find and Reuse an Asset
+title: Search the Asset Catalog
 sidebar_position: 1
 ---
 
 Look in the catalogue for what already exists — a template, a connector, a schema, a release — before building it again.
 
-## Before you begin
+## Prerequisites
 
 - Access to **Assets Explorer**.
 
@@ -18,7 +18,7 @@ Look in the catalogue for what already exists — a template, a connector, a sch
 3. Open an asset to read what it is, who owns it and its versions.
 4. Use it: start a repository from a template, add a connector to a route, deploy a release.
 
-## Good to know
+## Behavior and limits
 
 - **Templates** in the menu shows the templates only.
 - Topics are how assets are found: search the system (`sap`, `kafka`), the protocol (`sftp`) or the pattern.

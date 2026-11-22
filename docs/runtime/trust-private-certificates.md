@@ -1,5 +1,5 @@
 ---
-title: Trust a Private Certificate Authority
+title: "JVM Truststore: Trust a Private Certificate Authority"
 sidebar_position: 5
 ---
 
@@ -12,7 +12,7 @@ The **JVM** setting of an integration lets you add your own authorities to the o
 
 ![How an integration comes to trust a private authority](/img/runtime/truststore.drawio.png)
 
-## Why it is needed
+## Default truststore behavior
 
 | The service is signed by | Without this setting | With this setting |
 |---|---|---|
@@ -23,7 +23,7 @@ The **JVM** setting of an integration lets you add your own authorities to the o
 A refused call typically shows in the logs of the integration as
 `PKIX path building failed` or `unable to find valid certification path to requested target`.
 
-## What you need
+## PEM bundle requirements
 
 One **PEM file** holding the certificate of the authority. The file may hold **several
 certificates**, one after the other — for example a root authority and an intermediate one, or the
@@ -44,9 +44,9 @@ Lines outside the `BEGIN` / `END` blocks, such as comments, are ignored.
 The file holds certificates, which are public. It never holds a private key.
 :::
 
-## Set it up
+## Configuration
 
-### 1. Store the file
+### 1. Resources File configuration
 
 In **Secret Manager**, create a configuration of the kind **Resources File** and drop
 your PEM file in it. Make it available to the environment the integration runs in.
@@ -54,7 +54,7 @@ your PEM file in it. Make it available to the environment the integration runs i
 You can also do it from the integration itself: in the field described below, **New secret**
 opens the same creation panel and selects what you created.
 
-### 2. Choose it on the integration
+### 2. JVM setting: Trusted CA Certificates
 
 {/* screenshot: runtime-jvm-trusted-ca */}
 
@@ -70,7 +70,7 @@ The field shows where the file is mounted for you. Nothing else has to be mounte
 Deploy the integration. Before it starts, a step builds its truststore; the integration then
 starts with it.
 
-## Field reference
+## Parameters
 
 | Field | What it is | Default |
 |---|---|---|
@@ -81,7 +81,7 @@ starts with it.
 The truststore only holds certificates, which are public: its password protects nothing secret.
 The default is the one Java itself uses, and there is rarely a reason to change it.
 
-## The different cases
+## Trust scenarios
 
 | You want the integration to trust | Trusted CA Certificates | Keep Public Authorities |
 |---|---|---|
@@ -95,7 +95,7 @@ With **Keep Public Authorities** off, every call to a public HTTPS service — a
 — is refused. Use it only for an integration that must talk to your own systems and nothing else.
 :::
 
-## What happens when the integration starts
+## Truststore build sequence (init container)
 
 1. The configuration is mounted in the integration.
 2. A step runs before the integration: it starts from the truststore Java ships with (unless
@@ -107,7 +107,7 @@ see the error instead of running with an authority that is silently missing.
 
 Changing the file, the password or the switch restarts the integration.
 
-## Check that it worked
+## Verification
 
 - The integration reaches **Running** and is ready.
 - A call to the service signed by your authority succeeds.

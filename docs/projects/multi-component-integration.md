@@ -1,33 +1,36 @@
 ---
-title: Build an Integration with Multiple Components
+title: "Integration Groups: Several Components in One Deployment"
 sidebar_position: 8
 ---
 
-A real integration is rarely one component — it's usually a route plus supporting pieces like a
-gateway, a policy, or storage. In Camel X, that composition happens at two levels.
+An integration created **on its own** is deployed and versioned by itself. An **integration
+group** — a [Capsule](/runtime/capsule) — deploys several components together, under one status
+and one revision history.
 
-## In Project Manager: multiple project types
+## When to group
 
-A single piece of work can span several Project Manager project types — for example, an
-**Integration** (Camel routes) that implements an **API Specification** (its OpenAPI contract), or
-a **Pipe** that chains together several **Kamelets**. Each is its own Git repository, versioned and
-released independently.
+| Situation | Choice |
+|---|---|
+| Routes released on their own schedule | One integration each, no group |
+| Routes that only make sense together and are always released together | One group |
+| A route and the storage it writes to | One group |
 
-## In Runtime Manager: multiple components in one Capsule
+## Components of a group
 
-The more common case is assembling multiple component types into a single
-[Capsule](/runtime/capsule):
+A group can hold several Camel integrations, Pipes, jobs and cron tasks, and persistent volumes.
+The full list is on the [Capsules](/runtime/capsule) page.
 
-1. Create (or open) a Capsule in [Runtime Manager](/runtime/getting-start).
-2. Add your Camel route as an [Integration](/runtime/integrations), sourced from its Git
-   repository and release.
-3. Add any other components the flow needs — an API Gateway, a Load Balancer, a security or
-   traffic policy, a Job/Cron Task — using the same dynamic, definition-driven configuration form
-   for each type. See [Capsules](/runtime/capsule) for the full, verified list of addable
-   component types.
-4. Attach [Storage](/runtime/storages) if the flow needs to persist data.
+## Revisions and rollback
 
-## Result
+Deploying a group creates one revision for all its components. A rollback returns every component
+to the state of the chosen revision: a group cannot be rolled back partially.
 
-All the components deploy and run together as one Capsule, with a single deployment status and
-revision history — see [Capsules](/runtime/capsule).
+## Several repositories, one group
+
+Each integration of a group has its own source: its own repository and branch or release. The
+group pins a set of sources that were validated together.
+
+## Related pages
+
+- [Capsules](/runtime/capsule)
+- [Storages](/runtime/storages)

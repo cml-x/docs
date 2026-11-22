@@ -21,7 +21,7 @@ Open **API Manager**, go to **Gateways**, then create one. Two things are asked 
 | **Private** | Your private network only. |
 | **Internal** | Only what runs inside the platform. |
 
-### Access points
+### Access points (listeners)
 
 {/* screenshot: gateway-access-points */}
 
@@ -50,14 +50,14 @@ With an HTTPS access point, the gateway holds the certificate and your services 
 HTTP. Use TLS instead when the service must hold the certificate itself.
 :::
 
-## Domains
+## Listener domains
 
 The domain of an access point is chosen among the [domains](/api-manager/domains) of the
 environment. One more choice is always offered, marked **internal**: the address of the gateway
 inside the platform, `<gateway>.<namespace>`. It is what to choose for an access point reached
 only from inside the platform.
 
-## Settings of a gateway
+## Gateway settings
 
 {/* screenshot: gateway-settings */}
 
@@ -70,7 +70,7 @@ Once created, a gateway is tuned through its settings.
 | **Autoscaling** | Add instances when CPU use rises above a target, and remove them when it falls. | 2 to 10 instances, at 80% CPU |
 | **Shutdown** | How long an instance waits for the connections in progress before stopping. | — |
 
-## What is published on a gateway
+## Routes attached to a gateway
 
 - [API Instances](/api-manager/api-instances) — your APIs, each on an access point.
 - [Auth Gateways](/auth/auth-gateway) — the token service of the environment, on an HTTPS access

@@ -1,6 +1,6 @@
 ---
-title: How Integrations Are Built and Run
-sidebar_position: 2
+title: Build and Run Lifecycle of an Integration (Camel K)
+sidebar_position: 1.5
 ---
 
 You give the platform a Camel route. It gives you back a running service. This page explains
@@ -9,7 +9,7 @@ tuning.
 
 {/* screenshot: runtime-concept-build-and-run */}
 
-## From a route to a running service
+## Lifecycle phases
 
 | Step | What happens | What it depends on |
 |---|---|---|
@@ -23,7 +23,7 @@ tuning.
 Steps 3 and 4 only happen when the route or its dependencies change. Changing a setting goes
 straight to step 5.
 
-## Who does the work
+## Camel K operator per environment
 
 Each environment has an **operator of its own**, installed by its
 [Camel Integration Service](/infra/camel-integration-service). The operator builds the
@@ -42,7 +42,7 @@ The service also holds what every build of the environment uses:
 A setting of an integration overrides the one of the environment for that integration only — see
 [Change how an integration is built](/runtime/settings/build).
 
-## What makes a build fast or slow
+## Build duration and caching
 
 - **The first build of an integration** downloads its dependencies: a few minutes.
 - **An integration with the same dependencies as another** reuses what was already built: much
@@ -50,7 +50,7 @@ A setting of an integration overrides the one of the environment for that integr
 - **A change of route only** rebuilds a thin layer.
 - **A change of setting** rebuilds nothing.
 
-## Languages
+## Route DSLs
 
 A route is written in **YAML**, **Java** or **XML**. The three describe the same routes; choose
 by what your team reads most easily.
@@ -61,7 +61,7 @@ by what your team reads most easily.
 | **Java** | Routes with logic, helper classes, tests |
 | **XML** | Teams coming from earlier Camel projects |
 
-## Dependencies
+## Dependency notation
 
 | Written | Means |
 |---|---|
@@ -73,7 +73,7 @@ for you. Add by hand what does not appear in an address: a data format, a driver
 your own. A library that is not in a public repository needs its repository listed in
 **Repositories**, or in the Maven settings of the environment.
 
-## Configuration reaches the integration in four ways
+## Configuration sources
 
 | Way | Set with | Read in a route as |
 |---|---|---|
@@ -82,7 +82,7 @@ your own. A library that is not in a public repository needs its repository list
 | Files | [Resources](/runtime/settings/resources) | A path, such as `/etc/orders/catalog.json` |
 | Runtime properties | [Camel Runtime](/runtime/settings/camel-runtime) | Read by the runtime itself |
 
-## When something goes wrong
+## Troubleshooting by phase
 
 | What you see | Where to look | Usual cause |
 |---|---|---|

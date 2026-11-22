@@ -9,7 +9,7 @@ confusion when something is unexpectedly denied.
 - **Authentication** answers *"who is this?"*
 - **Authorization** answers *"what are they allowed to do?"*
 
-## For the Camel X platform itself
+## Console access
 
 | | Authentication | Authorization |
 |---|---|---|
@@ -20,7 +20,7 @@ Authentication happens once, at sign-in. Authorization is checked continuously â
 authorization can be deactivated at any time, immediately revoking access without touching the
 user's login credentials.
 
-## For an API you expose
+## Exposed APIs
 
 | | Authentication | Authorization |
 |---|---|---|

@@ -1,12 +1,12 @@
 ---
-title: 2. Deploy and Watch It
+title: "2. Deploy: Environment Binding, Build, Rollout"
 sidebar_position: 3
 ---
 
 An integration runs in an [environment](/infra/environments). Deploying means: build an image
 from your route, then start it there.
 
-## Bind it to an environment
+## Environment binding
 
 {/* screenshot: tutorial-bind-environment */}
 
@@ -15,7 +15,7 @@ Open `orders-api`. Choose **Bind to environment** and pick the environment — `
 An integration can be bound to several environments. Each one is deployed separately, which is how
 the same integration goes from development to production.
 
-## Deploy
+## Build and rollout
 
 {/* screenshot: tutorial-build-progress */}
 
@@ -37,7 +37,7 @@ A change that does not touch the route or its dependencies — a property, a var
 does not rebuild the image. The integration only restarts.
 :::
 
-## What "running" means
+## Integration phases and readiness
 
 {/* screenshot: tutorial-integration-running */}
 
@@ -48,7 +48,7 @@ does not rebuild the image. The integration only restarts.
 | Running, not ready | The process started but the route did not: read the logs |
 | Error | The build failed, or the integration stops as soon as it starts |
 
-## Call it from inside
+## Call the in-cluster service
 
 The integration has no public address yet. To check it from inside the environment, call its
 service by name — the name of the integration:
@@ -61,7 +61,7 @@ curl http://orders-api/orders
 {"service":"orders","status":"ok"}
 ```
 
-## Read what it does
+## Logs and instance state
 
 The page of the integration gives its instances and their state. For the rest, open
 **Monitoring**:
@@ -75,14 +75,14 @@ The page of the integration gives its instances and their state. For the rest, o
 Nothing has to be added to the route for this: it comes from the monitoring dependencies that
 every integration carries.
 
-## Change the route
+## Redeploy after a source change
 
 Edit the source of the integration, then **Apply changes** again. Each deployment is kept as a
 **revision**: you can see what was deployed and when, and go back to an earlier one.
 
-## Stop it
+## Undeploy
 
 **Undeploy** removes the integration from the selected environment and keeps its definition.
 **Delete** removes the integration itself.
 
-Next: [configure it](/tutorial/configure).
+Next: [externalize the configuration](/tutorial/configure).

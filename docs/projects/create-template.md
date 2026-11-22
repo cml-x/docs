@@ -1,21 +1,31 @@
 ---
-title: Working with Templates
+title: Repository Templates
 sidebar_position: 6
 ---
 
-A **template** is a pre-built starting point for a new Integration project, so you don't start
-from a blank repository.
+A template is a repository that new repositories can be generated from. The new repository gets a
+copy of its content at creation time and then lives on its own.
 
-## Using a template
+## Create a repository from a template
 
-When creating an Integration project, the template gallery is grouped by topic — REST, database,
-messaging, cloud, files, scheduling and more — alongside Apache Camel Main sources and a blank
-canvas option. Picking a template scaffolds the new repository from it immediately.
+In the creation wizard, choose **Create routes from template**. **Template Selection** offers a
+search field and a source filter; selecting a template shows **What's included**. See
+[Create a repository from a template](/projects/tasks/create-from-a-template).
 
-## Creating your own reusable template
+## Turn a repository into a template
 
-Publishing your own custom template to the gallery **[À CONFIRMER]** — this isn't a capability
-confirmed in the current Project Manager interface. Today, templates come from the built-in
-gallery and Apache Camel Main sources; if your organization needs a reusable starting point beyond
-those, the confirmed path is to keep a reference Integration project and fork/copy its repository
-manually.
+On the repository page, **Actions**, then **Set as template**. The repository then appears in the
+template selection of the wizard and in [Assets Explorer](/library/templates) under **Templates**.
+
+## What makes a usable template
+
+- Routes that run as they are, with every endpoint address, credential and tuning value read from
+  property placeholders.
+- A README listing the properties to set and the stored configurations expected.
+- Topics naming the systems, protocols and patterns involved: they are what the search matches.
+
+## Behavior and limits
+
+- A template is copied, not linked: later commits to the template do not reach the repositories
+  generated from it.
+- Setting a repository as a template does not change its content or its releases.

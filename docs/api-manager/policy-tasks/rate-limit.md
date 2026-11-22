@@ -1,15 +1,15 @@
 ---
-title: Limit the Number of Requests
+title: Rate Limiting
 sidebar_position: 7
 ---
 
 Refuse requests beyond a number per second, minute or hour, before they reach your service.
 
-## When to use it
+## Use cases
 
 To protect a service from overload, from a client that loops, or from an unexpected peak.
 
-## Before you begin
+## Prerequisites
 
 - An [API instance](/api-manager/api-instances) that is deployed and answers.
 
@@ -23,14 +23,14 @@ To protect a service from overload, from a client that loops, or from an unexpec
 4. In **Time Unit**, choose the window: second, minute or hour.
 5. Deploy.
 
-## Field reference
+## Parameters
 
 | Field | What it is | Default |
 |---|---|---|
 | **Max Requests** | The number of requests allowed in the window. | 100 |
 | **Time Unit** | The window the limit is counted over: second, minute or hour. | Minute |
 
-## Verify
+## Verification
 
 ```bash title="Beyond the limit"
 for i in $(seq 1 120); do curl -s -o /dev/null -w "%{http_code}\n" https://orders.example.com/orders; done | sort | uniq -c
@@ -41,7 +41,7 @@ for i in $(seq 1 120); do curl -s -o /dev/null -w "%{http_code}\n" https://order
      20 429
 ```
 
-## Good to know
+## Behavior and limits
 
 - A refused request is answered `429 Too Many Requests`.
 - Size the limit above what a well-behaved client sends at its busiest.

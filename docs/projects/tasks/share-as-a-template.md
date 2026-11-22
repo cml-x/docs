@@ -1,15 +1,15 @@
 ---
-title: Share a Repository as a Template
+title: Set a Repository as a Template
 sidebar_position: 5
 ---
 
 Mark a repository as a template so that others can start new projects from it.
 
-## When to use it
+## Use cases
 
 When a project is a good starting point for others: a house style, a recurring pattern.
 
-## Before you begin
+## Prerequisites
 
 - A repository that works and is tidy enough to be copied.
 
@@ -21,7 +21,7 @@ When a project is a good starting point for others: a house style, a recurring p
 2. In its **Actions**, mark it as a template.
 3. Describe what the template is for, and add topics so that it can be found.
 
-## Good to know
+## Behavior and limits
 
 - A template shows up in **Assets Explorer**, under **Templates**, and in the creation wizard.
 - Topics are what the search uses: add the system, the protocol and the pattern.

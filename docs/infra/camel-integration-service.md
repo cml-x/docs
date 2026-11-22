@@ -1,5 +1,5 @@
 ---
-title: Camel Integration Service
+title: Camel Integration Service (Camel K Operator)
 sidebar_position: 5
 ---
 
@@ -9,7 +9,7 @@ runs them, and tells that operator where images go and how builds run.
 
 An environment cannot run integrations until this service is activated.
 
-## Activate it
+## Activation
 
 {/* screenshot: env-camel-activate */}
 
@@ -100,7 +100,7 @@ Changing a setting does nothing until it is applied.
 
 From the page of the environment itself, both act on every service that is configured.
 
-## Good to know
+## Behavior and limits
 
 - Each environment has its **own** operator: what you set here does not affect another
   environment.

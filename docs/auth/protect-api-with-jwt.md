@@ -1,5 +1,5 @@
 ---
-title: Protect an API with JWT
+title: JWT Authentication on an API
 sidebar_position: 4
 ---
 
@@ -8,7 +8,7 @@ service. A request without a valid token is refused at the gateway.
 
 This page goes from an unprotected API to one that only the applications you registered can call.
 
-## Before you start
+## Prerequisites
 
 You need:
 
@@ -16,12 +16,12 @@ You need:
 - an [auth gateway](/auth/auth-gateway) in the same environment — or an identity provider of your
   own that issues JWT tokens.
 
-## 1. Note the audience ID of the API
+## 1. Audience ID of the API
 
 Open the API instance. Its page shows its **audience ID**. Copy it: it is how tokens say they are
 meant for this API.
 
-## 2. Register the application
+## 2. Client registration
 
 In a [list of clients](/auth/client-lists), add a client for the application that will call the
 API:
@@ -32,7 +32,7 @@ API:
 
 Make sure the list is chosen in the **Clients** setting of the auth gateway.
 
-## 3. Add the policy to the API
+## 3. JWT rule on the API
 
 On the page of the API instance, open its security policies and add **token verification (JWT)**.
 
@@ -46,7 +46,7 @@ On the page of the API instance, open its security policies and add **token veri
 
 Deploy.
 
-### With an identity provider of your own
+### External issuer and JWKS
 
 Choose **Another identity provider** and give:
 
@@ -56,7 +56,7 @@ Choose **Another identity provider** and give:
 | **Issuer** | The issuer written in the tokens — it must match exactly | `https://sso.example.com` |
 | **JWKS URI** | Where the provider publishes its public keys | `https://sso.example.com/keys` |
 
-## 4. Call the API
+## 4. Token request and API call
 
 The application first obtains a token:
 
@@ -73,7 +73,7 @@ then sends it with each request:
 curl -H "Authorization: Bearer <token>" https://orders.example.com/orders
 ```
 
-## What is accepted, what is refused
+## Validation outcomes
 
 | The request carries | Result |
 |---|---|
@@ -84,7 +84,7 @@ curl -H "Authorization: Bearer <token>" https://orders.example.com/orders
 | A valid token that does not name this API, with **Check the audience** on | Refused |
 | A valid token that does not name this API, with **Check the audience** off | Reaches your service |
 
-## Should the audience be checked?
+## Audience validation
 
 **Check the audience** answers this question: *is a token issued for another API good enough to
 call this one?*
@@ -98,7 +98,7 @@ call this one?*
 A client that calls several APIs lists the audience ID of each: its tokens name them all, and
 each of those APIs accepts them.
 
-## If a call is refused
+## Troubleshooting refused calls
 
 - **The token has expired** — obtain a new one.
 - **The audience is missing** — check that the audience ID of the API is in **APIs its tokens are

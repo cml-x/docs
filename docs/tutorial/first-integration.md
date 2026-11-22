@@ -1,5 +1,5 @@
 ---
-title: 1. Write the Integration
+title: "1. Create a Camel Integration With a REST Route"
 sidebar_position: 2
 ---
 
@@ -10,7 +10,7 @@ An **integration** is an Apache Camel route that the platform builds and runs fo
 **inline** mode you type the route in the console: there is no repository, no build file and no
 image to prepare.
 
-## Create it
+## Integration creation form
 
 {/* screenshot: tutorial-create-integration */}
 
@@ -22,7 +22,7 @@ Open **Runtime Manager**, go to **Integrations**, then **Create Integration**.
    integrations of the group; a group suits integrations that are always released together.
 3. **Source mode** — keep **Inline**.
 
-## Write the route
+## Route source: YAML, Java or XML DSL
 
 {/* screenshot: tutorial-inline-source */}
 
@@ -96,7 +96,7 @@ What it says:
 
 One integration can hold several source files, each in its own language.
 
-## Dependencies
+## Camel and Maven dependencies
 
 **Dependencies** lists the Camel components and libraries the integration needs.
 
@@ -111,7 +111,7 @@ One integration can hold several source files, each in its own language.
 **Repositories** takes the addresses of extra Maven repositories, when a library is not in the
 ones the environment already knows.
 
-## Expose HTTP Endpoint
+## HTTP service (Expose HTTP Endpoint)
 
 Leave **Expose HTTP Endpoint** on. It gives the integration a service inside the environment, so
 that other integrations — and later the gateway — can call it. Turn it off for an integration that
@@ -119,13 +119,13 @@ only consumes, such as one reading a queue or running on a timer.
 
 :::info Reachable inside the environment only
 At this stage the integration has no address on the internet. Publishing it is
-[step 6](/tutorial/expose).
+[step 8](/tutorial/expose).
 :::
 
 Create the integration. It now exists, but nothing runs yet:
 [deploy it](/tutorial/deploy).
 
-## What you have
+## Resulting resources
 
 ```text title="What exists so far"
 Runtime Manager

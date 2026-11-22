@@ -1,5 +1,5 @@
 ---
-title: Auth Gateways
+title: Auth Gateways (OAuth 2.0 Token Service)
 sidebar_position: 2
 ---
 
@@ -31,7 +31,7 @@ issued is refused.
 The gateway ends the encryption with the certificate of its access point; nothing has to be
 installed on the token service.
 
-## Its addresses
+## Issuer, token endpoint, JWKS and discovery URLs
 
 {/* screenshot: auth-gateway-addresses */}
 
@@ -69,7 +69,7 @@ it.
 - A change in a list is picked up **within a couple of minutes, without a restart**. If a change
   makes a list unreadable, the service keeps the lists it was using.
 
-### Keeping data across restarts
+### Session persistence
 
 By default the service starts from an empty memory each time it restarts: the tokens it issued
 stay valid until they expire, but it no longer knows which ones were revoked.
@@ -82,7 +82,7 @@ raised later, never lowered.
 **Trace** logs everything, in very large volumes. It is meant for working out why one request was
 refused, not for leaving on. Changing the level restarts the service.
 
-## Next
+## Next steps
 
 - [Register applications as clients](/auth/client-lists)
 - [Protect an API with JWT](/auth/protect-api-with-jwt)

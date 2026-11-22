@@ -20,7 +20,7 @@ In [Monitoring](/monitoring/getting-start), for the same project and environment
 - **Logs Insight**, **Metrics** and **Distributed Traces** — each opens the corresponding
   OpenObserve view in a new tab, already scoped to the current project and environment.
 
-## If something looks wrong
+## Diagnosis order
 
 Start with the Capsule's per-component health in Runtime Manager — a failed or not-running
 component is often visible there before it shows up as missing data in a dashboard.

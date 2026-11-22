@@ -1,11 +1,11 @@
 ---
-title: Run an Integration on a Schedule
+title: Cron Schedule
 sidebar_position: 9
 ---
 
 Run an integration at set times instead of continuously: it starts, does its work and stops.
 
-## Before you begin
+## Prerequisites
 
 - An [integration](/runtime/integrations), created and bound to an environment.
 - A route that starts from a timer, a cron expression or a scheduler.
@@ -20,7 +20,7 @@ Run an integration at set times instead of continuously: it starts, does its wor
 4. Optionally give the **Time Zone** and what happens when a run is still going at the next one.
 5. Choose **Apply changes**.
 
-## Field reference
+## Parameters
 
 | Field | What it is | Default |
 |---|---|---|
@@ -31,7 +31,7 @@ Run an integration at set times instead of continuously: it starts, does its wor
 | **Active Deadline** | The longest a run may take, in seconds. | 60 |
 | **Backoff Limit** | How many times a failed run is tried again. | 2 |
 
-## Good to know
+## Behavior and limits
 
 - Between two runs nothing runs: a scheduled integration uses no CPU or memory while it waits.
 - It is not exposed and cannot be called: it is for batch work.

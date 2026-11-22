@@ -1,11 +1,11 @@
 ---
-title: Read the Metrics
+title: Query Metrics
 sidebar_position: 2
 ---
 
 See how much traffic a service takes, how fast it answers and how often it fails, over time.
 
-## Before you begin
+## Prerequisites
 
 - Something running in the environment: an integration, a gateway.
 - The business unit and the environment selected in the console: the views open on them.
@@ -18,7 +18,7 @@ See how much traffic a service takes, how fast it answers and how often it fails
 2. Choose the period.
 3. Choose what to look at: the requests of a gateway, the exchanges of an integration, its memory.
 
-## Good to know
+## Behavior and limits
 
 - Integrations report on their routes — exchanges completed, failed, in flight, and how long they take — and on their JVM: memory, garbage collection.
 - Gateways report on connections and requests, by API.

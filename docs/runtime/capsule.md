@@ -1,5 +1,5 @@
 ---
-title: Capsules
+title: Capsules (Integration Groups)
 sidebar_position: 2
 ---
 
@@ -8,7 +8,7 @@ Apache Camel integration components bound to one project and one environment.
 
 ![Capsule lifecycle](/img/runtime/capsule-lifecycle.svg)
 
-## Components
+## Component types
 
 A Capsule can contain any mix of the component types the "Add component" picker offers:
 
@@ -26,7 +26,7 @@ project in [Project Manager](/projects/getting-start) instead, and a Web Service
 Deployment/Service is generated automatically for a component that needs to be network-reachable
 (e.g. an exposed Camel Integration), rather than added directly.
 
-## Operating a Capsule
+## Status, revisions and rollback
 
 - **Real-time status** — deployment/workflow status for the whole Capsule, and health (running,
   succeeded, failed) per component.
@@ -35,7 +35,7 @@ Deployment/Service is generated automatically for a component that needs to be n
 - **Gallery and list views**, with search and an environment filter to scope what you see to a
   single environment.
 
-## Where Capsules come from
+## Creation from a repository
 
 Capsules are usually created from a project's repository — see the **Applications tab** on
 [Integrations](/projects/repos) in Project Manager for the one-click "Deploy" path from source to

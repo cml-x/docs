@@ -1,57 +1,87 @@
 ---
-title: Getting Started with Camel X
-sidebar_label: Quick Start
+title: "Quick Start: Inline Route to Public HTTPS Endpoint"
 sidebar_position: 2
 ---
 
-The shortest path from nothing to a running, observed integration. Each step links to the app
-that owns it.
+Create a Camel integration typed in the console, deploy it to an environment, call it, then
+expose it over HTTPS through a gateway. No repository, no Maven project and no image to prepare.
 
-## 1. Understand Camel X
+## Prerequisites
 
-Camel X is a set of independent micro-applications, not one monolithic app. See
-[Understanding Camel X](/getting-started/overview) for what each one does.
+- A business unit, and an [environment](/infra/environments) whose
+  [Camel Integration Service](/infra/camel-integration-service) is activated.
+- For the exposure part: a domain attached to the environment and a TLS certificate for the host
+  name.
 
-## 2. Create your project
+## 1. Create the integration
 
-In [Project Manager](/projects/getting-start), create a project. Pick **Integration** if you're
-building Camel routes — the most common starting point.
+In **Runtime Manager**, go to **Integrations**, then **Create Integration**.
 
-## 3. Create your first integration
+1. **Name**: `orders-api`.
+2. **Integration group**: **None — create it on its own**.
+3. **Source mode**: **Inline**.
+4. In **Sources**, add a YAML file:
 
-Still in Project Manager: start from the template gallery (grouped by topic — REST, database,
-messaging, cloud, files, scheduling…), from Apache Camel Main sources, or from a blank canvas.
-Creating an Integration project opens the dedicated **IT Designer**, where the routes themselves
-are built.
+```yaml title="orders.camel.yaml"
+- route:
+    id: orders
+    from:
+      uri: platform-http:/orders
+      parameters:
+        httpMethodRestrict: GET
+      steps:
+        - setHeader:
+            name: Content-Type
+            constant: application/json
+        - setBody:
+            constant: '{"service":"orders","status":"ok"}'
+```
 
-## 4. Create a release
+5. Leave **Expose HTTP Endpoint** on, then create.
 
-Once the integration is ready, cut a **release** — a tagged version of the repository — from
-[Integrations](/projects/repos) in Project Manager.
+The `platform-http` component is resolved from the URI. Java and XML DSL are accepted as well —
+see [step 1 of the tutorial](/tutorial/first-integration).
 
-## 5. Create or configure an environment
+## 2. Bind and deploy
 
-In [Environment Manager](/infra/getting-start), register a **target** (bound to a Kubernetes
-cluster), then create an **environment** bound to it. The guided `/new` wizard provisions a
-target, an environment, and the Camel K Integration Platform in one flow.
+1. Open `orders-api`, choose **Bind to environment** and pick the environment.
+2. Choose **Apply changes**.
 
-## 6. Deploy the release
+The first deployment builds an image: Maven resolves the dependencies, the image is pushed to the
+registry of the environment, then the integration starts. Later changes that do not touch the
+route or its dependencies only restart it.
 
-From the release's repository, open the **Applications** tab and use the one-click **Deploy**
-action — or go to [Runtime Manager](/runtime/getting-start) and create a **Capsule** directly,
-attaching the integration from its Git repository, branch or release.
+## 3. Call the service
 
-## 7. Execute the integration
+The integration has a service named after it, reachable inside the environment:
 
-Once deployed, the Capsule's Camel routes run. Runtime Manager shows real-time deployment status
-and per-component health (running, succeeded, failed) — see [Capsules](/runtime/capsule).
+```bash title="From inside the environment"
+curl http://orders-api/orders
+```
 
-## 8. Observe the integration with Monitoring
+```json title="Response"
+{"service":"orders","status":"ok"}
+```
 
-In [Monitoring](/monitoring/getting-start), a dashboard template gets you a working view in one
-click; from there, jump to logs, metrics or distributed traces for the running integration.
+## 4. Expose it over HTTPS
 
----
+1. In **Secret Manager**, create a **TLS Certificate** configuration for `orders.example.com` and
+   make it available to the environment.
+2. In **API Manager**, go to **API Gateways** and create `public-gateway`: exposure **Public**,
+   one **HTTPS** access point on port 443 with the certificate.
+3. Go to **API Instances** and create `orders`: the gateway and its HTTPS access point, the host
+   name `orders.example.com`, and `orders-api` as backend.
 
-For the same path walked through as one continuous example, see
-[Your First Integration](/getting-started/your-first-integration).
+```bash title="From anywhere"
+curl https://orders.example.com/orders
+```
+
+## 5. Read its telemetry
+
+In **Monitoring**, open **Logs Insight**, **Metrics** and **Distributed Traces**: the integration
+is instrumented at build time, with `service.name` set to `orders-api`.
+
+## Next steps
+
+The [learning path](/getting-started/your-first-integration) takes this integration, one concept
+per page, to a production deployment.

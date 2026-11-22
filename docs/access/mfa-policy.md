@@ -1,15 +1,37 @@
 ---
-title: MFA Policy
+title: "MFA Policy: Second Factors and Enforcement"
 sidebar_position: 5
 ---
 
-Enforce multi-factor authentication **organization-wide**, rather than leaving it up to each user.
+The MFA policy decides whether a second factor is required at sign-in, for whom, and which
+methods are offered.
 
-## What you can configure
+## Enforcement
 
-- Toggle which **second-factor methods** are available: TOTP (authenticator app), U2F (security
-  keys), email OTP, SMS OTP.
-- Choose which **multi-factor methods require device-level verification** (e.g. U2F with
-  PIN/biometrics).
-- Optionally **force MFA for everyone**, or only for **local accounts** (leaving users who sign in
-  through a federated [identity provider](/access/identity-providers) to that provider's own MFA).
+| Setting | Effect |
+|---|---|
+| **Require MFA** | Every user must set up a second factor at the next sign-in |
+| **Local MFA Only** | Users who sign in through an external identity provider are not asked: their provider is trusted for it |
+
+## Methods
+
+| Method | Kind | Resists phishing |
+|---|---|---|
+| **Authenticator App (TOTP)** | Second factor | No |
+| **OTP Email** | Second factor | No |
+| **OTP SMS** | Second factor | No |
+| **Security Keys (U2F/WebAuthn)** | Second factor, or multi-factor with user verification | Yes |
+
+A second factor (2FA) proves possession. A multi-factor method (MFA) with user verification — a
+security key with a PIN or a biometric check — proves possession and presence in one step.
+
+## Before enforcing
+
+- Announce it: users enroll at their next sign-in and cannot skip it.
+- Keep at least two administrators enrolled with a security key.
+- A user who loses a factor is helped from their page in [Users](/access/users).
+
+## Related pages
+
+- [Enforce multi-factor authentication](/access/tasks/require-mfa)
+- [Login, password and lockout policies](/access/settings)

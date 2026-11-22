@@ -36,7 +36,13 @@ While capturing, compare what the page says with what the screen shows — names
 of fields — and correct the page where they differ: the pages were written from the code and the
 forms of the platform, not from the screens.
 
-## The captures (90)
+## The captures (97)
+
+### `docs/access/connected-apps.md`
+
+| ID | After | Screen | How to reach it | Status |
+|---|---|---|---|---|
+| `access-connected-app-credentials` | Credentials | A connected app page: Client ID and secret, Personal Access Tokens, JWT Keys | Access Manager > Connected Apps > an app | to do |
 
 ### `docs/access/create-and-manage-roles.md`
 
@@ -90,21 +96,21 @@ forms of the platform, not from the screens.
 
 | ID | After | Screen | How to reach it | Status |
 |---|---|---|---|---|
-| `api-instance-gateway-select` | Gateway & access point | The Gateway & Access Point field: a gateway chosen, its access points listed, host name mode selected | API Manager > API Instances > create | to do |
-| `api-instance-audience-id` | The audience ID of an API | The properties block of an API instance showing its audience ID with the copy button | API Manager > API Instances > an API > Overview | to do |
+| `api-instance-gateway-select` | Gateway, listener and host name | The Gateway & Access Point field: a gateway chosen, its access points listed, host name mode selected | API Manager > API Instances > create | to do |
+| `api-instance-audience-id` | Audience ID (`aud` claim) | The properties block of an API instance showing its audience ID with the copy button | API Manager > API Instances > an API > Overview | to do |
 
 ### `docs/api-manager/gateway.md`
 
 | ID | After | Screen | How to reach it | Status |
 |---|---|---|---|---|
-| `gateway-access-points` | Access points | The access points editor of a gateway: one HTTP and one HTTPS access point, the HTTPS one expanded with its certificate | API Manager > API Gateways > a gateway > Access points | to do |
-| `gateway-settings` | Settings of a gateway | The page of a gateway with its settings: access points, resources, autoscaling, shutdown | API Manager > API Gateways > a gateway | to do |
+| `gateway-access-points` | Access points (listeners) | The access points editor of a gateway: one HTTP and one HTTPS access point, the HTTPS one expanded with its certificate | API Manager > API Gateways > a gateway > Access points | to do |
+| `gateway-settings` | Gateway settings | The page of a gateway with its settings: access points, resources, autoscaling, shutdown | API Manager > API Gateways > a gateway | to do |
 
 ### `docs/api-manager/policies.md`
 
 | ID | After | Screen | How to reach it | Status |
 |---|---|---|---|---|
-| `api-policies-overview` | Where a policy applies | The policies of an API instance, the four families visible | API Manager > API Instances > an API > its policies | to do |
+| `api-policies-overview` | Policy targets: gateway or API instance | The policies of an API instance, the four families visible | API Manager > API Instances > an API > its policies | to do |
 
 ### `docs/api-manager/policy-tasks/api-key.md`
 
@@ -207,28 +213,28 @@ forms of the platform, not from the screens.
 | ID | After | Screen | How to reach it | Status |
 |---|---|---|---|---|
 | `auth-gateway-create` | Create an auth gateway | The auth gateway creation form: gateway, HTTPS access point and host name chosen, version select | API Manager > Auth Gateways > create | to do |
-| `auth-gateway-addresses` | Its addresses | The page of an auth gateway: Token service block and the Discovery document section | API Manager > Auth Gateways > an auth gateway > Overview | to do |
+| `auth-gateway-addresses` | Issuer, token endpoint, JWKS and discovery URLs | The page of an auth gateway: Token service block and the Discovery document section | API Manager > Auth Gateways > an auth gateway > Overview | to do |
 | `auth-gateway-clients-setting` | Clients | The Clients setting: one list chosen, another offered as not available here with Make available, the New list of clients link | API Manager > Auth Gateways > an auth gateway > Clients | to do |
 
 ### `docs/auth/client-lists.md`
 
 | ID | After | Screen | How to reach it | Status |
 |---|---|---|---|---|
-| `client-list-create` | Create a list | The creation panel for a list of clients: name filled, the note that the list is created empty, the Create button | API Manager > Auth Gateways > an auth gateway > Clients > New list of clients | to do |
-| `client-list-add-client` | Add a client | The Add a client panel: name, proof method, client ID, a freshly generated secret, permissions, APIs | Secret Manager > a list of clients > Add a client | to do |
+| `client-list-create` | Create a client list | The creation panel for a list of clients: name filled, the note that the list is created empty, the Create button | API Manager > Auth Gateways > an auth gateway > Clients > New list of clients | to do |
+| `client-list-add-client` | Register a client | The Add a client panel: name, proof method, client ID, a freshly generated secret, permissions, APIs | Secret Manager > a list of clients > Add a client | to do |
 
 ### `docs/config-sources/templates.md`
 
 | ID | After | Screen | How to reach it | Status |
 |---|---|---|---|---|
-| `secret-create-configuration` | How a configuration is used | The creation panel of a configuration: template chosen, the three steps Details, Properties, Distribute | Secret Manager > New configuration | to do |
+| `secret-create-configuration` | Lifecycle of a configuration | The creation panel of a configuration: template chosen, the three steps Details, Properties, Distribute | Secret Manager > New configuration | to do |
 | `secret-resources-file` | Resources File | A Resources File configuration with two files dropped in | Secret Manager > a Resources File configuration | to do |
 
 ### `docs/infra/camel-integration-service.md`
 
 | ID | After | Screen | How to reach it | Status |
 |---|---|---|---|---|
-| `env-camel-activate` | Activate it | The Camel Integration page of an environment not yet activated, with the Activate button | Infrastructure > Environments > an environment > Camel Integration | to do |
+| `env-camel-activate` | Activation | The Camel Integration page of an environment not yet activated, with the Activate button | Infrastructure > Environments > an environment > Camel Integration | to do |
 | `env-camel-registry` | Registry | The Registry setting: address, organization, pull secret, CA secret | Infrastructure > Environments > an environment > Camel Integration > Registry | to do |
 | `env-camel-maven` | Maven | The Maven setting, with Advanced parameters turned on | Infrastructure > Environments > an environment > Camel Integration > Maven | to do |
 
@@ -236,7 +242,7 @@ forms of the platform, not from the screens.
 
 | ID | After | Screen | How to reach it | Status |
 |---|---|---|---|---|
-| `env-services` | The services of an environment | The page of an environment with its three services and their state | Infrastructure > Environments > an environment | to do |
+| `env-services` | Environment services | The page of an environment with its three services and their state | Infrastructure > Environments > an environment | to do |
 
 ### `docs/infra/log-exporter.md`
 
@@ -249,7 +255,13 @@ forms of the platform, not from the screens.
 
 | ID | After | Screen | How to reach it | Status |
 |---|---|---|---|---|
-| `env-network-rule` | A rule | An egress rule being edited: who, ports, and the DNS preset | Infrastructure > Environments > an environment > Network > Egress Rules | to do |
+| `env-network-rule` | Rule definition: peers and ports | An egress rule being edited: who, ports, and the DNS preset | Infrastructure > Environments > an environment > Network > Egress Rules | to do |
+
+### `docs/library/assets.md`
+
+| ID | After | Screen | How to reach it | Status |
+|---|---|---|---|---|
+| `assets-asset-page` | Asset page | An asset page: Asset Details, Topics, Version Manager | Assets Explorer > an asset | to do |
 
 ### `docs/library/tasks/find-an-asset.md`
 
@@ -268,6 +280,12 @@ forms of the platform, not from the screens.
 | ID | After | Screen | How to reach it | Status |
 |---|---|---|---|---|
 | `library-tasks-publish-an-asset` | Procedure | The Create a New Asset screen, on the choice of the type | Assets Explorer > Create a New Asset | to do |
+
+### `docs/monitoring/getting-start.md`
+
+| ID | After | Screen | How to reach it | Status |
+|---|---|---|---|---|
+| `monitoring-embedded-scope` | Scope of the views | A Monitoring view inside the console with the business unit and environment selectors visible | Monitoring > Logs Insight | to do |
 
 ### `docs/monitoring/tasks/build-a-dashboard.md`
 
@@ -304,6 +322,12 @@ forms of the platform, not from the screens.
 | ID | After | Screen | How to reach it | Status |
 |---|---|---|---|---|
 | `monitoring-tasks-search-logs` | Procedure | Logs Insight filtered on one integration, with one entry expanded | Monitoring > Logs Insight | to do |
+
+### `docs/projects/repos.md`
+
+| ID | After | Screen | How to reach it | Status |
+|---|---|---|---|---|
+| `projects-repository-page` | Repository page | A repository page: details, releases with Draft and Pre markers, Edit in Web IDE, the Actions menu open | Integration Center > Integrations > a repository | to do |
 
 ### `docs/projects/tasks/add-a-schema-version.md`
 
@@ -363,7 +387,7 @@ forms of the platform, not from the screens.
 
 | ID | After | Screen | How to reach it | Status |
 |---|---|---|---|---|
-| `runtime-integration-settings` | Settings of an integration | The page of an integration with its settings listed, and the Add Capability panel open | Runtime Manager > Integrations > an integration > Add Capability | to do |
+| `runtime-integration-settings` | Integration settings | The page of an integration with its settings listed, and the Add Capability panel open | Runtime Manager > Integrations > an integration > Add Capability | to do |
 
 ### `docs/runtime/settings/affinity.md`
 
@@ -447,53 +471,71 @@ forms of the platform, not from the screens.
 
 | ID | After | Screen | How to reach it | Status |
 |---|---|---|---|---|
-| `runtime-jvm-trusted-ca` | 2. Choose it on the integration | Same screen as tutorial-jvm-trusted-ca: the JVM setting with a configuration and a file chosen | Runtime Manager > Integrations > an integration > Add Capability > JVM | to do |
+| `runtime-jvm-trusted-ca` | 2. JVM setting: Trusted CA Certificates | Same screen as tutorial-jvm-trusted-ca: the JVM setting with a configuration and a file chosen | Runtime Manager > Integrations > an integration > Add Capability > JVM | to do |
 
 ### `docs/tutorial/configure.md`
 
 | ID | After | Screen | How to reach it | Status |
 |---|---|---|---|---|
-| `tutorial-configuration-setting` | Give them to the integration | The Configuration setting with orders-settings chosen in Property files, the New secret link visible | Runtime Manager > Integrations > orders-api > Add Capability > Configuration | to do |
+| `tutorial-configuration-setting` | Mount the properties with the Configuration setting | The Configuration setting with orders-settings chosen in Property files, the New secret link visible | Runtime Manager > Integrations > orders-api > Add Capability > Configuration | to do |
 | `tutorial-environment-setting` | Environment variables | The Environment setting with ORDERS_REGION=eu-west entered | Runtime Manager > Integrations > orders-api > Add Capability > Environment | to do |
-| `tutorial-resources-setting` | Mount it | The Resources setting with orders-catalog chosen and its place set to /etc/orders | Runtime Manager > Integrations > orders-api > Add Capability > Resources | to do |
+| `tutorial-resources-setting` | Mount path of the resource | The Resources setting with orders-catalog chosen and its place set to /etc/orders | Runtime Manager > Integrations > orders-api > Add Capability > Resources | to do |
 
 ### `docs/tutorial/deploy.md`
 
 | ID | After | Screen | How to reach it | Status |
 |---|---|---|---|---|
-| `tutorial-bind-environment` | Bind it to an environment | The integration page with the "Bind to environment" choice open | Runtime Manager > Integrations > orders-api > Bind to environment | to do |
-| `tutorial-build-progress` | Deploy | The overview of the integration while its image is being built, build panel visible | Runtime Manager > Integrations > orders-api > Overview, right after Apply changes | to do |
-| `tutorial-integration-running` | What "running" means | The overview of the integration once it is running and ready | Runtime Manager > Integrations > orders-api > Overview | to do |
+| `tutorial-bind-environment` | Environment binding | The integration page with the "Bind to environment" choice open | Runtime Manager > Integrations > orders-api > Bind to environment | to do |
+| `tutorial-build-progress` | Build and rollout | The overview of the integration while its image is being built, build panel visible | Runtime Manager > Integrations > orders-api > Overview, right after Apply changes | to do |
+| `tutorial-integration-running` | Integration phases and readiness | The overview of the integration once it is running and ready | Runtime Manager > Integrations > orders-api > Overview | to do |
 
 ### `docs/tutorial/expose.md`
 
 | ID | After | Screen | How to reach it | Status |
 |---|---|---|---|---|
-| `tutorial-create-gateway` | 2. Create the gateway | The gateway creation form: exposure Public, one HTTPS access point on 443 with a certificate | API Manager > API Gateways > create | to do |
-| `tutorial-create-api-instance` | 3. Publish the integration | The API instance form: gateway and access point chosen, host name orders.example.com, backend orders-api | API Manager > API Instances > create | to do |
+| `tutorial-create-gateway` | 2. Gateway with an HTTPS listener | The gateway creation form: exposure Public, one HTTPS access point on 443 with a certificate | API Manager > API Gateways > create | to do |
+| `tutorial-create-api-instance` | 3. API instance routed to the integration service | The API instance form: gateway and access point chosen, host name orders.example.com, backend orders-api | API Manager > API Instances > create | to do |
 
 ### `docs/tutorial/first-integration.md`
 
 | ID | After | Screen | How to reach it | Status |
 |---|---|---|---|---|
-| `tutorial-create-integration` | Create it | The Create Integration panel: name filled, "None — create it on its own", source mode Inline | Runtime Manager > Integrations > Create Integration | to do |
-| `tutorial-inline-source` | Write the route | The Sources editor with the YAML route typed in, the language selector visible | Runtime Manager > Integrations > Create Integration > Sources | to do |
+| `tutorial-create-integration` | Integration creation form | The Create Integration panel: name filled, "None — create it on its own", source mode Inline | Runtime Manager > Integrations > Create Integration | to do |
+| `tutorial-inline-source` | Route source: YAML, Java or XML DSL | The Sources editor with the YAML route typed in, the language selector visible | Runtime Manager > Integrations > Create Integration > Sources | to do |
 
 ### `docs/tutorial/from-git.md`
 
 | ID | After | Screen | How to reach it | Status |
 |---|---|---|---|---|
-| `tutorial-git-project` | Build the integration from it | The integration form in Git source mode, repository and release chosen | Runtime Manager > Integrations > Create Integration > Source mode Git | to do |
+| `tutorial-git-project` | Git source mode: repository, branch, release | The integration form in Git source mode, repository and release chosen | Runtime Manager > Integrations > Create Integration > Source mode Git | to do |
+
+### `docs/tutorial/observe.md`
+
+| ID | After | Screen | How to reach it | Status |
+|---|---|---|---|---|
+| `tutorial-logs-insight` | Logs | Logs Insight filtered on service.name orders-api, one JSON entry expanded with its trace ID | Monitoring > Logs Insight | to do |
+
+### `docs/tutorial/scale.md`
+
+| ID | After | Screen | How to reach it | Status |
+|---|---|---|---|---|
+| `tutorial-keda-autoscaler` | KEDA Autoscaler | The KEDA Autoscaler setting with min and max replica counts and one trigger | Runtime Manager > Integrations > orders-api > Add Capability > KEDA Autoscaler | to do |
 
 ### `docs/tutorial/secure.md`
 
 | ID | After | Screen | How to reach it | Status |
 |---|---|---|---|---|
-| `tutorial-api-key-rule` | A. An API key | The API keys rule on the orders API, list orders-keys chosen, header x-api-key | API Manager > API Instances > orders > Security policies > API keys | to do |
-| `tutorial-jwt-rule` | C. Tokens | The token verification rule: issued by an auth gateway, audience check on, audience of this API filled in | API Manager > API Instances > orders > Security policies > token verification | to do |
+| `tutorial-api-key-rule` | A. API key authentication | The API keys rule on the orders API, list orders-keys chosen, header x-api-key | API Manager > API Instances > orders > Security policies > API keys | to do |
+| `tutorial-jwt-rule` | C. JWT authentication (OAuth 2.0 client credentials) | The token verification rule: issued by an auth gateway, audience check on, audience of this API filled in | API Manager > API Instances > orders > Security policies > token verification | to do |
+
+### `docs/tutorial/storage.md`
+
+| ID | After | Screen | How to reach it | Status |
+|---|---|---|---|---|
+| `tutorial-volumes-setting` | Mount it (Volumes) | The Volumes setting: orders-data mounted at /var/orders and an EmptyDir at /tmp/orders | Runtime Manager > Integrations > orders-api > Add Capability > Volumes | to do |
 
 ### `docs/tutorial/trust.md`
 
 | ID | After | Screen | How to reach it | Status |
 |---|---|---|---|---|
-| `tutorial-jvm-trusted-ca` | 2. Choose it on the integration | The JVM setting: configuration corp-ca chosen, file corp-ca.pem chosen, "Mounted for you at" line visible | Runtime Manager > Integrations > orders-api > Add Capability > JVM | to do |
+| `tutorial-jvm-trusted-ca` | 2. JVM setting: Trusted CA Certificates | The JVM setting: configuration corp-ca chosen, file corp-ca.pem chosen, "Mounted for you at" line visible | Runtime Manager > Integrations > orders-api > Add Capability > JVM | to do |

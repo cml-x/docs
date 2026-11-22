@@ -1,11 +1,11 @@
 ---
-title: Choose Where an Integration Runs
+title: "Affinity: Node Selection and Pod Anti-Affinity"
 sidebar_position: 11
 ---
 
 Keep the instances of an integration on separate nodes, or place them on nodes of a certain kind.
 
-## Before you begin
+## Prerequisites
 
 - An [integration](/runtime/integrations), created and bound to an environment.
 
@@ -18,7 +18,7 @@ Keep the instances of an integration on separate nodes, or place them on nodes o
 3. Turn **Pod Anti-Affinity** on to keep instances on separate nodes, or give **Node Affinity Labels** to choose the nodes.
 4. Choose **Apply changes**.
 
-## Field reference
+## Parameters
 
 | Field | What it is | Default |
 |---|---|---|
@@ -28,7 +28,7 @@ Keep the instances of an integration on separate nodes, or place them on nodes o
 | **Pod Affinity Labels** | Run beside the workloads carrying these labels. | — |
 | **Pod Anti-Affinity Labels** | Never run beside the workloads carrying these labels. | — |
 
-## Good to know
+## Behavior and limits
 
 - Applying this setting restarts the integration; it does not rebuild its image.
 - With anti-affinity on, an integration cannot have more instances than there are nodes.

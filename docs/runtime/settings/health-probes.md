@@ -1,11 +1,11 @@
 ---
-title: Tell When an Integration Is Ready
+title: Liveness, Readiness and Startup Probes
 sidebar_position: 8
 ---
 
 Adjust the checks that say whether an integration is alive, whether it is ready to receive requests, and whether it has finished starting.
 
-## Before you begin
+## Prerequisites
 
 - An [integration](/runtime/integrations), created and bound to an environment.
 
@@ -18,7 +18,7 @@ Adjust the checks that say whether an integration is alive, whether it is ready 
 3. Adjust the delays and thresholds of the liveness, readiness and startup checks.
 4. Choose **Apply changes**.
 
-## Field reference
+## Parameters
 
 | Field | What it is | Default |
 |---|---|---|
@@ -30,7 +30,7 @@ Adjust the checks that say whether an integration is alive, whether it is ready 
 | **Timeout** | How long a check may take. | — |
 | **Failure Threshold** | How many failed checks in a row count as a failure. | — |
 
-## Good to know
+## Behavior and limits
 
 - Applying this setting restarts the integration; it does not rebuild its image.
 - An integration that is slow to start and gets restarted before it is ready needs a **startup** check, or a longer initial delay.

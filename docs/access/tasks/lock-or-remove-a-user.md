@@ -1,11 +1,11 @@
 ---
-title: Lock or Remove a User
+title: Lock, Deactivate or Delete a User
 sidebar_position: 3
 ---
 
 Stop someone from signing in, for a while or for good.
 
-## Before you begin
+## Prerequisites
 
 - The right to manage users.
 
@@ -17,7 +17,7 @@ Stop someone from signing in, for a while or for good.
 2. Choose what fits: **lock** the account, **deactivate** it, or **delete** the user.
 3. Confirm.
 
-## Good to know
+## Behavior and limits
 
 - **Lock** and **deactivate** are reversible: the account and its access are kept.
 - **Delete** is permanent: the user loses access to every resource.

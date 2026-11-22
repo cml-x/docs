@@ -3,30 +3,41 @@ title: Users
 sidebar_position: 1
 ---
 
-Manage the human accounts that can sign in to the platform.
+**Users** lists the human accounts of the organization. Programs use
+[connected apps](/access/connected-apps) instead.
 
-![RBAC Model](/img/access/rbac-model.svg)
+## Account fields
 
-## What you can do
+| Field | Rule |
+|---|---|
+| **Email** | Required. An invitation is sent to it; changing it sends a verification link |
+| **Username** | Required. The login name |
+| **First Name**, **Last Name** | Required |
+| **Display Name**, **Nickname** | Optional |
 
-- **Create, search and paginate** users; edit profile data (name, email, phone).
-- **Deactivate, reactivate, lock, unlock, or permanently delete** an account.
-- Assign **organization-level admin roles**: Owner, Viewer, User Manager, Permission Editor,
-  Project Editor, Project Creator — each scoped to a specific set of admin capabilities.
-- View and manage a user's **second-factor methods** individually: remove their authenticator app
-  (TOTP), email OTP, SMS OTP, or registered security keys (U2F).
+## Account states and actions
 
-Project-level access — what a user can actually do inside a given project — is granted separately
-under [Authorizations](/access/authorizations).
+| Action | Effect | Reversible |
+|---|---|---|
+| **Lock User Account** | Sign-in refused; grants kept | Yes, unlock |
+| **Deactivate User** | Account disabled; grants kept | Yes, reactivate |
+| **Delete User** | Account and access removed | No |
+| **Resend verification email** | Sends the verification link again | — |
+| **Manage Roles** | Organization-level roles of the user | — |
+
+Access to projects is not set here: see [Authorizations](/access/authorizations).
+
+## Second factors of a user
+
+An administrator can remove a factor a user has lost — **Authenticator App**, **Email OTP**,
+**SMS OTP**, a security key — and unlink an external identity provider from the account. The user
+enrolls again at the next sign-in when the [MFA policy](/access/mfa-policy) requires it.
 
 ## Tasks
 
-| You want to | Read |
+| Task | Page |
 |---|---|
-| Create an account for someone | [Invite a user](/access/tasks/invite-a-user) |
-| Let them work on a project | [Give a user access to a project](/access/tasks/grant-access-on-a-project) |
-| Stop someone from signing in | [Lock or remove a user](/access/tasks/lock-or-remove-a-user) |
-| Let a program call the platform | [Create a connected app](/access/tasks/create-a-connected-app) |
-| Use your company's accounts | [Let people sign in with your identity provider](/access/tasks/add-an-identity-provider) |
-| Ask for a second proof at sign-in | [Require multi-factor authentication](/access/tasks/require-mfa) |
-| Decide how people sign in | [Set sign-in and password rules](/access/tasks/set-sign-in-rules) |
+| Create an account | [Create a user](/access/tasks/invite-a-user) |
+| Give access to a project | [Grant roles on a project](/access/tasks/grant-access-on-a-project) |
+| Suspend or remove an account | [Lock, deactivate or delete a user](/access/tasks/lock-or-remove-a-user) |
+| Full sequence for a newcomer | [Onboard a user](/access/create-user) |

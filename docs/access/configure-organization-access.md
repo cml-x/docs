@@ -1,28 +1,44 @@
 ---
-title: Configure Organization Access
+title: Organization Sign-In Hardening
 sidebar_position: 9
 ---
 
-Organization-wide access rules live in two places in Access Manager.
+A sequence that takes an organization from user name and password to single sign-on with a
+second factor.
 
-## Login and password rules
+## Target state
 
-In [Settings](/access/settings), configure:
+| Aspect | Setting |
+|---|---|
+| Sign-in | Through the company identity provider |
+| Second factor | Required for local accounts; delegated to the provider for the others |
+| Local accounts | A few break-glass administrators with security keys |
+| Self-registration | Off |
 
-- **Login Policy** — password login, external identity-provider login, self-registration,
-  passwordless login, MFA enforcement, password-reset link visibility, and unknown-user handling
-  for email login.
-- **Password Policy** — complexity rules new passwords must satisfy.
-- **Lockout Policy** — failed sign-in attempt thresholds before an account is temporarily locked.
+## 1. Add the identity provider
 
-## Multi-factor authentication
+[Add an OIDC or SAML identity provider](/access/tasks/add-an-identity-provider), activate it, and
+verify with one account that sign-in works end to end.
 
-In [MFA Policy](/access/mfa-policy), choose which second-factor methods are available (TOTP, U2F,
-email OTP, SMS OTP), which require device-level verification, and whether MFA is forced for
-everyone or only for local (non-federated) accounts.
+## 2. Enforce the second factor
 
-## External identity providers
+In [MFA Policy](/access/mfa-policy), turn **Require MFA** on with **Local MFA Only**, so that
+users of the provider are not asked twice.
 
-To let users sign in with an existing account instead of a platform password, federate a provider
-under [Identity Providers](/access/identity-providers) — Google, GitHub, GitHub Enterprise,
-Microsoft, GitLab, Apple, generic OIDC, or SAML 2.0.
+## 3. Tighten the login settings
+
+In [Settings](/access/settings):
+
+- turn **Registration** off;
+- turn **Ignore Unknown Users** on;
+- set the password policy and the lockout policy for the local accounts that remain.
+
+## 4. Restrict password login
+
+Once every user signs in through the provider, turn **Password Login** off — after checking that
+the break-glass administrators can sign in with **Passwordless Login**.
+
+## 5. Review access
+
+In **RBAC**, review the grants: deactivate those that are no longer needed, and replace broad
+roles with roles restricted to environments — see the [RBAC model](/access/rbac-principles).

@@ -15,7 +15,7 @@ It works with three things:
 | **Destinations** | Where logs are sent |
 | **Flows** | Which logs go to which destinations |
 
-## Set the exporter up
+## Exporter configuration
 
 Open the environment, go to **Logging**, and configure the service.
 
@@ -51,7 +51,7 @@ default. A lower value shows logs sooner and makes more calls.
 The environment also has a **default destination**: the log store of the platform itself, with
 nothing to configure.
 
-### Options of a destination
+### Destination options
 
 Once created, a destination can be given options. Which ones depends on the destination.
 
@@ -101,7 +101,7 @@ Two settings give the exporter more or less to run on.
 
 Raise the aggregator's when logs are delayed at busy times.
 
-## Good to know
+## Behavior and limits
 
 - Logs go to a destination only if a flow sends them there.
 - With **temporary** buffer storage, logs waiting to be sent when the exporter restarts are lost.

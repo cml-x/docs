@@ -1,15 +1,15 @@
 ---
-title: Delegate the Decision to Your Own Service
+title: External Authorization
 sidebar_position: 4
 ---
 
 Ask a service of yours, for each request, whether it may pass. The service answers allowed or denied, and can add headers to the request.
 
-## When to use it
+## Use cases
 
 When the decision follows rules of your own that no other rule expresses: a contract, a directory, a time of day.
 
-## Before you begin
+## Prerequisites
 
 - An [API instance](/api-manager/api-instances) that is deployed and answers.
 - The service that decides, deployed and reachable: a service of the platform — an integration for example — or an [upstream](/api-manager/upstreams).
@@ -25,7 +25,7 @@ When the decision follows rules of your own that no other rule expresses: a cont
 5. Leave **Fail Open** off unless the API must stay reachable when your service is down.
 6. Deploy.
 
-## Field reference
+## Parameters
 
 | Field | What it is | Default |
 |---|---|---|
@@ -33,7 +33,7 @@ When the decision follows rules of your own that no other rule expresses: a cont
 | **Authentication Service** | The service that decides: a service of the platform, or an upstream. | — |
 | **Fail Open** | Let requests through when your service does not answer. | Off |
 
-## Verify
+## Verification
 
 ```bash title="A request your service refuses"
 curl -i https://orders.example.com/orders
@@ -43,7 +43,7 @@ curl -i https://orders.example.com/orders
 HTTP/1.1 403 Forbidden
 ```
 
-## Good to know
+## Behavior and limits
 
 - Every request now waits for your service. Keep it fast, and run more than one instance.
 - With **Fail Open** off, the API is unavailable while your service is: unavailable, but never open.

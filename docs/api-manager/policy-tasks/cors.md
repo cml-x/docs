@@ -1,15 +1,15 @@
 ---
-title: Allow Calls From Other Websites (CORS)
+title: CORS
 sidebar_position: 5
 ---
 
 Let web pages served from another site call the API. Browsers refuse such calls unless the API says they are allowed.
 
-## When to use it
+## Use cases
 
 When the API is called from JavaScript running in a browser, on a page that is not served from the same address as the API. Calls from servers and scripts are not concerned.
 
-## Before you begin
+## Prerequisites
 
 - An [API instance](/api-manager/api-instances) that is deployed and answers.
 
@@ -24,7 +24,7 @@ When the API is called from JavaScript running in a browser, on a page that is n
 5. Turn **Allow Credentials** on only if the pages send cookies or an authorization header.
 6. Deploy.
 
-## Field reference
+## Parameters
 
 | Field | What it is | Default |
 |---|---|---|
@@ -35,7 +35,7 @@ When the API is called from JavaScript running in a browser, on a page that is n
 | **Cache Duration** | How long a browser remembers these rules before asking again. | `3600s` |
 | **Allow Credentials** | Allow cookies and authorization headers in cross-origin calls. | Off |
 
-## Verify
+## Verification
 
 ```bash title="What a browser asks before calling"
 curl -i -X OPTIONS https://orders.example.com/orders \
@@ -48,7 +48,7 @@ HTTP/1.1 200 OK
 access-control-allow-origin: https://app.example.com
 ```
 
-## Good to know
+## Behavior and limits
 
 - **Allow Credentials** requires named origins: it does not work with `*`.
 - CORS is not a protection: it tells browsers what is allowed. Combine it with an authentication rule.

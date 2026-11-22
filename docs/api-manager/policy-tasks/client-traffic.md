@@ -1,15 +1,15 @@
 ---
-title: Control How Clients Connect
+title: Client Traffic Policy
 sidebar_position: 13
 ---
 
 Cap the connections a gateway accepts, set how long clients may take, and choose the TLS versions they may use.
 
-## When to use it
+## Use cases
 
 To protect a gateway from too many connections, or to require a minimum TLS version.
 
-## Before you begin
+## Prerequisites
 
 - A [gateway](/api-manager/gateway).
 
@@ -22,7 +22,7 @@ To protect a gateway from too many connections, or to require a minimum TLS vers
 3. Fill the limits you need: connections, timeouts, TLS versions.
 4. Deploy.
 
-## Field reference
+## Parameters
 
 | Field | What it is | Default |
 |---|---|---|
@@ -35,13 +35,13 @@ To protect a gateway from too many connections, or to require a minimum TLS vers
 | **TLS Cipher Suites** | For TLS 1.0 to 1.2 only. Empty for the defaults of the gateway. | — |
 | **ALPN Protocols** | `h2`, `http/1.1` or `http/1.0`. Empty for the defaults of the gateway. | — |
 
-## Verify
+## Verification
 
 ```bash title="Check the TLS version a client is refused"
 curl -i --tlsv1.1 --tls-max 1.1 https://orders.example.com/orders
 ```
 
-## Good to know
+## Behavior and limits
 
 - A client traffic policy applies to the whole gateway, not to one API.
 - Leave cipher suites, curves and signature algorithms empty unless a security requirement names them.

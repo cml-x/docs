@@ -1,15 +1,15 @@
 ---
-title: Require a User Name and a Password
+title: HTTP Basic Authentication
 sidebar_position: 2
 ---
 
 Ask every caller for a user name and a password. A browser shows its own sign-in prompt.
 
-## When to use it
+## Use cases
 
 For an internal tool or a test environment. The password travels with every request: for a public API, use [tokens](/auth/protect-api-with-jwt).
 
-## Before you begin
+## Prerequisites
 
 - An [API instance](/api-manager/api-instances) that is deployed and answers.
 - A list of users: a stored configuration of the kind [Basic Auth Users](/config-sources/templates#basic-auth-users). It can be created from the rule.
@@ -24,14 +24,14 @@ For an internal tool or a test environment. The password travels with every requ
 4. Optionally fill **Forward Username Header** to pass the verified user name to your service.
 5. Deploy.
 
-## Field reference
+## Parameters
 
 | Field | What it is | Default |
 |---|---|---|
 | **Users** | The stored list of users and their passwords. | — |
 | **Forward Username Header** | Header in which the verified user name is passed to your service, such as `x-username`. | — |
 
-## Verify
+## Verification
 
 ```bash title="With a user name and a password"
 curl -i -u alice:<password> https://orders.example.com/orders
@@ -41,7 +41,7 @@ curl -i -u alice:<password> https://orders.example.com/orders
 HTTP/1.1 200 OK
 ```
 
-## Good to know
+## Behavior and limits
 
 - Passwords are kept as fingerprints: they cannot be recovered, only replaced.
 - Publish the API on an HTTPS access point: over HTTP the password would travel in clear.

@@ -8,7 +8,7 @@ An **Environment** (e.g. "Production", "Staging") is a named, described scope bo
 
 ![Environment and Targets](/img/infra/env-targets.svg)
 
-## The services of an environment
+## Environment services
 
 {/* screenshot: env-services */}
 
@@ -33,7 +33,7 @@ A change to a service does nothing until it is applied.
 
 While a deployment is in progress, the page follows it and shows when it has settled.
 
-## What else uses an environment
+## Resources scoped to an environment
 
 - [Integrations](/runtime/integrations) run in an environment.
 - [Gateways](/api-manager/gateway), [API instances](/api-manager/api-instances) and

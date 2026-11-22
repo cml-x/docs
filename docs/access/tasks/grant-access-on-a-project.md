@@ -1,11 +1,11 @@
 ---
-title: Give a User Access to a Project
+title: Grant Roles on a Project
 sidebar_position: 2
 ---
 
 Give a user one or several roles on a project. Without this, a user sees nothing of it.
 
-## Before you begin
+## Prerequisites
 
 - The user exists.
 - The roles exist — see [Create and manage roles](/access/create-and-manage-roles).
@@ -19,7 +19,7 @@ Give a user one or several roles on a project. Without this, a user sees nothing
 3. Select at least one role.
 4. Save.
 
-## Good to know
+## Behavior and limits
 
 - An authorization can be deactivated without being deleted: the user loses the access, and gets it back when it is reactivated.
 - Give the smallest role that lets the person do their work, and restrict it to the environments they work in.

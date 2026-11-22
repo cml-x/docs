@@ -1,15 +1,15 @@
 ---
-title: Create a Connected App
+title: Create a Connected App (Service Account)
 sidebar_position: 4
 ---
 
 Create an identity for a program — a script, a pipeline, another system — that calls the platform without a person signing in.
 
-## When to use it
+## Use cases
 
 For automation that manages the platform itself. For applications that call **your APIs**, register a client on an [auth gateway](/auth/client-lists) instead.
 
-## Before you begin
+## Prerequisites
 
 - The right to manage connected apps.
 
@@ -22,14 +22,14 @@ For automation that manages the platform itself. For applications that call **yo
 3. Create, then create its client secret and **copy it**: it is shown once.
 4. Give the app access, as for a user.
 
-## Field reference
+## Parameters
 
 | Field | What it is | Default |
 |---|---|---|
 | **Display Name** | What the app is, for the people reading the list. | — |
 | **Description** | What it is used for. | — |
 
-## Good to know
+## Behavior and limits
 
 - A connected app has no access until it is given some.
 - Removing its client secret, or deactivating the app, stops it at once.

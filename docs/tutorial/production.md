@@ -1,16 +1,16 @@
 ---
-title: 8. Ready for Production
-sidebar_position: 9
+title: "11. Production Readiness Checklist"
+sidebar_position: 12
 ---
 
 The example works. Before it takes real traffic, settle the points below. Each is a decision more
 than a task: the right answer depends on your context.
 
-## The source
+## Source and versioning
 
 | Question | Recommendation |
 |---|---|
-| Where is the route? | In a repository, not inline — [step 5](/tutorial/from-git) |
+| Where is the route? | In a repository, not inline — [step 7](/tutorial/from-git) |
 | What is deployed in production? | A **release**, never a branch |
 | Is the same thing tested and released? | Yes when the same release is deployed to each environment in turn |
 
@@ -23,7 +23,7 @@ than a task: the right answer depends on your context.
 - Certificates and keys are stored configurations too: they are replaced without touching the
   integration.
 
-## Sizing and availability
+## Replicas, resources and disruption budget
 
 | Setting | Development | Production |
 |---|---|---|
@@ -34,12 +34,12 @@ than a task: the right answer depends on your context.
 
 On the gateway, **Autoscaling** adds instances when traffic rises; keep at least two.
 
-## The API
+## Gateway and API policies
 
 | Question | Recommendation |
 |---|---|
 | Is it served over HTTPS only? | Publish on an HTTPS access point; do not keep an HTTP one for the same API |
-| Who can call it? | Tokens, with the audience check on — [step 7](/tutorial/secure) |
+| Who can call it? | Tokens, with the audience check on — [step 9](/tutorial/secure) |
 | What if a client goes wild? | A **rate limit** |
 | What if the integration is slow? | A **timeout**, shorter than the caller's own |
 | What if it fails briefly? | A **retry**, only for calls that can safely be repeated |
@@ -49,7 +49,7 @@ A retry sends the same request again. That is safe for a read, and can create a 
 write unless the integration recognises a request it has already handled.
 :::
 
-## The environment
+## Environment services
 
 - The [Camel Integration Service](/infra/camel-integration-service) of the production environment
   points at a registry and Maven settings of its own.
@@ -58,7 +58,7 @@ write unless the integration recognises a request it has already handled.
 - Its [network rules](/infra/network) say what the environment may call. Systems in your
   datacenter are reached through a [private link](/infra/private-links).
 
-## Who can change what
+## RBAC
 
 Calling the API and managing it are separate.
 
@@ -71,7 +71,7 @@ Calling the API and managing it are separate.
 Permissions can be restricted to some environments — see
 [RBAC principles](/access/rbac-principles).
 
-## Watching it run
+## Dashboards, alerts and logs
 
 - A dashboard for the API: requests, errors, response time.
 - An alert when errors or response time rise.
@@ -91,7 +91,7 @@ See [Monitoring](/monitoring/getting-start).
 - [ ] Logs exported, alerts in place.
 - [ ] Production permissions restricted to those who need them.
 
-## Where to go next
+## Related pages
 
 | You want to | Read |
 |---|---|

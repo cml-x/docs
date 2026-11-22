@@ -1,15 +1,15 @@
 ---
-title: Verify Tokens (JWT)
+title: JWT Authentication
 sidebar_position: 3
 ---
 
 Require a valid access token on every request, issued by an auth gateway of the environment or by your own identity provider.
 
-## When to use it
+## Use cases
 
 For APIs called by applications. A token expires and names the API it is for, which a key does not.
 
-## Before you begin
+## Prerequisites
 
 - An [API instance](/api-manager/api-instances) that is deployed and answers.
 - An [auth gateway](/auth/auth-gateway) with a [list of clients](/auth/client-lists), or an identity provider that issues JWT tokens.
@@ -25,7 +25,7 @@ For APIs called by applications. A token expires and names the API it is for, wh
 5. Add **Other audiences** only if tokens meant for something else must also be accepted.
 6. Deploy.
 
-## Field reference
+## Parameters
 
 | Field | What it is | Default |
 |---|---|---|
@@ -38,7 +38,7 @@ For APIs called by applications. A token expires and names the API it is for, wh
 | **Audience of this API** | The audience ID of the API. A token is checked against it first. | Filled in |
 | **Other audiences** | Other values a token may be intended for. | — |
 
-## Verify
+## Verification
 
 ```bash title="Obtain a token, then call the API"
 TOKEN=$(curl -s -u "<client-id>:<secret>" https://auth.example.com/api/oidc/token \
@@ -51,7 +51,7 @@ curl -i -H "Authorization: Bearer $TOKEN" https://orders.example.com/orders
 HTTP/1.1 200 OK
 ```
 
-## Good to know
+## Behavior and limits
 
 - With **Check the audience** off, any valid token of the issuer is accepted, whatever API it was meant for.
 - A change in a list of clients takes a couple of minutes to reach the auth gateway; a token obtained before the change does not carry it.

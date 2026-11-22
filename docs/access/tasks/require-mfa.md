@@ -1,11 +1,11 @@
 ---
-title: Require Multi-Factor Authentication
+title: Enforce Multi-Factor Authentication
 sidebar_position: 6
 ---
 
 Ask everyone for a second proof when they sign in, beyond their password.
 
-## Before you begin
+## Prerequisites
 
 - The right to change the security policies of the organization.
 
@@ -18,7 +18,7 @@ Ask everyone for a second proof when they sign in, beyond their password.
 3. Choose whether it applies to **local users only**, leaving those who sign in through an identity provider to that provider.
 4. Choose the methods offered as a second factor.
 
-## Field reference
+## Parameters
 
 | Field | What it is | Default |
 |---|---|---|
@@ -26,7 +26,7 @@ Ask everyone for a second proof when they sign in, beyond their password.
 | **Local users only** | Do not ask users who sign in through an external identity provider. | — |
 | **Second factor methods** | An authenticator app, a code by email, a code by SMS, a security key. | — |
 
-## Good to know
+## Behavior and limits
 
 - Users set their second factor up at their next sign-in: warn them before turning this on.
 - A security key or the fingerprint reader of a device resists phishing; a code by SMS does not.

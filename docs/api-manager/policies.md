@@ -1,12 +1,12 @@
 ---
-title: Policies
+title: "Policies: Security, Backend Traffic, Client Traffic, Lua"
 sidebar_position: 6
 ---
 
 A **policy** changes how a [gateway](/api-manager/gateway) treats the traffic of an API: who may
 call it, how many calls it takes, what happens when the service behind it is slow.
 
-## Where a policy applies
+## Policy targets: gateway or API instance
 
 {/* screenshot: api-policies-overview */}
 
@@ -25,14 +25,14 @@ Policies come in four families. A policy holds one or several **rules** of its f
 
 | Family | What its rules decide |
 |---|---|
-| [Security](#security-rules) | Who is let through |
-| [Backend traffic](#backend-traffic-rules) | How the gateway talks to the service behind the API |
-| [Client traffic](#client-traffic) | How callers connect to the gateway |
-| [Custom](#custom-logic) | Logic of your own, as a script |
+| [Security](#security-policy-rules) | Who is let through |
+| [Backend traffic](#backend-traffic-policy) | How the gateway talks to the service behind the API |
+| [Client traffic](#client-traffic-policy) | How callers connect to the gateway |
+| [Custom](#lua-filter) | Logic of your own, as a script |
 
-## Security rules
+## Security policy rules
 
-### Token verification (JWT)
+### JWT authentication
 
 Requires a valid access token on every request. Nobody is redirected: the caller — an application
 or another service — sends the token it obtained, and a request without a valid one is refused.
@@ -48,13 +48,13 @@ or another service — sends the token it obtained, and a request without a vali
 
 The complete walk-through is in [Protect an API with JWT](/auth/protect-api-with-jwt).
 
-### Sign-in with an identity provider (OIDC)
+### OIDC authentication
 
 Sends visitors to the sign-in page of your identity provider before they reach the API, then
 keeps them signed in with a session cookie. Meant for people using a browser. See
 [Sign In with an Identity Provider](/auth/configure-oidc).
 
-### API keys
+### API key authentication
 
 Requires a key on every request.
 
@@ -65,7 +65,7 @@ Requires a key on every request.
 | **Forward Client ID Header** | Pass the name of the client that called to your service, in this header. |
 | **Sanitize Key** | Remove the key from the request before it reaches your service. |
 
-### User name and password (Basic)
+### HTTP Basic authentication
 
 Asks for a user name and a password; a browser shows its sign-in prompt.
 
@@ -74,7 +74,7 @@ Asks for a user name and a password; a browser shows its sign-in prompt.
 | **Users** | A stored list of users — a configuration of the kind [Basic Auth Users](/config-sources/templates#basic-auth-users). |
 | **Forward Username Header** | Pass the verified user name to your service, in this header. |
 
-### Cross-origin calls (CORS)
+### CORS
 
 Lets pages of other websites call the API.
 
@@ -87,7 +87,7 @@ Lets pages of other websites call the API.
 | **Cache Duration** | `3600s` |
 | **Allow Credentials** | Off. Requires named origins, not `*`. |
 
-### Allow or block addresses
+### IP allowlist and denylist
 
 Lets through, or blocks, callers by where they come from.
 
@@ -96,7 +96,7 @@ Lets through, or blocks, callers by where they come from.
 | **Default Action** | What happens to a caller no rule matches. **Deny** by default: only the addresses you allow get through. |
 | **Rules** | In order, each with an action — allow or deny — and address ranges. The first rule that matches decides. |
 
-### External authentication
+### External authorization
 
 Asks a service of yours whether each request may pass.
 
@@ -106,7 +106,7 @@ Asks a service of yours whether each request may pass.
 | **Authentication Service** | The service that decides — a service of the platform, or an [upstream](/api-manager/upstreams). |
 | **Fail Open** | Let requests through when that service does not answer. Off by default: they are refused. |
 
-## Backend traffic rules
+## Backend traffic policy
 
 | Rule | What it does | Defaults |
 |---|---|---|
@@ -116,7 +116,7 @@ Asks a service of yours whether each request may pass.
 | **Circuit breaker** | Stops sending to a backend that is overwhelmed, by capping connections, waiting requests, parallel requests and parallel retries. | 1024 each |
 | **Load balancing** | Chooses how requests are spread across the instances of the backend — round robin, least requests, random or consistent hash — and whether a client stays on the same instance. | Round robin |
 
-## Client traffic
+## Client traffic policy
 
 A client traffic policy targets a gateway. It sets:
 
@@ -126,7 +126,7 @@ A client traffic policy targets a gateway. It sets:
 - the TLS versions a client may use (1.2 to 1.3 by default) and, when needed, the cipher suites,
   curves, signature algorithms and ALPN protocols.
 
-## Custom logic
+## Lua filter
 
 A custom policy runs a **Lua script** on each request and each response. The script can read and
 change headers, inspect the content, or call another service.
@@ -134,7 +134,7 @@ change headers, inspect the content, or call another service.
 The script is written in the policy, or reused from a stored configuration of the kind
 [Lua Script](/config-sources/templates#lua-script) shared between several policies.
 
-## Stored configurations used by policies
+## Configurations referenced by policies
 
 Several rules read a list or a credential you store once in
 [Secret Manager](/config-sources/templates). In each of those fields you can choose an

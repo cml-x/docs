@@ -15,7 +15,7 @@ Camel X covers the two usual situations:
 Simpler means exist too — API keys, user name and password — described with the other
 [policies](/api-manager/policies).
 
-## Tokens for applications, in four steps
+## Client credentials flow in four steps
 
 1. **Create an auth gateway.** It is the token service of the environment.
 2. **Register your applications as clients**, in a list of clients, and attach the list to the
@@ -29,7 +29,7 @@ Simpler means exist too — API keys, user name and password — described with 
 The application never talks to your service without going through the gateway, and your service
 never has to check a token itself.
 
-## Where things are
+## Console locations
 
 - **Auth gateways** are created in **API Manager**, under **Auth Gateways**.
 - **Lists of clients** are stored configurations: they live in **Secret Manager**, and

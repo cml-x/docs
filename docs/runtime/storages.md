@@ -1,12 +1,12 @@
 ---
-title: Storages
+title: Storages (Persistent Volumes)
 sidebar_position: 4
 ---
 
 **Storage** attaches persistent volumes (PVCs) to a [Capsule](/runtime/capsule), for stateful
 workloads that need data to survive restarts and redeployments.
 
-## What you can do
+## Operations
 
 - Attach one or more persistent volumes to a Capsule.
 - Volumes are scoped to the Capsule's project and environment, the same as every other component.

@@ -1,29 +1,60 @@
 ---
-title: Create Your First Integration
+title: "Walkthrough: Repository to Deployed Release"
 sidebar_position: 4
 ---
 
-Step-by-step version of what's covered briefly in [Getting Started](/projects/getting-start).
+One project followed from an empty repository to a release running in an environment.
 
 ## Prerequisites
 
-A Git provider (GitHub, GitLab or Bitbucket) must be configured — Project Manager can't list or
-create repositories without one.
+- A business unit in which you may create repositories.
+- An [environment](/infra/environments) whose
+  [Camel Integration Service](/infra/camel-integration-service) is activated.
 
-## Steps
+## 1. Create the repository
 
-1. In Project Manager, create a new project and choose type **Integration**.
-2. Choose how to start:
-   - **From a template** — browse the gallery, grouped by topic (REST, database, messaging,
-     cloud, files, scheduling…).
-   - **From Apache Camel Main sources.**
-   - **From a blank canvas.**
-3. Confirm creation. Project Manager creates the backing Git repository and opens the dedicated
-   **IT Designer** — the visual canvas where the Camel routes themselves are built and edited.
-4. Build your routes in IT Designer, then save your work back to the repository.
+In **Integration Center**, go to **Integrations** and create a repository of type **Routes**,
+named `orders`, **from scratch**. The Web IDE opens on it.
 
-## Result
+## 2. Commit a route
 
-You have a Git repository holding a working Camel integration. It isn't running anywhere yet —
-that's [Create a Release](/projects/create-release), followed by
-[deploying it in Runtime Manager](/runtime/getting-start).
+Add `routes/orders.camel.yaml` and commit:
+
+```yaml title="routes/orders.camel.yaml"
+- route:
+    id: orders
+    from:
+      uri: platform-http:/orders
+      parameters:
+        httpMethodRestrict: GET
+      steps:
+        - setBody:
+            constant: '{"service":"orders","status":"ok"}'
+```
+
+The commit appears under **Actions**, **Changes**.
+
+## 3. Build the branch in a development environment
+
+In **Runtime Manager**, create an integration `orders-api` with **Source mode** set to **Git**,
+choose the repository and its default branch, bind it to the development environment and
+**Apply changes**. Each new deployment builds the head of the branch.
+
+## 4. Tag a release
+
+On the repository page, create a release with **Version** `1.0.0`. The tag is `v1.0.0`.
+
+## 5. Deploy the release
+
+Bind `orders-api` to the test or production environment and point its Git source at the release
+`1.0.0` instead of the branch. **Apply changes** builds exactly that tag.
+
+## 6. Ship a change
+
+Commit the change, verify it on the branch build, create release `1.1.0`, then move the
+environments to it one after the other. Each deployment is a revision that can be rolled back.
+
+## Related pages
+
+- [Build from a Git repository](/tutorial/from-git) — branch builds versus release builds
+- [Releases and semantic versioning](/projects/create-release)

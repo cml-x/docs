@@ -1,11 +1,11 @@
 ---
-title: Manage a Team
+title: Manage Team Members and Permissions
 sidebar_position: 8
 ---
 
 Gather people into a team and give the team access to repositories, instead of granting access one person at a time.
 
-## Before you begin
+## Prerequisites
 
 - The right to manage teams in the business unit.
 
@@ -17,7 +17,7 @@ Gather people into a team and give the team access to repositories, instead of g
 2. Add a member: search the user and select them.
 3. Set the **Permission Level** of the team on its repositories.
 
-## Good to know
+## Behavior and limits
 
 - A team can cover all the repositories of the business unit, or a chosen few.
 - Access to what runs — environments, gateways, integrations — is granted in [Access Manager](/access/rbac-principles), not here.

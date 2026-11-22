@@ -5,7 +5,7 @@ sidebar_position: 2
 
 Make something you built findable and reusable by others in the business unit.
 
-## Before you begin
+## Prerequisites
 
 - A repository that holds what you want to share, or a file to publish.
 
@@ -18,7 +18,7 @@ Make something you built findable and reusable by others in the business unit.
 3. Give its name and description, and provide its content.
 4. Add topics so that it can be found.
 
-## Good to know
+## Behavior and limits
 
 - A repository marked as a template and a release of a repository are published for you: they need no extra step.
 - A name cannot start with a hyphen or an underscore.

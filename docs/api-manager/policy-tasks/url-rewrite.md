@@ -1,15 +1,15 @@
 ---
-title: Rewrite the Path or the Host Name
+title: URL Rewrite
 sidebar_position: 16
 ---
 
 Change the path or the host name of a request before it is forwarded, so that the address callers use need not be the one your service expects.
 
-## When to use it
+## Use cases
 
 When an API is published under a path the service does not know, or when the service expects a particular host name.
 
-## Before you begin
+## Prerequisites
 
 - An [API instance](/api-manager/api-instances) that is deployed and answers.
 
@@ -23,7 +23,7 @@ When an API is published under a path the service does not know, or when the ser
 4. Optionally give a **New Hostname**.
 5. Deploy.
 
-## Field reference
+## Parameters
 
 | Field | What it is | Default |
 |---|---|---|
@@ -31,7 +31,7 @@ When an API is published under a path the service does not know, or when the ser
 | **Path Rewrite Mode** | **Replace full path**, or **Replace matched prefix only**. | Replace full path |
 | **New Hostname** | The host name the request is forwarded with, such as `backend.internal`. | — |
 
-## Good to know
+## Behavior and limits
 
 - An API published on a path of the gateway already has its prefix removed by default: this setting is for anything beyond that.
 

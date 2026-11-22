@@ -1,15 +1,15 @@
 ---
-title: Limit the Load on a Backend
+title: Circuit Breaker
 sidebar_position: 10
 ---
 
 Stop sending traffic to a service that is overwhelmed, by capping what the gateway sends it at the same time.
 
-## When to use it
+## Use cases
 
 When a service slows down under load and makes things worse by receiving more.
 
-## Before you begin
+## Prerequisites
 
 - An [API instance](/api-manager/api-instances) that is deployed and answers.
 
@@ -22,7 +22,7 @@ When a service slows down under load and makes things worse by receiving more.
 3. Lower the caps that fit your service: connections, waiting requests, parallel requests, parallel retries.
 4. Deploy.
 
-## Field reference
+## Parameters
 
 | Field | What it is | Default |
 |---|---|---|
@@ -31,7 +31,7 @@ When a service slows down under load and makes things worse by receiving more.
 | **Max Parallel Requests** | The most requests being handled at the same time. | 1024 |
 | **Max Parallel Retries** | The most retries running at the same time. | 1024 |
 
-## Good to know
+## Behavior and limits
 
 - A request beyond a cap is refused at once with `503`, instead of waiting.
 - The defaults are high: measure what your service handles before lowering them.

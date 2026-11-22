@@ -1,15 +1,15 @@
 ---
-title: Retry Failed Requests
+title: Retries
 sidebar_position: 9
 ---
 
 Send a request again when the service behind the API fails, so that a brief failure is not seen by the caller.
 
-## When to use it
+## Use cases
 
 For requests that are safe to repeat: reads, and writes that your service recognises when it receives them twice.
 
-## Before you begin
+## Prerequisites
 
 - An [API instance](/api-manager/api-instances) that is deployed and answers.
 
@@ -24,7 +24,7 @@ For requests that are safe to repeat: reads, and writes that your service recogn
 5. Adjust **Base Interval** and **Max Interval**, the wait between attempts.
 6. Deploy.
 
-## Field reference
+## Parameters
 
 | Field | What it is | Default |
 |---|---|---|
@@ -33,7 +33,7 @@ For requests that are safe to repeat: reads, and writes that your service recogn
 | **Base Interval** | The wait before the first retry. It grows with each attempt. | `100ms` |
 | **Max Interval** | The longest wait between two attempts. | `10s` |
 
-## Good to know
+## Behavior and limits
 
 - A retry sends the same request again: on a write, it can create a duplicate unless your service recognises a request it already handled.
 - Retries add load to a service that is already failing. Combine them with a [circuit breaker](/api-manager/policy-tasks/circuit-breaker).

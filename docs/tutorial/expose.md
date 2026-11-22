@@ -1,12 +1,12 @@
 ---
-title: 6. Expose It as an API
-sidebar_position: 7
+title: "8. Expose the Integration: Gateway, Listener, HTTP Route"
+sidebar_position: 9
 ---
 
 The orders service answers inside the environment. To be called from outside, it is **published
 on a gateway**. The integration itself does not change, and is never reachable directly.
 
-## The path of a request
+## Request path: client, gateway, route, service
 
 ![The path of a request, from the caller to the integration](/img/tutorial/exposure.drawio.png)
 
@@ -16,7 +16,7 @@ on a gateway**. The integration itself does not change, and is never reachable d
 | **2** | The request reaches the load balancer of the gateway. | The exposure mode of the gateway |
 | **3** | It enters by an **access point**. On HTTPS, encryption ends here, with your certificate. | The access points of the gateway |
 | **4** | The gateway finds the **API instance** whose host name and path match. | The API instance |
-| **5** | The **policies** of the API decide whether the request goes on. | [Step 7](/tutorial/secure) |
+| **5** | The **policies** of the API decide whether the request goes on. | [Step 9](/tutorial/secure) |
 | **6** | The request is sent to the **service** of the integration, inside the environment. | The backend of the API instance |
 | **7** | The integration answers, and the answer follows the same path back. | — |
 
@@ -25,13 +25,13 @@ Two things follow from this picture:
 - **encryption and access control happen at the gateway**, not in your route;
 - the integration only ever receives requests that were let through.
 
-## 1. Store the certificate
+## 1. TLS certificate
 
 HTTPS needs a certificate for `orders.example.com`. In **Secret Manager**, create a configuration
 of the kind **TLS Certificate** with the certificate and its private key. You can also create it
 from the gateway, in the next step.
 
-## 2. Create the gateway
+## 2. Gateway with an HTTPS listener
 
 {/* screenshot: tutorial-create-gateway */}
 
@@ -51,7 +51,7 @@ Open **API Manager**, go to **API Gateways**, and create `public-gateway`.
 Deploy the gateway. One gateway serves many APIs: you create it once per environment and
 exposure, not once per API.
 
-## 3. Publish the integration
+## 3. API instance routed to the integration service
 
 {/* screenshot: tutorial-create-api-instance */}
 
@@ -72,7 +72,7 @@ listening on `/orders`. Turn **URL rewrite** off if your route expects the prefi
 
 Deploy the API instance.
 
-## 4. Call it
+## 4. Test with curl
 
 ```bash title="From anywhere"
 curl https://orders.example.com/orders
@@ -85,15 +85,15 @@ curl https://orders.example.com/orders
 The API is public and **open to everyone**. That is the subject of the
 [next step](/tutorial/secure).
 
-## Variations
+## Other topologies
 
-### The service is not an integration
+### External backend (upstream)
 
 An API instance can route to something outside the environment — a partner's service, an existing
 application. Declare it as an [upstream](/api-manager/upstreams), then choose the upstream as the
 backend.
 
-### Not HTTP
+### TLS passthrough and TCP routes
 
 The kind of the access point decides the kind of route:
 
@@ -103,12 +103,12 @@ The kind of the access point decides the kind of route:
 | **TLS** | Encrypted traffic that the service must decrypt itself |
 | **TCP** | Any other protocol over TCP |
 
-### Reached from inside the platform only
+### Internal-only listener
 
 Give the access point the **internal** domain offered in its list: the address of the gateway
 inside the platform. Nothing is then published in DNS.
 
-## Shaping the traffic
+## Traffic policies
 
 Once published, the API can be adjusted without touching the integration:
 

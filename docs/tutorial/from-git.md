@@ -1,6 +1,6 @@
 ---
-title: 5. Move the Source to Git
-sidebar_position: 6
+title: "7. Build From a Git Repository"
+sidebar_position: 8
 ---
 
 Inline mode is the fastest way to start. As soon as an integration matters, its source belongs in
@@ -8,7 +8,7 @@ a repository: it is reviewed, versioned and released like any other code.
 
 This step is a detour: the integration does the same thing, built from Git.
 
-## Inline or Git?
+## Inline source versus Git source
 
 | | Inline | Git |
 |---|---|---|
@@ -20,7 +20,7 @@ This step is a detour: the integration does the same thing, built from Git.
 
 Nothing else changes: settings, deployment, exposure and security work the same in both modes.
 
-## Put the route in a repository
+## Repository layout
 
 In **Integration Fabric**, create a repository for the integration — or use one you already have
 — and add the route to it:
@@ -34,7 +34,7 @@ orders-api/
 Commit it. When the route is ready to be deployed, create a **release**: a named, fixed version
 of the repository.
 
-## Build the integration from it
+## Git source mode: repository, branch, release
 
 {/* screenshot: tutorial-git-project */}
 
@@ -50,7 +50,7 @@ For a private repository, the integration needs credentials: a configuration of 
 
 Deploy. The build now starts from the repository instead of the text typed in the console.
 
-## Branch or release?
+## Branch builds versus release builds
 
 | Build from | You get | Use it in |
 |---|---|---|
@@ -59,7 +59,7 @@ Deploy. The build now starts from the repository instead of the text typed in th
 
 Deploying a release means that what runs in production is exactly what was tested.
 
-## Keep the settings
+## Settings preserved across source modes
 
 The properties, variables, files and certificates of [step 3](/tutorial/configure) and
 [step 4](/tutorial/trust) are settings of the integration, not part of its source. They stay as
@@ -68,4 +68,4 @@ they are when you change the source mode, and they keep differing by environment
 That separation is the point: **the repository holds what the integration does, the settings hold
 where it runs.**
 
-Next: [expose it as an API](/tutorial/expose).
+Next: [expose the integration](/tutorial/expose).

@@ -5,11 +5,11 @@ sidebar_position: 4
 
 Publish a named, fixed version of a repository. A release is what test and production environments deploy.
 
-## When to use it
+## Use cases
 
 Each time a state of the project is ready to leave development.
 
-## Before you begin
+## Prerequisites
 
 - A repository whose changes are committed.
 
@@ -22,14 +22,14 @@ Each time a state of the project is ready to leave development.
 3. Give the version and describe what changed.
 4. Create the release.
 
-## Field reference
+## Parameters
 
 | Field | What it is | Default |
 |---|---|---|
 | **Version** | The name of the release, such as `1.4.0`. | — |
 | **Description** | What changed since the previous release. | — |
 
-## Good to know
+## Behavior and limits
 
 - A release never changes: deploying it again gives exactly the same source.
 - Number releases so that the kind of change is readable: a fix, a new capability, a breaking change.

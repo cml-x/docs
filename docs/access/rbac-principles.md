@@ -1,5 +1,5 @@
 ---
-title: RBAC Principles
+title: RBAC Model
 sidebar_position: 3
 ---
 
@@ -7,7 +7,7 @@ Access Manager's RBAC (role-based access control) answers one question: **what i
 allowed to do, and where?** This page explains the model behind it. To put it into practice, follow
 the [Create and Manage Roles](/access/create-and-manage-roles) tutorial.
 
-## The big picture
+## Authorization model
 
 ```
 User ──granted──▶ Role ──carries──▶ Permissions ──apply to──▶ Business unit  (everywhere)
@@ -80,7 +80,7 @@ In the role editor these are presented as plain-language choices — **"Create a
 obviously see them. That is why you will not find a standalone "View" checkbox for most resources.
 :::
 
-## Scope: everywhere or only in some environments
+## Role scope: all environments or selected ones
 
 Three categories — **API Manager, Applications Manager and Environment Services** — hold
 resources that live *inside* an environment (gateways, integration groups, integrations, the
@@ -116,7 +116,7 @@ Rules worth knowing:
 4. **Inheritance.** An environment automatically inherits the business unit's permissions. A
    restriction narrows a role to specific environments *instead of* granting it everywhere.
 
-### Which action is checked where
+### Permission checked per action
 
 | Operation | Permission required | Scope checked |
 |---|---|---|
@@ -128,7 +128,7 @@ Rules worth knowing:
 | Remove a resource from an environment | Delete | That environment |
 | Delete a resource entirely | Delete | Business unit |
 
-## Enforcement and what users see
+## Enforcement in the API and the UI
 
 Permissions are enforced **by the backend services**, not just hidden in the interface — a user
 cannot bypass a missing permission by calling an API directly. When a check fails:
@@ -144,7 +144,7 @@ A failed check never fails open: if the authorization service cannot be reached,
 refused rather than allowed.
 :::
 
-## Where things are managed
+## Management screens
 
 | Task | Where |
 |---|---|

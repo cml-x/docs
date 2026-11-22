@@ -1,11 +1,11 @@
 ---
-title: Give an Integration Storage
+title: Volumes and Persistent Storage
 sidebar_position: 12
 ---
 
 Mount storage that survives restarts, or a temporary directory, inside an integration.
 
-## Before you begin
+## Prerequisites
 
 - An [integration](/runtime/integrations), created and bound to an environment.
 - For storage that survives restarts, a [storage](/runtime/storages) of the environment.
@@ -20,14 +20,14 @@ Mount storage that survives restarts, or a temporary directory, inside an integr
 4. In **EmptyDir Volumes**, add a temporary directory: a name, a place, and optionally a size.
 5. Choose **Apply changes**.
 
-## Field reference
+## Parameters
 
 | Field | What it is | Default |
 |---|---|---|
 | **Persistent Volumes** | Storage that keeps its content across restarts, each mounted at a place. | — |
 | **EmptyDir Volumes** | Temporary directories, emptied when the instance is replaced. | — |
 
-## Good to know
+## Behavior and limits
 
 - Applying this setting restarts the integration; it does not rebuild its image.
 - A temporary directory is private to each instance and lost with it.

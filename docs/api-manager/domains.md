@@ -6,7 +6,7 @@ sidebar_position: 4
 Attach a custom **Domain** to a project to serve your APIs from your own hostname instead of a
 generated one.
 
-## What happens when you add a domain
+## DNS zone and records
 
 - A **DNS hosted zone** is attached to the project.
 - **TLS certificates are issued automatically** (Let's Encrypt, via a Route53 cluster issuer) — no

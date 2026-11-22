@@ -5,11 +5,11 @@ sidebar_position: 1
 
 Create the Git repository that holds an integration project: its routes, its history and its releases.
 
-## When to use it
+## Use cases
 
 For anything that will be deployed beyond a first try. An integration typed inline in the console has no repository; see [Move the source to Git](/tutorial/from-git).
 
-## Before you begin
+## Prerequisites
 
 - A business unit in which you may create repositories.
 
@@ -22,7 +22,7 @@ For anything that will be deployed beyond a first try. An integration typed inli
 3. Choose **Start from scratch**, or **Create routes from template** and pick a template — see [Start from a template](/projects/tasks/create-from-a-template).
 4. In **Repo Configuration**, give the name and an optional description, then create.
 
-## Field reference
+## Parameters
 
 | Field | What it is | Default |
 |---|---|---|
@@ -30,7 +30,7 @@ For anything that will be deployed beyond a first try. An integration typed inli
 | **Name** | Lowercase letters, numbers, dashes and underscores. It starts with a letter or a number. | — |
 | **Description** | What the project is for. Up to 100 characters. | — |
 
-## Good to know
+## Behavior and limits
 
 - The repository is an ordinary Git repository: it can be cloned and worked on with the tools your team already uses.
 - The name cannot be changed casually afterwards: integrations and releases refer to it.

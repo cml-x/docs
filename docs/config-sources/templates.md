@@ -1,5 +1,5 @@
 ---
-title: Templates
+title: Configuration Templates
 sidebar_position: 4
 ---
 
@@ -9,7 +9,7 @@ then appears.
 
 This page describes every template, what to put in it, and where it is used.
 
-## At a glance
+## Template summary
 
 | Template | Holds | Used by |
 |---|---|---|
@@ -33,7 +33,7 @@ This page describes every template, what to put in it, and where it is used.
 | [Logging Splunk HEC Token](#logging-splunk-hec-token) | A Splunk token | Splunk log destination |
 | [Private Link Shared Key](#private-link-shared-key) | A key shared with a remote network | IPsec private links |
 
-## How a configuration is used
+## Lifecycle of a configuration
 
 {/* screenshot: secret-create-configuration */}
 
@@ -147,14 +147,14 @@ Used for:
 A list of keys, **one per client**. The name of the client is what your service receives when the
 policy forwards the caller's identity. A key cannot be read back once saved.
 
-Chosen in the [API key rule](/api-manager/policies#api-keys) of a security policy.
+Chosen in the [API key rule](/api-manager/policies#api-key-authentication) of a security policy.
 
 ### Basic Auth Users
 
 A list of users with their passwords. Passwords are kept as fingerprints: they cannot be
 recovered, only replaced.
 
-Chosen in the [user name and password rule](/api-manager/policies#user-name-and-password-basic)
+Chosen in the [user name and password rule](/api-manager/policies#http-basic-authentication)
 of a security policy.
 
 ### Client Credentials
@@ -167,7 +167,7 @@ Chosen in a [sign-in policy](/auth/configure-oidc).
 ### Lua Script
 
 A script stored once and used in any number of
-[custom policies](/api-manager/policies#custom-logic). It runs on each request and response.
+[custom policies](/api-manager/policies#lua-filter). It runs on each request and response.
 
 ### Auth Gateway Clients
 

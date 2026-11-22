@@ -1,6 +1,6 @@
 ---
-title: 7. Secure the API
-sidebar_position: 8
+title: "9. Secure the API: API Key, Basic Auth, JWT, External Authorization"
+sidebar_position: 10
 ---
 
 import Tabs from '@theme/Tabs';
@@ -14,7 +14,7 @@ complete. They are alternatives: choose the one that fits who calls the API.
 In every case the check happens **at the gateway**. A request that fails it never reaches the
 integration, and the route does not change.
 
-## Which protection for which caller
+## Authentication method by client type
 
 | Who calls | Protection | What the caller sends | What you manage |
 |---|---|---|---|
@@ -26,7 +26,7 @@ integration, and the route does not change.
 
 Security rules are added from the page of the API instance, in its security policy.
 
-## A. An API key
+## A. API key authentication
 
 {/* screenshot: tutorial-api-key-rule */}
 
@@ -74,7 +74,7 @@ request reaches the integration.
 **Limits** — a key does not expire and says nothing about what the caller may do. Whoever holds
 it can call the API until you remove it.
 
-## B. A user name and a password
+## B. HTTP Basic authentication
 
 1. Create a **Basic Auth Users** configuration with the users and their passwords.
 2. On the API instance, add the rule **user name and password**, and choose it.
@@ -90,7 +90,7 @@ to the integration.
 **Limits** — the password travels with every request. Suitable for an internal tool, not for a
 public API.
 
-## C. Tokens
+## C. JWT authentication (OAuth 2.0 client credentials)
 
 {/* screenshot: tutorial-jwt-rule */}
 
@@ -139,7 +139,7 @@ Each step is detailed in [Auth Gateways](/auth/auth-gateway),
 If your company already has an identity provider that issues tokens, choose **Another identity
 provider** in the rule and give its issuer and the address of its keys: no auth gateway is needed.
 
-## D. A check of your own
+## D. External authorization
 
 When the decision depends on your own rules — a customer's contract, a time of day, a partner
 directory — the gateway can ask **a service of yours** for each request.
@@ -156,7 +156,7 @@ request is refused: the API is unavailable but never open. On, the request goes 
 **Limits** — every request now waits for your service, and depends on it. Keep it fast and run
 more than one instance.
 
-## Combining protections
+## Combining rules in one security policy
 
 A security policy can hold several rules. Two combinations are common:
 
@@ -165,7 +165,7 @@ A security policy can hold several rules. Two combinations are common:
 
 Add **CORS** when the API is called by a web page served from another site.
 
-## Check what you did
+## Test matrix
 
 | Test | Expected |
 |---|---|
@@ -174,4 +174,4 @@ Add **CORS** when the API is called by a web page served from another site.
 | Call with the credentials of another API | Refused, with tokens and the audience check on |
 | Look at the logs of the integration | Only the accepted calls appear |
 
-Next: [ready for production](/tutorial/production).
+Next: [observe the integration](/tutorial/observe).

@@ -1,15 +1,15 @@
 ---
-title: Stop Waiting for a Slow Service
+title: Request Timeouts
 sidebar_position: 8
 ---
 
 Give up on a request when the service behind the API takes too long, instead of keeping the caller waiting.
 
-## When to use it
+## Use cases
 
 Always, on an API in production: without a timeout, a slow service holds connections until the caller gives up.
 
-## Before you begin
+## Prerequisites
 
 - An [API instance](/api-manager/api-instances) that is deployed and answers.
 
@@ -23,7 +23,7 @@ Always, on an API in production: without a timeout, a slow service holds connect
 4. Optionally give a **Connect Timeout** and an **Idle Timeout**.
 5. Deploy.
 
-## Field reference
+## Parameters
 
 | Field | What it is | Default |
 |---|---|---|
@@ -31,7 +31,7 @@ Always, on an API in production: without a timeout, a slow service holds connect
 | **Connect Timeout** | The longest the gateway waits to open a connection to the service. | — |
 | **Idle Timeout** | How long a connection may stay idle before it is closed. | — |
 
-## Verify
+## Verification
 
 ```bash title="A request that takes too long"
 curl -i https://orders.example.com/orders/slow
@@ -41,7 +41,7 @@ curl -i https://orders.example.com/orders/slow
 HTTP/1.1 504 Gateway Timeout
 ```
 
-## Good to know
+## Behavior and limits
 
 - Set the timeout shorter than the one of the caller, so that the gateway answers before the caller gives up.
 - A timeout does not stop the work already started in your service: make long operations asynchronous.

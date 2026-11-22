@@ -1,15 +1,15 @@
 ---
-title: Allow or Block Addresses
+title: IP Allowlist and Denylist
 sidebar_position: 6
 ---
 
 Let through, or block, callers according to the address they come from.
 
-## When to use it
+## Use cases
 
 To open an API to your partners' addresses only, or to block an address that misbehaves.
 
-## Before you begin
+## Prerequisites
 
 - An [API instance](/api-manager/api-instances) that is deployed and answers.
 
@@ -23,14 +23,14 @@ To open an API to your partners' addresses only, or to block an address that mis
 4. Add **Rules**, in order. Each has an action — allow or deny — and one or several address ranges, such as `203.0.113.0/24`.
 5. Deploy.
 
-## Field reference
+## Parameters
 
 | Field | What it is | Default |
 |---|---|---|
 | **Default Action** | What happens to a caller that no rule matches. | Deny |
 | **Rules** | In order, each with an action and address ranges. The first rule that matches decides. | — |
 
-## Verify
+## Verification
 
 ```bash title="From an address that is not allowed"
 curl -i https://orders.example.com/orders
@@ -40,7 +40,7 @@ curl -i https://orders.example.com/orders
 HTTP/1.1 403 Forbidden
 ```
 
-## Good to know
+## Behavior and limits
 
 - Rules are read in order: put the most specific first.
 - The address seen is the one the gateway receives the connection from. Behind a proxy of your own, it is the address of that proxy.

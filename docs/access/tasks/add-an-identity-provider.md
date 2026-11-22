@@ -1,11 +1,11 @@
 ---
-title: Let People Sign In With Your Identity Provider
+title: Add an OIDC or SAML Identity Provider
 sidebar_position: 5
 ---
 
 Let the people of your company sign in to the console with the accounts they already have.
 
-## Before you begin
+## Prerequisites
 
 - An administrator of your identity provider, to register the console there.
 
@@ -19,7 +19,7 @@ Let the people of your company sign in to the console with the accounts they alr
 4. Fill what the provider gave you, then add.
 5. Turn the provider on for sign-in.
 
-## Field reference
+## Parameters
 
 | Field | What it is | Default |
 |---|---|---|
@@ -29,7 +29,7 @@ Let the people of your company sign in to the console with the accounts they alr
 | **Metadata URL or XML** | For SAML: the description of the provider. | — |
 | **Scopes** | What is asked of the provider about the user. | — |
 
-## Good to know
+## Behavior and limits
 
 - The callback URL must be registered at the provider exactly as shown.
 - A provider can be deactivated without being deleted.

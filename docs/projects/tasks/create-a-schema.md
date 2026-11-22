@@ -1,11 +1,11 @@
 ---
-title: Create a Schema or an API Specification
+title: Create an OpenAPI, AsyncAPI, JSON Schema or Avro Artifact
 sidebar_position: 6
 ---
 
 Store the contract of an API or of a message — its fields and their types — so that integrations and teams share one definition.
 
-## Before you begin
+## Prerequisites
 
 - A business unit in which you may create schemas.
 
@@ -18,7 +18,7 @@ Store the contract of an API or of a message — its fields and their types — 
 3. Create an artifact and select its format.
 4. Give its ID, its name and its content.
 
-## Field reference
+## Parameters
 
 | Field | What it is | Default |
 |---|---|---|
@@ -27,7 +27,7 @@ Store the contract of an API or of a message — its fields and their types — 
 | **Name** | A readable name. Up to 200 characters. | — |
 | **Description** | What the schema represents. | — |
 
-## Good to know
+## Behavior and limits
 
 - Schemas are versioned on their own: a contract can stay stable while the code behind it changes.
 - Group schemas by domain — orders, billing — rather than by team.
