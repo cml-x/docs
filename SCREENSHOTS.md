@@ -36,13 +36,55 @@ While capturing, compare what the page says with what the screen shows — names
 of fields — and correct the page where they differ: the pages were written from the code and the
 forms of the platform, not from the screens.
 
-## The captures (66)
+## The captures (90)
 
 ### `docs/access/create-and-manage-roles.md`
 
 | ID | After | Screen | How to reach it | Status |
 |---|---|---|---|---|
 | `access-role-restrict` | Step 3 — Restrict to environments *(optional)* | The role editor, step 3: API Manager restricted to two environments | Access Manager > RBAC > create a role > step 3 | to do |
+
+### `docs/access/tasks/add-an-identity-provider.md`
+
+| ID | After | Screen | How to reach it | Status |
+|---|---|---|---|---|
+| `access-tasks-add-an-identity-provider` | Procedure | The Add Identity Provider screen, with the popular providers and the generic one | Access Manager > Identity Providers > Add Provider | to do |
+
+### `docs/access/tasks/create-a-connected-app.md`
+
+| ID | After | Screen | How to reach it | Status |
+|---|---|---|---|---|
+| `access-tasks-create-a-connected-app` | Procedure | The Create Connected App panel, and the one-time display of its secret | Access Manager > Connected Apps > Create Connected App | to do |
+
+### `docs/access/tasks/grant-access-on-a-project.md`
+
+| ID | After | Screen | How to reach it | Status |
+|---|---|---|---|---|
+| `access-tasks-grant-access-on-a-project` | Procedure | The New Authorization panel: a user, a project, roles selected | Access Manager > RBAC > New Authorization | to do |
+
+### `docs/access/tasks/invite-a-user.md`
+
+| ID | After | Screen | How to reach it | Status |
+|---|---|---|---|---|
+| `access-tasks-invite-a-user` | Procedure | The Create User panel | Access Manager > Users > Create User | to do |
+
+### `docs/access/tasks/lock-or-remove-a-user.md`
+
+| ID | After | Screen | How to reach it | Status |
+|---|---|---|---|---|
+| `access-tasks-lock-or-remove-a-user` | Procedure | A user page with the actions to lock, deactivate and delete | Access Manager > Users > a user | to do |
+
+### `docs/access/tasks/require-mfa.md`
+
+| ID | After | Screen | How to reach it | Status |
+|---|---|---|---|---|
+| `access-tasks-require-mfa` | Procedure | The MFA Policy page, with the requirement and the methods | Access Manager > MFA Policy | to do |
+
+### `docs/access/tasks/set-sign-in-rules.md`
+
+| ID | After | Screen | How to reach it | Status |
+|---|---|---|---|---|
+| `access-tasks-set-sign-in-rules` | Procedure | The Settings page: authentication methods, password rules, lockout policy | Access Manager > Settings | to do |
 
 ### `docs/api-manager/api-instances.md`
 
@@ -208,6 +250,108 @@ forms of the platform, not from the screens.
 | ID | After | Screen | How to reach it | Status |
 |---|---|---|---|---|
 | `env-network-rule` | A rule | An egress rule being edited: who, ports, and the DNS preset | Infrastructure > Environments > an environment > Network > Egress Rules | to do |
+
+### `docs/library/tasks/find-an-asset.md`
+
+| ID | After | Screen | How to reach it | Status |
+|---|---|---|---|---|
+| `library-tasks-find-an-asset` | Procedure | The catalogue filtered on templates, with the search field | Assets Explorer | to do |
+
+### `docs/library/tasks/manage-versions.md`
+
+| ID | After | Screen | How to reach it | Status |
+|---|---|---|---|---|
+| `library-tasks-manage-versions` | Procedure | The Version Manager of an asset | Assets Explorer > an asset > Version Manager | to do |
+
+### `docs/library/tasks/publish-an-asset.md`
+
+| ID | After | Screen | How to reach it | Status |
+|---|---|---|---|---|
+| `library-tasks-publish-an-asset` | Procedure | The Create a New Asset screen, on the choice of the type | Assets Explorer > Create a New Asset | to do |
+
+### `docs/monitoring/tasks/build-a-dashboard.md`
+
+| ID | After | Screen | How to reach it | Status |
+|---|---|---|---|---|
+| `monitoring-tasks-build-a-dashboard` | Procedure | A dashboard with panels for requests, errors and response time | Monitoring > Dashboards | to do |
+
+### `docs/monitoring/tasks/create-an-alert.md`
+
+| ID | After | Screen | How to reach it | Status |
+|---|---|---|---|---|
+| `monitoring-tasks-create-an-alert` | Procedure | An alert rule being created: what is watched, the threshold, the destination | Monitoring > Alerts | to do |
+
+### `docs/monitoring/tasks/follow-a-trace.md`
+
+| ID | After | Screen | How to reach it | Status |
+|---|---|---|---|---|
+| `monitoring-tasks-follow-a-trace` | Procedure | A trace opened: the gateway step, then the integration, then an outgoing call | Monitoring > Distributed Traces > a trace | to do |
+
+### `docs/monitoring/tasks/read-metrics.md`
+
+| ID | After | Screen | How to reach it | Status |
+|---|---|---|---|---|
+| `monitoring-tasks-read-metrics` | Procedure | The Metrics view on the requests of an API over the last hour | Monitoring > Metrics | to do |
+
+### `docs/monitoring/tasks/schedule-a-report.md`
+
+| ID | After | Screen | How to reach it | Status |
+|---|---|---|---|---|
+| `monitoring-tasks-schedule-a-report` | Procedure | A report being created: the dashboard, the schedule, the recipients | Monitoring > Reports | to do |
+
+### `docs/monitoring/tasks/search-logs.md`
+
+| ID | After | Screen | How to reach it | Status |
+|---|---|---|---|---|
+| `monitoring-tasks-search-logs` | Procedure | Logs Insight filtered on one integration, with one entry expanded | Monitoring > Logs Insight | to do |
+
+### `docs/projects/tasks/add-a-schema-version.md`
+
+| ID | After | Screen | How to reach it | Status |
+|---|---|---|---|---|
+| `projects-tasks-add-a-schema-version` | Procedure | An artifact page with its list of versions | Integration Center > Schemas > a group > an artifact | to do |
+
+### `docs/projects/tasks/create-a-release.md`
+
+| ID | After | Screen | How to reach it | Status |
+|---|---|---|---|---|
+| `projects-tasks-create-a-release` | Procedure | The releases of a repository, and the panel that creates one | Integration Center > Integrations > a repository > releases | to do |
+
+### `docs/projects/tasks/create-a-repository.md`
+
+| ID | After | Screen | How to reach it | Status |
+|---|---|---|---|---|
+| `projects-tasks-create-a-repository` | Procedure | The repository creation wizard, on the step that selects the type of project | Integration Center > Integrations > create | to do |
+
+### `docs/projects/tasks/create-a-schema.md`
+
+| ID | After | Screen | How to reach it | Status |
+|---|---|---|---|---|
+| `projects-tasks-create-a-schema` | Procedure | The format selection when creating a schema: OpenAPI, AsyncAPI, JSON Schema, Avro | Integration Center > Schemas > a group > create | to do |
+
+### `docs/projects/tasks/create-from-a-template.md`
+
+| ID | After | Screen | How to reach it | Status |
+|---|---|---|---|---|
+| `projects-tasks-create-from-a-template` | Procedure | The template selection step, with the search field and one template selected | Integration Center > Integrations > create > Create routes from template | to do |
+
+### `docs/projects/tasks/edit-in-the-web-ide.md`
+
+| ID | After | Screen | How to reach it | Status |
+|---|---|---|---|---|
+| `projects-tasks-edit-in-the-web-ide` | Procedure | A repository page with the Edit in Web IDE action, and its list of commits | Integration Center > Integrations > a repository | to do |
+
+### `docs/projects/tasks/manage-a-team.md`
+
+| ID | After | Screen | How to reach it | Status |
+|---|---|---|---|---|
+| `projects-tasks-manage-a-team` | Procedure | A team page: its members and its permission level | Integration Center > a team | to do |
+
+### `docs/projects/tasks/share-as-a-template.md`
+
+| ID | After | Screen | How to reach it | Status |
+|---|---|---|---|---|
+| `projects-tasks-share-as-a-template` | Procedure | The Actions of a repository, with the choice that marks it as a template | Integration Center > Integrations > a repository > Actions | to do |
 
 ### `docs/runtime/how-integrations-run.md`
 

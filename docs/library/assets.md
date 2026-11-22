@@ -34,3 +34,11 @@ above.
 Opening an asset shows an API spec viewer (for OpenAPI-type assets), lets you **publish a new
 version** (version number + package file), and includes an embedded wiki/documentation editor for
 that asset. Assets can also be deleted from here.
+
+## Tasks
+
+| You want to | Read |
+|---|---|
+| Look for what already exists | [Find and reuse an asset](/library/tasks/find-an-asset) |
+| Share what you built | [Publish an asset](/library/tasks/publish-an-asset) |
+| Choose a version | [Manage the versions of an asset](/library/tasks/manage-versions) |

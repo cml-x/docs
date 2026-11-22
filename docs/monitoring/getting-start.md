@@ -20,3 +20,14 @@ Selecting a template fetches each dashboard definition it includes and creates i
 
 From there, see [Dashboards](/monitoring/home) to manage what you've created, or jump straight to
 [Logs](/monitoring/logs), [Metrics](/monitoring/metrics) or [Traces](/monitoring/traces).
+
+## Tasks
+
+| You want to | Read |
+|---|---|
+| Find what a service logged | [Search the logs](/monitoring/tasks/search-logs) |
+| See traffic, errors and response time | [Read the metrics](/monitoring/tasks/read-metrics) |
+| Understand why one request was slow | [Follow a request across services](/monitoring/tasks/follow-a-trace) |
+| Keep an eye on a service | [Build a dashboard](/monitoring/tasks/build-a-dashboard) |
+| Be told when something goes wrong | [Be alerted](/monitoring/tasks/create-an-alert) |
+| Send figures to your team regularly | [Send a report](/monitoring/tasks/schedule-a-report) |
