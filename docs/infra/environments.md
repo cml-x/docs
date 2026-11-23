@@ -71,6 +71,32 @@ While a deployment is in progress, the page follows it and shows when it has set
 - [Configurations](/config-sources/templates) are made available to the environments that need
   them.
 
+## Current environment: the selector in the console header
+
+{/* screenshot: environment-header-selector */}
+
+The applications that work inside an environment — API Manager, Runtime Manager, Auth, Network
+and Monitoring — show the **current environment** at the left of the header, in capitals, next
+to the menu button. Select it to open the list of environments of the business unit and choose
+another one. Applications that are not tied to an environment, such as Secret Manager or
+Environments Manager itself, show no selector.
+
+| Situation | What the console does |
+|---|---|
+| First visit of a business unit | The first environment of the list is selected. |
+| Later visits | The environment last used **in that business unit** is selected again, in every application. |
+| A link carries `?env=<name>` | That environment is selected, if the business unit has it. |
+| The environment last used was deleted | The first one is selected, and a notice says which one is gone. |
+| The business unit changes | The environments of the new unit are read; its own last-used environment is selected, never the one of the unit you left. |
+| The business unit has no environment yet | The applications show an invitation to create one, with a link to **Environments**. |
+
+Changing the environment keeps you on the page you are on. A list shows what the new environment
+holds; the page of a resource that is not bound to it offers to bind it.
+
+The environment a business unit is created with, `sync-<business unit>`, is never offered: it
+holds resources that belong to the unit as a whole, such as
+[custom domains](/api-manager/domains), whose pages do not depend on the selector.
+
 ## Target binding
 
 An environment is bound to exactly one target, chosen at creation.

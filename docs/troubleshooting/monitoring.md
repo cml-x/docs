@@ -9,7 +9,7 @@ Every view shows nothing at all: the scope or the period is wrong more often tha
 
 | Cause | Check | Fix |
 |---|---|---|
-| No environment selected, or another one | The environment selector of the console | Select the environment the workload runs in |
+| Another environment is selected | The environment shown at the left of the console header | Select the environment the workload runs in |
 | A shared link carries another scope | `org_identifier` and `stream` in the address | Open the view from the menu |
 | Period too narrow | The time range | Widen it |
 

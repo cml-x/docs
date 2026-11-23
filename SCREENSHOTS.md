@@ -256,6 +256,7 @@ forms of the platform, not from the screens.
 
 | ID | After | Screen | How to reach it | Status |
 |---|---|---|---|---|
+| `environment-header-selector` | Current environment: the selector in the console header | The console header with the environment in capitals next to the menu button, and the Select an environment window open with the current one marked | API Manager > any page > the environment at the left of the header | to do |
 | `env-services` | Environment services | The page of an environment with its three services and their state | Infrastructure > Environments > an environment | to do |
 
 ### `docs/infra/log-exporter.md`
