@@ -69,10 +69,21 @@ HTTP. Use TLS instead when the service must hold the certificate itself.
 
 ## Listener domains
 
-The domain of an access point is chosen among the [domains](/api-manager/domains) of the
-environment. One more choice is always offered, marked **internal**: the address of the gateway
-inside the platform, `<gateway>.<namespace>`. It is what to choose for an access point reached
-only from inside the platform.
+The domain of an access point is chosen among the [custom domains](/api-manager/domains) of the
+business unit and the platform domain of the cluster. Each is offered in two forms:
+
+| Choice shown | Host name of the listener | Addresses of the APIs |
+|---|---|---|
+| `{api-name}.example.com` | `*.example.com` | One host name per API: `orders.example.com` |
+| `<gateway>.example.com/{path}` | `<gateway>.example.com` | One address, one path per API: `<gateway>.example.com/orders` |
+
+One more choice is always offered, marked **internal**: the address of the gateway inside the
+platform, `<gateway>.<namespace>`. It is what to choose for an access point reached only from
+inside the platform.
+
+A custom domain must be applied and delegated before its names resolve, and an HTTPS access
+point on it needs a certificate covering its host names: see
+[Attach a domain to a gateway access point](/api-manager/domains#attach-a-domain-to-a-gateway-access-point-listener).
 
 :::warning[TLS passthrough hides the request from the gateway]
 On a **TLS** access point the gateway forwards encrypted bytes. It cannot read the path or the

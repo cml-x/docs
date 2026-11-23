@@ -203,6 +203,11 @@ Rules worth knowing:
    Monitoring Manager and Project Manager permissions are always business-unit-wide.
 4. **Inheritance.** An environment automatically inherits the business unit's permissions. A
    restriction narrows a role to specific environments *instead of* granting it everywhere.
+5. **Cloud resources belong to the business unit.** A [custom domain](/api-manager/domains), like
+   every cloud resource, lives in the environment the business unit is created with
+   (`sync-<business unit>`), not in a deployment environment. Its permissions — the
+   **Cloud Resource** entries of API Manager — are always checked on the business unit, whatever
+   environments the rest of API Manager is restricted to.
 
 ### Permission checked per action
 

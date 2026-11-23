@@ -105,6 +105,14 @@ forms of the platform, not from the screens.
 | `api-instance-gateway-select` | Gateway, listener and host name | The Gateway & Access Point field: a gateway chosen, its access points listed, host name mode selected | API Manager > API Instances > create | to do |
 | `api-instance-audience-id` | Audience ID (`aud` claim) | The properties block of an API instance showing its audience ID with the copy button | API Manager > API Instances > an API > Overview | to do |
 
+### `docs/api-manager/domains.md`
+
+| ID | After | Screen | How to reach it | Status |
+|---|---|---|---|---|
+| `domain-add` | Add a domain: hosted zone creation and apply | The Add a domain step with `example.com` entered and the names it will be created under | API Manager > Custom Domains > Add Domain | to do |
+| `domain-overview` | Provisioning status: `Ready` and `Synced` conditions of the hosted zone | The page of a deployed domain: the Component block, the DNS Hosted Zone block with zone ID and record sets, Nameservers opened and verified | API Manager > Custom Domains > a domain | to do |
+| `domain-access-point` | Attach a domain to a gateway access point (listener) | The Domain field of an access point opened, showing the platform domain, the internal address and the two choices of `example.com` | API Manager > API Gateways > a gateway > Access points | to do |
+
 ### `docs/api-manager/gateway.md`
 
 | ID | After | Screen | How to reach it | Status |
