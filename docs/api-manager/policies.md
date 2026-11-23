@@ -66,11 +66,13 @@ anything first.
 | Security | One, created with its target | No: remove its rules instead |
 | Backend traffic | One, created with its target | No: remove its rules instead |
 | Client traffic (gateways only) | One, created with the gateway | Yes |
-| Custom | As many as needed, none by default | Yes, each one separately |
+| Custom | One, none by default | Yes |
 
-The **Custom Policies** tab lists the custom policies of the gateway or the API. Each is added,
-edited and deleted on its own, and gets a unique name ending in `custom-policy`, for example
-`orders-api-k3x9q2-custom-policy`.
+A gateway or an API carries **at most one custom policy**, named after its target, for example
+`orders-api-custom-policy`. Once it is activated, its tab shows where the script comes from and
+how long it is, not the script itself: **Open the script** shows it in an editor. Changing it
+there enables **Save** on the page, which updates the policy itself, for every environment, and
+takes effect at the next **Apply**.
 
 Adding a rule to a policy, activating one or deactivating one changes the application of its
 target, and takes effect at the next **Apply**.

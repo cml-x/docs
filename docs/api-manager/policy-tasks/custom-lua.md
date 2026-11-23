@@ -28,9 +28,12 @@ For a small adjustment that no rule covers. Anything substantial belongs in an i
 {/* screenshot: api-manager-policy-tasks-custom-lua */}
 
 1. In **API Manager**, go to **API Instances** and open the API.
-2. Open its **Custom** policies and add a custom policy.
+2. Open its **Custom Policy** tab and activate the custom policy. A gateway or an API carries one.
 3. In **Script**, choose **Written here** and type the script, or **A stored script** and choose a [Lua Script](/config-sources/templates#lua-script) configuration shared between policies.
 4. Deploy.
+
+To change a script written in the policy later, use **Open the script** on that tab, edit it in
+the window, close it, then **Save** and deploy.
 
 ## Parameters
 
