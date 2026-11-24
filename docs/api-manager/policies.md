@@ -70,9 +70,9 @@ anything first.
 
 A gateway or an API carries **at most one custom policy**, named after its target, for example
 `orders-api-custom-policy`. Once it is activated, its tab shows where the script comes from and
-how long it is, not the script itself: **Open the script** shows it in an editor. Changing it
-there enables **Save** on the page, which updates the policy itself, for every environment, and
-takes effect at the next **Apply**.
+how long it is, not the script itself: **Open the script** shows it in an editor. Once it is
+changed there, a banner on the page says so and offers **Save changes**, which updates the policy
+itself, for every environment, and takes effect at the next **Apply**.
 
 Adding a rule to a policy, activating one or deactivating one changes the application of its
 target, and takes effect at the next **Apply**.

@@ -33,7 +33,7 @@ For a small adjustment that no rule covers. Anything substantial belongs in an i
 4. Deploy.
 
 To change a script written in the policy later, use **Open the script** on that tab, edit it in
-the window, close it, then **Save** and deploy.
+the window, close it, then choose **Save changes** in the banner that appears, and deploy.
 
 ## Parameters
 
