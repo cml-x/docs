@@ -12,6 +12,7 @@ export interface FooterColumn {
 export interface FooterSites {
   www: string;
   blog: string;
+  app: string;
 }
 
 export const FOOTER_TAGLINE = 'Camel eXchanges. The open control plane for integration.';
@@ -19,27 +20,23 @@ export const FOOTER_TAGLINE = 'Camel eXchanges. The open control plane for integ
 export const FOOTER_NOTICE =
   'Built on Apache Camel. Apache Camel is a trademark of the Apache Software Foundation. Other marks belong to their owners.';
 
-export function footerColumns({www, blog}: FooterSites): FooterColumn[] {
+export function footerColumns({www, app}: FooterSites): FooterColumn[] {
   const site = (path: string): string => `${www}${path}`;
   return [
     {
-      title: 'Platform',
+      title: 'Documentation',
       links: [
-        {label: 'Overview', href: site('/platform')},
-        {label: 'Get started', href: site('/start')},
-        {label: 'Open and reversible', href: site('/open')},
-        {label: 'Sovereignty and security', href: site('/sovereignty')},
-        {label: 'Open-source inventory', href: site('/open-source')},
-        {label: 'AI and agents', href: site('/ai')},
+        {label: 'Tutorials', href: '/getting-started/quick-start', internal: true},
+        {label: 'How-to guides', href: '/guides', internal: true},
+        {label: 'Concepts', href: '/projects/getting-start', internal: true},
+        {label: 'Reference', href: '/projects/repos', internal: true},
       ],
     },
     {
-      title: 'Resources',
+      title: 'Camel X',
       links: [
-        {label: 'Beyond API-led', href: site('/why-not-api-led')},
-        {label: 'Coming from MuleSoft', href: site('/from-mulesoft')},
-        {label: 'Articles', href: blog},
-        {label: 'Documentation', href: '/', internal: true},
+        {label: 'Platform', href: site('/platform')},
+        {label: 'Get started', href: app},
       ],
     },
     {

@@ -104,11 +104,6 @@ const config: Config = {
         height: 32,
       },
       items: [
-        {href: `${sites.www}/platform`, label: 'Platform', position: 'left', target: '_self'},
-        {href: `${sites.www}/open`, label: 'Open', position: 'left', target: '_self'},
-        {href: `${sites.www}/ai`, label: 'AI and agents', position: 'left', target: '_self'},
-        {href: sites.blog, label: 'Articles', position: 'left', target: '_self'},
-        {href: 'https://github.com/cml-x', label: 'GitHub', position: 'right'},
         {href: sites.app, label: 'Get started', position: 'right', className: 'navbar-cta'},
       ],
     },
