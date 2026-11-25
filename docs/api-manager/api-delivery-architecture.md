@@ -1,7 +1,6 @@
 ---
 title: API Delivery Architecture
-slug: /api-manager
-sidebar_position: 0
+sidebar_position: 0.5
 ---
 
 A call to one of your APIs crosses the same four stages whatever the API: an entry that depends
@@ -56,12 +55,3 @@ An accepted request is forwarded to the service chosen in the API instance.
 | TLS towards the caller | Access point | [TLS Certificate](/config-sources/templates#tls-certificate) |
 | Authentication of the caller | Policies | [Security Policy Reference](/api-manager/reference/security-policy) |
 | TLS and mutual TLS towards the backend | Backend | [Route Filter Reference](/api-manager/reference/route-filters#backend-tls) |
-
-## Pages of this section
-
-| You want to | Read |
-|---|---|
-| Know the objects and publish a first API | [API Delivery Model](/api-manager/getting-start) |
-| Follow a request stage by stage | [Request Routing](/api-manager/how-requests-are-routed) |
-| Understand what a policy attaches to | [Policy Model and Attachment](/api-manager/policies) |
-| Deploy several API instances together | [API Groups](/api-manager/api-groups) |

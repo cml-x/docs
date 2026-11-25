@@ -239,6 +239,7 @@ const sidebars: SidebarsConfig = {
           "label": "Projects and Source",
           "collapsed": true,
           "items": [
+            "projects/integration-fabric-architecture",
             "projects/getting-start",
             "projects/use-a-component",
             "projects/create-template",
@@ -246,8 +247,10 @@ const sidebars: SidebarsConfig = {
             "library/asset-catalog-model"
           ],
           "link": {
-            "type": "doc",
-            "id": "projects/integration-fabric-architecture"
+            "type": "generated-index",
+            "slug": "/projects",
+            "title": "Projects and Source",
+            "description": "Where source lives and how it reaches an environment."
           }
         },
         {
@@ -271,14 +274,17 @@ const sidebars: SidebarsConfig = {
           "label": "API Delivery",
           "collapsed": true,
           "items": [
+            "api-manager/api-delivery-architecture",
             "api-manager/getting-start",
             "api-manager/how-requests-are-routed",
             "api-manager/policies",
             "api-manager/api-groups"
           ],
           "link": {
-            "type": "doc",
-            "id": "api-manager/api-delivery-architecture"
+            "type": "generated-index",
+            "slug": "/api-manager",
+            "title": "API Delivery",
+            "description": "How a request reaches a service through a gateway, and what policies do."
           }
         },
         {

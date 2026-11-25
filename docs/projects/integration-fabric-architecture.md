@@ -1,7 +1,6 @@
 ---
 title: Integration Fabric Architecture
-slug: /projects
-sidebar_position: 0
+sidebar_position: 0.5
 ---
 
 Integration Fabric is where integrations are designed and versioned before anything runs. The
@@ -67,13 +66,3 @@ Asset Service. It is published for two uses:
 This closes the loop of the diagram: the catalog the designer reads on the left is fed by what
 was published on the right. [Asset Catalog Model](/library/asset-catalog-model) explains what
 the catalog is for.
-
-## Pages of this section
-
-| You want to | Read |
-|---|---|
-| Understand repositories, branches and releases | [Source and Release Model](/projects/getting-start) |
-| Add a Camel component to a project | [Camel Dependencies](/projects/use-a-component) |
-| Publish a project as a template | [Repository Templates](/projects/create-template) |
-| Decide which integrations to group | [Grouping Integrations](/projects/multi-component-integration) |
-| Know what the catalog indexes | [Asset Catalog Model](/library/asset-catalog-model) |
