@@ -89,7 +89,7 @@ const config: Config = {
         alt: 'Camel X',
         src: 'img/logo.svg',
         srcDark: 'img/logo-dark.svg',
-        width: 117,
+        width: 124,
         height: 32,
       },
       items: [
