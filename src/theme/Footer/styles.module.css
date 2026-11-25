@@ -1,0 +1,90 @@
+.footer {
+  --footer-ground: #161616;
+  --footer-rule: #393939;
+  --footer-text: #c6c6c6;
+  --footer-muted: #8d8d8d;
+  background: var(--footer-ground);
+  padding: 64px 0 32px;
+  font-family: var(--ifm-font-family-base);
+}
+
+.container {
+  max-width: 1584px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr 1fr;
+  gap: 48px;
+  margin-bottom: 48px;
+}
+
+.grid > div {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.wordmark {
+  display: block;
+  height: 24px;
+  width: auto;
+  align-self: flex-start;
+}
+
+.footer h4 {
+  color: #fff;
+  font-size: 0.875rem;
+  margin: 0 0 6px;
+}
+
+.footer p {
+  color: var(--footer-text);
+  font-size: 0.875rem;
+  line-height: 1.6;
+  margin: 8px 0 0;
+}
+
+.footer a {
+  color: var(--footer-text);
+  font-size: 0.85rem;
+  text-decoration: none;
+}
+
+.footer a:hover {
+  color: #fff;
+  text-decoration: none;
+}
+
+.base {
+  border-top: 1px solid var(--footer-rule);
+  padding-top: 24px;
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.base span {
+  color: var(--footer-muted);
+  font-size: 0.8rem;
+  max-width: 70ch;
+}
+
+.legal a {
+  margin-left: 20px;
+}
+
+@media (max-width: 996px) {
+  .grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 672px) {
+  .container {
+    padding: 0 1rem;
+  }
+}

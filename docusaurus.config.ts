@@ -26,6 +26,13 @@ const config: Config = {
 
   onBrokenLinks: 'throw',
 
+  customFields: {
+    sites: {
+      www: (process.env.PUBLIC_WWW_URL ?? 'https://www.williams-penka.workers.dev').replace(/\/$/, ''),
+      blog: (process.env.PUBLIC_BLOG_URL ?? 'https://blog.williams-penka.workers.dev').replace(/\/$/, ''),
+    },
+  },
+
   // Even if you don't use internationalization, you can use this field to set
   // useful metadata like html lang. For example, if your site is Chinese, you
   // may want to replace "en" with "zh-Hans".
@@ -106,34 +113,6 @@ const config: Config = {
           position: 'right',
         },
       ],
-    },
-    footer: {
-      style: 'dark',
-      links: [
-        {
-          title: 'Docs',
-          items: [
-            {
-              label: 'Getting Started',
-              to: '/',
-            },
-          ],
-        },
-        {
-          title: 'More',
-          items: [
-            {
-              label: 'Changelog',
-              to: '/blog',
-            },
-            {
-              label: 'GitHub',
-              href: 'https://github.com/cml-x',
-            },
-          ],
-        },
-      ],
-      copyright: `Copyright © ${new Date().getFullYear()} Camel X. Built with Docusaurus.`,
     },
     prism: {
       theme: prismThemes.github,
