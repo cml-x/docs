@@ -12,7 +12,11 @@ It is a set of applications in one console rather than a single tool. Each appli
 part of the life of an integration, and they share the same objects: an integration created in
 one is what another one exposes or observes.
 
-![Camel X platform architecture](/img/getting-started/architecture.svg)
+![The console applies what you declare to a runtime plane, where Envoy Gateway receives the callers and Camel K runs the integrations; status and telemetry come back](/img/getting-started/architecture.drawio.png)
+
+The console holds what you declare. A runtime plane, a Kubernetes cluster, executes it: Envoy
+Gateway receives the callers, Camel K builds and runs the integrations, and their status, logs,
+metrics and traces come back to the console.
 
 ## What runs underneath
 
