@@ -38,6 +38,7 @@ export const DIAGRAM_BY_PAGE: Readonly<Record<string, CardDiagram>> = {
   'guides/monitor-an-integration': 'signals',
   'guides/secure-an-api': 'policy',
 
+  'projects/integration-fabric-architecture': 'editor',
   'projects/getting-start': 'steps',
   'projects/repos': 'repository',
   'projects/schemas': 'schema',
@@ -81,6 +82,7 @@ export const DIAGRAM_BY_PAGE: Readonly<Record<string, CardDiagram>> = {
   'runtime/settings/resources': 'twoBars',
   'runtime/settings/volumes': 'volume',
 
+  'api-manager/api-delivery-architecture': 'nested',
   'api-manager/getting-start': 'steps',
   'api-manager/gateway': 'gateway',
   'api-manager/api-instances': 'route',

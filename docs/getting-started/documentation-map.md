@@ -3,9 +3,9 @@ title: Documentation Map
 sidebar_position: 1.5
 ---
 
-This documentation is organized by **what you need at the moment you open it**, following the
-[Diátaxis](https://diataxis.fr) framework. The same subject — a JWT policy, a release — appears
-in up to four places, each written for a different need.
+This documentation is organized by **what you need at the moment you open it**. The same
+subject — a JWT policy, a release — appears in up to four places, each written for a different
+need.
 
 ![The four kinds of pages: tutorials, how-to guides, concepts, reference](/img/docs-map.drawio.png)
 
