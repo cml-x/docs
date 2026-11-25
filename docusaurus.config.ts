@@ -4,6 +4,19 @@ import type * as Preset from '@docusaurus/preset-classic';
 
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
+const siteUrl = (value: string | undefined, fallback: string) => (value ?? fallback).replace(/\/$/, '');
+
+const sites = {
+  www: siteUrl(process.env.PUBLIC_WWW_URL, 'https://www.williams-penka.workers.dev'),
+  blog: siteUrl(process.env.PUBLIC_BLOG_URL, 'https://blog.williams-penka.workers.dev'),
+  app: siteUrl(process.env.PUBLIC_APP_URL, 'https://app.camelx.io'),
+};
+
+const codeTheme = {
+  ...prismThemes.vsDark,
+  plain: {color: '#f4f4f4', backgroundColor: '#161616'},
+};
+
 const config: Config = {
   title: 'Camel X Docs',
   tagline: 'Documentation for the Camel X integration platform',
@@ -27,10 +40,7 @@ const config: Config = {
   onBrokenLinks: 'throw',
 
   customFields: {
-    sites: {
-      www: (process.env.PUBLIC_WWW_URL ?? 'https://www.williams-penka.workers.dev').replace(/\/$/, ''),
-      blog: (process.env.PUBLIC_BLOG_URL ?? 'https://blog.williams-penka.workers.dev').replace(/\/$/, ''),
-    },
+    sites,
   },
 
   // Even if you don't use internationalization, you can use this field to set
@@ -85,6 +95,7 @@ const config: Config = {
       respectPrefersColorScheme: true,
     },
     navbar: {
+      title: 'Docs',
       logo: {
         alt: 'Camel X',
         src: 'img/logo.svg',
@@ -93,16 +104,17 @@ const config: Config = {
         height: 32,
       },
       items: [
-        {
-          href: 'https://github.com/cml-x',
-          label: 'GitHub',
-          position: 'right',
-        },
+        {href: `${sites.www}/platform`, label: 'Platform', position: 'left', target: '_self'},
+        {href: `${sites.www}/open`, label: 'Open', position: 'left', target: '_self'},
+        {href: `${sites.www}/ai`, label: 'AI and agents', position: 'left', target: '_self'},
+        {href: sites.blog, label: 'Articles', position: 'left', target: '_self'},
+        {href: 'https://github.com/cml-x', label: 'GitHub', position: 'right'},
+        {href: sites.app, label: 'Get started', position: 'right', className: 'navbar-cta'},
       ],
     },
     prism: {
-      theme: prismThemes.github,
-      darkTheme: prismThemes.dracula,
+      theme: codeTheme,
+      darkTheme: codeTheme,
       additionalLanguages: ['bash', 'properties', 'java', 'http', 'log'],
     },
   } satisfies Preset.ThemeConfig,
