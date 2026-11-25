@@ -1,5 +1,5 @@
 ---
-title: Overview
+title: API Authentication Model
 sidebar_position: 1
 ---
 

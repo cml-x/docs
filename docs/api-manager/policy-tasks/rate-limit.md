@@ -1,5 +1,5 @@
 ---
-title: Rate Limiting
+title: Apply Rate Limiting
 sidebar_position: 7
 ---
 

@@ -1,5 +1,5 @@
 ---
-title: Log Exporter
+title: Log Exporter Reference
 sidebar_position: 6
 ---
 
@@ -42,7 +42,7 @@ Open the environment, go to **Logging**, and configure the service.
 
 Then click **Apply** on the environment.
 
-## Destinations
+## Log Destinations
 
 {/* screenshot: env-log-destinations */}
 
@@ -90,7 +90,7 @@ An API key or a password is never typed into the destination itself: it is chose
 configurations of Secret Manager, which must be made available to the environment.
 :::
 
-## Flows
+## Log Flows
 
 {/* screenshot: env-log-flows */}
 
@@ -109,7 +109,7 @@ A flow can also change the logs on their way:
 | **Filter** | Keeps only the entries where a field matches a pattern, or drops those that match. |
 | **Enrich** | Adds fields to every entry — `environment=production` for example — or removes some. |
 
-## Resources
+## Resource Settings
 
 Two settings give the exporter more or less to run on.
 

@@ -1,5 +1,5 @@
 ---
-title: Upstreams
+title: Upstream Reference
 sidebar_position: 5
 ---
 

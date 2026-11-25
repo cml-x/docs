@@ -1,5 +1,5 @@
 ---
-title: Camel Runtime Properties
+title: Set Camel Runtime Properties
 sidebar_position: 6
 ---
 

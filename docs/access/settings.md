@@ -1,5 +1,5 @@
 ---
-title: Sign-In Policies
+title: Sign-In Policy Reference
 sidebar_position: 6
 ---
 
@@ -11,7 +11,7 @@ These settings apply to **local accounts** — those that sign in with a user na
 kept by the platform. Users of an external identity provider follow that provider's rules for
 passwords and lockout.
 
-Where they sit in a sign-in is shown in [MFA policy](/access/mfa-policy#enforcement).
+Where they sit in a sign-in is shown in [MFA policy](/access/mfa-policy#enforcement-switches).
 
 Tighten them in proportion to how many local accounts remain. An organization that signs in
 entirely through its identity provider needs strong rules for a handful of emergency accounts,

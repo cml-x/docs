@@ -1,5 +1,5 @@
 ---
-title: Identity Providers
+title: Identity Provider Reference
 sidebar_position: 4
 ---
 
@@ -46,7 +46,7 @@ Before requiring the provider for everyone, sign in through it in a private wind
 an administrator session open. A mistake in the redirect URL locks out whoever depends on it.
 :::
 
-## Lifecycle
+## Provider Lifecycle
 
 A provider is added once and can then be switched on and off. Switching it off is how you test a change, or cut a provider quickly, without losing its configuration.
 

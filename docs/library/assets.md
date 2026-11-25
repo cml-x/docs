@@ -1,5 +1,5 @@
 ---
-title: Asset Catalog
+title: Asset Catalog Reference
 sidebar_position: 1
 ---
 
@@ -32,7 +32,7 @@ An index is a collection the search runs over. The selector chooses one or sever
 | **Apache Camel** | The Apache Camel catalog | A component or a Kamelet of the project |
 | **CamelX** | The catalog published by the platform | Ready-made templates |
 
-## Facets
+## Search Facets
 
 Facets narrow a search to a kind of asset. They are computed from the results, so a facet only
 offers values that exist.
@@ -70,7 +70,7 @@ An asset last updated two years ago for a system that has since changed may cost
 than to rewrite. The dates and the version history tell you whether it is maintained.
 :::
 
-## Tasks
+## Related Tasks
 
 | Task | Page |
 |---|---|

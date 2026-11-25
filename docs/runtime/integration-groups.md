@@ -67,7 +67,7 @@ Rolling a group back reverts every integration in it, including those that had n
 the wrong reason. If one member must move independently, it does not belong in the group.
 :::
 
-## Deletion
+## Group Deletion
 
 **Delete integration group** permanently deletes the group and its members.
 

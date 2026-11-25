@@ -1,5 +1,5 @@
 ---
-title: Pod Disruption Budget
+title: Set a Pod Disruption Budget
 sidebar_position: 10
 ---
 

@@ -1,5 +1,5 @@
 ---
-title: Load Balancing
+title: Configure Load Balancing
 sidebar_position: 11
 ---
 

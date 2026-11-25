@@ -1,5 +1,5 @@
 ---
-title: Request Timeouts
+title: Set Request Timeouts
 sidebar_position: 8
 ---
 
@@ -13,7 +13,7 @@ The gateway stops waiting for the backend after a set time and answers `504`. Wi
 Set the request timeout below the timeout of the applications that call the API, so that they get a clear `504` rather than giving up first.
 :::
 
-Every parameter and its default: [reference](/api-manager/reference/backend-traffic-policy#timeouts).
+Every parameter and its default: [reference](/api-manager/reference/backend-traffic-policy#timeout-fields).
 
 ## Use cases
 

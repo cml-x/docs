@@ -1,5 +1,5 @@
 ---
-title: JVM Options
+title: Set JVM Options
 sidebar_position: 5
 ---
 

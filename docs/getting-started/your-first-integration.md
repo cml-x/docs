@@ -16,7 +16,7 @@ Start here. These pages take a route typed in the console to a running integrati
 | Environment binding, image build, rollout, revisions | [2. Deploy](/tutorial/deploy) |
 | Build phases, operator, build cache | [Build and run lifecycle](/runtime/how-integrations-run) |
 
-## Configuration
+## Configuration Topics
 
 An integration that runs in several environments must not carry its settings in its source. These pages show how values, files and certificates are supplied from outside.
 
@@ -55,7 +55,7 @@ An integration is reachable only inside its environment until it is published on
 | Route matching, policy evaluation order | [Request routing](/api-manager/how-requests-are-routed) |
 | Rate limiting, timeouts, retries, circuit breaker | [Policy tasks](/api-manager/policy-tasks) |
 
-## Operations
+## Operations Topics
 
 What remains is to see what the integration does once it carries traffic, and to check that nothing is missing before production.
 

@@ -1,5 +1,5 @@
 ---
-title: Camel Integration Service
+title: Camel Integration Service Reference
 sidebar_position: 5
 ---
 
@@ -19,7 +19,7 @@ only.
 So each environment gets its own, configured once. Integrations then carry none of it: the same
 integration builds in any environment with that environment's registry and Maven settings.
 
-## Activation
+## Service Activation
 
 {/* screenshot: env-camel-activate */}
 
@@ -31,7 +31,7 @@ Open the environment, go to **Camel Integration**, then **Activate Camel integra
 
 Then click **Apply** on the environment. The page shows whether the service is healthy.
 
-## Settings
+## Service Settings
 
 Six settings adjust the service. Each has its own page under **Camel Integration**.
 

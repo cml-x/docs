@@ -169,7 +169,7 @@ export const DIAGRAM_BY_PAGE: Readonly<Record<string, CardDiagram>> = {
 
   'troubleshooting/access-manager': 'lockUser',
   'troubleshooting/api-manager': 'routing',
-  'troubleshooting/auth-manager': 'token',
+  'troubleshooting/tokens-and-sign-in': 'token',
   'troubleshooting/environment-manager': 'stages',
   'troubleshooting/monitoring': 'signals',
   'troubleshooting/project-manager': 'repository',

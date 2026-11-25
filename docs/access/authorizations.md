@@ -1,5 +1,5 @@
 ---
-title: Role Grants
+title: Role Grant Reference
 sidebar_position: 2
 ---
 
@@ -39,7 +39,7 @@ A grant answers one question: *what may this person do in this project?* It ties
 What a role allows, and in which environments, is defined on the role — see the
 [RBAC model](/access/rbac-principles).
 
-## States
+## Grant States
 
 A grant can be switched off without being lost. This is the difference between suspending access — someone on leave, an audit in progress — and removing it.
 

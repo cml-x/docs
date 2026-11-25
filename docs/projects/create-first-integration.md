@@ -1,5 +1,5 @@
 ---
-title: Repository to Release
+title: Build a Release From a Repository
 sidebar_position: 4
 ---
 

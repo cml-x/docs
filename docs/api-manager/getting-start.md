@@ -1,5 +1,5 @@
 ---
-title: Overview
+title: API Delivery Model
 sidebar_position: 1
 ---
 
@@ -18,7 +18,7 @@ A gateway does it once, in front. The integration keeps to business logic; the g
 the address, the certificate and the policies. The same integration can be published on several
 gateways — public for partners, internal for other teams — without changing a line of it.
 
-## Objects
+## Object Model
 
 API Manager works with a handful of objects. A request crosses them in this order, so knowing them tells you where to look when something does not answer.
 

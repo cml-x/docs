@@ -1,5 +1,5 @@
 ---
-title: External Authorization
+title: Delegate to External Authorization
 sidebar_position: 4
 ---
 

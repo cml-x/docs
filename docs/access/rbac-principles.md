@@ -120,7 +120,7 @@ business unit.
 | **Business unit** | The boundary of access. Roles, members and resources all belong to exactly one business unit. Permissions never leak from one business unit to another. |
 | **Environment** | A deployment target (for example `dev`, `staging`, `prod`) that belongs to a business unit. Some permissions can be narrowed to a subset of environments. |
 
-## Roles
+## Role Definition
 
 Roles are defined **per business unit**, on the **Roles Base Access** tab of the business unit.
 

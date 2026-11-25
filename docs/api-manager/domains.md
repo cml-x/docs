@@ -1,5 +1,5 @@
 ---
-title: Domains
+title: Custom Domain Reference
 sidebar_position: 4
 ---
 
@@ -188,7 +188,7 @@ in a role whose API Manager permissions are restricted to particular environment
 domain on an access point is a change to the **gateway**, governed by the Gateway permissions;
 it only requires seeing the domains. See [RBAC principles](/access/rbac-principles).
 
-## Limits
+## Limits and Constraints
 
 - One hosted zone per domain and per business unit. The same domain cannot be added twice.
 - The domain of an existing hosted zone cannot be changed at the provider: add the new domain,

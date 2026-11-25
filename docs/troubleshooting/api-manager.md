@@ -1,5 +1,5 @@
 ---
-title: API Exposure
+title: Troubleshoot API Exposure
 sidebar_position: 4
 ---
 
@@ -40,7 +40,7 @@ point it is attached to, and the path sent.
 ### `401` or `403`
 
 A rule of the security policy refused the request. See
-[Tokens and sign-in](/troubleshooting/auth-manager) for JWT; for an API key, check the header
+[Tokens and sign-in](/troubleshooting/tokens-and-sign-in) for JWT; for an API key, check the header
 name and that the key is in the list; for IP rules, the source address seen by the gateway.
 
 ### `429`

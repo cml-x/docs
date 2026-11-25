@@ -1,5 +1,5 @@
 ---
-title: 3. Configuration
+title: 3. Externalize the Configuration
 sidebar_position: 4
 ---
 

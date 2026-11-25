@@ -5,7 +5,7 @@ sidebar_position: 2
 
 The controls available on an exposed API, layer by layer, and which threat each one addresses.
 
-## Layers
+## Security Layers
 
 A request crosses several controls before it reaches your service. Each layer stops a different kind of problem; none replaces the others.
 

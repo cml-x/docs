@@ -1,5 +1,5 @@
 ---
-title: User Onboarding
+title: Onboard a User
 sidebar_position: 7
 ---
 
@@ -35,7 +35,7 @@ Signed in as the user, or with them:
 - the applications of the menu match the role;
 - an action outside the role — a deployment in production for a development role — is refused.
 
-## Offboarding
+## Offboarding a User
 
 Deactivate the account first: access stops, grants are kept for audit. Delete once nothing refers
 to the account.

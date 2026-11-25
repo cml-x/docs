@@ -3,7 +3,7 @@
   "position": 13,
   "link": {
     "type": "generated-index",
-    "description": "One page per task: users, access to projects, connected apps, sign-in and security policies.",
+    "description": "One page per task: users, access to projects, service accounts, sign-in and security policies.",
     "slug": "/access/tasks"
   }
 }

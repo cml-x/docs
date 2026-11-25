@@ -1,12 +1,12 @@
 ---
-title: Security Policy
+title: Security Policy Reference
 sidebar_position: 1
 ---
 
 Reference of the security policy and of each of its rules. A security policy is deployed as an
 Envoy Gateway `SecurityPolicy`.
 
-## Target
+## Policy Target
 
 | Field | Values | Meaning |
 |---|---|---|
@@ -105,7 +105,7 @@ browser shows its native prompt.
 
 Procedure: [HTTP Basic authentication](/api-manager/policy-tasks/basic-auth).
 
-## CORS
+## CORS Fields
 
 **Why.** Let pages served from another origin call the API from a browser.
 

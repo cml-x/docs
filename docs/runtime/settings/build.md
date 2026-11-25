@@ -1,5 +1,5 @@
 ---
-title: Build Configuration
+title: Configure the Build
 sidebar_position: 7
 ---
 

@@ -1,12 +1,12 @@
 ---
-title: Lua Policy
+title: Lua Policy Reference
 sidebar_position: 4
 ---
 
 Reference of the custom policy: a Lua script run by the gateway on each request and each
 response. It is deployed as an Envoy Gateway `EnvoyExtensionPolicy`.
 
-## Target
+## Policy Target
 
 | Field | Values | Meaning |
 |---|---|---|
@@ -14,7 +14,7 @@ response. It is deployed as an Envoy Gateway `EnvoyExtensionPolicy`.
 | `targetRef.name` | Name | The API instance or the gateway |
 | `targetRef.sectionName` | Name, optional | One access point of a gateway |
 
-## Parameters
+## Policy Parameters
 
 | Parameter | Default | Meaning |
 |---|---|---|

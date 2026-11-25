@@ -1,5 +1,5 @@
 ---
-title: JWT Authentication
+title: Validate JWT Tokens
 sidebar_position: 3
 ---
 

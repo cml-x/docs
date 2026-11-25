@@ -1,5 +1,5 @@
 ---
-title: Secrets
+title: Secret Reference
 sidebar_position: 2
 ---
 
@@ -12,7 +12,7 @@ Its template. Templates such as Secure Properties, TLS Certificate, API Keys or 
 Credentials are sensitive by nature; Properties and Resources File are not — see
 [Templates](/config-sources/templates).
 
-## Operations
+## Available Operations
 
 A secret is managed from its page. Each operation takes effect for every consumer that references the secret.
 
@@ -34,7 +34,7 @@ next restart or reload: an integration no longer starts, a policy refuses every 
 the references first.
 :::
 
-## Rotation
+## Secret Rotation
 
 Rotating a secret without interrupting callers means that the old and the new value are both accepted for a while. How to achieve that depends on the kind of secret.
 

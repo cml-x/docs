@@ -1,5 +1,5 @@
 ---
-title: Environment Variables
+title: Set Environment Variables
 sidebar_position: 3
 ---
 

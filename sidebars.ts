@@ -60,7 +60,7 @@ const sidebars: SidebarsConfig = {
       "items": [
         {
           "type": "category",
-          "label": "Integrations",
+          "label": "Run and Configure Integrations",
           "collapsed": true,
           "items": [
             "guides/create-an-integration",
@@ -84,13 +84,13 @@ const sidebars: SidebarsConfig = {
           "link": {
             "type": "generated-index",
             "slug": "/runtime/settings",
-            "title": "Integrations",
+            "title": "Run and Configure Integrations",
             "description": "Create, deploy and configure integrations: one page per goal."
           }
         },
         {
           "type": "category",
-          "label": "APIs",
+          "label": "Expose and Secure APIs",
           "collapsed": true,
           "items": [
             "guides/expose-an-api",
@@ -117,7 +117,7 @@ const sidebars: SidebarsConfig = {
           "link": {
             "type": "generated-index",
             "slug": "/api-manager/policy-tasks",
-            "title": "APIs",
+            "title": "Expose and Secure APIs",
             "description": "Expose, secure and shape the traffic of an API: one page per goal."
           }
         },
@@ -144,7 +144,7 @@ const sidebars: SidebarsConfig = {
         },
         {
           "type": "category",
-          "label": "Monitoring",
+          "label": "Query Telemetry and Alert",
           "collapsed": true,
           "items": [
             "monitoring/tasks/search-logs",
@@ -157,13 +157,13 @@ const sidebars: SidebarsConfig = {
           "link": {
             "type": "generated-index",
             "slug": "/monitoring/tasks",
-            "title": "Monitoring",
+            "title": "Query Telemetry and Alert",
             "description": "Logs, metrics, traces, dashboards, alerts and reports."
           }
         },
         {
           "type": "category",
-          "label": "Assets",
+          "label": "Use the Asset Catalog",
           "collapsed": true,
           "items": [
             "library/tasks/find-an-asset",
@@ -173,13 +173,13 @@ const sidebars: SidebarsConfig = {
           "link": {
             "type": "generated-index",
             "slug": "/library/tasks",
-            "title": "Assets",
+            "title": "Use the Asset Catalog",
             "description": "Find, publish and version assets."
           }
         },
         {
           "type": "category",
-          "label": "Access",
+          "label": "Manage Users and Access",
           "collapsed": true,
           "items": [
             "access/tasks/invite-a-user",
@@ -197,27 +197,27 @@ const sidebars: SidebarsConfig = {
           "link": {
             "type": "generated-index",
             "slug": "/access/tasks",
-            "title": "Access",
+            "title": "Manage Users and Access",
             "description": "Users, roles, service accounts, identity providers and sign-in policies."
           }
         },
         {
           "type": "category",
-          "label": "Troubleshooting",
+          "label": "Troubleshoot by Area",
           "collapsed": true,
           "items": [
             "troubleshooting/project-manager",
             "troubleshooting/runtime-manager",
             "troubleshooting/environment-manager",
             "troubleshooting/api-manager",
-            "troubleshooting/auth-manager",
+            "troubleshooting/tokens-and-sign-in",
             "troubleshooting/access-manager",
             "troubleshooting/monitoring"
           ],
           "link": {
             "type": "generated-index",
             "slug": "/troubleshooting",
-            "title": "Troubleshooting",
+            "title": "Troubleshoot by Area",
             "description": "Organized by area and by symptom: cause, check, fix."
           }
         }
@@ -353,7 +353,7 @@ const sidebars: SidebarsConfig = {
         },
         {
           "type": "category",
-          "label": "Runtime",
+          "label": "Integration Runtime",
           "collapsed": true,
           "items": [
             "runtime/integrations",
@@ -411,7 +411,7 @@ const sidebars: SidebarsConfig = {
         },
         {
           "type": "category",
-          "label": "Configuration",
+          "label": "Secrets and Configuration",
           "collapsed": true,
           "items": [
             "config-sources/secrets",
@@ -421,7 +421,7 @@ const sidebars: SidebarsConfig = {
         },
         {
           "type": "category",
-          "label": "Monitoring",
+          "label": "Telemetry Views",
           "collapsed": true,
           "items": [
             "monitoring/home",
@@ -432,13 +432,13 @@ const sidebars: SidebarsConfig = {
           "link": {
             "type": "generated-index",
             "slug": "/monitoring",
-            "title": "Monitoring",
+            "title": "Telemetry Views",
             "description": "The views of Monitoring and the series they read."
           }
         },
         {
           "type": "category",
-          "label": "Assets",
+          "label": "Asset Catalog",
           "collapsed": true,
           "items": [
             "library/assets",
@@ -447,13 +447,13 @@ const sidebars: SidebarsConfig = {
           "link": {
             "type": "generated-index",
             "slug": "/library",
-            "title": "Assets",
+            "title": "Asset Catalog",
             "description": "The asset catalog."
           }
         },
         {
           "type": "category",
-          "label": "Access",
+          "label": "Access Control",
           "collapsed": true,
           "items": [
             "access/users",
@@ -466,7 +466,7 @@ const sidebars: SidebarsConfig = {
           "link": {
             "type": "generated-index",
             "slug": "/access",
-            "title": "Access",
+            "title": "Access Control",
             "description": "The screens of Access Manager."
           }
         }

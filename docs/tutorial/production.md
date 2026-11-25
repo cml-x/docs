@@ -1,5 +1,5 @@
 ---
-title: 11. Production Readiness
+title: 11. Prepare for Production
 sidebar_position: 12
 ---
 
@@ -64,7 +64,7 @@ write unless the integration recognises a request it has already handled.
 - Its [network rules](/infra/network) say what the environment may call. Systems in your
   datacenter are reached through a [private link](/infra/private-links).
 
-## RBAC
+## RBAC Roles
 
 Calling the API and managing it are separate.
 
@@ -90,7 +90,7 @@ Deploy a new release to a non-production environment, then roll back, at least o
 that has never been tried is a plan, not a capability.
 :::
 
-## Checklist
+## Production Checklist
 
 - [ ] The integration is built from a release.
 - [ ] No secret in the source or in clear variables.

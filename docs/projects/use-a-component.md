@@ -67,7 +67,7 @@ An artifact server behind authentication or signed by a private authority is con
 Maven settings of the environment, not on each integration.
 :::
 
-## Kamelets
+## Using Kamelets
 
 A Kamelet is used like a component, with the `kamelet:` scheme. Unlike a component, it is not a
 library fetched at build time: it is an object that must exist in the environment the

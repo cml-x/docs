@@ -1,5 +1,5 @@
 ---
-title: Overview
+title: Integration Runtime Model
 sidebar_position: 1
 ---
 
@@ -22,7 +22,7 @@ Two properties of this model explain most of what you will do in Runtime Manager
   run in, and is built and deployed separately in each. Development and production can run
   different versions of the same integration with different settings.
 
-## Objects
+## Object Model
 
 Runtime Manager works with three objects.
 

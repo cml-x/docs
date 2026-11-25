@@ -1,5 +1,5 @@
 ---
-title: 6. Persistent Storage
+title: 6. Attach Persistent Storage
 sidebar_position: 7
 ---
 

@@ -51,4 +51,4 @@ secret that reached a log or a commit must be regenerated.
 Calling an API and managing it are separate: the first is decided by tokens, the second by
 [roles](/access/rbac-principles) in Access Manager.
 
-Refused calls: [Tokens and sign-in](/troubleshooting/auth-manager).
+Refused calls: [Tokens and sign-in](/troubleshooting/tokens-and-sign-in).

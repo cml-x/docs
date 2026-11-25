@@ -1,5 +1,5 @@
 ---
-title: Configuration Templates
+title: Configuration Template Reference
 sidebar_position: 4
 ---
 
@@ -179,7 +179,7 @@ A list of the applications allowed to obtain tokens from an
 
 ## For log destinations
 
-These hold the credentials a [log destination](/infra/log-exporter#destinations) needs.
+These hold the credentials a [log destination](/infra/log-exporter#log-destinations) needs.
 
 ### Logging API Key
 

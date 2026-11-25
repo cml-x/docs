@@ -42,7 +42,7 @@ forms of the platform, not from the screens.
 
 | ID | After | Screen | How to reach it | Status |
 |---|---|---|---|---|
-| `access-connected-app-credentials` | Credentials | A connected app page: Client ID and secret, Personal Access Tokens, JWT Keys | Access Manager > Connected Apps > an app | to do |
+| `access-connected-app-credentials` | Credentials | A service account page: Client ID and secret, Personal Access Tokens, JWT Keys | Access Manager > Service Accounts > an app | to do |
 
 ### `docs/access/create-and-manage-roles.md`
 
@@ -60,7 +60,7 @@ forms of the platform, not from the screens.
 
 | ID | After | Screen | How to reach it | Status |
 |---|---|---|---|---|
-| `access-tasks-create-a-connected-app` | Procedure | The Create Connected App panel, and the one-time display of its secret | Access Manager > Connected Apps > Create Connected App | to do |
+| `access-tasks-create-a-connected-app` | Procedure | The Create Service Account panel, and the one-time display of its secret | Access Manager > Service Accounts > Create Service Account | to do |
 
 ### `docs/access/tasks/grant-access-on-a-project.md`
 

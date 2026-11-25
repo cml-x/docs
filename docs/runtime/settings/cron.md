@@ -1,5 +1,5 @@
 ---
-title: Cron Schedule
+title: Schedule an Integration With Cron
 sidebar_position: 9
 ---
 

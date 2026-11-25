@@ -1,5 +1,5 @@
 ---
-title: Telemetry
+title: Troubleshoot Telemetry
 sidebar_position: 7
 ---
 

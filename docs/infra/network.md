@@ -1,5 +1,5 @@
 ---
-title: Network Policies
+title: Network Policy Reference
 sidebar_position: 7
 ---
 
@@ -91,7 +91,7 @@ Addresses of workloads change at every restart. Rules that select workloads by l
 working; rules on internal IP ranges do not.
 :::
 
-## Apply
+## Apply the Policies
 
 A policy takes effect when you click **Deploy changes** on its page. That deploys this policy
 alone: nothing else of the environment is touched, and **Apply** on the environment does not

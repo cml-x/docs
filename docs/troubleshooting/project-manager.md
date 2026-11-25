@@ -1,5 +1,5 @@
 ---
-title: Repositories and Releases
+title: Troubleshoot Repositories and Releases
 sidebar_position: 1
 ---
 

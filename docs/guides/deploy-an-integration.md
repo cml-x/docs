@@ -45,7 +45,7 @@ Bind the same integration to the next environment and point it at the same relea
 environment builds and deploys on its own [runtime plane](/infra/runtime-planes), with its own
 settings.
 
-## Rollback
+## Rollback Procedure
 
 Each deployment is a revision. Roll back to an earlier revision from the page of the integration.
 

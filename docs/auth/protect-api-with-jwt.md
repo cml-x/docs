@@ -1,5 +1,5 @@
 ---
-title: JWT Authentication
+title: Protect an API With JWT
 sidebar_position: 4
 ---
 

@@ -1,5 +1,5 @@
 ---
-title: Environments and Clusters
+title: Troubleshoot Environments and Clusters
 sidebar_position: 3
 ---
 

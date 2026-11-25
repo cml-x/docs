@@ -1,5 +1,5 @@
 ---
-title: Users
+title: User Account Reference
 sidebar_position: 1
 ---
 
@@ -69,7 +69,7 @@ An administrator can remove a factor a user has lost — **Authenticator App**, 
 **SMS OTP**, a security key — and unlink an external identity provider from the account. The user
 enrolls again at the next sign-in when the [MFA policy](/access/mfa-policy) requires it.
 
-## Tasks
+## Related Tasks
 
 | Task | Page |
 |---|---|

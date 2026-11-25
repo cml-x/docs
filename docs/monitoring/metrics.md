@@ -1,5 +1,5 @@
 ---
-title: Metrics
+title: Metrics Reference
 sidebar_position: 4
 ---
 

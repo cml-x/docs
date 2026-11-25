@@ -1,5 +1,5 @@
 ---
-title: Environments
+title: Environment Model and Lifecycle
 sidebar_position: 2
 ---
 

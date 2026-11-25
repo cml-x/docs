@@ -36,7 +36,7 @@ Take JWT authentication on an API:
 | Understand what the gateway verifies and what it does not | Concept | [Authn and Authz](/security/authentication-vs-authorization) |
 | Look up `checkAudience` and its default | Reference | [Security Policy](/api-manager/reference/security-policy#jwt-authentication) |
 
-## Conventions
+## Documentation Conventions
 
 - **Bold** marks a label you see in the console: **Apply changes**.
 - `Monospace` marks what you type or read in a file, a log or a command.

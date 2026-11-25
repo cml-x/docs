@@ -1,5 +1,5 @@
 ---
-title: Mounted Files
+title: Mount Resource Files
 sidebar_position: 2
 ---
 

@@ -1,5 +1,5 @@
 ---
-title: Set as Template
+title: Set a Repository as Template
 sidebar_position: 5
 ---
 

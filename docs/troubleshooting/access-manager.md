@@ -1,5 +1,5 @@
 ---
-title: Access and Permissions
+title: Troubleshoot Access and Permissions
 sidebar_position: 6
 ---
 

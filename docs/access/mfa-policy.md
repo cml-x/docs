@@ -1,5 +1,5 @@
 ---
-title: MFA Policy
+title: MFA Policy Reference
 sidebar_position: 5
 ---
 
@@ -12,7 +12,7 @@ A password can be guessed, reused from another site, or typed into a fake sign-i
 factor means that the password alone is no longer enough. For the console — from which
 production can be deployed, exposed and deleted — it is the single most effective protection.
 
-## Enforcement
+## Enforcement Switches
 
 ![A person signs in through the identity provider or with a local account; the MFA policy adds a second factor; the session says who they are, and roles decide what they may do](/img/access/sign-in-path.drawio.png)
 
@@ -23,7 +23,7 @@ Two switches decide who is asked for a second factor. The second one exists beca
 | **Require MFA** | Every user must set up a second factor at the next sign-in |
 | **Local MFA Only** | Users who sign in through an external identity provider are not asked: their provider is trusted for it |
 
-## Methods
+## Second-Factor Methods
 
 You choose which methods users may enroll. They are not equivalent: a code typed by the user can be captured by a fake sign-in page, a security key cannot.
 

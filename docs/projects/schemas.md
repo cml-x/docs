@@ -1,5 +1,5 @@
 ---
-title: Schema Registry
+title: Schema Registry Reference
 sidebar_position: 3
 ---
 
@@ -31,7 +31,7 @@ Teams are reorganized; domains last. `orders`, `billing`, `shipping` stay meanin
 team that owns them changes.
 :::
 
-## Formats
+## Schema Formats
 
 The format is chosen when the artifact is created and tells the editor how to validate and
 display the content.

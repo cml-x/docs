@@ -1,5 +1,5 @@
 ---
-title: API Key Authentication
+title: Require an API Key
 sidebar_position: 1
 ---
 

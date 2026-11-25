@@ -1,5 +1,5 @@
 ---
-title: CORS
+title: Configure CORS
 sidebar_position: 5
 ---
 
@@ -13,7 +13,7 @@ Browsers refuse a page from one origin calling an API on another unless the API 
 It tells browsers what to allow. A client that is not a browser ignores it: authenticate the API as well.
 :::
 
-Every parameter and its default: [reference](/api-manager/reference/security-policy#cors).
+Every parameter and its default: [reference](/api-manager/reference/security-policy#cors-fields).
 
 ## Use cases
 

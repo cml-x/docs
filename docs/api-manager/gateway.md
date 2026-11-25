@@ -1,5 +1,5 @@
 ---
-title: API Gateways
+title: API Gateway Reference
 sidebar_position: 2
 ---
 

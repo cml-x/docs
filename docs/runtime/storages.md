@@ -1,5 +1,5 @@
 ---
-title: Storages
+title: Storage Reference
 sidebar_position: 4
 ---
 

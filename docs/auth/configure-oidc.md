@@ -1,5 +1,5 @@
 ---
-title: OIDC Authentication
+title: Configure OIDC Authentication
 sidebar_position: 5
 ---
 

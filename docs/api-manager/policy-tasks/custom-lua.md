@@ -1,5 +1,5 @@
 ---
-title: Lua Filter
+title: Run a Lua Filter
 sidebar_position: 12
 ---
 

@@ -1,5 +1,5 @@
 ---
-title: Private Links
+title: Private Link Reference
 sidebar_position: 4
 ---
 
@@ -12,7 +12,7 @@ as many links as it has remote networks to reach.
 
 ![A private link between an environment and a remote network](/img/infra/private-link.svg)
 
-## Architecture
+## Link Architecture
 
 A link is a tunnel that the **environment opens** towards the remote network. Nothing is
 exposed on the environment's side; the remote side only has to accept one incoming connection.

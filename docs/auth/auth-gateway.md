@@ -1,5 +1,5 @@
 ---
-title: Auth Gateways
+title: Auth Gateway Reference
 sidebar_position: 2
 ---
 
@@ -57,7 +57,7 @@ The page of an auth gateway lists the addresses applications and APIs need:
 
 The discovery document is also shown on the page, ready to copy.
 
-## Settings
+## Gateway Settings
 
 Once created, an auth gateway is tuned through four settings. Only **Clients** is required for it to issue tokens.
 

@@ -1,5 +1,5 @@
 ---
-title: Assign Roles & Permissions
+title: Assign Roles and Permissions
 sidebar_position: 8
 ---
 

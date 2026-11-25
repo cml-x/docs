@@ -1,5 +1,5 @@
 ---
-title: OAuth Clients
+title: OAuth Client Reference
 sidebar_position: 3
 ---
 

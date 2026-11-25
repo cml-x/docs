@@ -1,5 +1,5 @@
 ---
-title: Overview
+title: Telemetry Model
 sidebar_position: 1
 ---
 
@@ -67,7 +67,7 @@ deployment.environment=<environment alias>
 Gateways report Envoy statistics — downstream requests, response code classes, request duration,
 connections, TLS handshakes — listed under [Metrics](/monitoring/metrics).
 
-## Views
+## Console Views
 
 Monitoring has one view per kind of signal, plus what is built on top of them.
 
@@ -80,7 +80,7 @@ Monitoring has one view per kind of signal, plus what is built on top of them.
 | **Alerts** | Alert rules, destinations, firing history |
 | **Reports** | Dashboards sent on a schedule |
 
-## Tasks
+## Related Tasks
 
 | Task | Page |
 |---|---|

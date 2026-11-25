@@ -1,5 +1,5 @@
 ---
-title: 2. Deploy
+title: 2. Deploy the Integration
 sidebar_position: 3
 ---
 
@@ -92,7 +92,7 @@ A revision records the whole integration. Rolling back also returns the settings
 were — including a property you had corrected since.
 :::
 
-## Undeploy
+## Undeploy the Integration
 
 **Undeploy** removes the integration from the selected environment and keeps its definition.
 **Delete** removes the integration itself.

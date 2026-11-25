@@ -1,5 +1,5 @@
 ---
-title: Logs Insight
+title: Logs Insight Reference
 sidebar_position: 3
 ---
 

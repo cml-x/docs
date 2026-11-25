@@ -23,7 +23,7 @@ anyone can still sign in with a weak password.
 | 3 | Business unit | Which roles exist, restricted to which environments | Business unit, **Roles Base Access** |
 | 4 | Grant | Who holds which role, people and programs | [Role grants](/access/authorizations) |
 
-## Recommendations
+## Recommendations by Level
 
 ### Sign-in
 
@@ -80,7 +80,7 @@ The sequence to get there without locking anyone out is in
 | Give a temporary grant an owner and an end date in your own tracking | The platform keeps a grant until it is removed |
 | Verify a new role signed in as a member | An action outside the role must be refused, not hidden |
 
-## Profiles
+## Profiles to Distinguish
 
 A profile is a kind of person or program, defined by what it must be able to do. Most
 organizations have the same ones.
@@ -193,7 +193,7 @@ above produces.
 | Auditor | View | View | View |
 | Business unit administrator | Everything | Everything | Everything |
 
-## Examples
+## Worked Examples
 
 ### A developer joins the payments team
 
@@ -229,7 +229,7 @@ deactivated — and deleted once nothing refers to it.
 The auditor receives the organization role **Viewer** for the duration of the audit. They read
 every business unit, including the roles and their permissions, and change nothing.
 
-## Checklist
+## Setup Checklist
 
 - [ ] An identity provider is active and tested with a second session open
 - [ ] **Require MFA** is on

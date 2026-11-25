@@ -1,5 +1,5 @@
 ---
-title: Distributed Traces
+title: Distributed Trace Reference
 sidebar_position: 5
 ---
 
@@ -15,7 +15,7 @@ Reach for a trace when a request is slow or fails and one service's logs do not 
 cause is often in the hop before or after. A trace also shows what a route really does at run
 time, which is not always what its source suggests.
 
-## Instrumentation
+## Trace Instrumentation
 
 Tracing comes from `camel:opentelemetry2`, part of every integration. Spans are exported over
 OTLP with the resource attributes `service.name`, `service.namespace` and

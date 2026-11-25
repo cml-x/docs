@@ -1,5 +1,5 @@
 ---
-title: Templates
+title: Asset Template Reference
 sidebar_position: 2
 ---
 

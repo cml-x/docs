@@ -1,5 +1,5 @@
 ---
-title: Integrations
+title: Integration Reference
 sidebar_position: 3
 ---
 

@@ -1,5 +1,5 @@
 ---
-title: Dashboards
+title: Dashboard Reference
 sidebar_position: 2
 ---
 
@@ -32,12 +32,12 @@ several dashboard definitions and a README; instantiating it creates each dashbo
 A panel charts a query over a stream: PromQL for metrics, a log query for logs. The queries of
 the [Metrics](/monitoring/metrics) page can be pasted as they are.
 
-## Variables
+## Dashboard Variables
 
 Filter panels on `service_name` and `service_namespace` rather than hard-coding an integration:
 the same dashboard then serves every integration and every environment.
 
-## Sharing
+## Dashboard Sharing
 
 The address of a dashboard carries its organization, its stream, its period and its variables.
 Whoever opens the link sees the same data, provided they have access to the business unit.

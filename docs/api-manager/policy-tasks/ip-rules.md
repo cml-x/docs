@@ -1,5 +1,5 @@
 ---
-title: IP Allowlist and Denylist
+title: Allow or Deny Client IP Ranges
 sidebar_position: 6
 ---
 

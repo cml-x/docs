@@ -1,5 +1,5 @@
 ---
-title: Circuit Breaker
+title: Configure a Circuit Breaker
 sidebar_position: 10
 ---
 

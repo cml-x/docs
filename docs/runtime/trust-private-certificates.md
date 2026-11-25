@@ -1,5 +1,5 @@
 ---
-title: JVM Truststore
+title: Trust Private Certificates in the JVM Truststore
 sidebar_position: 5
 ---
 
@@ -46,7 +46,7 @@ Lines outside the `BEGIN` / `END` blocks, such as comments, are ignored.
 The file holds certificates, which are public. It never holds a private key.
 :::
 
-## Configuration
+## Truststore Configuration
 
 ### 1. Resources File configuration
 
@@ -119,7 +119,7 @@ Changing the file, the password or the switch restarts the integration.
 If the integration stays in its starting phase, open its instance and look at the step that runs
 first: it says which certificate could not be read.
 
-## Limits
+## Limits and Constraints
 
 - **One file per integration.** Put all the authorities an integration needs in the same file.
 - **PEM only.** A file in another format (DER, PKCS#12, JKS) is not read: convert it to PEM first.

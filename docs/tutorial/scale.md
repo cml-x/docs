@@ -1,5 +1,5 @@
 ---
-title: 5. Scaling
+title: 5. Scale the Integration
 sidebar_position: 6
 ---
 

@@ -1,5 +1,5 @@
 ---
-title: Organization and Units
+title: Organization and Business Units
 sidebar_position: 2.5
 ---
 
@@ -10,7 +10,7 @@ what.
 
 ![An organization contains business units; each business unit holds its members, roles, repositories, configurations and environments](/img/access/organization-business-units.drawio.png)
 
-## Organization
+## Organization Level
 
 The organization is **your company on the platform**. There is one per customer, created when
 the platform is first set up. It has an **Organization ID** and a **Primary Domain**, shown on

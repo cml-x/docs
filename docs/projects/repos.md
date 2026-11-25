@@ -1,5 +1,5 @@
 ---
-title: Repositories
+title: Repository Reference
 sidebar_position: 2
 ---
 
@@ -53,7 +53,7 @@ it to last: renaming means updating every integration that builds from it.
 | **Name** | Starts with a letter or a digit; then letters, digits, dashes, dots and underscores |
 | **Description** | Optional, 100 characters at most |
 
-## Topics
+## Repository Topics
 
 Topics are free labels on a repository. They matter for two reasons. The platform uses one of
 them to record the project type. And the search of [Assets Explorer](/library/assets) matches

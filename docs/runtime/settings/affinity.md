@@ -1,5 +1,5 @@
 ---
-title: Affinity
+title: Configure Pod Affinity
 sidebar_position: 11
 ---
 

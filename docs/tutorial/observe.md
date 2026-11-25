@@ -1,5 +1,5 @@
 ---
-title: 10. Observability
+title: 10. Observe Logs, Metrics and Traces
 sidebar_position: 11
 ---
 
@@ -33,7 +33,7 @@ Each signal carries the resource attributes set by the platform:
 In **Monitoring**, the organization is the business unit and the stream is the environment. Both
 are taken from what is selected in the console.
 
-## Logs
+## Query the Logs
 
 {/* screenshot: tutorial-logs-insight */}
 
@@ -52,7 +52,7 @@ trace.
 To ship logs to your own Elasticsearch, Splunk, Loki or Kafka as well, see
 [Log Exporter](/infra/log-exporter).
 
-## Metrics
+## Read the Metrics
 
 Open **Metrics**. The series reported by an integration, with the queries the console itself
 charts:
@@ -76,7 +76,7 @@ avg(process_cpu_usage{service_name="orders-api"}) * 100
 
 Add `service_namespace="<environment>"` to restrict a query to one environment.
 
-## Traces
+## Follow a Trace
 
 Open **Distributed Traces** and filter on the service `orders-api`. A trace shows the exchange of
 each route as a span, and the calls made to other systems as child spans. The trace context is

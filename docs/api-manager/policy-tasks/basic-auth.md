@@ -1,5 +1,5 @@
 ---
-title: HTTP Basic Authentication
+title: Require HTTP Basic Authentication
 sidebar_position: 2
 ---
 

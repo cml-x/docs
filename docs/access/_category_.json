@@ -3,7 +3,7 @@
   "position": 7,
   "link": {
     "type": "generated-index",
-    "description": "Control user access, roles, connected apps and identity provider integrations.",
+    "description": "Control user access, roles, service accounts and identity provider integrations.",
     "slug": "/access"
   }
 }

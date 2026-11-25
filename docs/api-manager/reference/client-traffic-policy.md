@@ -1,12 +1,12 @@
 ---
-title: Client Traffic Policy
+title: Client Traffic Policy Reference
 sidebar_position: 3
 ---
 
 Reference of the client traffic policy: how clients connect to a gateway. It is deployed as an
 Envoy Gateway `ClientTrafficPolicy`.
 
-## Target
+## Policy Target
 
 | Field | Values | Meaning |
 |---|---|---|
@@ -14,7 +14,7 @@ Envoy Gateway `ClientTrafficPolicy`.
 | `targetRef.name` | Name | The gateway |
 | `targetRef.sectionName` | Name, optional | One access point |
 
-## Connections
+## Connection Fields
 
 These parameters protect the gateway itself from too many or too slow clients. They act before any route is chosen.
 
@@ -30,7 +30,7 @@ These parameters protect the gateway itself from too many or too slow clients. T
 very slowly. Set it on public gateways.
 :::
 
-## TLS
+## TLS Fields
 
 These parameters decide which TLS handshakes the gateway accepts from clients. Tightening them improves security and may exclude old clients.
 

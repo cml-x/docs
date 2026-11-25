@@ -1,5 +1,5 @@
 ---
-title: Retries
+title: Configure Retries
 sidebar_position: 9
 ---
 
@@ -13,7 +13,7 @@ When a request to the backend fails for a transient reason, the gateway sends it
 Retry on connection failures for any operation. Retry on `5xx` only for idempotent operations, or the backend may create two orders.
 :::
 
-Every parameter and its default: [reference](/api-manager/reference/backend-traffic-policy#retries).
+Every parameter and its default: [reference](/api-manager/reference/backend-traffic-policy#retry-fields).
 
 ## Use cases
 

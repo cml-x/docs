@@ -1,5 +1,5 @@
 ---
-title: Sign-In Hardening
+title: Harden Organization Sign-In
 sidebar_position: 9
 ---
 

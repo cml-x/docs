@@ -1,5 +1,5 @@
 ---
-title: Overview
+title: Secret and Configuration Model
 sidebar_position: 1
 ---
 
@@ -58,7 +58,7 @@ is stored with the integration and visible to whoever can read it. Always choose
 configuration instead.
 :::
 
-## Model
+## Configuration Model
 
 Three notions are enough to use Secret Manager. A template says what kind of thing is stored; a
 configuration is one such thing; its distribution says where it can be used.
@@ -69,7 +69,7 @@ configuration is one such thing; its distribution says where it can be used.
 | **Configuration** | One instance of a template, with its values |
 | **Distribution** | The environments a configuration is available in |
 
-## Lifecycle
+## Configuration Lifecycle
 
 1. **Create** — choose a template; the form has three steps: **Details**, **Properties**,
    **Distribute**.
@@ -84,7 +84,7 @@ secret** to create one in a side panel, and **Make available** when one exists b
 distributed to the environment.
 :::
 
-## Views
+## Console Views
 
 The menu offers three ways into the same configurations, split by sensitivity or by template.
 

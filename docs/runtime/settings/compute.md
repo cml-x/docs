@@ -1,5 +1,5 @@
 ---
-title: Compute Resources
+title: Set Compute Resources
 sidebar_position: 4
 ---
 

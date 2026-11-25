@@ -1,5 +1,5 @@
 ---
-title: Config Maps
+title: Config Map Reference
 sidebar_position: 3
 ---
 
@@ -21,7 +21,7 @@ orders.partner.url=https://partner.example.com/orders
 orders.batch.size=200
 ```
 
-## Operations
+## Available Operations
 
 A configuration is managed from its page. Distribution is separate from creation: an existing configuration can be made available to more environments at any time.
 
@@ -29,7 +29,7 @@ A configuration is managed from its page. Distribution is separate from creation
 |---|---|
 | Search | Full-text over names, aliases and templates |
 | Browse per template, or all configurations | — |
-| Edit, delete | As for [secrets](/config-sources/secrets#operations) |
+| Edit, delete | As for [secrets](/config-sources/secrets#available-operations) |
 | **Distribute to environment** | Make it available in one more environment, without recreating it |
 
 :::warning[Not for credentials]

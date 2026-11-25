@@ -1,5 +1,5 @@
 ---
-title: URL Rewrite
+title: Rewrite URLs
 sidebar_position: 16
 ---
 

@@ -1,5 +1,5 @@
 ---
-title: Policies
+title: Policy Model and Attachment
 sidebar_position: 6
 ---
 
@@ -129,6 +129,6 @@ A configuration can only be chosen in an environment it was made available to. T
 the policy forms offer to do it in place.
 :::
 
-## Procedures
+## Related Procedures
 
 One page per rule, with its procedure and verification: [Policy tasks](/api-manager/policy-tasks).

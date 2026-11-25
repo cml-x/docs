@@ -1,5 +1,5 @@
 ---
-title: Container Security
+title: Harden the Container Security Context
 sidebar_position: 13
 ---
 

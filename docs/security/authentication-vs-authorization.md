@@ -1,5 +1,5 @@
 ---
-title: Authn and Authz
+title: Authentication vs Authorization
 sidebar_position: 1
 ---
 

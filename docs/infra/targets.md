@@ -1,5 +1,5 @@
 ---
-title: Targets
+title: Target Reference
 sidebar_position: 1.7
 ---
 
@@ -32,7 +32,7 @@ In **Environment Manager**, go to **Targets**, then **Create target**.
 2. **Cluster** — select the runtime plane. Each one is listed with its provider, its region and
    its health; only a healthy one can be selected.
 
-## Parameters
+## Target Parameters
 
 | Field | What it is |
 |---|---|

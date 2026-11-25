@@ -1,5 +1,5 @@
 ---
-title: 4. JVM Truststore
+title: 4. Trust a Private Certificate Authority
 sidebar_position: 5
 ---
 

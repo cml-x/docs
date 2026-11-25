@@ -1,5 +1,5 @@
 ---
-title: Client Traffic Policy
+title: Tune Client Traffic
 sidebar_position: 13
 ---
 

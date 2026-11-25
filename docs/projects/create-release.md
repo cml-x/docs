@@ -1,5 +1,5 @@
 ---
-title: Releases
+title: Release Reference
 sidebar_position: 5
 ---
 

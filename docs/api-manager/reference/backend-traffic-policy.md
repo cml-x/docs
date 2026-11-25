@@ -1,12 +1,12 @@
 ---
-title: Backend Traffic Policy
+title: Backend Traffic Policy Reference
 sidebar_position: 2
 ---
 
 Reference of the backend traffic policy: how the gateway sends requests to the backend of an
 API. It is deployed as an Envoy Gateway `BackendTrafficPolicy`.
 
-## Target
+## Policy Target
 
 | Field | Values | Meaning |
 |---|---|---|
@@ -34,7 +34,7 @@ autoscaling the gateway changes the total.
 
 Procedure: [Rate limiting](/api-manager/policy-tasks/rate-limit).
 
-## Timeouts
+## Timeout Fields
 
 **Why.** Without a timeout, a backend that stops answering holds a connection and a caller indefinitely. Timeouts bound how long the gateway waits at each stage.
 
@@ -54,7 +54,7 @@ outgoing calls. Otherwise the caller gives up first and the work is wasted.
 
 Procedure: [Request timeouts](/api-manager/policy-tasks/timeout).
 
-## Retries
+## Retry Fields
 
 **Why.** Many failures are transient: a connection reset, an instance restarting. A retry hides them from the caller — at the cost of sending the request again.
 

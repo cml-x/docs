@@ -19,7 +19,7 @@ An integration takes its source from one of two places. The choice is made at cr
 | History, review, releases | No | Yes |
 | Use for | Prototypes, small glue routes | Anything that reaches test or production |
 
-## Inline
+## Inline Source
 
 1. In **Runtime Manager**, **Integrations**, **Create Integration**.
 2. Name it, choose **None — create it on its own**, keep **Source mode** on **Inline**.
@@ -28,7 +28,7 @@ An integration takes its source from one of two places. The choice is made at cr
 
 Detail and a complete route: [tutorial, step 1](/tutorial/first-integration).
 
-## Git
+## Git Source
 
 1. In **Integration Center**, [create a repository](/projects/tasks/create-a-repository) of type
    **Routes**, or [from a template](/projects/tasks/create-from-a-template).
@@ -38,7 +38,7 @@ Detail and a complete route: [tutorial, step 1](/tutorial/first-integration).
 
 Detail: [tutorial, step 7](/tutorial/from-git).
 
-## Dependencies
+## Camel Dependencies
 
 Components used in endpoint URIs are resolved for you. Declare the rest in **Dependencies** —
 see [Camel dependencies](/projects/use-a-component).

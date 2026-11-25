@@ -1,5 +1,5 @@
 ---
-title: API Instances
+title: API Instance Reference
 sidebar_position: 3
 ---
 

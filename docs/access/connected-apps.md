@@ -1,15 +1,14 @@
 ---
-title: Service Accounts
+title: Service Account Reference
 sidebar_position: 3
 ---
 
-A service account — **Connected Apps** in the menu — is a machine identity: a CI pipeline, a
-script or another system that calls the platform API without a person signing in. It is granted
-roles exactly like a user.
+A service account is a machine identity: a CI pipeline, a script or another system that calls
+the platform API without a person signing in. It is granted roles exactly like a user.
 
 :::info[Not for the clients of your APIs]
 Applications that call the APIs **you expose** are OAuth clients of an
-[auth gateway](/auth/client-lists), not connected apps.
+[auth gateway](/auth/client-lists), not service accounts.
 :::
 
 ## Why programs get their own identity
@@ -24,7 +23,7 @@ When a credential leaks, you revoke one account and one program is affected. A s
 turns every leak into an outage for everything that used it.
 :::
 
-## Credentials
+## Credential Types
 
 {/* screenshot: access-connected-app-credentials */}
 
@@ -48,7 +47,7 @@ The right credential depends on what the calling program can do and on how much 
 | A service that can run an OAuth flow | Client ID and secret |
 | No shared secret may be stored on the platform side | JWT key: only the public key is kept |
 
-## States
+## Revocation and Account States
 
 Each credential can be revoked on its own, and the whole account can be suspended. Revocation is immediate: the next call with that credential is refused.
 
@@ -61,6 +60,6 @@ Each credential can be revoked on its own, and the whole account can be suspende
 
 ## Related pages
 
-- [Create a connected app](/access/tasks/create-a-connected-app)
+- [Create a service account](/access/tasks/create-a-connected-app)
 - [RBAC model](/access/rbac-principles)
 - [Access design and reference matrix](/access/access-design) — one account per pipeline, a separate one for production

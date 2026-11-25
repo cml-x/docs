@@ -1,5 +1,5 @@
 ---
-title: Health Probes
+title: Configure Health Probes
 sidebar_position: 8
 ---
 
