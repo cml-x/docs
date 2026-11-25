@@ -10,7 +10,7 @@ applications there, and be called from there, without exposing either side.
 Each link belongs to one environment and is isolated from the others. An environment can have
 as many links as it has remote networks to reach.
 
-![A private link between an environment and a remote network](/img/infra/private-link.svg)
+![A private link between an environment and a remote network](/img/infra/private-link.drawio.png)
 
 ## Link Architecture
 

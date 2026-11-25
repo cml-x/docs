@@ -7,7 +7,7 @@ Camel X separates two kinds of role in Access Manager: **organization-level admi
 (assigned when [creating a user](/access/create-user)) and **business-unit roles**, which you
 define yourself and grant through **Authorizations** (shown as **RBAC** in the menu).
 
-![RBAC Model](/img/access/rbac-model.svg)
+![A user holds organization-level admin roles on the account and business-unit roles through a grant; each role is a set of permissions scoped to the unit or to chosen environments](/img/access/rbac-model.drawio.png)
 
 ## Assignment model: permission, role, grant
 
