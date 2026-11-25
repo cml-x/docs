@@ -35,6 +35,9 @@ In [Settings](/access/settings):
 - turn **Ignore Unknown Users** on;
 - set the password policy and the lockout policy for the local accounts that remain.
 
+The values recommended at each step are summarized in
+[Access design](/access/access-design#sign-in).
+
 ## 4. Restrict password login
 
 Once every user signs in through the provider, turn **Password Login** off — after checking that

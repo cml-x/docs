@@ -14,6 +14,8 @@ company account: its password policy, its second factor and its offboarding appl
 The console still decides **what** each person may do, through roles. The provider only answers
 **who** they are.
 
+![A person signs in through the identity provider or with a local account; the MFA policy adds a second factor; the session says who they are, and roles decide what they may do](/img/access/sign-in-path.drawio.png)
+
 ## Supported providers
 
 Popular providers have a dedicated form that asks only for what that provider needs. Any other provider that speaks OpenID Connect or SAML 2.0 is configured with the generic forms.

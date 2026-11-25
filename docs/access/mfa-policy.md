@@ -14,6 +14,8 @@ production can be deployed, exposed and deleted — it is the single most effect
 
 ## Enforcement
 
+![A person signs in through the identity provider or with a local account; the MFA policy adds a second factor; the session says who they are, and roles decide what they may do](/img/access/sign-in-path.drawio.png)
+
 Two switches decide who is asked for a second factor. The second one exists because users of an external identity provider usually already pass a second factor there.
 
 | Setting | Effect |

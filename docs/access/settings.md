@@ -11,6 +11,8 @@ These settings apply to **local accounts** — those that sign in with a user na
 kept by the platform. Users of an external identity provider follow that provider's rules for
 passwords and lockout.
 
+Where they sit in a sign-in is shown in [MFA policy](/access/mfa-policy#enforcement).
+
 Tighten them in proportion to how many local accounts remain. An organization that signs in
 entirely through its identity provider needs strong rules for a handful of emergency accounts,
 not for everyone.
@@ -63,3 +65,4 @@ A locked account is unlocked from [Users](/access/users).
 
 - [Login, password and lockout policies: procedure](/access/tasks/set-sign-in-rules)
 - [MFA policy](/access/mfa-policy)
+- [Access design and reference matrix](/access/access-design) — recommended values

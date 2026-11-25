@@ -40,10 +40,27 @@ A group is bound to an environment, then deployed there. A group not yet bound t
 environment says so and offers to bind it. Its members are deployed together in that
 environment.
 
+## The page of a deployment request
+
+A group — and every integration deployed on its own — is deployed through a **deployment request**.
+Its page is reached from the list, or from a component with **Deployment request**.
+
+| Tab | What it shows |
+|---|---|
+| **Overview** | What the platform says of the request right now, the deployment in progress, its components, then its revisions |
+| **Components** | What the request deploys |
+| **Services** | The addresses it exposes in the selected environment |
+| **Instances** | The pods it started in the selected environment, each with its containers |
+| **Policies** | The policies applied to it, each open to editing |
+
+**Apply changes** deploys it to the selected environment. **Actions** holds what changes its
+place: bind it to another environment, undeploy it from the selected one, remove that
+environment from it, or delete it once it is deployed nowhere.
+
 ## Revisions and rollback
 
-Each deployment of a group creates one revision for all its members. A rollback returns every
-member to the state of the chosen revision.
+Each deployment of a group creates one revision for all its members. They are listed at the
+bottom of the **Overview**. A rollback returns every member to the state of the chosen revision.
 
 :::warning[A rollback is never partial]
 Rolling a group back reverts every integration in it, including those that had not changed for

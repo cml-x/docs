@@ -5,7 +5,8 @@ sidebar_position: 3
 
 Access control answers one question: **what is this user
 allowed to do, and where?** This page explains the model behind it. To put it into practice, follow
-the [Create and Manage Roles](/access/create-and-manage-roles) tutorial.
+the [Create and Manage Roles](/access/create-and-manage-roles) tutorial; for which roles to build
+and whom to give them to, see [Access design](/access/access-design).
 
 ## Authorization model
 

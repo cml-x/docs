@@ -293,7 +293,8 @@ const sidebars: SidebarsConfig = {
             "security/authentication-vs-authorization",
             "security/api-security",
             "access/organization-and-business-units",
-            "access/rbac-principles"
+            "access/rbac-principles",
+            "access/access-design"
           ],
           "link": {
             "type": "generated-index",

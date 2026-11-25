@@ -4,12 +4,12 @@ sidebar_position: 1
 ---
 
 **Users** lists the human accounts of the organization. Programs use
-[connected apps](/access/connected-apps) instead.
+[service accounts](/access/connected-apps) instead.
 
 ## Accounts, and what they do not give
 
-An account lets a person **sign in**. It gives no access to any project: a new user sees an
-empty console until a role is granted to them on a project. Identity and access are managed in
+An account lets a person **sign in**. It gives no access to any business unit: a new user sees
+an empty console until a role is granted to them in one. Identity and access are managed in
 two different screens on purpose — you can suspend one without touching the other.
 
 People who sign in through your company's [identity provider](/access/identity-providers) get
@@ -30,6 +30,8 @@ An account is identified by its user name and reached through its email address.
 
 Three actions stop someone from signing in, and they differ in what they keep. Choose the least destructive one that solves the problem.
 
+![An active account can be locked or deactivated and brought back, with its grants kept; deleting it is permanent](/img/access/account-states.drawio.png)
+
 | Action | Effect | Reversible |
 |---|---|---|
 | **Lock User Account** | Sign-in refused; grants kept | Yes, unlock |
@@ -38,7 +40,23 @@ Three actions stop someone from signing in, and they differ in what they keep. C
 | **Resend verification email** | Sends the verification link again | — |
 | **Manage Roles** | Organization-level roles of the user | — |
 
-Access to projects is not set here: see [Authorizations](/access/authorizations).
+Access to business units is not set here: see [Role grants](/access/authorizations).
+
+## Organization-level roles
+
+**Manage Roles** gives a user a role on the organization itself. These roles administer the
+platform; they are not the roles of a business unit.
+
+| Role | Gives |
+|---|---|
+| **Owner** | Full access to all resources and settings of the organization |
+| **Viewer** | Read-only access to the resources of the organization |
+| **User Manager** | Managing users and their access |
+| **Permission Editor** | Editing permissions and role assignments |
+| **Project Editor** | Editing the permissions and configuration of business units |
+| **Project Creator** | Creating business units |
+
+Who should hold which is covered in [Access design](/access/access-design).
 
 :::tip[Deactivate before deleting]
 A deactivated account keeps its grants and its history, and can be reactivated. Delete only when
@@ -59,3 +77,4 @@ enrolls again at the next sign-in when the [MFA policy](/access/mfa-policy) requ
 | Give access to a project | [Grant roles on a project](/access/tasks/grant-access-on-a-project) |
 | Suspend or remove an account | [Lock, deactivate or delete a user](/access/tasks/lock-or-remove-a-user) |
 | Full sequence for a newcomer | [Onboard a user](/access/create-user) |
+| Decide which profiles and roles to set up | [Access design and reference matrix](/access/access-design) |

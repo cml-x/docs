@@ -145,6 +145,7 @@ export const DIAGRAM_BY_PAGE: Readonly<Record<string, CardDiagram>> = {
 
   'access/organization-and-business-units': 'orgTree',
   'access/rbac-principles': 'triple',
+  'access/access-design': 'allowDeny',
   'access/users': 'userList',
   'access/create-user': 'addUser',
   'access/create-and-manage-roles': 'roleCard',

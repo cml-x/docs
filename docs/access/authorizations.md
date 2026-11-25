@@ -3,8 +3,13 @@ title: Role Grants
 sidebar_position: 2
 ---
 
-An authorization grants a [user](/access/users) one or several roles on one project. It is the
-**RBAC** entry of the menu.
+An authorization grants a [user](/access/users) or a [service account](/access/connected-apps)
+one or several roles on one project. It is the **RBAC** entry of the menu.
+
+:::info[A project is a business unit]
+This screen names **Project** what the rest of the console calls a
+[business unit](/access/organization-and-business-units). They are the same thing.
+:::
 
 ## Why grants are separate from accounts
 
@@ -51,3 +56,4 @@ and keeps the other grants.
 
 - [Grant roles on a project](/access/tasks/grant-access-on-a-project)
 - [Assign roles and permissions](/access/assign-roles-and-permissions)
+- [Access design and reference matrix](/access/access-design) — who gets which role in a reference organization

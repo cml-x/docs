@@ -36,6 +36,23 @@ An API instance is created in a group or on its own. Decide before creating it: 
 part of how it is deployed and versioned.
 :::
 
+## The page of a deployment request
+
+A group — and every API instance, gateway or upstream deployed on its own — is deployed through a **deployment request**.
+Its page is reached from the list, or from a component with **Deployment request**.
+
+| Tab | What it shows |
+|---|---|
+| **Overview** | What the platform says of the request right now, the deployment in progress, its components, then its revisions |
+| **Components** | What the request deploys |
+| **Services** | The addresses it exposes in the selected environment |
+| **Instances** | The pods it started in the selected environment, each with its containers |
+| **Policies** | The policies applied to it, each open to editing |
+
+**Apply changes** deploys it to the selected environment. **Actions** holds what changes its
+place: bind it to another environment, undeploy it from the selected one, remove that
+environment from it, or delete it once it is deployed nowhere.
+
 ## Policies in a group
 
 Policies still target a gateway or one API instance — see

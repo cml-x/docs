@@ -148,4 +148,5 @@ recovered from the console.
 
 - [RBAC model](/access/rbac-principles) — how roles are structured and checked
 - [Create and manage roles](/access/create-and-manage-roles)
+- [Access design and reference matrix](/access/access-design) — profiles and roles for a reference organization
 - [Runtime planes](/infra/runtime-planes) — where the environments of a unit run
