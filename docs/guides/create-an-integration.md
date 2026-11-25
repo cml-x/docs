@@ -26,7 +26,61 @@ An integration takes its source from one of two places. The choice is made at cr
 3. Add one or several source files — YAML, Java or XML DSL.
 4. Leave **Expose HTTP Endpoint** on if a route consumes HTTP, then create.
 
-Detail and a complete route: [tutorial, step 1](/tutorial/first-integration).
+### Example: an HTTP route
+
+Paste this as a source file named `orders.camel.yaml`. It answers `GET /orders/{id}` with a JSON
+document that carries the identifier from the path:
+
+```yaml title="orders.camel.yaml"
+- route:
+    id: get-order
+    from:
+      uri: platform-http:/orders/{id}
+      parameters:
+        httpMethodRestrict: GET
+      steps:
+        - setHeader:
+            name: Content-Type
+            constant: application/json
+        - setBody:
+            simple: '{"id":"${header.id}","status":"shipped"}'
+        - log:
+            message: "order ${header.id} served"
+```
+
+Keep **Expose HTTP Endpoint** on. Once the integration is deployed, call it at its address:
+
+```bash
+curl https://<address-of-the-integration>/orders/42
+```
+
+```json
+{"id":"42","status":"shipped"}
+```
+
+### Example: a scheduled route
+
+This one consumes no HTTP: it writes a line to the log every ten seconds. Turn **Expose HTTP
+Endpoint** off for it.
+
+```yaml title="heartbeat.camel.yaml"
+- route:
+    id: heartbeat
+    from:
+      uri: timer:heartbeat
+      parameters:
+        period: 10000
+      steps:
+        - setBody:
+            simple: "heartbeat ${date:now:HH:mm:ss}"
+        - log:
+            message: "${body}"
+```
+
+Its lines appear in **Monitoring**, **Logs Insight**, once it runs.
+
+A route in Java and XML DSL, with the explanation of each step:
+[tutorial, step 1](/tutorial/first-integration).
 
 ## Git Source
 
