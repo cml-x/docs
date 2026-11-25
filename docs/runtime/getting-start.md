@@ -77,6 +77,18 @@ current definition of the integration to the selected environment, which works o
 
 Each apply that changes something creates a **revision**, which you can roll back to.
 
+## Why an integration needs a storage
+
+The file system of a container is temporary. Everything a route writes to it disappears with
+the instance. That is fine for most integrations, which keep their state in the systems they
+connect. It is not for those that keep state on disk:
+
+- a file-based idempotent repository, remembering what was already processed;
+- a staging directory where files wait between two steps;
+- a local cache that is expensive to rebuild.
+
+For those, create a storage and mount it.
+
 ## Next steps
 
 Once an integration is deployed, these pages take it further.

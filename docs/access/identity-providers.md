@@ -5,16 +5,7 @@ sidebar_position: 4
 
 An identity provider lets people sign in to the console with an account managed elsewhere.
 
-## Why federate sign-in
-
-Without an identity provider, every user has one more password, and leaving the company does not
-remove access to the console until someone remembers to. With one, people sign in with their
-company account: its password policy, its second factor and its offboarding apply here too.
-
-The console still decides **what** each person may do, through roles. The provider only answers
-**who** they are.
-
-![A person signs in through the identity provider or with a local account; the MFA policy adds a second factor; the session says who they are, and roles decide what they may do](/img/access/sign-in-path.drawio.png)
+Rationale: [Why federate sign-in](/access/sign-in-and-identity-model#why-federate-sign-in).
 
 ## Supported providers
 

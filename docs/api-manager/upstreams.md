@@ -7,20 +7,7 @@ An **Upstream** declares a service that an [API Instance](/api-manager/api-insta
 to when that service is not a plain service of the environment — typically a service outside
 the platform.
 
-## Why upstreams exist
-
-An API instance normally routes to a service of the environment — an integration. Sometimes the
-service lives elsewhere: a partner API, a legacy system, a SaaS. You still want it behind your
-gateway, to give it your host name, your authentication and your rate limits.
-
-An upstream declares that outside destination once. API instances then route to it exactly as
-they route to an integration, and several APIs can share the same upstream.
-
-:::tip[A facade over a partner API]
-Publishing a partner API through an upstream lets you hide its real address and credentials from
-your callers, apply your own authentication, and change provider later without changing the
-address your callers use.
-:::
+Rationale: [Why upstreams exist](/api-manager/getting-start#why-upstreams-exist).
 
 ## Create an upstream
 

@@ -6,17 +6,7 @@ sidebar_position: 4
 A **storage** is a persistent volume of an environment: disk space that keeps its content when
 an integration restarts, is redeployed or is rescheduled on another node.
 
-## Why an integration needs one
-
-The file system of a container is temporary. Everything a route writes to it disappears with
-the instance. That is fine for most integrations, which keep their state in the systems they
-connect. It is not for those that keep state on disk:
-
-- a file-based idempotent repository, remembering what was already processed;
-- a staging directory where files wait between two steps;
-- a local cache that is expensive to rebuild.
-
-For those, create a storage and mount it.
+Rationale: [Why an integration needs a storage](/runtime/getting-start#why-an-integration-needs-a-storage).
 
 ## Create and mount
 

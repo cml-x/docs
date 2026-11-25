@@ -9,20 +9,7 @@ load balancer of its own, and one or several **access points** through which
 
 ![Gateway Routing](/img/api-manager/gateway.drawio.png)
 
-## What a gateway is for
-
-A gateway is the single place where traffic enters an environment. It owns three things your
-integrations should not have to: a network address reachable from the right place, the TLS
-certificates, and the enforcement of policies.
-
-One gateway can serve many APIs. You create a second one when traffic must be **separated**:
-public and internal APIs on different load balancers, a partner with its own certificate and
-limits, or a workload whose traffic must not compete with the rest.
-
-:::tip[How many gateways]
-Start with one public gateway and, if needed, one internal. Each gateway has its own load
-balancer and its own instances: more gateways means more to pay for and to watch.
-:::
+Rationale: [What a gateway is for](/api-manager/getting-start#what-a-gateway-is-for).
 
 ## Create a gateway
 

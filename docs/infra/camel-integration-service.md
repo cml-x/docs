@@ -9,15 +9,7 @@ runs them, and tells that operator where images go and how builds run.
 
 An environment cannot run integrations until this service is activated.
 
-## Why it is a service of the environment
-
-Building and running integrations needs an operator, a container registry to push images to, and
-Maven settings to resolve dependencies. These differ between environments: production pushes to
-another registry than development, a regulated environment resolves from an internal mirror
-only.
-
-So each environment gets its own, configured once. Integrations then carry none of it: the same
-integration builds in any environment with that environment's registry and Maven settings.
+Rationale: [Why Camel integration is a service of the environment](/infra/getting-start#why-camel-integration-is-a-service-of-the-environment).
 
 ## Service Activation
 

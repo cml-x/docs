@@ -6,14 +6,7 @@ sidebar_position: 2
 **Templates** is the asset search restricted to the type `template`: repositories that can be
 used as the starting point of a new one.
 
-## What a template gives you
-
-A working project instead of an empty repository: routes that already run, with the conventions
-of whoever published it for property names, error handling and logging. You adapt addresses and
-credentials instead of starting from a blank file.
-
-The template is **copied** when you create your repository. Your project then lives on its own:
-you can change anything, and later changes to the template do not reach you.
+Rationale: [What an asset template gives you](/library/asset-catalog-model#what-an-asset-template-gives-you).
 
 ## Where templates come from
 

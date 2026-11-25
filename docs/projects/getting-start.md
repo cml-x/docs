@@ -73,3 +73,18 @@ lets one release run with different settings in each environment.
 | Understand what the repository page offers | [Repositories](/projects/repos) |
 | Follow one project from an empty repository to production | [Repository to release](/projects/create-first-integration) |
 | Version an API or message contract | [Schema registry](/projects/schemas) |
+
+## Why deploy releases and not branches
+
+A branch changes with every commit. If production builds from a branch, two deployments a week
+apart can produce two different integrations without anyone deciding it, and a rollback cannot
+say precisely what it returns to. A release removes that uncertainty: `1.4.0` is the same
+source today and in a year.
+
+## Why contracts are kept apart from repositories
+
+A contract is shared by a producer and its consumers, which usually live in different
+repositories and are released at different times. Keeping it in the repository of one of them
+makes the others depend on that repository's history. In the registry, a contract has its own
+identity and its own versions: every party refers to `orders/order-created`, version 3,
+whatever the state of the code.

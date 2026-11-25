@@ -6,12 +6,7 @@ sidebar_position: 5
 A **release** is a named, fixed version of a repository: a Git tag on one commit, with a
 description of what changed. It is what you deploy outside development.
 
-## Why deploy releases and not branches
-
-A branch changes with every commit. If production builds from a branch, two deployments a week
-apart can produce two different integrations without anyone deciding it, and a rollback cannot
-say precisely what it returns to. A release removes that uncertainty: `1.4.0` is the same
-source today and in a year.
+Rationale: [Why deploy releases and not branches](/projects/getting-start#why-deploy-releases-and-not-branches).
 
 ## Version format
 

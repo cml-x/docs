@@ -49,3 +49,54 @@ The guided setup does the three in one pass: environment basics, container regis
 configuration, then the Camel Integration Service.
 
 Next: deploy an integration in it — [Quick start](/getting-started/quick-start).
+
+## Why targets exist
+
+An environment needs a place on a cluster. A target is that place, described once: which
+runtime plane, which namespace. Separating it from the environment lets the same model cover a
+namespace shared with others on a managed cluster and a namespace on a cluster of your own —
+and lets you move a stage by pointing its environment at another target.
+
+:::info[A target is a namespace, not a cluster]
+Several targets can sit on the same runtime plane, each in its own namespace. Creating a target
+does not create or reserve a cluster.
+:::
+
+## Why Camel integration is a service of the environment
+
+Building and running integrations needs an operator, a container registry to push images to, and
+Maven settings to resolve dependencies. These differ between environments: production pushes to
+another registry than development, a regulated environment resolves from an internal mirror
+only.
+
+So each environment gets its own, configured once. Integrations then carry none of it: the same
+integration builds in any environment with that environment's registry and Maven settings.
+
+## Why export logs
+
+The logs of an environment are already searchable in Monitoring. Export them when they must
+**also** be somewhere else: the SIEM of your security team, the log platform your on-call
+engineers already use, an archive with its own retention.
+
+Exporting does not move logs out of Monitoring. A flow copies the logs it selects to the
+destinations it names; what no flow selects stays where it was.
+
+:::info[Three objects, in this order]
+Configure the **exporter**, then create a **destination**, then a **flow** that sends logs to
+it. A destination that no flow references receives nothing.
+:::
+
+## Why restrict traffic inside an environment
+
+By default, workloads on a cluster can call each other and reach the outside freely. That is
+convenient and means that a compromised or misconfigured integration can reach everything.
+Traffic rules narrow it: this environment may call that database and that partner, and nothing
+else; only the gateway may call the integrations.
+
+Rules describe what is **allowed**. Once a list holds rules, what none of them allows is
+refused.
+
+:::warning[Restricting egress cuts DNS unless you allow it]
+The first symptom of an egress list without the DNS preset is that every outgoing call fails
+with "unknown host". Add **DNS — kube-dns** before any other egress rule.
+:::

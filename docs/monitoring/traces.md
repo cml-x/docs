@@ -6,14 +6,7 @@ sidebar_position: 5
 **Distributed Traces** searches the traces of the environment selected and shows each one as a
 timeline of spans.
 
-## What traces are for
-
-A trace follows **one request** across everything it touched: the gateway, the integration, the
-systems the integration called. It shows where the time went and which step failed.
-
-Reach for a trace when a request is slow or fails and one service's logs do not explain it — the
-cause is often in the hop before or after. A trace also shows what a route really does at run
-time, which is not always what its source suggests.
+Rationale: [What traces are for](/monitoring/getting-start#what-traces-are-for).
 
 ## Trace Instrumentation
 

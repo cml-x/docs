@@ -57,3 +57,13 @@ their expiry. Keep token lifetimes short for sensitive APIs.
 - **Policies** are attached from the page of an API instance or of a gateway.
 
 Start with [Auth Gateways](/auth/auth-gateway).
+
+## What an auth gateway does
+
+It is an OAuth 2.0 token service for the environment. An application presents its client
+credentials; the auth gateway answers with a signed token naming the APIs the client may call.
+The gateways in front of your APIs then verify that signature with the public keys the auth
+gateway publishes.
+
+One auth gateway usually serves all the APIs of an environment. Create another one to keep two
+populations of clients strictly apart — internal applications and partners, for example.

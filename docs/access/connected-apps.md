@@ -11,17 +11,7 @@ Applications that call the APIs **you expose** are OAuth clients of an
 [auth gateway](/auth/client-lists), not service accounts.
 :::
 
-## Why programs get their own identity
-
-A pipeline or a script that uses a person's credentials stops working when that person leaves,
-acts with all of their rights, and makes the audit trail say a human did what a robot did. A
-service account fixes the three: it belongs to no one, has only the roles you grant it, and
-appears under its own name.
-
-:::tip[One account per program]
-When a credential leaks, you revoke one account and one program is affected. A shared account
-turns every leak into an outage for everything that used it.
-:::
+Rationale: [Why programs get their own identity](/access/sign-in-and-identity-model#why-programs-get-their-own-identity).
 
 ## Credential Types
 
@@ -37,15 +27,7 @@ A service account can authenticate in three ways. They differ in what is stored 
 | **Personal Access Tokens** | A bearer token sent as is in the `Authorization` header | Once, at creation; with an expiration |
 | **JWT Keys** | A private key used to sign a JWT assertion exchanged for a token | Downloaded once, at creation; with an expiration |
 
-## Choosing a credential
-
-The right credential depends on what the calling program can do and on how much you want to limit a leak.
-
-| Situation | Credential |
-|---|---|
-| A script, a quick automation | Personal access token with a short expiration |
-| A service that can run an OAuth flow | Client ID and secret |
-| No shared secret may be stored on the platform side | JWT key: only the public key is kept |
+Rationale: [Choosing a service account credential](/access/sign-in-and-identity-model#choosing-a-service-account-credential).
 
 ## Revocation and Account States
 

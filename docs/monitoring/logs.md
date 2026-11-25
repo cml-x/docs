@@ -5,14 +5,7 @@ sidebar_position: 3
 
 **Logs Insight** searches the logs collected in the environment selected.
 
-## What logs are for
-
-Logs answer "what happened to this request, in this route?". They are the right tool once you
-know **where** to look — a metric showed errors, a trace showed the slow step — and need the
-detail: the message, the exception, the identifier of the order.
-
-They are the wrong tool for trends. "How many errors per minute" is a metric; counting log lines
-to get it is slow and costly.
+Rationale: [What logs are for](/monitoring/getting-start#what-logs-are-for).
 
 ## Log format
 

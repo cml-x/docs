@@ -6,11 +6,7 @@ sidebar_position: 5
 The MFA policy decides whether a second factor is required at sign-in, for whom, and which
 methods are offered.
 
-## Why a second factor
-
-A password can be guessed, reused from another site, or typed into a fake sign-in page. A second
-factor means that the password alone is no longer enough. For the console — from which
-production can be deployed, exposed and deleted — it is the single most effective protection.
+Rationale: [Why require a second factor](/access/sign-in-and-identity-model#why-require-a-second-factor).
 
 ## Enforcement Switches
 

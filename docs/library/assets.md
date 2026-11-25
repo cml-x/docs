@@ -6,12 +6,7 @@ sidebar_position: 1
 **Assets Explorer** is a search engine over what already exists: the repositories, templates and
 releases of your organization, and the public catalogs of Apache Camel and Camel X.
 
-## Why search before building
-
-In an organization with more than a few integrations, the connector you are about to write
-often exists already: someone integrated that SFTP server, that Kafka cluster, that billing
-API. Finding it saves the work and, more importantly, the credentials dance and the edge cases
-its author already went through. The catalog is how you find it.
+Rationale: [Why search before building](/library/asset-catalog-model#why-search-before-building).
 
 ## What is indexed
 

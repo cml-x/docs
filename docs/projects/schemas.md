@@ -6,13 +6,7 @@ sidebar_position: 3
 **Schemas** is a registry for the **contracts** of your APIs and messages: the OpenAPI document
 of a REST API, the Avro schema of the records on a Kafka topic, the JSON Schema of a payload.
 
-## Why contracts are kept apart from repositories
-
-A contract is shared by a producer and its consumers, which usually live in different
-repositories and are released at different times. Keeping it in the repository of one of them
-makes the others depend on that repository's history. In the registry, a contract has its own
-identity and its own versions: every party refers to `orders/order-created`, version 3,
-whatever the state of the code.
+Rationale: [Why contracts are kept apart from repositories](/projects/getting-start#why-contracts-are-kept-apart-from-repositories).
 
 ## Data model
 

@@ -6,19 +6,7 @@ sidebar_position: 4
 **Metrics** queries the metric streams of the environment with PromQL. Every series carries
 `service_name` — the integration or the gateway — and `service_namespace` — the environment.
 
-## What metrics are for
-
-Metrics answer "how much, how fast, how often" over time. They are cheap to store and query,
-which makes them the right basis for dashboards and alerts. They do not tell you *which* request
-failed — that is what traces and logs are for.
-
-Every integration and every gateway reports the series below without any configuration. To use
-them you only need to know their names and the labels that select one service.
-
-:::info[Selecting one service]
-Filter on `service_name` — the name of the integration or of the gateway — and, to restrict to
-one environment, on `service_namespace`.
-:::
+Rationale: [What metrics are for](/monitoring/getting-start#what-metrics-are-for).
 
 ## Camel metrics
 

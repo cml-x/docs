@@ -35,20 +35,7 @@ notice on its page. **Move the policy** gives it a deployment of its own; its ru
 until you deploy it again.
 :::
 
-## Why restrict traffic inside an environment
-
-By default, workloads on a cluster can call each other and reach the outside freely. That is
-convenient and means that a compromised or misconfigured integration can reach everything.
-Traffic rules narrow it: this environment may call that database and that partner, and nothing
-else; only the gateway may call the integrations.
-
-Rules describe what is **allowed**. Once a list holds rules, what none of them allows is
-refused.
-
-:::warning[Restricting egress cuts DNS unless you allow it]
-The first symptom of an egress list without the DNS preset is that every outgoing call fails
-with "unknown host". Add **DNS — kube-dns** before any other egress rule.
-:::
+Rationale: [Why restrict traffic inside an environment](/infra/getting-start#why-restrict-traffic-inside-an-environment).
 
 ## Ingress and egress rules
 

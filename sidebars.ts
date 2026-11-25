@@ -9,7 +9,8 @@ const sidebars: SidebarsConfig = {
       "collapsed": false,
       "items": [
         "getting-started/overview",
-        "getting-started/documentation-map"
+        "getting-started/documentation-map",
+        "getting-started/your-first-integration"
       ],
       "link": {
         "type": "generated-index",
@@ -24,7 +25,6 @@ const sidebars: SidebarsConfig = {
       "collapsed": true,
       "items": [
         "getting-started/quick-start",
-        "getting-started/your-first-integration",
         {
           "type": "category",
           "label": "Orders API Tutorial",
@@ -242,7 +242,8 @@ const sidebars: SidebarsConfig = {
             "projects/getting-start",
             "projects/use-a-component",
             "projects/create-template",
-            "projects/multi-component-integration"
+            "projects/multi-component-integration",
+            "library/asset-catalog-model"
           ],
           "link": {
             "type": "generated-index",
@@ -293,6 +294,7 @@ const sidebars: SidebarsConfig = {
             "security/authentication-vs-authorization",
             "security/api-security",
             "access/organization-and-business-units",
+            "access/sign-in-and-identity-model",
             "access/rbac-principles",
             "access/access-design"
           ],

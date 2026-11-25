@@ -15,19 +15,7 @@ It works with three things:
 | **Destinations** | Where logs are sent |
 | **Flows** | Which logs go to which destinations |
 
-## Why export logs
-
-The logs of an environment are already searchable in Monitoring. Export them when they must
-**also** be somewhere else: the SIEM of your security team, the log platform your on-call
-engineers already use, an archive with its own retention.
-
-Exporting does not move logs out of Monitoring. A flow copies the logs it selects to the
-destinations it names; what no flow selects stays where it was.
-
-:::info[Three objects, in this order]
-Configure the **exporter**, then create a **destination**, then a **flow** that sends logs to
-it. A destination that no flow references receives nothing.
-:::
+Rationale: [Why export logs](/infra/getting-start#why-export-logs).
 
 ## Exporter configuration
 

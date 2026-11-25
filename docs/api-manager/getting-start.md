@@ -68,3 +68,47 @@ The [tutorial](/tutorial/secure) goes through each of them on the same example.
 - An **[auth gateway](/auth/getting-start)** issues the tokens those policies check.
 - **[Access Manager](/access/users)** decides which users may manage the API and its gateway — a
   separate matter from who may *call* it.
+
+## What a gateway is for
+
+A gateway is the single place where traffic enters an environment. It owns three things your
+integrations should not have to: a network address reachable from the right place, the TLS
+certificates, and the enforcement of policies.
+
+One gateway can serve many APIs. You create a second one when traffic must be **separated**:
+public and internal APIs on different load balancers, a partner with its own certificate and
+limits, or a workload whose traffic must not compete with the rest.
+
+:::tip[How many gateways]
+Start with one public gateway and, if needed, one internal. Each gateway has its own load
+balancer and its own instances: more gateways means more to pay for and to watch.
+:::
+
+## What an API instance decides
+
+An API instance is the link between an address and a service. It answers three questions:
+**where** the API is reached — a gateway, an access point, a host name; **what** answers — an
+integration or an upstream; and **under which rules** — the policies attached to it.
+
+It contains no logic. Transforming a payload or calling two systems is the work of the
+integration behind it; the API instance only routes and enforces.
+
+:::info[One API instance, one backend]
+An API instance routes to one service. To publish two integrations under one host name, create
+two API instances on that host name with different paths.
+:::
+
+## Why upstreams exist
+
+An API instance normally routes to a service of the environment — an integration. Sometimes the
+service lives elsewhere: a partner API, a legacy system, a SaaS. You still want it behind your
+gateway, to give it your host name, your authentication and your rate limits.
+
+An upstream declares that outside destination once. API instances then route to it exactly as
+they route to an integration, and several APIs can share the same upstream.
+
+:::tip[A facade over a partner API]
+Publishing a partner API through an upstream lets you hide its real address and credentials from
+your callers, apply your own authentication, and change provider later without changing the
+address your callers use.
+:::

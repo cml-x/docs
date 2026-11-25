@@ -8,19 +8,7 @@ which access point the API is reached, at which address, and which service answe
 
 ![API Instances](/img/api-manager/api-instance.drawio.png)
 
-## What an API instance decides
-
-An API instance is the link between an address and a service. It answers three questions:
-**where** the API is reached — a gateway, an access point, a host name; **what** answers — an
-integration or an upstream; and **under which rules** — the policies attached to it.
-
-It contains no logic. Transforming a payload or calling two systems is the work of the
-integration behind it; the API instance only routes and enforces.
-
-:::info[One API instance, one backend]
-An API instance routes to one service. To publish two integrations under one host name, create
-two API instances on that host name with different paths.
-:::
+Rationale: [What an API instance decides](/api-manager/getting-start#what-an-api-instance-decides).
 
 ## Create an API instance
 

@@ -252,3 +252,18 @@ Each part of the model is managed in its own screen of Access Manager. This tabl
 Organization-level admin roles (Owner, Viewer, User Manager…) are a separate concept: they control
 who can administer the *platform*. Roles described here control what people can do *inside a
 business unit*.
+
+## Why grants are separate from accounts
+
+What someone may do depends on the project: the same person can administer one project and only
+read another. A grant therefore ties a user to roles **on one project**, and a user has as many
+grants as projects they work on.
+
+This also keeps offboarding and reorganizations simple. Moving someone to another team is
+removing one grant and adding another; their account, sign-in method and second factor are
+untouched.
+
+:::warning[No grant, no access]
+A user without a grant on a project does not see it at all — not even in the business unit
+selector. "I cannot see the project" almost always means a missing or deactivated grant.
+:::

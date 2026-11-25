@@ -80,6 +80,53 @@ Monitoring has one view per kind of signal, plus what is built on top of them.
 | **Alerts** | Alert rules, destinations, firing history |
 | **Reports** | Dashboards sent on a schedule |
 
+## What a dashboard is for
+
+A dashboard answers "is this service well?" at a glance, for someone who did not build it. It is
+worth building when you find yourself running the same three queries every morning, or when a
+colleague on call needs to judge the state of a service they do not know.
+
+A good one is small. Four panels that map to what a caller experiences — traffic, errors,
+latency — and to the one resource that runs out first, usually memory, tell more than forty
+panels of everything that can be measured.
+
+:::tip[Build from templates, then remove]
+Start from a ready-made template and delete the panels you never look at. A dashboard nobody
+reads in full is a dashboard nobody trusts.
+:::
+
+## What logs are for
+
+Logs answer "what happened to this request, in this route?". They are the right tool once you
+know **where** to look — a metric showed errors, a trace showed the slow step — and need the
+detail: the message, the exception, the identifier of the order.
+
+They are the wrong tool for trends. "How many errors per minute" is a metric; counting log lines
+to get it is slow and costly.
+
+## What metrics are for
+
+Metrics answer "how much, how fast, how often" over time. They are cheap to store and query,
+which makes them the right basis for dashboards and alerts. They do not tell you *which* request
+failed — that is what traces and logs are for.
+
+Every integration and every gateway reports the series below without any configuration. To use
+them you only need to know their names and the labels that select one service.
+
+:::info[Selecting one service]
+Filter on `service_name` — the name of the integration or of the gateway — and, to restrict to
+one environment, on `service_namespace`.
+:::
+
+## What traces are for
+
+A trace follows **one request** across everything it touched: the gateway, the integration, the
+systems the integration called. It shows where the time went and which step failed.
+
+Reach for a trace when a request is slow or fails and one service's logs do not explain it — the
+cause is often in the hop before or after. A trace also shows what a route really does at run
+time, which is not always what its source suggests.
+
 ## Related Tasks
 
 | Task | Page |
