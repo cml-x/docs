@@ -1,5 +1,5 @@
 ---
-title: Integration Fabric Architecture
+title: Architecture and Components
 sidebar_position: 0.5
 ---
 

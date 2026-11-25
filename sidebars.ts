@@ -236,7 +236,7 @@ const sidebars: SidebarsConfig = {
       "items": [
         {
           "type": "category",
-          "label": "Projects and Source",
+          "label": "Integration Fabric",
           "collapsed": true,
           "items": [
             "projects/integration-fabric-architecture",
@@ -249,7 +249,7 @@ const sidebars: SidebarsConfig = {
           "link": {
             "type": "generated-index",
             "slug": "/projects",
-            "title": "Projects and Source",
+            "title": "Integration Fabric",
             "description": "Where source lives and how it reaches an environment."
           }
         },

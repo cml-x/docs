@@ -1,5 +1,5 @@
 ---
-title: API Delivery Architecture
+title: Architecture and Request Path
 sidebar_position: 0.5
 ---
 
