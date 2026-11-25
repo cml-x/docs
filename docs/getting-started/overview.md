@@ -71,6 +71,8 @@ business unit and the environment selected at the top of the console.
 
 A typical integration crosses the applications in this order:
 
+![An integration crosses six applications in order, from its source in Project Manager to its observation in Monitoring; the Quick Start covers deployment and exposure](/img/getting-started/platform-flow.drawio.png)
+
 1. **Project Manager** — the routes are committed to a repository and released.
 2. **Environment Manager** — an environment exists, with its Camel Integration Service active.
 3. **Secret Manager** — the credentials and property files it needs are stored and made
