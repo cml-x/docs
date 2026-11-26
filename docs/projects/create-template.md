@@ -44,7 +44,8 @@ only offered as a starting point in addition.
 ## How a template reaches the template selection
 
 The template selection searches an index, not Git. When a template repository is created, the
-platform receives the event, reads the repository — description, topics, README — and indexes it,
+platform receives the event, reads the repository — description, topics, the title of its
+manifest — and indexes it,
 in the index of its organization; the Camel X templates are in the `camelx-io` index, shown with
 the **Camel X** source.
 
@@ -62,6 +63,20 @@ A template is read by someone who did not write it. Three things decide whether 
   configurations to create.
 - **It can be found.** Topics name the systems, the protocols and the pattern: `sftp`, `kafka`,
   `content-based-router`. The search matches topics.
+- **It has a name a reader understands.** A repository name is short and lower case; the
+  catalog shows the `title` of the manifest `.camel.json` in its place — *Won CRM Deal to ERP
+  Invoice* rather than `deal-won-to-erp`:
+
+  ```json title=".camel.json"
+  {
+    "name": "deal-won-to-erp",
+    "title": "Won CRM Deal to ERP Invoice",
+    "type": "Route"
+  }
+  ```
+
+  A title of more than 80 characters is ignored. Like the topics, it is read when the template
+  is indexed: set it before the repository is marked as a template, or have it indexed again.
 
 ## One file per route
 

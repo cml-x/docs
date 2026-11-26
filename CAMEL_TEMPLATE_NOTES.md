@@ -110,6 +110,8 @@ Sources des templates : `assets/scripts/templates/` (non versionné), scripts `p
 | Tag d'image figé (access-manager) | annotation VelaUX `publishVersion` | annotation retirée sur les 10 applications frontend |
 | Templates absents de la galerie | uid d'index Meilisearch dérivé de `camelx.io` : le point est refusé | `indexUidOf` dans project-service (`[^A-Za-z0-9_-]` → `-`), index `camelx-io`, source « Camel X » dans project-manager |
 | Topics absents de l'index | topics posés après la création, indexation faite à la création | `reindex.js --apply` |
+| Galerie affichant le nom du dépôt (`deal-won-to-erp`) | Gitea n'a pas de champ « nom affiché » | champ `title` dans `.camel.json`, lu à l'indexation par project-service (`8f29a57`) ; arrive au premier reindex, les fichiers étant poussés après la création |
+| Un titre ou des topics modifiés ne remontent pas d'eux-mêmes | l'indexation ne réagit qu'à la création, pas aux push | **à faire** : réindexer un template sur push de sa branche par défaut |
 | Wiki Home du template écrasé par celui du webhook, ou création en conflit | le pipeline du webhook crée aussi une page Home | `writeWiki` : `wiki/new`, repli sur `PATCH wiki/page/Home` |
 | `503 no available server` de Gitea | indisponibilité passagère | relancer |
 | `camelx.io/kamelet`, `pipe`, `route`, `openapi-3.0` en 404 | dépôts supprimés hors de ce travail | **à traiter** : `CreateProjectDialog.tsx` et `repos/create/page.tsx` y font référence |

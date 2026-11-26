@@ -6,13 +6,22 @@ sidebar_label: Camel X Template Reference
 The templates the platform publishes, offered with the **Camel X** source in the template
 selection. Each is a complete integration in Camel YAML DSL — Camel 4.22, Camel Quarkus 3.39 —
 with its error handling, and was run against its systems, on its nominal path and on each failure
-listed, before it was published. Its README lists the properties to set; the wiki of its
-repository gives the flow, the error handling, the configuration and how to run it locally.
+listed, before it was published. Its README lists the properties to set. The wiki of its
+repository has three pages:
+
+| Wiki page | What it gives |
+|---|---|
+| **Home** | the flow, the files, the error handling, how to run it locally |
+| **How to use** | the steps to create a project from it and deploy it, and every property: definition, explanation, how to change it |
+| **Enterprise use cases** | concrete cases it covers — systems, hosting (SaaS, on-premise, legacy), protocols — what to adapt for each, and when another template fits better |
 
 To start from one: [Create from a template](/projects/tasks/create-from-a-template). Why they are
 built the way they are: [Repository Template Model](/projects/create-template).
 
 ## Integration templates
+
+The template selection and Assets Explorer show each template under its title, with the
+repository name below it.
 
 | Template | What it does | Patterns | Systems |
 |---|---|---|---|
@@ -72,7 +81,9 @@ Every template has the same layout under `src/main/resources`:
 | `db/migration/` | Flyway migrations, run at start-up |
 | `application.properties` | every value, overridable per environment |
 
-The README lists these files with the role of each, taken from the `description` of its routes.
+At the root, `.camel.json` is the manifest of the project: its Camel dependencies, and the
+`title` the catalog shows. The README lists the files above with the role of each, taken from
+the `description` of its routes.
 
 ## Topics
 
