@@ -13,7 +13,7 @@ Rationale: [What an asset template gives you](/library/asset-catalog-model#what-
 | Source | How it appears here |
 |---|---|
 | Your organization | A repository becomes a template through **Actions**, **Set as template** — see [Repository templates](/projects/create-template) |
-| The platform | Ready-made templates in the **CamelX** index |
+| The platform | Ready-made templates in the **CamelX** index — listed in the [Camel X template reference](/projects/template-catalog) |
 
 ## Use a template
 

@@ -207,6 +207,7 @@ const sidebars: SidebarsConfig = {
           "collapsed": true,
           "items": [
             "troubleshooting/project-manager",
+            "projects/troubleshoot-camel-routes",
             "troubleshooting/runtime-manager",
             "troubleshooting/environment-manager",
             "troubleshooting/api-manager",
@@ -352,7 +353,8 @@ const sidebars: SidebarsConfig = {
           "items": [
             "projects/repos",
             "projects/create-release",
-            "projects/schemas"
+            "projects/schemas",
+            "projects/template-catalog"
           ]
         },
         {

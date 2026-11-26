@@ -67,8 +67,14 @@ lets one release run with different settings in each environment.
 
 ## Where to go next
 
+The usual next step is to create an integration from a template: its repository starts with
+routes that already run, error handling included, instead of an empty project. The templates the
+platform provides are listed in the [Camel X template reference](/projects/template-catalog).
+
 | You want to | Read |
 |---|---|
+| Create an integration from a template | [Create from a template](/projects/tasks/create-from-a-template) |
+| Choose a template | [Camel X template reference](/projects/template-catalog) |
 | Create the repository of a project | [Create a repository](/projects/tasks/create-a-repository) |
 | Understand what the repository page offers | [Repositories](/projects/repos) |
 | Follow one project from an empty repository to production | [Repository to release](/projects/create-first-integration) |

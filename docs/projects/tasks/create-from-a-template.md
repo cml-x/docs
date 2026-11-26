@@ -15,7 +15,7 @@ Its documentation lists the properties and stored configurations to create befor
 
 ## Use cases
 
-When a template matches what you are about to build: an API over a database, a file transfer, a queue listener.
+When a template matches what you are about to build: an API over a database, a file transfer, a queue listener. The templates the platform provides, and what each expects, are in the [Camel X template reference](/projects/template-catalog).
 
 ## Prerequisites
 
@@ -37,5 +37,7 @@ When a template matches what you are about to build: an API over a database, a f
 
 ## See also
 
-- [Project Manager: getting started](/projects/getting-start)
+- [Source and release model](/projects/getting-start)
+- [Camel X template reference](/projects/template-catalog)
+- [Troubleshoot Camel YAML routes and components](/projects/troubleshoot-camel-routes)
 - [Templates](/library/templates)
