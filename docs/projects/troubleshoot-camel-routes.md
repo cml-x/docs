@@ -71,6 +71,12 @@ Versions: Camel 4.22, Camel Quarkus 3.39. Why the templates handle errors the wa
   string.
 - **Fix** — `header: ERP_Id__c,Name,BillingCity`.
 
+### `mapping values are not allowed here` when the routes are loaded
+
+- **Possible cause** — an expression left unquoted holds `: `, as the Groovy `?:` operator does
+  in `expression: body.payload ?: ''`; YAML reads it as a new key.
+- **Fix** — put the whole expression in quotes, or in a literal block `|`.
+
 ### A Groovy regular expression finds nothing on a value that matches
 
 - **Possible cause** — a `Matcher` used as a condition (`if (matcher && matcher.find())`) is
