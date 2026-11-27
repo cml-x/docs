@@ -13,6 +13,22 @@ The wizard refuses to create the repository.
 | Invalid name | Start with a letter or a digit; letters, digits, dashes, dots, underscores |
 | Description over 100 characters | Shorten it |
 
+### Repository creation fails: `Failed to create temp dir`
+
+The Git service is restarting. Try again a few minutes later; if it lasts, the platform team
+checks the Git service.
+
+### A template is shown under its repository name
+
+The template selection shows the `title` of the manifest `.camel.json` when it has one, and the
+repository name otherwise — see [Repository Template Model](/projects/create-template).
+
+### A template's new title or topics do not show in the template selection
+
+A template is indexed when it is created as a template, from what it holds then. Set the title
+and the topics before marking the repository as a template; otherwise the platform team indexes it
+again.
+
 ### Release refused: invalid version format
 
 The version must be semantic: `MAJOR.MINOR.PATCH`, optionally `-prerelease` — `1.2.0`,

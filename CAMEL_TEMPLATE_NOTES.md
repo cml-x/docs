@@ -1,9 +1,21 @@
 # Templates Camel X : problèmes rencontrés, corrections, à savoir
 
 Document interne, hors du site (Docusaurus ne publie que `docs/`). Il recense ce qui a été
-rencontré en construisant et en testant les quinze templates de `camelx.io` (novembre 2026),
-composant par composant, avec la correction retenue. La partie utile aux utilisateurs est publiée
-sur le site : `docs/projects/troubleshoot-camel-routes.md`.
+rencontré en construisant et en testant les 28 templates de `camelx.io` (novembre 2026),
+composant par composant, avec la correction retenue.
+
+Tout ce qui concerne les utilisateurs est repris sur le site, au format symptôme, cause,
+vérification, correction :
+- `docs/projects/troubleshoot-camel-routes.md` couvre les routes et les composants, plus une
+  section « Local test environment » pour les tests locaux d'un template (Nisshi, Git Bash, Maven).
+- `docs/troubleshooting/project-manager.md` couvre les templates dans la galerie (titre, topics)
+  et l'erreur passagère du service Git.
+
+Restent seulement ici :
+- les détails d'outillage interne (scripts, heredocs) ;
+- les corrections de plateforme déjà déployées (index Meilisearch, publishVersion) ;
+- les points à traiter (indexation sur push, dépôts `kamelet` et `pipe`, port AS2).
+Toute nouvelle entrée utile aux utilisateurs va aussi sur le site.
 
 Versions : Camel 4.22.0, Camel Quarkus 3.39.0, plateforme Quarkus 3.39.1, YAML DSL.
 Sources des templates : `assets/scripts/templates/` (non versionné), scripts `publish.js`,

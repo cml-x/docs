@@ -77,6 +77,31 @@ Versions: Camel 4.22, Camel Quarkus 3.39. Why the templates handle errors the wa
   already moved to its first match by the condition; `find()` then looks for a second one.
 - **Fix** — `matcher != null && matcher.find()`.
 
+### `${file:ext.single}` is refused
+
+- **Possible cause** — the File language has no `ext.single`.
+- **Fix** — `${file:ext}` for the extension, `${file:onlyname.noext}` for the name without it.
+
+### A warning about the compact notation of the REST DSL
+
+- **Possible cause** — `to: direct:get-order` written as a plain value under a REST verb.
+- **Fix** — `to:` with `uri: direct:get-order` under it.
+
+## Build and dependencies
+
+### `NoSuchEndpointException … please check your classpath` at start
+
+- **Possible cause** — a Camel Quarkus application only holds the extensions its project
+  declares; an endpoint such as `bean:`, `file:` or `timer:` used in a route without its extension
+  is not found.
+- **Fix** — add `camel-quarkus-<component>` to the project, or `camel:<component>` to the
+  dependencies of `.camel.json`, and build again.
+
+### `No language could be found for: groovy`
+
+- **Possible cause** — a bean or an expression written in Groovy without the `groovy` extension.
+- **Fix** — add `camel-quarkus-groovy`.
+
 ## Error handling
 
 ### Retries and `onException` of a route never apply to a failing call
@@ -131,6 +156,13 @@ Versions: Camel 4.22, Camel Quarkus 3.39. Why the templates handle errors the wa
 - **Fix** — catch the errors of an item with `doTry` and `doCatch` in the sub-route; leave only
   the failures that must stop the split, such as Kafka unreachable, to `onException`.
 
+### The message parked after a failure is not the one received
+
+- **Possible cause** — the steps before the failure changed the body; the error handler sends
+  what the exchange holds at that moment.
+- **Fix** — `useOriginalMessage: true` on the `onException`, or keep the received body in a
+  property at the start of the route and park that property.
+
 ## HTTP
 
 ### `UnsatisfiedLinkError` mentioning Brotli
@@ -151,6 +183,12 @@ Versions: Camel 4.22, Camel Quarkus 3.39. Why the templates handle errors the wa
   options after a second `?`.
 - **Fix** — put the query in the `CamelHttpQuery` header, and clear it after the call so that
   the next call does not inherit it.
+
+### An HTTP call waits far longer than the caller
+
+- **Possible cause** — no response timeout on the endpoint.
+- **Fix** — `responseTimeout` (milliseconds) on the HTTP endpoint, shorter than the timeout of
+  whoever waits for the answer; count the retries in it.
 
 ## Kafka
 
@@ -223,6 +261,12 @@ Versions: Camel 4.22, Camel Quarkus 3.39. Why the templates handle errors the wa
 - **Fix** — `removeHeaders` with pattern `*` just before the `put`. Not at the start of the
   route: the consumer needs those headers for `deleteAfterRead`.
 
+### `deleteAfterRead` no longer deletes the objects read
+
+- **Possible cause** — the S3 headers were removed at the start of the route; the consumer needs
+  them to delete the object once the exchange is done.
+- **Fix** — remove the headers only just before writing another object.
+
 ## SQL and Flyway
 
 ### Flyway refuses to start on an existing database
@@ -242,6 +286,14 @@ Versions: Camel 4.22, Camel Quarkus 3.39. Why the templates handle errors the wa
 - **Possible cause** — the parameter is the body after a `marshal`, a stream rather than a text.
 - **Fix** — read it into a property with `${bodyAs(String)}` first, and pass the property.
 
+### An event is published for an order that was rolled back, or an order has no event
+
+- **Possible cause** — the order is stored, then the event is published, in two steps: a failure
+  between them leaves one without the other.
+- **Fix** — write the order and its event in the same SQL statement (a CTE that inserts into the
+  orders and into an outbox table), and publish from the outbox with an SQL consumer whose
+  `onConsume` marks the row once Kafka has it.
+
 ## Validation
 
 ### A valid e-mail address is refused by the JSON Schema
@@ -254,6 +306,35 @@ Versions: Camel 4.22, Camel Quarkus 3.39. Why the templates handle errors the wa
 
 - **Fix** — they follow the language of the JVM: `-Duser.language=en`.
 
+### A file is partly imported when one of its rows is wrong
+
+- **Possible cause** — the rows are split and loaded one by one before the file is checked.
+- **Fix** — check every row first, with `$error()` in the JSONata mapping, which stops the
+  exchange with its message, and put the whole file aside when one row fails.
+
+## XML
+
+### The text of an element that has attributes is missing after `jacksonXml`
+
+- **Possible cause** — Jackson puts that text under an empty key:
+  `<INTERNATIONAL_PID type="gtin">4012…</INTERNATIONAL_PID>` becomes
+  `{"type":"gtin","":"4012…"}`.
+- **Fix** — read it with `$lookup($value, "")` in JSONata. A repeated element is a list and a
+  single one an object: write paths that work with both.
+
+### An XSLT run by `xj` selects nothing
+
+- **Possible cause** — `xj` turns JSON into its own XML form, every node carrying `xj:name` and
+  `xj:type` attributes in the `http://camel.apache.org/component/xj` namespace; the element names
+  are not the JSON keys.
+- **Fix** — select on the attribute: `*[@xj:name = 'payments']/*`.
+
+### An XPath matches the answers of one sender and not of another
+
+- **Possible cause** — the senders use different prefixes for the same namespace.
+- **Fix** — match on `local-name()` and `namespace-uri()`, or declare the namespaces on the XPath
+  expression with `namespace:` and your own prefixes.
+
 ## SFTP
 
 ### Empty files are never picked up
@@ -265,6 +346,17 @@ Versions: Camel 4.22, Camel Quarkus 3.39. Why the templates handle errors the wa
 - **Possible cause** — JSch writes the host keys it accepts into `~/.ssh/known_hosts`.
 - **Fix** — `useUserKnownHostsFile: false` and a `knownHostsFile` of the integration, mounted
   from a stored configuration.
+
+## Enterprise integration patterns
+
+### Each step of a `multicast` branch becomes a branch of its own
+
+- **Fix** — group the steps of one branch in a `pipeline`.
+
+### A scheduled run starts while the previous one is still running
+
+- **Fix** — `stateful: true` on the Quartz endpoint. Quartz is not clustered here: run a single
+  replica, or each replica runs the job.
 
 ## Salesforce
 
@@ -288,6 +380,14 @@ Versions: Camel 4.22, Camel Quarkus 3.39. Why the templates handle errors the wa
   `camel.component.properties.ignore-missing-location = true`, and write the default in the
   placeholder itself, `{{salesforce.replay-preset:LATEST}}`, so that the file wins when it exists.
 
+### The subscription fails at start with an invalid replay id
+
+- **Possible cause** — the saved position is older than the 72 hours Salesforce keeps change
+  events.
+- **Fix** — decide what to lose: `fallbackToLatestReplayId=true` resumes from the latest event, or
+  remove the position file to start from the latest; then read again from Salesforce what changed
+  in between.
+
 ## AS2
 
 ### A partner's negative MDN is taken for a success
@@ -310,6 +410,13 @@ Versions: Camel 4.22, Camel Quarkus 3.39. Why the templates handle errors the wa
   with `factoryMethod` on `KeyStore` fails with `Cannot create bean instance using factory method`.
 - **Fix** — a bean with `scriptLanguage: groovy` that loads the keystore and returns the key or the
   chain, with the `groovy` extension.
+
+### The partners cannot reach the AS2 server
+
+- **Possible cause** — the AS2 server opens a listener of its own, on `as2.server-port`, apart
+  from the port 8080 of the runtime.
+- **Check** — the AS2 URL given to the partners points at that port, and that port is published
+  and open in the firewalls.
 
 ## LDAP
 
@@ -343,6 +450,12 @@ Versions: Camel 4.22, Camel Quarkus 3.39. Why the templates handle errors the wa
 - **Possible cause** — removing the last member of a `groupOfNames` is refused
   (`object class 'groupOfNames' requires attribute 'member'`).
 - **Fix** — replace the last member by a placeholder member instead of deleting it.
+
+### The groups of a person come back empty with `memberOf`
+
+- **Possible cause** — `memberOf` is computed by an overlay that not every directory runs.
+- **Fix** — search the `groupOfNames` entries that list the person:
+  `(&(objectClass=groupOfNames)(member=<dn>))`.
 
 ## Snowflake
 
@@ -398,3 +511,41 @@ Versions: Camel 4.22, Camel Quarkus 3.39. Why the templates handle errors the wa
   error handled by `onException` is an end that went well.
 - **Fix** — remove the id from the repository in the error handler:
   `bean:receivedEvents?method=remove(${exchangeProperty.eventId})`.
+
+## Local test environment
+
+Symptoms met when running a template on a workstation with the commands of its wiki.
+
+### `exec: "C:/Program Files/Git/nisshi": no such file` with `docker exec`
+
+- **Possible cause** — Git Bash on Windows turns `/nisshi` into a Windows path.
+- **Fix** — `MSYS_NO_PATHCONV=1` before that command only; exported for the whole shell, it breaks
+  other tools such as Maven.
+
+### An XML message sent with `nisshi cat produce` arrives between quotes
+
+- **Possible cause** — `nisshi cat produce` writes the value as JSON: a text becomes a JSON string.
+- **Fix** — send raw values with the console producer of Kafka, run on the network of the broker
+  container, one message per line:
+  `docker run --rm -i --network container:nisshi apache/kafka:3.9.0 /opt/kafka/bin/kafka-console-producer.sh --bootstrap-server localhost:9092 --topic <topic>`.
+
+### `nisshi cat consume` shows `null` values or keys
+
+- **Possible cause** — it only shows values that are JSON, and does not show keys.
+- **Fix** — read with `kafka-console-consumer.sh`, with `--property print.key=true` and
+  `--property print.headers=true`, the same way.
+
+### Topics are gone after the test broker was stopped
+
+- **Possible cause** — the memory storage of Nisshi is emptied when the container stops.
+- **Fix** — `docker pause` and `docker unpause` to simulate an outage, or a storage on a volume.
+
+### `mvn package` fails on Windows with a file in use
+
+- **Possible cause** — the application started from `target/` is still running and holds its jars.
+- **Fix** — stop it before building.
+
+### Flyway refuses to start: validation of the migrations fails
+
+- **Possible cause** — two templates use the same test database: each finds the other's history.
+- **Fix** — one database per template.
