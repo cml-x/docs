@@ -71,12 +71,20 @@ A template is read by someone who did not write it. Three things decide whether 
   {
     "name": "deal-won-to-erp",
     "title": "Won CRM Deal to ERP Invoice",
+    "category": "CRM",
     "type": "Route"
   }
   ```
 
-  A title of more than 80 characters is ignored. Like the topics, it is read when the template
-  is indexed: set it before the repository is marked as a template, or have it indexed again.
+  A title of more than 80 characters is ignored.
+- **It sits with its family.** The template selection groups templates by the `category` of the
+  manifest — *CRM*, *XML and JSONata*, *Data warehouse*. A template without one is shown with
+  the other templates of its source, under *Custom templates* for a business unit's own. Use the
+  categories of the [Camel X Template Reference](/projects/template-catalog) when one fits; a
+  category of more than 40 characters is ignored.
+
+  Like the topics, the title and the category are read when the template is indexed: set them
+  before the repository is marked as a template, or have it indexed again.
 
 ## One file per route
 

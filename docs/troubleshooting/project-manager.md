@@ -23,11 +23,17 @@ checks the Git service.
 The template selection shows the `title` of the manifest `.camel.json` when it has one, and the
 repository name otherwise — see [Repository Template Model](/projects/create-template).
 
-### A template's new title or topics do not show in the template selection
+### A template is listed under *Custom templates* rather than with its family
 
-A template is indexed when it is created as a template, from what it holds then. Set the title
-and the topics before marking the repository as a template; otherwise the platform team indexes it
-again.
+The template selection groups templates by the `category` of the manifest `.camel.json`; a
+template without one is listed with the others of its source — see
+[Repository Template Model](/projects/create-template).
+
+### A template's new title, category or topics do not show in the template selection
+
+A template is indexed when it is created as a template, from what it holds then. Set the title,
+the category and the topics before marking the repository as a template; otherwise the platform
+team indexes it again.
 
 ### Release refused: invalid version format
 

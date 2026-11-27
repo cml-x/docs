@@ -18,26 +18,39 @@ repository has three pages:
 To start from one: [Create from a template](/projects/tasks/create-from-a-template). Why they are
 built the way they are: [Repository Template Model](/projects/create-template).
 
-## Integration templates
+## Template categories
 
-The template selection and Assets Explorer show each template under its title, with the
-repository name below it.
+The template selection groups the templates by the `category` of their manifest `.camel.json`,
+the sections below follow the same categories, and each template is shown under its title with
+the repository name below it. `blank` stands apart, as **Start from scratch**: an empty
+integration, no route and no component, everything written from scratch.
+
+## APIs
 
 | Template | What it does | Patterns | Systems |
 |---|---|---|---|
-| `blank` | An empty integration: no route and no component, everything written from scratch | — | — |
 | `rest-to-https` | REST API answered by an HTTPS backend; every backend failure turned into a status | request validation, circuit breaker with timeout and fallback, JSONata mapping | HTTPS |
-| `timer-http-to-kafka` | Polls an HTTPS source every minute and publishes each item once, by state | split, idempotent consumer, content-based router, dead letter channel | HTTPS, Kafka |
-| `csv-to-database` | Loads CSV files line by line; rejected lines set aside, unreadable files moved aside | split, JSONata typing, Flyway schema | files, PostgreSQL |
-| `kafka-to-https` | Delivers Kafka records to an HTTPS service | refusals parked at once, exponential back-off, dead letter topic | Kafka, HTTPS |
-| `sftp-to-sftp` | Moves files between two SFTP servers, sorted by type | temporary name while writing, retries, `.failed` folder | SFTP |
 | `order-intake-api` | Contract-first order API that a client can call again safely | OpenAPI contract, JSON Schema, `Idempotency-Key`, transactional outbox | PostgreSQL, Kafka |
-| `cdc-postgres-to-kafka` | Publishes every insert, update and delete of chosen tables, one topic per table | change data capture with Debezium, keyed events, capture waits for Kafka | PostgreSQL, Kafka |
-| `partner-files-s3` | Checks partner CSV files row by row and writes one stock summary per warehouse | quarantine of a whole file, aggregator over a time window | S3 |
 | `price-aggregator-api` | Asks every supplier in parallel and answers with the best sellable offer | scatter-gather with a timeout, normalisation per supplier, partial answers | HTTPS |
 | `soap-to-rest-facade` | REST/JSON API in front of a legacy SOAP service | envelope template, XSLT 3.0 to JSON, SOAP faults to HTTP statuses | SOAP |
 
-## CRM templates
+## Events and messaging
+
+| Template | What it does | Patterns | Systems |
+|---|---|---|---|
+| `timer-http-to-kafka` | Polls an HTTPS source every minute and publishes each item once, by state | split, idempotent consumer, content-based router, dead letter channel | HTTPS, Kafka |
+| `kafka-to-https` | Delivers Kafka records to an HTTPS service | refusals parked at once, exponential back-off, dead letter topic | Kafka, HTTPS |
+| `cdc-postgres-to-kafka` | Publishes every insert, update and delete of chosen tables, one topic per table | change data capture with Debezium, keyed events, capture waits for Kafka | PostgreSQL, Kafka |
+
+## Files and transfers
+
+| Template | What it does | Patterns | Systems |
+|---|---|---|---|
+| `csv-to-database` | Loads CSV files line by line; rejected lines set aside, unreadable files moved aside | split, JSONata typing, Flyway schema | files, PostgreSQL |
+| `sftp-to-sftp` | Moves files between two SFTP servers, sorted by type | temporary name while writing, retries, `.failed` folder | SFTP |
+| `partner-files-s3` | Checks partner CSV files row by row and writes one stock summary per warehouse | quarantine of a whole file, aggregator over a time window | S3 |
+
+## CRM
 
 | Template | What it does | Patterns | Systems |
 |---|---|---|---|
@@ -47,7 +60,7 @@ repository name below it.
 | `deal-won-to-erp` | Turns a won deal into an ERP invoice and writes its number back on the deal | multi-step orchestration, `Idempotency-Key`, retries then parking | Kafka, ERP API, CRM API |
 | `crm-export-to-s3` | Exports every CRM contact each night as one JSON Lines file, partitioned by date | Quartz cron, loop over pages, page retries, all-or-nothing | CRM API, S3 |
 
-## XML and JSONata templates
+## XML and JSONata
 
 | Template | What it does | Patterns | Systems |
 |---|---|---|---|
@@ -57,7 +70,7 @@ repository name below it.
 | `xml-content-router` | Sends each XML document of a shared topic to the topic of its type, a legacy format converted to UBL | content-based router on root namespace in XPath, XSLT conversion, unrouted documents set aside | Kafka |
 | `canonical-order-hub` | Maps the order webhooks of Shopify, WooCommerce and Magento 2 to one canonical order | one JSONata mapping per source chosen by `toD`, JSON Schema of the canonical model | HTTPS webhooks, Kafka |
 
-## Salesforce templates
+## Salesforce
 
 | Template | What it does | Patterns | Systems |
 |---|---|---|---|
@@ -69,19 +82,25 @@ Salesforce org: the OAuth login, the Bulk API 2.0 calls and the processing of ch
 were, the gRPC subscription of the Pub/Sub API was not. Each wiki says what was tested; test
 against a Developer Edition org before production.
 
-## B2B and identity templates
+## B2B and EDI
 
 | Template | What it does | Patterns | Systems |
 |---|---|---|---|
 | `as2-inbound-edi-to-kafka` | AS2 server for trading partners: EDIFACT interchanges published to one topic per message type | decryption, signature check, signed MDN sent once on Kafka, idempotent consumer on the control reference | AS2, Kafka |
 | `kafka-to-as2-outbound` | Sends interchanges to a trading partner over AS2 | signed and encrypted, signed MDN asked, disposition read from the MDN, refusals parked, retries | Kafka, AS2 |
+
+Tested against OpenAS2 4.5.0 as the partner.
+
+## Identity and directory
+
+| Template | What it does | Patterns | Systems |
+|---|---|---|---|
 | `directory-lookup-api` | REST API over the company directory: a person with manager and groups | LDAP filter injection refused, results to JSON, 503 when the directory is down | LDAP |
 | `hr-to-ldap-provisioning` | Applies joiners, movers and leavers of the HR system to the directory | LDIF changes checked one by one, leavers out of every group then moved, connection reopened | Kafka, LDAP |
 
-The AS2 templates were tested against OpenAS2 4.5.0 as the partner, the LDAP templates against
-OpenLDAP.
+Tested against OpenLDAP.
 
-## Data warehouse templates
+## Data warehouse
 
 | Template | What it does | Patterns | Systems |
 |---|---|---|---|
