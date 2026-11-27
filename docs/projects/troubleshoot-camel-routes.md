@@ -71,6 +71,12 @@ Versions: Camel 4.22, Camel Quarkus 3.39. Why the templates handle errors the wa
   string.
 - **Fix** — `header: ERP_Id__c,Name,BillingCity`.
 
+### A Groovy regular expression finds nothing on a value that matches
+
+- **Possible cause** — a `Matcher` used as a condition (`if (matcher && matcher.find())`) is
+  already moved to its first match by the condition; `find()` then looks for a second one.
+- **Fix** — `matcher != null && matcher.find()`.
+
 ## Error handling
 
 ### Retries and `onException` of a route never apply to a failing call
@@ -281,6 +287,62 @@ Versions: Camel 4.22, Camel Quarkus 3.39. Why the templates handle errors the wa
 - **Fix** — list it in `camel.component.properties.location` with
   `camel.component.properties.ignore-missing-location = true`, and write the default in the
   placeholder itself, `{{salesforce.replay-preset:LATEST}}`, so that the file wins when it exists.
+
+## AS2
+
+### A partner's negative MDN is taken for a success
+
+- **Possible cause** — the MDN says `processed/Error:decryption-failed`, without a space after
+  the colon, as OpenAS2 writes it: the parser of the AS2 component does not recognise the
+  modifier and reports `processed`.
+- **Fix** — read the `Disposition:` line of the MDN as the partner wrote it, and count only
+  `processed` and `processed/warning` as success (RFC 4130).
+
+### The partner gets HTTP 500 instead of an MDN
+
+- **Possible cause** — the route behind `as2:server/listen` failed: the AS2 server sends no MDN.
+- **Fix** — nothing to fix when it is meant: the partner's AS2 software keeps the message and sends
+  it again. Make it so for Kafka outages only, and handle the other failures in the route.
+
+### Keys and certificates cannot be given to the AS2 component
+
+- **Possible cause** — the component takes a `PrivateKey` and `Certificate[]`; a YAML bean built
+  with `factoryMethod` on `KeyStore` fails with `Cannot create bean instance using factory method`.
+- **Fix** — a bean with `scriptLanguage: groovy` that loads the keystore and returns the key or the
+  chain, with the `groovy` extension.
+
+## LDAP
+
+### `this.codec is null` or `IllegalArgumentException: factory` when the LDIF connection is created
+
+- **Possible cause** — `camel-quarkus-ldif` does not bring the network layer of the Apache LDAP API.
+- **Fix** — add `org.apache.directory.api:api-ldap-net-mina` and `api-ldap-codec-standalone`, in the
+  version of the other `api-ldap` jars.
+
+### Every LDIF change times out, while JNDI searches work
+
+- **Possible cause** — the connection opens TLS on a plain port: in Groovy, `'false' as boolean`
+  is `true`.
+- **Check** — the MINA debug log shows an SSL handshake.
+- **Fix** — `'{{ldap.use-ssl}}'.toBoolean()`.
+
+### LDIF changes fail although the connection was created
+
+- **Possible cause** — the `ldif` component neither connects nor binds.
+- **Fix** — connect and bind the `LdapConnection` before each use, which also reconnects after the
+  directory restarted.
+
+### A change is refused but the route goes on
+
+- **Possible cause** — `ldif` answers one result per change, `success` or the error, instead of
+  failing; an `add` of an entry that exists comes back empty.
+- **Fix** — check every result, and fail the exchange when one is not `success`.
+
+### A leaver is moved but stays in a group
+
+- **Possible cause** — removing the last member of a `groupOfNames` is refused
+  (`object class 'groupOfNames' requires attribute 'member'`).
+- **Fix** — replace the last member by a placeholder member instead of deleting it.
 
 ## State kept in memory
 

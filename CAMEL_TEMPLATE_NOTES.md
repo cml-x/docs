@@ -150,3 +150,24 @@ Sources des templates : `assets/scripts/templates/` (non versionné), scripts `p
 - Salesforce : `bulk2*` attend un `Job` en corps (unmarshal JSON vers `org.apache.camel.component.salesforce.api.dto.bulkv2.Job`) et l'en-tête `CamelSalesforceJobId` ; Pub/Sub donne `CamelSalesforcePubSubReplayId`.
 - Salesforce testé sous WireMock seulement : login OAuth client credentials, cycle Bulk API 2.0, traitement des événements CDC ; l'abonnement gRPC Pub/Sub n'a pas été testé.
 - « JHR » demandé par l'utilisateur : sens non précisé (Jira ? SIRH ?), template non construit.
+
+## Templates AS2 et LDAP (27 novembre 2026)
+
+| Problème | Cause | Correction |
+|---|---|---|
+| MDN négatif d'OpenAS2 compté comme livré | `processed/Error:decryption-failed` sans espace : le parseur Camel AS2 renvoie `processed` sans modificateur | lecture de la ligne `Disposition:` du MDN réécrit (`writeTo`) ; succès seulement pour `processed` et `processed/warning` |
+| Clés AS2 impossibles à créer en beans YAML | `factoryMethod` sur `KeyStore` / `KeyStoreParameters#createKeyStore` échoue sans cause | beans `scriptLanguage: groovy`, extension `groovy` |
+| Route AS2 en échec | le serveur AS2 répond HTTP 500 sans MDN | voulu pour Kafka indisponible : OpenAS2 met en file de renvoi et renvoie |
+| `this.codec is null`, puis `IllegalArgumentException: factory` | `camel-quarkus-ldif` sans couche réseau de l'API LDAP | `api-ldap-net-mina` et `api-ldap-codec-standalone` 2.1.5 ajoutés |
+| Timeout LDIF alors que JNDI marche | `'false' as boolean` vaut `true` en Groovy : TLS ouvert sur le port 389 | `.toBoolean()` ; trouvé avec les logs MINA en DEBUG |
+| `ldif` ne se connecte pas | le producteur n'appelle ni `connect` ni `bind` | connexion vérifiée et ouverte avant chaque appel |
+| Départ appliqué à moitié, ancien salarié resté dans `vpn-users` | dernier membre d'un `groupOfNames` impossible à retirer | remplacement par un membre de substitution |
+| Manager jamais trouvé | `Matcher` Groovy avancé par la condition | `matcher != null && matcher.find()` |
+| Erreur Gitea `Failed to create temp dir ... /tmp/gitea` | pods Gitea en redémarrage (plusieurs en ContainerStatusUnknown dans `backend`) | nouvel essai quelques minutes plus tard ; à surveiller côté infra |
+
+À savoir :
+- OpenAS2 de test : image construite depuis `Server/dist/OpenAS2Server-4.5.0.zip` du dossier `experiences/old/images/open-as2`, configuration copiée dans `assets/scripts/templates/test/as2/openas2`, partenariats PartnerA ↔ CamelX, clés de test `test/as2/camelx.p12` (mot de passe de test local).
+- OpenAS2 choisit sa clé de déchiffrement dans son keystore, quel que soit l'alias du partenariat ; pour provoquer un MDN négatif il faut chiffrer pour un certificat dont il n'a pas la clé.
+- Le serveur AS2 Camel ouvre son propre port (8090), distinct du port 8080 du runtime : exposition sur Camel X à régler.
+- OpenLDAP (osixia 1.5.0) ne maintient pas `memberOf` pour les `groupOfNames` ajoutés ainsi ; les groupes sont cherchés par `member=<dn>`.
+

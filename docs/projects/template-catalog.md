@@ -69,6 +69,18 @@ Salesforce org: the OAuth login, the Bulk API 2.0 calls and the processing of ch
 were, the gRPC subscription of the Pub/Sub API was not. Each wiki says what was tested; test
 against a Developer Edition org before production.
 
+## B2B and identity templates
+
+| Template | What it does | Patterns | Systems |
+|---|---|---|---|
+| `as2-inbound-edi-to-kafka` | AS2 server for trading partners: EDIFACT interchanges published to one topic per message type | decryption, signature check, signed MDN sent once on Kafka, idempotent consumer on the control reference | AS2, Kafka |
+| `kafka-to-as2-outbound` | Sends interchanges to a trading partner over AS2 | signed and encrypted, signed MDN asked, disposition read from the MDN, refusals parked, retries | Kafka, AS2 |
+| `directory-lookup-api` | REST API over the company directory: a person with manager and groups | LDAP filter injection refused, results to JSON, 503 when the directory is down | LDAP |
+| `hr-to-ldap-provisioning` | Applies joiners, movers and leavers of the HR system to the directory | LDIF changes checked one by one, leavers out of every group then moved, connection reopened | Kafka, LDAP |
+
+The AS2 templates were tested against OpenAS2 4.5.0 as the partner, the LDAP templates against
+OpenLDAP.
+
 ## What a template expects
 
 | Template | Secrets, given to the integration as | Storage | Replicas |
@@ -86,6 +98,9 @@ against a Developer Edition org before production.
 | `payment-file-iso20022` | `BANK_SFTP_PASSWORD` | the `known_hosts` file of the bank server | one |
 | `salesforce-cdc-to-kafka` | `SF_CLIENT_ID`, `SF_CLIENT_SECRET` | a persistent volume for the replay position | one |
 | `erp-to-salesforce-bulk-upsert` | `DB_PASSWORD`, `SF_CLIENT_ID`, `SF_CLIENT_SECRET` | — | one |
+| `as2-inbound-edi-to-kafka`, `kafka-to-as2-outbound` | `AS2_KEYSTORE_PASSWORD` | the AS2 keystore: our key, the partner certificate | one inbound; outbound up to the partitions |
+| `directory-lookup-api` | `LDAP_BIND_PASSWORD` | — | two or more |
+| `hr-to-ldap-provisioning` | `LDAP_BIND_PASSWORD` | — | one |
 
 The other templates need no secret of their own; the credentials of their target systems, when
 there are some, are stored in Secret Manager and read as properties. Addresses, topics, buckets
