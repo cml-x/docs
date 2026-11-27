@@ -171,3 +171,20 @@ Sources des templates : `assets/scripts/templates/` (non versionné), scripts `p
 - Le serveur AS2 Camel ouvre son propre port (8090), distinct du port 8080 du runtime : exposition sur Camel X à régler.
 - OpenLDAP (osixia 1.5.0) ne maintient pas `memberOf` pour les `groupOfNames` ajoutés ainsi ; les groupes sont cherchés par `member=<dn>`.
 
+## Templates Snowflake (27 novembre 2026)
+
+Pas de compte Snowflake réel (choix de l'utilisateur) : simulation avec **fakesnow 0.13.0** (`pip install "fakesnow[server]"` dans un venv, `fakesnow -s -p 18085 -d <dossier>`), qui parle le protocole HTTP de Snowflake et exécute le SQL Snowflake sur DuckDB. Le driver JDBC Snowflake 3.28.0 s'y connecte avec `ssl=off`, `account=<n'importe>`, mot de passe quelconque.
+
+| Problème | Cause | Correction |
+|---|---|---|
+| `ExceptionInInitializerError` dans `UnsafeAllocationManager` | Arrow du driver Snowflake sur Java 17+ | `--add-opens=java.base/java.nio=ALL-UNNAMED` (option JVM de l'intégration) et `JDBC_QUERY_RESULT_FORMAT=JSON` |
+| `mapping values are not allowed here` | `body.payload ?: ''` non quoté dans le YAML | expression entre guillemets |
+| `Unknown TimeZone '+00:00'` sous fakesnow | DuckDB refuse l'espace avant le décalage | `'1970-01-01 00:00:00+00:00'`, accepté aussi par Snowflake |
+| Tables perdues après arrêt brutal de fakesnow | persistance `-d` non fiable sur un kill | tables recréées ; artefact de l'émulateur |
+| Comparaison de tuple refusée par Snowflake | pas de row comparison | `a > x or (a = x and b > y)` |
+| Requêtes vers `169.254.169.254` dans les logs | détection de cloud par le driver | sans effet hors cloud |
+
+À savoir :
+- Le compte Snowflake d'essai n'a pas été utilisé. Une paire de clés RSA a été générée dans `~/.camelx-test/snowflake/` (clé privée restreinte au compte Windows) et le script SQL du compte de service fourni à l'utilisateur, mais l'utilisateur a choisi la simulation.
+- Lot Kafka : `batching=true` + commit manuel via `CamelKafkaManualCommit` du dernier enregistrement, après le `MERGE` ; vérifié : redémarrage sans rechargement, panne Snowflake sans commit puis chargement au retour.
+

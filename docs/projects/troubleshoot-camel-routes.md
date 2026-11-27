@@ -344,6 +344,45 @@ Versions: Camel 4.22, Camel Quarkus 3.39. Why the templates handle errors the wa
   (`object class 'groupOfNames' requires attribute 'member'`).
 - **Fix** — replace the last member by a placeholder member instead of deleting it.
 
+## Snowflake
+
+### The first query fails with `ExceptionInInitializerError` in `UnsafeAllocationManager`
+
+- **Possible cause** — the Snowflake JDBC driver reads results with Arrow, which needs access to
+  `java.nio` on Java 17 and later.
+- **Fix** — `--add-opens=java.base/java.nio=ALL-UNNAMED` in the JVM options of the integration,
+  and `JDBC_QUERY_RESULT_FORMAT=JSON` in the JDBC address.
+
+### Quarkus has no Snowflake datasource kind
+
+- **Fix** — `quarkus.datasource.db-kind = other`, `quarkus.datasource.jdbc.driver =
+  net.snowflake.client.jdbc.SnowflakeDriver`, the driver declared with its version, and the
+  `quarkus-agroal` extension.
+
+### The log shows failed requests to `169.254.169.254`
+
+- **Possible cause** — the driver looks for the metadata service of a cloud at start-up.
+- **Fix** — nothing to fix outside a cloud: it goes on without it.
+
+### A row comparison on two columns is refused
+
+- **Possible cause** — Snowflake has no row comparison: `(a, b) > (x, y)` is not valid.
+- **Fix** — write it out: `a > x or (a = x and b > y)`.
+
+### Column names come back in upper case
+
+- **Possible cause** — Snowflake folds unquoted identifiers to upper case.
+- **Fix** — read `$.WATERMARK`, or alias in double quotes to keep a case: `ERP_ID as "ERP_Id__c"`.
+
+## Kafka batches
+
+### A batch is committed although its load failed, or never committed
+
+- **Fix** — `batching=true`, `autoCommitEnable=false`, `allowManualCommit=true` and
+  `breakOnFirstError=true`; commit through the `CamelKafkaManualCommit` header of the last record
+  of the batch, once the batch is loaded. A failure left unhandled makes the consumer read the
+  batch again from the same offsets.
+
 ## State kept in memory
 
 ### Duplicates published again, or an aggregation lost, after a restart

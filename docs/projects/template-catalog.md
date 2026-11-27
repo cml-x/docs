@@ -81,6 +81,16 @@ against a Developer Edition org before production.
 The AS2 templates were tested against OpenAS2 4.5.0 as the partner, the LDAP templates against
 OpenLDAP.
 
+## Data warehouse templates
+
+| Template | What it does | Patterns | Systems |
+|---|---|---|---|
+| `kafka-to-snowflake` | Loads Kafka events into Snowflake tables within minutes | consumer in batching mode, JDBC batch into staging, MERGE on the last version, offsets committed after the load | Kafka, Snowflake |
+| `snowflake-to-salesforce` | Brings scores computed in Snowflake to the Salesforce accounts (reverse ETL) | incremental read on `(SCORED_AT, ERP_ID)`, Bulk API 2.0 upsert, position and refused rows kept in Snowflake | Snowflake, Salesforce |
+
+Both were tested with the Snowflake JDBC driver against fakesnow, an emulator that runs the
+Snowflake SQL dialect on DuckDB, not against a Snowflake account.
+
 ## What a template expects
 
 | Template | Secrets, given to the integration as | Storage | Replicas |
@@ -101,6 +111,8 @@ OpenLDAP.
 | `as2-inbound-edi-to-kafka`, `kafka-to-as2-outbound` | `AS2_KEYSTORE_PASSWORD` | the AS2 keystore: our key, the partner certificate | one inbound; outbound up to the partitions |
 | `directory-lookup-api` | `LDAP_BIND_PASSWORD` | — | two or more |
 | `hr-to-ldap-provisioning` | `LDAP_BIND_PASSWORD` | — | one |
+| `kafka-to-snowflake` | the Snowflake private key, as a mounted file | — | up to the partitions |
+| `snowflake-to-salesforce` | the Snowflake private key, `SF_CLIENT_ID`, `SF_CLIENT_SECRET` | — | one |
 
 The other templates need no secret of their own; the credentials of their target systems, when
 there are some, are stored in Secret Manager and read as properties. Addresses, topics, buckets
