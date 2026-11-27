@@ -125,3 +125,28 @@ Sources des templates : `assets/scripts/templates/` (non versionné), scripts `p
 | Chemins Windows mangés | `eval` retire les antislashs | `cygpath -m` |
 | Jars verrouillés, build en échec | l'application tourne encore | `test/app.sh build` arrête l'application puis `clean` |
 | Section « Files » écrite deux fois | regex de `docs.js` avec `$` en mode multiligne | remplacement du bloc généré entier ; corrigé et republié |
+
+## Templates XML, JSONata et Salesforce (27 novembre 2026)
+
+| Problème | Cause | Correction |
+|---|---|---|
+| Le split du catalogue s'arrête au premier produit refusé | `stopOnException` arrête aussi sur une erreur traitée par `onException` | erreurs du produit dans un `doTry` du sous-route ; seule l'erreur Kafka, non traitée, arrête le fichier |
+| 55 produits/s, threads en attente | `linger.ms` = 5 ms par défaut du client Kafka 4.2.1, payé à chaque envoi unitaire | `lingerMs: 0` ; 10 000 produits en 43 s au lieu de 180 s ; mesure témoin sur un vrai broker Kafka 3.9 pour écarter Nisshi, puis broker supprimé |
+| XPath refusée | `&lt;` écrit dans le YAML | `<` directement |
+| Fichier de position sur une seule ligne | chaîne YAML entre guillemets sur plusieurs lignes : les sauts sont repliés | bloc littéral `|` |
+| `Node type array is invalid` sur `csv` | `header` est une chaîne dans le DSL YAML | `header: a,b,c` |
+| `NoSuchEndpointException` sur `bean:` / `file:` | extension non déclarée | `bean` (ubl), `file` (salesforce-cdc) ajoutés au pom |
+| `${body[x]}`, `${header.x.toLowerCase()}` | OGNL, langage `bean` requis | JSONPath sur map ; en-tête lu tel quel |
+| `Instant` non sérialisable après `bulk2CreateJob` | pas de module JSR-310 dans le data format | `moduleClassNames: com.fasterxml.jackson.datatype.jsr310.JavaTimeModule` |
+| `Impossible de déduire le type SQL ... InputStreamCache` | corps après `marshal` passé en paramètre SQL | `${bodyAs(String)}` dans une propriété |
+| Démarrage refusé sans fichier de position | `quarkus.config.locations` exige le fichier, même au build | `camel.component.properties.location` + `ignore-missing-location`, défaut dans le placeholder `{{x:LATEST}}` |
+| XML reçu entre guillemets dans le routeur | `nisshi cat produce` encode la valeur en chaîne JSON | messages XML produits avec `kafka-console-producer` (conteneur sur le réseau de `tpl-nisshi`), un document par ligne |
+| `nisshi cat consume` affiche `null` | n'affiche que du JSON | `kafka-console-consumer` avec `--network container:tpl-nisshi` |
+| Kafka coupé sans perdre l'état du broker | `docker stop` vide le moteur mémoire de Nisshi | `docker pause` / `unpause` |
+
+À savoir :
+- Schémas officiels embarqués : UBL 2.1 (OASIS, 15 fichiers, 2,8 Mo) et `pain.001.001.09.xsd` (iso20022.org).
+- `xj` : format intermédiaire à attributs `xj:name` / `xj:type` (espace `http://camel.apache.org/component/xj`) ; la XSLT sélectionne sur `@xj:name`.
+- Salesforce : `bulk2*` attend un `Job` en corps (unmarshal JSON vers `org.apache.camel.component.salesforce.api.dto.bulkv2.Job`) et l'en-tête `CamelSalesforceJobId` ; Pub/Sub donne `CamelSalesforcePubSubReplayId`.
+- Salesforce testé sous WireMock seulement : login OAuth client credentials, cycle Bulk API 2.0, traitement des événements CDC ; l'abonnement gRPC Pub/Sub n'a pas été testé.
+- « JHR » demandé par l'utilisateur : sens non précisé (Jira ? SIRH ?), template non construit.

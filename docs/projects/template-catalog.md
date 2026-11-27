@@ -47,6 +47,28 @@ repository name below it.
 | `deal-won-to-erp` | Turns a won deal into an ERP invoice and writes its number back on the deal | multi-step orchestration, `Idempotency-Key`, retries then parking | Kafka, ERP API, CRM API |
 | `crm-export-to-s3` | Exports every CRM contact each night as one JSON Lines file, partitioned by date | Quartz cron, loop over pages, page retries, all-or-nothing | CRM API, S3 |
 
+## XML and JSONata templates
+
+| Template | What it does | Patterns | Systems |
+|---|---|---|---|
+| `ubl-invoice-to-erp` | Books UBL 2.1 e-invoices (Peppol BIS Billing 3.0) in the ERP, once per supplier and number | OASIS XSD with `validator`, EN 16931 rule in XPath, XSLT 3.0 to JSON, idempotent consumer | HTTPS, ERP API |
+| `large-xml-feed-to-kafka` | Publishes the products of a BMEcat catalogue of any size, one by one as the file streams | `split` streaming with `xtokenize` (StAX), `jacksonXml`, JSONata, products in error set aside | files, Kafka |
+| `payment-file-iso20022` | Turns approved payments into SEPA credit transfer files for the bank | IBAN check digits in JSONata, aggregator per execution date, `xj` and XSLT to pain.001.001.09, XSD before sending | Kafka, SFTP |
+| `xml-content-router` | Sends each XML document of a shared topic to the topic of its type, a legacy format converted to UBL | content-based router on root namespace in XPath, XSLT conversion, unrouted documents set aside | Kafka |
+| `canonical-order-hub` | Maps the order webhooks of Shopify, WooCommerce and Magento 2 to one canonical order | one JSONata mapping per source chosen by `toD`, JSON Schema of the canonical model | HTTPS webhooks, Kafka |
+
+## Salesforce templates
+
+| Template | What it does | Patterns | Systems |
+|---|---|---|---|
+| `salesforce-cdc-to-kafka` | Publishes the Change Data Capture events of Salesforce, one record per changed record and one topic per object | Pub/Sub API subscription, replay id kept on a volume, capture waits for Kafka | Salesforce, Kafka |
+| `erp-to-salesforce-bulk-upsert` | Keeps Salesforce accounts in step with the ERP, thousands at a time | incremental read on `(updated_at, id)`, Bulk API 2.0 upsert by external id, job followed to its end, refused rows kept | PostgreSQL, Salesforce |
+
+The two Salesforce templates were tested against WireMock and the local broker, not against a
+Salesforce org: the OAuth login, the Bulk API 2.0 calls and the processing of change events
+were, the gRPC subscription of the Pub/Sub API was not. Each wiki says what was tested; test
+against a Developer Edition org before production.
+
 ## What a template expects
 
 | Template | Secrets, given to the integration as | Storage | Replicas |
@@ -59,6 +81,11 @@ repository name below it.
 | `crm-webhook-to-kafka` | `CRM_WEBHOOK_TOKEN` | — | any; each replica recognises only the duplicates it received |
 | `deal-won-to-erp` | `ERP_TOKEN`, `CRM_TOKEN` | — | any |
 | `crm-export-to-s3` | `CRM_TOKEN`, `S3_ACCESS_KEY`, `S3_SECRET_KEY` | — | one |
+| `ubl-invoice-to-erp` | `ERP_TOKEN` | — | one, or more with the ERP's `Idempotency-Key` |
+| `large-xml-feed-to-kafka` | — | a volume for the catalogues | one |
+| `payment-file-iso20022` | `BANK_SFTP_PASSWORD` | the `known_hosts` file of the bank server | one |
+| `salesforce-cdc-to-kafka` | `SF_CLIENT_ID`, `SF_CLIENT_SECRET` | a persistent volume for the replay position | one |
+| `erp-to-salesforce-bulk-upsert` | `DB_PASSWORD`, `SF_CLIENT_ID`, `SF_CLIENT_SECRET` | — | one |
 
 The other templates need no secret of their own; the credentials of their target systems, when
 there are some, are stored in Secret Manager and read as properties. Addresses, topics, buckets
@@ -77,6 +104,7 @@ Every template has the same layout under `src/main/resources`:
 | `api/` | OpenAPI contracts |
 | `schema/` | JSON Schemas the input is validated against |
 | `mapping/` | JSONata mappings |
+| `xsd/` | XML Schemas, as their standards body publishes them |
 | `xslt/` | XSLT stylesheets |
 | `db/migration/` | Flyway migrations, run at start-up |
 | `application.properties` | every value, overridable per environment |
@@ -89,5 +117,6 @@ the `description` of its routes.
 
 The template selection matches topics. The Camel X templates use the system (`kafka`,
 `postgresql`, `s3`, `sftp`, `soap`, `crm`, `erp`), the protocol or style (`api`, `openapi`,
-`webhook`, `https`), and the pattern (`dead-letter-channel`, `idempotent-consumer`, `outbox`,
-`cdc`, `scatter-gather`, `aggregator`, `throttle`, `orchestration`).
+`webhook`, `https`, `xml`, `ubl`, `iso20022`, `salesforce`), and the pattern (`dead-letter-channel`,
+`idempotent-consumer`, `outbox`, `cdc`, `scatter-gather`, `aggregator`, `throttle`, `orchestration`,
+`content-based-router`, `canonical-model`, `streaming`).

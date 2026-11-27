@@ -46,6 +46,31 @@ Versions: Camel 4.22, Camel Quarkus 3.39. Why the templates handle errors the wa
   `routeConfiguration ... already exists` after a file was renamed, old classes are left in
   `target/`: build with `mvn clean package`.
 
+### An XPath comparison is refused, or matches nothing
+
+- **Possible cause** — the expression was written with XML entities, `&lt;` or `&gt;`, as in an
+  XML DSL. YAML has no entities: they reach XPath as they are.
+- **Fix** — write `<` and `>` directly in the YAML string.
+
+### A text written on several lines arrives on one line
+
+- **Possible cause** — a double-quoted YAML string that spans several lines: YAML folds its line
+  breaks into spaces.
+- **Fix** — a literal block keeps them:
+
+  ```yaml
+  simple:
+    expression: |
+      first line
+      second line
+  ```
+
+### `Node type array is invalid` on a CSV data format
+
+- **Possible cause** — `header` given as a YAML list. The YAML DSL takes the CSV header as one
+  string.
+- **Fix** — `header: ERP_Id__c,Name,BillingCity`.
+
 ## Error handling
 
 ### Retries and `onException` of a route never apply to a failing call
@@ -93,6 +118,13 @@ Versions: Camel 4.22, Camel Quarkus 3.39. Why the templates handle errors the wa
   answer, not on the `CamelCircuitBreaker*` properties, which are not reliable with this
   implementation.
 
+### A split stops at the first bad item although its error is handled
+
+- **Possible cause** — `stopOnException: true` stops the split on a failure handled by
+  `onException` too, not only on an unhandled one.
+- **Fix** — catch the errors of an item with `doTry` and `doCatch` in the sub-route; leave only
+  the failures that must stop the split, such as Kafka unreachable, to `onException`.
+
 ## HTTP
 
 ### `UnsatisfiedLinkError` mentioning Brotli
@@ -132,6 +164,23 @@ Versions: Camel 4.22, Camel Quarkus 3.39. Why the templates handle errors the wa
 - **Possible cause** — the producer waits for Kafka for a minute or more by default.
 - **Fix** — shorten `maxBlockMs`, `requestTimeoutMs` and `deliveryTimeoutMs` so that the
   integration answers 503 before the caller gives up.
+
+### Records are published at a few dozen per second
+
+- **Possible cause** — records sent one by one, each waiting for its acknowledgement, with the
+  Kafka 4 client's default `linger.ms` of 5 ms: every record waits to be batched with others
+  that never come.
+- **Check** — the threads of the integration are waiting, not computing; the broker is not the
+  cause.
+- **Fix** — `lingerMs: 0` on the endpoint for a flow that sends one record at a time. In a test
+  of 10,000 records: 180 s with the default, 43 s without.
+
+### A record whose processing failed is skipped
+
+- **Possible cause** — the Kafka consumer commits the offset of a record whose exchange failed,
+  and reads the next.
+- **Fix** — `breakOnFirstError: true` on the consumer, and leave the failure unhandled: the
+  consumer reads the record again.
 
 ## Debezium change data capture
 
@@ -182,6 +231,11 @@ Versions: Camel 4.22, Camel Quarkus 3.39. Why the templates handle errors the wa
 - **Fix** — compare and order by the pair: `where (updated_at, id) > (:watermark, :watermarkId)
   order by updated_at, id`.
 
+### `Can't infer the SQL type` for a parameter
+
+- **Possible cause** — the parameter is the body after a `marshal`, a stream rather than a text.
+- **Fix** — read it into a property with `${bodyAs(String)}` first, and pass the property.
+
 ## Validation
 
 ### A valid e-mail address is refused by the JSON Schema
@@ -205,6 +259,28 @@ Versions: Camel 4.22, Camel Quarkus 3.39. Why the templates handle errors the wa
 - **Possible cause** — JSch writes the host keys it accepts into `~/.ssh/known_hosts`.
 - **Fix** — `useUserKnownHostsFile: false` and a `knownHostsFile` of the integration, mounted
   from a stored configuration.
+
+## Salesforce
+
+### `Java 8 date/time type java.time.Instant not supported` after a Bulk API call
+
+- **Possible cause** — the Bulk API 2.0 operations answer with a `Job` object, whose dates are
+  `Instant`; the JSON data format has no module for them.
+- **Fix** — `moduleClassNames: com.fasterxml.jackson.datatype.jsr310.JavaTimeModule` on the
+  `marshal`.
+
+### The client credentials login is refused
+
+- **Possible cause** — `loginUrl` is `https://login.salesforce.com`: the client credentials flow
+  only answers on the My Domain URL of the org.
+- **Fix** — `camel.component.salesforce.login-url = https://<domain>.my.salesforce.com`.
+
+### The application does not start until a position file exists
+
+- **Possible cause** — the file is listed in `quarkus.config.locations`, which requires it.
+- **Fix** — list it in `camel.component.properties.location` with
+  `camel.component.properties.ignore-missing-location = true`, and write the default in the
+  placeholder itself, `{{salesforce.replay-preset:LATEST}}`, so that the file wins when it exists.
 
 ## State kept in memory
 
