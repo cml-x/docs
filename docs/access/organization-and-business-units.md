@@ -98,8 +98,42 @@ empty: add environments, then members and roles.
 Removing a business unit or an organization is a **critical action with contractual
 implications**. It is not done with a button.
 
-The **Delete** action of the Organization page exists, and asks you to type the name of the
-unit. But it only removes the business unit **from view**:
+### Conditions for deleting a business unit
+
+The console deletes a business unit only when it is **empty**. When the Delete dialog of the
+Organization page opens, each application of the console is asked what the unit still holds:
+
+| Resource | Where you remove it | What is counted |
+|---|---|---|
+| Environments | The **Environments** page | The environments you created. The one the platform gives every business unit is not counted |
+| Targets | The **Targets** page | The targets you created. The platform's own target is not counted |
+| Repositories | The **Repositories** page | Every repository of the business unit |
+| Schemas | The **Schemas** page | Every schema of the registry group of the business unit |
+
+While one of them remains:
+
+- the **Delete** button stays disabled, whatever you type;
+- the dialog names what remains and how many, for example *2 repositories and 1 environment*;
+- the link **Deletion conditions** of the dialog opens this section.
+
+Two further rules apply:
+
+- **A check that cannot be made refuses the deletion.** If an application does not answer, or
+  if you are not allowed to list one of these resources, the console cannot tell that the unit
+  is empty, and treats it as not empty. Try again, or ask an organization administrator.
+- **The check is repeated when you confirm.** A resource created between the opening of the
+  dialog and the confirmation still blocks the deletion.
+
+:::note[Empty does not mean ended]
+These four resources are what the console checks. Integrations, gateways, configurations and
+members are not part of the check, and removing them all does not end the service of the
+business unit — see below.
+:::
+
+### What a deletion does and does not do
+
+The **Delete** action asks you to type the name of the unit. Once the conditions above are met,
+it only removes the business unit **from view**:
 
 | What the Delete button does | What it does not do |
 |---|---|
@@ -122,6 +156,8 @@ the console.
 - It is handled as a contractual change, under the terms of your agreement.
 - **Processing can take several weeks.** Plan it ahead of the date you need.
 - Until it is confirmed as complete, the resources remain active and billed.
+- **What is kept after the request, and for how long, is set by your agreement.** The retention
+  period starts with the request, not with a deletion from the console.
 
 :::warning[Reduce consumption yourself in the meantime]
 What you can do at once, from the console, is stop what consumes: **undeploy** the integrations
